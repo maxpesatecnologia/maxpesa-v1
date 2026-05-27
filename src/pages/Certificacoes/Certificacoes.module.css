@@ -1,0 +1,20 @@
+.section { padding:96px 0; background:var(--bg-0); }
+.alt { background:var(--bg-1); }
+.certsGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.certCard { background:var(--white); border:1px solid var(--border-0); border-radius:var(--r-md); padding:40px 28px; text-align:center; transition:border-color var(--t),box-shadow var(--t); }
+.certCard:hover { border-color:var(--red-border); box-shadow:0 4px 24px rgba(217,31,42,.08); }
+.certIco { width:60px; height:60px; background:var(--red-pale); border:1px solid var(--red-border); border-radius:var(--r-md); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; }
+.certIco svg { width:28px; height:28px; color:var(--red); }
+.certCard h3 { font-size:22px; font-weight:800; margin-bottom:10px; }
+.certCard p { font-size:14px; color:var(--text-1); line-height:1.75; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:flex-start; }
+.lead { font-size:16px; color:var(--text-1); line-height:1.8; font-weight:300; margin-bottom:14px; }
+.body { font-size:14.5px; color:var(--text-1); line-height:1.8; margin-bottom:28px; }
+.checkList { display:flex; flex-direction:column; gap:12px; }
+.checkItem { background:var(--white); border:1px solid var(--border-0); border-radius:var(--r-sm); padding:18px 20px; display:flex; align-items:center; gap:14px; transition:border-color var(--t); }
+.checkItem:hover { border-color:var(--red-border); }
+.checkIco { width:36px; height:36px; background:var(--red-pale); border:1px solid var(--red-border); border-radius:var(--r-xs); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.checkIco svg { width:14px; height:14px; color:var(--red); }
+.checkItem strong { font-size:14px; font-weight:600; display:block; margin-bottom:2px; }
+.checkItem span { font-size:12.5px; color:var(--text-1); }
+@media(max-width:1024px){ .certsGrid,.grid{ grid-template-columns:1fr; } }

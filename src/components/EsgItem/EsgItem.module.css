@@ -1,0 +1,6 @@
+.item { display:flex; gap:16px; align-items:flex-start; padding:22px 20px; border-radius:var(--r-sm); border:1px solid transparent; transition:border-color var(--t),background var(--t); }
+.item:hover { background:var(--bg-0); border-color:var(--border-0); box-shadow:0 2px 12px rgba(0,0,0,.06); }
+.ico { width:40px; height:40px; background:var(--red-pale); border:1px solid var(--red-border); border-radius:var(--r-xs); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.ico svg { width:18px; height:18px; color:var(--red); }
+.item h4 { font-size:15px; font-weight:600; margin-bottom:5px; }
+.item p { font-size:13.5px; color:var(--text-1); line-height:1.7; }

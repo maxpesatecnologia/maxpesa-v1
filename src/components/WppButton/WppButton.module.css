@@ -1,0 +1,5 @@
+.btn { position: fixed; bottom: 26px; right: 26px; z-index: 500; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: var(--t); }
+.btn:hover { transform: scale(1.08) translateY(-2px); box-shadow: 0 10px 32px rgba(37,211,102,0.55); }
+.btn svg { width: 26px; height: 26px; color: #fff; }
+.tip { position: absolute; right: 58px; background: var(--bg-dark); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 12.5px; font-weight: 500; padding: 6px 13px; border-radius: var(--r-xs); white-space: nowrap; opacity: 0; pointer-events: none; transform: translateX(5px); transition: opacity 0.2s, transform 0.2s; }
+.btn:hover .tip { opacity: 1; transform: translateX(0); }
