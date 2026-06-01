@@ -1,7 +1,7 @@
 .btn { display:inline-flex; align-items:center; gap:9px; font-family:var(--ff-body); font-size:14px; font-weight:500; border-radius:var(--r-sm); padding:13px 24px; border:none; cursor:pointer; transition:var(--t); white-space:nowrap; letter-spacing:.01em; }
 .btn svg { flex-shrink:0; }
-.red { background:var(--red); color:#fff; box-shadow:0 2px 12px rgba(217,31,42,.22); }
-.red:hover { background:var(--red-dark); transform:translateY(-1px); box-shadow:0 6px 20px rgba(217,31,42,.32); }
+.red { background:var(--red); color:#fff; box-shadow:0 2px 12px rgba(230,40,43,.22); }
+.red:hover { background:var(--red-dark); transform:translateY(-1px); box-shadow:0 6px 20px rgba(230,40,43,.32); }
 .outline { background:transparent; color:var(--text-0); border:1.5px solid var(--border-1); }
 .outline:hover { border-color:var(--border-2); background:var(--bg-1); }
 .outlineRed { background:transparent; color:var(--red); border:1.5px solid var(--red-border); }

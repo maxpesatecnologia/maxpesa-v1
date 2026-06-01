@@ -18,7 +18,7 @@
 .field input, .field select, .field textarea { background:var(--bg-1); border:1.5px solid var(--border-0); border-radius:var(--r-xs); padding:11px 13px; font-family:var(--ff-body); font-size:14px; color:var(--text-0); outline:none; transition:border-color .2s,background .2s; appearance:none; -webkit-appearance:none; }
 .field input:focus, .field select:focus, .field textarea:focus { border-color:var(--red); background:var(--white); }
 .field textarea { resize:vertical; min-height:110px; line-height:1.6; }
-.submit { align-self:flex-start; display:inline-flex; align-items:center; gap:9px; background:var(--red); color:#fff; border:none; padding:13px 24px; border-radius:var(--r-sm); font-size:14px; font-weight:500; cursor:pointer; transition:var(--t); box-shadow:0 2px 12px rgba(217,31,42,.22); }
+.submit { align-self:flex-start; display:inline-flex; align-items:center; gap:9px; background:var(--red); color:#fff; border:none; padding:13px 24px; border-radius:var(--r-sm); font-size:14px; font-weight:500; cursor:pointer; transition:var(--t); box-shadow:0 2px 12px rgba(230,40,43,.22); }
 .submit:hover:not(:disabled) { background:var(--red-dark); transform:translateY(-1px); }
 .submit:disabled { opacity:.7; cursor:not-allowed; }
 @media(max-width:1024px){ .wrap{ grid-template-columns:1fr; } }

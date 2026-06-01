@@ -1,67 +1,588 @@
-.hero { position:relative; min-height:92vh; display:flex; align-items:flex-end; padding-bottom:72px; background:url("https://www.maxpesa.com.br/web/images/slider/1.jpg") center/cover no-repeat; }
-.heroOverlay { position:absolute; inset:0; background:linear-gradient(105deg,rgba(10,12,16,.88) 0%,rgba(10,12,16,.72) 45%,rgba(10,12,16,.30) 100%); }
-.heroStripe { position:absolute; bottom:0; left:0; right:0; height:4px; background:var(--red); }
-.heroContent { position:relative; z-index:2; max-width:660px; }
-.heroTag { display:inline-flex; align-items:center; gap:8px; font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.75); margin-bottom:20px; }
-.heroDot { width:6px; height:6px; background:var(--red); border-radius:50%; animation:blink 2s infinite; flex-shrink:0; }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
-.hero h1 { font-family:var(--ff-display); font-size:clamp(48px,6.5vw,82px); font-weight:800; line-height:.96; letter-spacing:-.045em; color:#fff; margin-bottom:22px; }
-.red { color:var(--red); }
-.hero p { font-size:17px; color:rgba(255,255,255,.72); line-height:1.75; max-width:490px; margin-bottom:36px; font-weight:300; }
-.heroActions { display:flex; gap:12px; flex-wrap:wrap; }
+/* ==========================================================================
+   HOME — CSS MODULE REFINADO
+   Audiowide → hero  |  Bungee → seções  |  Montserrat → corpo
+   ========================================================================== */
 
-.statsBar { background:var(--white); border-bottom:1px solid var(--border-0); box-shadow:0 2px 12px rgba(0,0,0,.05); }
-.statsGrid { display:grid; grid-template-columns:repeat(4,1fr); }
-.statItem { padding:26px 20px; text-align:center; border-right:1px solid var(--border-0); transition:background var(--t); }
-.statItem:last-child { border-right:none; }
-.statItem:hover { background:var(--bg-1); }
-.statN { font-family:var(--ff-display); font-size:34px; font-weight:800; color:var(--red); letter-spacing:-.04em; line-height:1; }
-.statL { font-size:12px; color:var(--text-2); margin-top:5px; }
+/* ── HERO ────────────────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 80px;
+  overflow: hidden;
+  background: #000; 
+}
 
-.services { padding:96px 0; background:var(--bg-0); }
-.servicesGrid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
-.serviceCard { background:var(--white); border:1px solid var(--border-0); border-radius:var(--r-lg); overflow:hidden; transition:box-shadow var(--t),transform var(--t); }
-.serviceCard:hover { box-shadow:0 8px 32px rgba(0,0,0,.10); transform:translateY(-2px); }
-.serviceCard img { width:100%; height:220px; object-fit:cover; display:block; }
-.serviceBody { padding:28px; }
-.serviceNum { font-size:11px; font-weight:700; color:var(--red); letter-spacing:.1em; margin-bottom:8px; }
-.serviceCard h3 { font-size:19px; font-weight:700; letter-spacing:-.02em; margin-bottom:10px; }
-.serviceCard p { font-size:14px; color:var(--text-1); line-height:1.75; margin-bottom:18px; }
-.serviceLink { display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color:var(--red); transition:gap .18s; }
-.serviceLink:hover { gap:10px; }
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
 
-.split { display:grid; grid-template-columns:1fr 1fr; min-height:500px; }
-.splitImg { background:url("https://www.maxpesa.com.br/web/images/2023/08/26/bg-25-anos.jpg") center/cover no-repeat; min-height:400px; }
-.splitContent { background:var(--bg-dark); display:flex; align-items:center; padding:80px 64px; }
-.splitInner { max-width:480px; }
-.splitContent h2 { font-size:clamp(26px,3vw,40px); font-weight:800; letter-spacing:-.035em; color:#fff; margin-bottom:14px; }
-.splitContent p { font-size:15px; color:rgba(255,255,255,.65); line-height:1.8; font-weight:300; margin-bottom:16px; }
-.splitActions { display:flex; gap:12px; margin-top:24px; flex-wrap:wrap; }
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      108deg,
+      rgba(0,0,0,0.92) 0%,
+      rgba(0,0,0,0.75) 42%,
+      rgba(0,0,0,0.28) 100%
+    );
+}
 
-.why { padding:96px 0; background:var(--bg-1); }
-.whyGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-.whyCard { background:var(--white); border:1px solid var(--border-0); border-radius:var(--r-md); padding:32px 28px; transition:border-color var(--t),box-shadow var(--t); }
-.whyCard:hover { border-color:var(--red-border); box-shadow:0 4px 20px rgba(217,31,42,.08); }
-.whyCard svg { width:24px; height:24px; color:var(--red); margin-bottom:16px; }
-.whyCard h4 { font-size:16px; font-weight:700; margin-bottom:8px; letter-spacing:-.015em; }
-.whyCard p { font-size:14px; color:var(--text-1); line-height:1.75; }
+/* Faixa vermelha + ruído sutil no rodapé */
+.heroStripe {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--red);
+}
 
-.cta { position:relative; overflow:hidden; background:linear-gradient(rgba(10,12,16,.86),rgba(10,12,16,.86)),url("https://www.maxpesa.com.br/web/images/2023/09/06/banner-home-bg-4.jpg") center/cover no-repeat fixed; padding:100px 0; text-align:center; }
-.cta::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--red); }
-.cta h2 { font-size:clamp(28px,4vw,48px); font-weight:800; letter-spacing:-.035em; color:#fff; margin-bottom:14px; }
-.cta p { font-size:17px; color:rgba(255,255,255,.65); max-width:500px; margin:0 auto 32px; line-height:1.75; font-weight:300; }
-.ctaActions { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
 
-.clients { padding:96px 0; background:var(--bg-1); }
-.clientsRow { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
-.chip { background:var(--white); border:1px solid var(--border-0); border-radius:99px; padding:9px 22px; font-size:13px; font-weight:500; color:var(--text-1); transition:all var(--t); cursor:default; }
-.chip:hover { color:var(--red); border-color:var(--red-border); background:var(--red-pale); }
+/* Tag pré-título */
+.heroTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--ff-body);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 24px;
+}
 
-@media(max-width:768px){
-  .hero { min-height:88vh; }
-  .statsGrid { grid-template-columns:repeat(2,1fr); }
-  .servicesGrid { grid-template-columns:1fr; }
-  .split { grid-template-columns:1fr; }
-  .splitContent { padding:48px 28px; }
-  .whyGrid { grid-template-columns:1fr; }
+.heroDot {
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: blink 2.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.7); }
+}
+
+/* Título hero — Audiowide para máximo impacto */
+.hero h1 {
+  font-family: var(--ff-hero);
+  font-size: clamp(40px, 5.5vw, 72px);
+  font-weight: 400; /* Audiowide não tem variações de peso */
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.red { color: var(--red); }
+
+/* Sublinha vermelha no MAXPESA */
+.heroTitleSub {
+  display: block;
+  position: relative;
+  width: fit-content;
+}
+.heroTitleSub::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--red);
+  border-radius: 2px;
+}
+
+.hero p {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.8;
+  max-width: 480px;
+  margin-bottom: 40px;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+.heroActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ── STATS BAR ───────────────────────────────────────────────────────────── */
+.statsBar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border-0);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.statItem {
+  padding: 28px 20px;
+  text-align: center;
+  border-right: 1px solid var(--border-0);
+  transition: background var(--t);
+  position: relative;
+}
+.statItem:last-child { border-right: none; }
+.statItem:hover { background: var(--grey-0); }
+
+/* Linha vermelha no hover */
+.statItem::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 20%; right: 20%;
+  height: 2px;
+  background: var(--red);
+  transform: scaleX(0);
+  transition: transform 0.3s var(--ease);
+  border-radius: 2px;
+}
+.statItem:hover::after { transform: scaleX(1); }
+
+.statN {
+  font-family: var(--ff-display);
+  font-size: 36px;
+  font-weight: 400; /* Bungee é sempre bold por design */
+  color: var(--red);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.statL {
+  font-family: var(--ff-body);
+  font-size: 11.5px;
+  color: var(--text-2);
+  margin-top: 6px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ── SERVIÇOS ────────────────────────────────────────────────────────────── */
+.services {
+  padding: 100px 0;
+  background: var(--bg-0);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.serviceCard {
+  background: var(--white);
+  border: 1px solid var(--border-0);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: box-shadow var(--t), transform var(--t), border-color var(--t);
+  position: relative;
+}
+
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+  z-index: 1;
+}
+
+.serviceCard:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+  transform: translateY(-3px);
+  border-color: var(--border-1);
+}
+.serviceCard:hover::before { transform: scaleX(1); }
+
+.serviceCard img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+  filter: brightness(0.95) contrast(1.02);
+}
+.serviceCard:hover img { transform: scale(1.03); }
+
+.serviceBody { padding: 28px 28px 26px; }
+
+.serviceNum {
+  font-family: var(--ff-body);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--red);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.serviceCard h3 {
+  font-family: var(--ff-display);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+  color: var(--text-0);
+  line-height: 1.2;
+}
+
+.serviceCard p {
+  font-family: var(--ff-body);
+  font-size: 14px;
+  color: var(--text-1);
+  line-height: 1.78;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.serviceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--ff-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--red);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: gap 0.2s var(--ease), opacity 0.2s;
+}
+.serviceLink:hover { gap: 10px; opacity: 0.8; }
+.serviceLink svg { transition: transform 0.2s var(--ease); }
+.serviceLink:hover svg { transform: translateX(3px); }
+
+/* ── SPLIT 25 ANOS ───────────────────────────────────────────────────────── */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+}
+
+.splitImg {
+  background: url("https://www.maxpesa.com.br/web/images/2023/08/26/bg-25-anos.jpg") center / cover no-repeat;
+  min-height: 400px;
+  position: relative;
+}
+
+/* Overlay sutil na imagem */
+.splitImg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.15) 0%, transparent 60%);
+}
+
+.splitContent {
+  background: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  padding: 80px 68px;
+  position: relative;
+}
+
+/* Detalhe vertical vermelho */
+.splitContent::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 15%; bottom: 15%;
+  width: 3px;
+  background: var(--red);
+  border-radius: 2px;
+}
+
+.splitInner { max-width: 460px; }
+
+.splitContent h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(24px, 2.8vw, 38px);
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 18px;
+  line-height: 1.1;
+}
+
+.splitContent p {
+  font-family: var(--ff-body);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.82;
+  font-weight: 300;
+  margin-bottom: 14px;
+}
+
+.splitActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+/* ── POR QUE MAXPESA ─────────────────────────────────────────────────────── */
+.why {
+  padding: 100px 0;
+  background: var(--grey-0);
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.whyCard {
+  background: var(--white);
+  border: 1px solid var(--border-0);
+  border-radius: var(--r-md);
+  padding: 36px 30px;
+  transition: border-color var(--t), box-shadow var(--t), transform var(--t);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Canto vermelho no hover */
+.whyCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 0; height: 3px;
+  background: var(--red);
+  transition: width 0.4s var(--ease);
+}
+
+.whyCard:hover {
+  border-color: var(--border-1);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.07);
+  transform: translateY(-2px);
+}
+.whyCard:hover::before { width: 100%; }
+
+.whyCard svg {
+  width: 26px;
+  height: 26px;
+  color: var(--red);
+  margin-bottom: 20px;
+}
+
+.whyCard h4 {
+  font-family: var(--ff-display);
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: var(--text-0);
+  letter-spacing: -0.005em;
+}
+
+.whyCard p {
+  font-family: var(--ff-body);
+  font-size: 14px;
+  color: var(--text-1);
+  line-height: 1.78;
+  font-weight: 300;
+}
+
+/* ── CTA ─────────────────────────────────────────────────────────────────── */
+.cta {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.88)),
+    url("src/assets/guindaste1.jpeg")
+    center / cover no-repeat fixed;
+  padding: 110px 0;
+  text-align: center;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--red);
+}
+
+/* Grid de linhas sutil no fundo */
+.cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.cta h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(28px, 4vw, 50px);
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta p {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.58);
+  max-width: 480px;
+  margin: 0 auto 36px;
+  line-height: 1.8;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaActions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── CLIENTES CARROSSEL ──────────────────────────────────────────────────── */
+.clients {
+  padding: 100px 0;
+  background: var(--bg-0);
+  border-top: 1px solid var(--border-0);
+}
+
+.trackWrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.trackWrap::before,
+.trackWrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.trackWrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-0), transparent);
+}
+
+.trackWrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-0), transparent);
+}
+
+.track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: scrollClients 28s linear infinite;
+}
+
+.track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollClients {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.clientCard {
+  width: 148px;
+  height: 90px;
+  flex-shrink: 0;
+  background: var(--white);
+  border: 1px solid var(--border-0);
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  transition: border-color var(--t), box-shadow var(--t);
+  position: relative;
+  overflow: hidden;
+}
+
+.clientCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease);
+}
+
+.clientCard:hover {
+  border-color: var(--red-border);
+  box-shadow: 0 4px 16px rgba(230, 40, 43, 0.08);
+}
+
+.clientCard:hover::after {
+  transform: scaleX(1);
+}
+
+.clientCard img {
+  max-width: 100%;
+  max-height: 48px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.65);
+  transition: filter 0.3s;
+}
+
+.clientCard:hover img {
+  filter: grayscale(0) opacity(1);
+}
+
+.clientCard span {
+  font-family: var(--ff-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-2);
+  text-align: center;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero { min-height: 88vh; padding-bottom: 60px; }
+  .hero h1 { font-size: clamp(32px, 9vw, 52px); }
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .servicesGrid { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; }
+  .splitContent { padding: 48px 28px; }
+  .splitContent::before { display: none; }
+  .whyGrid { grid-template-columns: 1fr; }
+  .cta { background-attachment: scroll; }
 }

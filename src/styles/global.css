@@ -1,40 +1,63 @@
 /* ==========================================================================
-   MAXPESA — GLOBAL: tokens, reset, utilitários compartilhados
+   GRUPO MAXPESA — DESIGN SYSTEM REFINADO
+   Tipografia: Audiowide (hero) · Bunge (títulos) · Montserrat (corpo)
+   Paleta: Branco · Preto #000000 · Vermelho #E6282B · Cinzas frios
    ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
 
 /* ── TOKENS ─────────────────────────────────────────────────────────────── */
 :root {
+  /* Superfícies — branco base com cinzas frios */
   --white:    #ffffff;
   --bg-0:     #ffffff;
-  --bg-1:     #f7f7f8;
-  --bg-2:     #f0f0f2;
-  --bg-3:     #e8e8eb;
-  --bg-dark:  #111317;
-  --bg-dark2: #1c2028;
+  --bg-1:     #f5f5f7;   /* cinza frio Apple-like */
+  --bg-2:     #ebebed;
+  --bg-3:     #e0e0e3;
+  --bg-dark:  #0a0a0b;   /* preto profundo — mais fundo que antes */
+  --bg-dark2: #111114;
+  --bg-dark3: #18181c;
 
-  --red:        #D91F2A;
-  --red-dark:   #b51822;
-  --red-light:  #f04550;
-  --red-pale:   rgba(217,31,42,0.08);
-  --red-border: rgba(217,31,42,0.18);
+  /* Marca — manual de identidade */
+  --red:        #E6282B;
+  --red-dark:   #c01e21;
+  --red-light:  #f04045;
+  --red-pale:   rgba(230,40,43,0.07);
+  --red-border: rgba(230,40,43,0.16);
 
-  --text-0: #111317;
-  --text-1: #4a4d56;
-  --text-2: #8a8d96;
+  /* Cinzas frios escalonados */
+  --grey-0: #f5f5f7;
+  --grey-1: #e8e8ec;
+  --grey-2: #d0d0d6;
+  --grey-3: #a0a0aa;
+  --grey-4: #6a6a75;
+  --grey-5: #3a3a42;
 
-  --border-0: rgba(0,0,0,0.07);
-  --border-1: rgba(0,0,0,0.12);
-  --border-2: rgba(0,0,0,0.18);
+  /* Texto */
+  --text-0:   #0a0a0b;   /* quase preto — mais rico que #111 */
+  --text-1:   #3d3d45;
+  --text-2:   #7a7a85;
+  --text-3:   #a8a8b3;
+  --text-inv: #ffffff;
 
-  --ff-display: 'Outfit', sans-serif;
-  --ff-body:    'Inter', sans-serif;
+  /* Bordas */
+  --border-0: rgba(0,0,0,0.06);
+  --border-1: rgba(0,0,0,0.10);
+  --border-2: rgba(0,0,0,0.16);
 
+  /* Tipografia — 3 funções claras */
+  --ff-hero:    'Audiowide', sans-serif;     /* logomarca, hero, impacto */
+  --ff-display: 'Bungee', sans-serif;        /* títulos de seção, h2, h3 */
+  --ff-body:    'Montserrat', sans-serif;    /* corpo, parágrafos, UI */
+
+  /* Animação */
   --ease:   cubic-bezier(0.16, 1, 0.3, 1);
   --t:      0.3s var(--ease);
   --t-fast: 0.18s ease;
 
-  --r-xs: 4px;
-  --r-sm: 8px;
+  /* Raios */
+  --r-xs: 3px;
+  --r-sm: 7px;
   --r-md: 12px;
   --r-lg: 18px;
   --r-xl: 24px;
@@ -44,35 +67,62 @@
 
 /* ── RESET ───────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
 body {
   background: var(--bg-0);
   color: var(--text-0);
   font-family: var(--ff-body);
+  font-weight: 400;
   line-height: 1.65;
   overflow-x: hidden;
 }
+
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 button { font-family: var(--ff-body); cursor: pointer; }
 
+/* Hierarquia tipográfica */
+h1 { font-family: var(--ff-hero);    color: var(--text-0); line-height: 1.0; }
+h2 { font-family: var(--ff-display); color: var(--text-0); line-height: 1.05; letter-spacing: -0.01em; }
+h3 { font-family: var(--ff-display); color: var(--text-0); line-height: 1.1; }
+h4, h5 { font-family: var(--ff-body); font-weight: 700; color: var(--text-0); line-height: 1.2; }
+
+/* Seções dark — texto invertido */
+.page-section.dark h2,
+.page-section.dark h3,
+.page-section.dark h4 { color: var(--text-inv); }
+
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg-1); }
-::-webkit-scrollbar-thumb { background: var(--bg-3); border-radius: 99px; }
+::-webkit-scrollbar-thumb { background: var(--grey-2); border-radius: 99px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--red); }
 
-/* ── LAYOUT UTILITÁRIOS ──────────────────────────────────────────────────── */
+/* ── LAYOUT ──────────────────────────────────────────────────────────────── */
 .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 28px; }
 
-/* ── TIPOGRAFIA BASE ─────────────────────────────────────────────────────── */
-h1, h2, h3, h4, h5 { font-family: var(--ff-display); color: var(--text-0); line-height: 1.1; }
+/* ── EYEBROW ─────────────────────────────────────────────────────────────── */
+/* Usado pelo componente Eyebrow.jsx via module — override global */
+[class*="eyebrow"] {
+  font-family: var(--ff-body) !important;
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+}
 
-/* ── REVEAL ANIMATION ────────────────────────────────────────────────────── */
+/* ── REVEAL ──────────────────────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+  transform: translateY(22px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -82,7 +132,7 @@ h1, h2, h3, h4, h5 { font-family: var(--ff-display); color: var(--text-0); line-
   background: var(--white); border: 1px solid var(--border-1);
   border-radius: var(--r-md); padding: 14px 16px;
   display: flex; align-items: center; gap: 13px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.15); min-width: 280px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.13); min-width: 280px;
   transform: translateY(130%); opacity: 0;
   transition: transform 0.4s var(--ease), opacity 0.4s;
   pointer-events: none;
@@ -93,11 +143,11 @@ h1, h2, h3, h4, h5 { font-family: var(--ff-display); color: var(--text-0); line-
   border-radius: var(--r-xs); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .toast-ico svg { width: 17px; height: 17px; color: #28c840; }
-.toast-body h4 { font-size: 13.5px; font-weight: 600; margin-bottom: 2px; }
-.toast-body p  { font-size: 12px; color: var(--text-1); }
+.toast-body h4 { font-size: 13.5px; font-weight: 600; margin-bottom: 2px; font-family: var(--ff-body); }
+.toast-body p  { font-size: 12px; color: var(--text-2); }
 .toast-close {
   margin-left: auto; background: none; border: none;
-  color: var(--text-2); font-size: 17px; line-height: 1;
+  color: var(--text-3); font-size: 17px; line-height: 1;
   padding: 2px; cursor: pointer;
 }
 .toast-close:hover { color: var(--text-0); }

@@ -2,7 +2,7 @@
 .alt { background:var(--bg-1); }
 .certsGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
 .certCard { background:var(--white); border:1px solid var(--border-0); border-radius:var(--r-md); padding:40px 28px; text-align:center; transition:border-color var(--t),box-shadow var(--t); }
-.certCard:hover { border-color:var(--red-border); box-shadow:0 4px 24px rgba(217,31,42,.08); }
+.certCard:hover { border-color:var(--red-border); box-shadow:0 4px 24px rgba(230,40,43,.08); }
 .certIco { width:60px; height:60px; background:var(--red-pale); border:1px solid var(--red-border); border-radius:var(--r-md); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; }
 .certIco svg { width:28px; height:28px; color:var(--red); }
 .certCard h3 { font-size:22px; font-weight:800; margin-bottom:10px; }

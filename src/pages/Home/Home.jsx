@@ -8,13 +8,22 @@ import SectionHeader from '../../components/SectionHeader/SectionHeader'
 import Button from '../../components/Button/Button'
 
 const SERVICES = [
-  { num: '01', title: 'Movimentação Horizontal e Vertical', desc: 'Içamento, carga e descarga de materiais superpesados com planejamento avançado de rigging.', to: '/servicos#movimentacao', img: 'https://www.maxpesa.com.br/web/images/slider/1.jpg' },
-  { num: '02', title: 'Linha Amarela & Caminhões', desc: 'Frota completa de caminhões munck, carretas especiais e retroescavadeiras de última geração.', to: '/servicos#amarela', img: 'https://www.maxpesa.com.br/web/images/2023/09/06/banner-home-bg-4.jpg' },
-  { num: '03', title: 'Remoção Industrial', desc: 'Planejamento e execução de mudanças de layout, desmontagens e posicionamento de máquinas.', to: '/servicos#remocao', img: 'https://www.maxpesa.com.br/web/images/2023/08/26/bg-25-anos.jpg' },
-  { num: '04', title: 'Locação & Venda de Equipamentos', desc: 'Contratos flexíveis de locação, frota revisada com garantia e histórico de manutenção.', to: '/servicos#locacao', img: 'https://www.maxpesa.com.br/web/images/slider/1.jpg' },
+  { num: '01', title: 'Movimentação Horizontal e Vertical de Cargas', desc: 'O Grupo Maxpesa oferece soluções completas de movimentação de cargas, transporte e armazenagem em todo o Brasil, destacando-se pela tecnologia, segurança e qualidade.', to: '/servicos#movimentacao', img: 'src/assets/guindaste3.jpeg' },
+  { num: '02', title: 'Movimentação de Materiais (Linha Amarela e Caminhões)', desc: 'O Grupo Maxpesa também realiza movimentação de materiais (como solos e minérios), limpeza industrial e supressão vegetal. A empresa destaca-se por estudar as demandas dos clientes e investir na compra de equipamentos modernos para atendê-las.', to: '/servicos#amarela', img: 'src/assets/linhamarela.png' },
+  { num: '03', title: 'Locação de Equipamentos', desc: 'Com mais de 25 anos de mercado, o Grupo Maxpesa oferece a locação de uma frota moderna e diversificada, que inclui guindastes, caminhões munck, linha amarela e veículos de apoio. A empresa destaca-se pela alta capacidade de investimento para adquirir equipamentos de última geração sob demanda dos clientes.', img: 'src/assets/munck.jpg' },
+  { num: '04', title: 'Remoção Industrial', desc: 'A empresa realiza remoções técnicas, mudanças e montagens industriais complexas (como de transformadores) com foco em segurança. Sua equipe conta com profissionais com mais de 25 anos de experiência e engenharia própria para emitir Planos de Rigging com ART.', to: '/servicos#locacao', img: 'src/assets/remocao.png' },
 ]
 
-const CLIENTS = ['Petrobras','Vale','Engie Brasil','Constran','Braskem','Siemens','EDP Energias','Odebrecht']
+const CLIENTS = [
+  { name: 'Petrobras',    logo: 'src/assets/petrobras_logo.png' },
+  { name: 'Vale',         logo: 'src/assets/vale_logo.png' },
+  { name: 'Siemens',      logo: 'src/assets/siemens_logo.png' },
+  { name: 'Braskem',      logo: 'src/assets/braskem_logo.png' },
+  { name: 'Engie Brasil', logo: 'src/assets/engie_logo.png' },
+  { name: 'EDP Energias', logo: 'src/assets/edp_logo.png' },
+  { name: 'Constran',     logo: 'src/assets/constran_logo.png' },
+  { name: 'Odebrecht',    logo: 'src/assets/odebrecht_logo.png' },
+]
 
 export default function Home() {
   const pageRef = useReveal([])
@@ -23,21 +32,32 @@ export default function Home() {
   return (
     <div ref={pageRef}>
       {/* HERO */}
-      <section className={styles.hero}>
-        <div className={styles.heroOverlay} />
-        <div className={styles.heroStripe} />
-        <div className="container">
-          <div className={styles.heroContent}>
-            <div className={styles.heroTag}><span className={styles.heroDot} />Mais de 25 anos movendo o Brasil</div>
-            <h1>GRUPO<br /><span className={styles.red}>MAXPESA</span></h1>
-            <p>Soluções de alta performance em movimentação de cargas, transporte pesado, remoção industrial e locação de equipamentos.</p>
-            <div className={styles.heroActions}>
-              <Button to="/servicos" size="lg">Nossos Serviços</Button>
-              <Button to="/contato" variant="outlineInv" size="lg">Fazer Orçamento</Button>
-            </div>
+    <section className={styles.hero}>
+    {/* Vídeo de fundo vindo do Google Drive */}
+    <video
+      className={styles.heroVideo}
+      autoPlay
+      muted
+      loop
+      playsInline
+    >
+      <source src="https://res.cloudinary.com/dlusblicd/video/upload/v1780316251/primetalsvideo__kkmyqy.mp4" type="video/mp4" />
+    </video>
+
+    <div className={styles.heroOverlay} />
+      <div className={styles.heroStripe} />
+      <div className="container">
+        <div className={styles.heroContent}>
+          <div className={styles.heroTag}><span className={styles.heroDot} />Mais de 25 anos movendo o Brasil</div>
+          <h1 className="brand">GRUPO<br /><span className={styles.red}>MAXPESA</span></h1>
+          <p>Soluções de alta performance em movimentação de cargas, transporte pesado, remoção industrial e locação de equipamentos.</p>
+          <div className={styles.heroActions}>
+            <Button to="/servicos" size="lg">Nossos Serviços</Button>
+            <Button to="/contato" variant="outlineInv" size="lg">Fazer Orçamento</Button>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* STATS */}
       <div className={styles.statsBar} ref={counterRef}>
@@ -124,15 +144,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CLIENTES */}
-      <section className={styles.clients}>
-        <div className="container">
-          <SectionHeader center eyebrow="Quem confia na Maxpesa" title={<>Parceiros que constroem<br/>o Brasil conosco</>} />
-          <div className={styles.clientsRow}>
-            {CLIENTS.map((c)=><div key={c} className={styles.chip}>{c}</div>)}
+    {/* CLIENTES */}
+    <section className={styles.clients}>
+      <div className="container">
+        <SectionHeader center eyebrow="Quem confia na Maxpesa" title={<>Parceiros que constroem<br/>o Brasil conosco</>} />
+        <div className={styles.trackWrap}>
+          <div className={styles.track}>
+            {[...CLIENTS, ...CLIENTS].map((c, i) => (
+              <div key={i} className={styles.clientCard}>
+                <img src={c.logo} alt={c.name}
+                  onError={e => { e.target.replaceWith(Object.assign(document.createElement('span'), {textContent: c.name})) }}
+                />
+              </div>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
     </div>
   )
 }

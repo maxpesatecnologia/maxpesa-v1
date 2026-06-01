@@ -10,7 +10,7 @@
 .statL { font-size:12px; color:var(--text-2); margin-top:4px; }
 .valuesGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 .valueCard { background:var(--white); border:1px solid var(--border-0); border-radius:var(--r-md); padding:28px 24px; transition:border-color var(--t),box-shadow var(--t); }
-.valueCard:hover { border-color:var(--red-border); box-shadow:0 4px 20px rgba(217,31,42,.08); }
+.valueCard:hover { border-color:var(--red-border); box-shadow:0 4px 20px rgba(230,40,43,.08); }
 .vnum { font-size:11px; font-weight:700; color:var(--red); letter-spacing:.1em; margin-bottom:12px; }
 .valueCard h4 { font-size:16px; font-weight:700; margin-bottom:8px; }
 .valueCard p { font-size:13.5px; color:var(--text-1); line-height:1.75; }
