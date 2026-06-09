@@ -17,12 +17,18 @@ const SERVICES = [
 const CLIENTS = [
   { name: 'Petrobras',    logo: 'src/assets/petrobras_logo.png' },
   { name: 'Vale',         logo: 'src/assets/vale_logo.png' },
-  { name: 'Siemens',      logo: 'src/assets/siemens_logo.png' },
-  { name: 'Braskem',      logo: 'src/assets/braskem_logo.png' },
-  { name: 'Engie Brasil', logo: 'src/assets/engie_logo.png' },
-  { name: 'EDP Energias', logo: 'src/assets/edp_logo.png' },
-  { name: 'Constran',     logo: 'src/assets/constran_logo.png' },
-  { name: 'Odebrecht',    logo: 'src/assets/odebrecht_logo.png' },
+  { name: 'Light',      logo: 'src/assets/light_logo.png' },
+  { name: 'Enel',      logo: 'src/assets/enel_logo.png' },
+  { name: 'Roche', logo: 'src/assets/roche_logo.png' },
+  { name: 'Bayer', logo: 'src/assets/bayer_logo.png' },
+  { name: 'NTS',     logo: 'src/assets/nts_logo.png' },
+  { name: 'Hyundai',    logo: 'src/assets/hyundai_logo.png' },
+  { name: 'Craft Engenharia & Arquitetura',    logo: 'src/assets/craft_logo.png' },
+  { name: 'Rio Prefeitura',    logo: 'src/assets/rio_logo.png' },
+  { name: 'GE',    logo: 'src/assets/ge_logo.png' },
+  { name: 'Furnas',    logo: 'src/assets/furnas_logo.png' },
+  { name: 'GE',    logo: 'src/assets/ge_logo.png' },
+  { name: 'GE',    logo: 'src/assets/ge_logo.png' },
 ]
 
 export default function Home() {
