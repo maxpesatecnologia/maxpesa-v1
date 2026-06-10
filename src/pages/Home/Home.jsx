@@ -8,10 +8,11 @@ import SectionHeader from '../../components/SectionHeader/SectionHeader'
 import Button from '../../components/Button/Button'
 
 const SERVICES = [
-  { num: '01', title: 'Movimentação Horizontal e Vertical de Cargas', desc: 'O Grupo Maxpesa oferece soluções completas de movimentação de cargas, transporte e armazenagem em todo o Brasil, destacando-se pela tecnologia, segurança e qualidade.', to: '/servicos#movimentacao', img: 'src/assets/guindaste3.jpeg' },
-  { num: '02', title: 'Movimentação de Materiais (Linha Amarela e Caminhões)', desc: 'O Grupo Maxpesa também realiza movimentação de materiais (como solos e minérios), limpeza industrial e supressão vegetal. A empresa destaca-se por estudar as demandas dos clientes e investir na compra de equipamentos modernos para atendê-las.', to: '/servicos#amarela', img: 'src/assets/linhamarela.png' },
-  { num: '03', title: 'Locação de Equipamentos', desc: 'Com mais de 25 anos de mercado, o Grupo Maxpesa oferece a locação de uma frota moderna e diversificada, que inclui guindastes, caminhões munck, linha amarela e veículos de apoio. A empresa destaca-se pela alta capacidade de investimento para adquirir equipamentos de última geração sob demanda dos clientes.', img: 'src/assets/munck.jpg' },
-  { num: '04', title: 'Remoção Industrial', desc: 'A empresa realiza remoções técnicas, mudanças e montagens industriais complexas (como de transformadores) com foco em segurança. Sua equipe conta com profissionais com mais de 25 anos de experiência e engenharia própria para emitir Planos de Rigging com ART.', to: '/servicos#locacao', img: 'src/assets/remocao.png' },
+  { num: '01', title: 'Movimentação Horizontal e Vertical de Cargas', desc: 'Içamento e posicionamento de equipamentos e estruturas pesadas com rigging de alta complexidade, operadores certificados NR-11 e memorial de cálculo assinado por engenheiro.', to: '/servicos#movimentacao-vertical', img: 'src/assets/guindaste3.jpeg' },
+  { num: '02', title: 'Movimentação de Cargas', desc: 'Planejamento e execução de mudanças de layout fabril, posicionamento de máquinas e desmontagem de equipamentos industriais com a menor paralisação possível na produção.', to: '/servicos#movimentacao-cargas', img: 'src/assets/remocaoindustrial.png' },
+  { num: '03', title: 'Locação de Equipamentos', desc: 'Frota moderna e diversificada disponível em contratos de curto e longo prazo — guindastes, caminhão-guindauto e linha amarela — com manutenção preventiva e suporte 24/7.', to: '/servicos#locacao', img: 'src/assets/munck.jpg' },
+  { num: '04', title: 'Linha Amarela (Retroescavadeira)', desc: 'Retroescavadeiras, pás carregadeiras e escavadeiras hidráulicas para terraplanagem, escavação e movimentação de solo, com operadores certificados e documentação vigente.', to: '/servicos#linha-amarela', img: 'src/assets/linhamarela.png' },
+  { num: '05', title: 'Transporte de Cargas Especiais', desc: 'Transporte rodoviário de cargas superdimensionadas com carretas especiais, caminhão-guindauto, escolta credenciada, licenças DNIT/DER e rota planejada por engenheiro.', to: '/servicos#transporte', img: 'src/assets/guindaste3.jpeg' },
 ]
 
 const CLIENTS = [

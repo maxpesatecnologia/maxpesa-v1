@@ -84,6 +84,11 @@
 }
 .dropMenu li a:hover { color: var(--text-0); background: var(--bg-1); }
 
+/* LinkedIn icon */
+.iconLink { padding: 7px 10px !important; color: var(--text-2) !important; }
+.iconLink:hover { color: #0077b5 !important; background: rgba(0,119,181,.07) !important; }
+.iconLink svg { display: block; }
+
 /* CTA */
 .cta {
   background: var(--red) !important;
