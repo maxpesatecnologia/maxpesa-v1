@@ -41,6 +41,7 @@ export default function Footer() {
               <li><Link to="/servicos">Nossos Serviços</Link></li>
               <li><Link to="/esg">ESG</Link></li>
               <li><Link to="/certificacoes">Certificações</Link></li>
+              <li><Link to="/trabalhe-conosco">Trabalhe Conosco</Link></li>
             </ul>
           </div>
 
@@ -76,7 +77,7 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <span>&copy; {new Date().getFullYear()} Grupo Maxpesa. Todos os direitos reservados.</span>
-          <span>CNPJ: 00.000.000/0000-00 &nbsp;|&nbsp; Duque de Caxias — RJ</span>
+          <span>CNPJ: 01.117.975/0001-67 &nbsp;|&nbsp; Duque de Caxias — RJ</span>
         </div>
       </div>
     </footer>

@@ -5,7 +5,8 @@ import Empresa     from './pages/Empresa/Empresa'
 import Servicos    from './pages/Servicos/Servicos'
 import Esg         from './pages/Esg/Esg'
 import Certificacoes from './pages/Certificacoes/Certificacoes'
-import Contato     from './pages/Contato/Contato'
+import Contato          from './pages/Contato/Contato'
+import TrabalheConosco  from './pages/TrabalheConosco/TrabalheConosco'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="esg"     element={<Esg />} />
           <Route path="certificacoes" element={<Certificacoes />} />
           <Route path="contato" element={<Contato />} />
+          <Route path="trabalhe-conosco" element={<TrabalheConosco />} />
         </Route>
       </Routes>
     </BrowserRouter>

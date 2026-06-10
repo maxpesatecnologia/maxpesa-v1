@@ -5,7 +5,6 @@ import PageHero from '../../components/PageHero/PageHero'
 import SectionHeader from '../../components/SectionHeader/SectionHeader'
 import ImgFrame from '../../components/ImgFrame/ImgFrame'
 import Timeline from '../../components/Timeline/Timeline'
-import BranchCard from '../../components/BranchCard/BranchCard'
 import Button from '../../components/Button/Button'
 
 const TIMELINE = [
@@ -16,6 +15,24 @@ const TIMELINE = [
   { year:'2023', title:'25 anos — novo patamar', desc:'Renovação da frota, investimento em tecnologia de rigging e expansão para novos estados brasileiros.' },
 ]
 
+const MVV = [
+  {
+    label: 'Missão',
+    icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>,
+    text: 'Fornecer aos nossos clientes produtos e serviços de alta qualidade, mantendo um ambiente de trabalho positivo e colaborativo — medindo nosso sucesso pelo impacto positivo gerado em clientes, colaboradores e comunidade.',
+  },
+  {
+    label: 'Visão',
+    icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>,
+    text: 'Ser uma empresa de referência e estar entre as maiores em nosso segmento, entregando soluções inovadoras com princípios éticos, responsabilidade ambiental e crescimento sustentável.',
+  },
+  {
+    label: 'Valores',
+    icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>,
+    text: 'Ética, honestidade, integridade, disciplina, transparência, responsabilidade social e obsessão pela segurança — princípios não negociáveis que guiam cada decisão e formam a base de nossa cultura.',
+  },
+]
+
 const VALUES = [
   { n:'01', title:'Segurança',           desc:'A segurança de colaboradores e clientes é inegociável. Cada operação começa e termina com protocolos rigorosos de NR-11.' },
   { n:'02', title:'Excelência técnica',  desc:'Engenharia proprietária, equipamentos certificados e operadores com formação contínua garantem o padrão mais alto.' },
@@ -23,15 +40,6 @@ const VALUES = [
   { n:'04', title:'Inovação',            desc:'Investimento constante em novas tecnologias e metodologias para oferecer sempre a melhor solução.' },
   { n:'05', title:'Relacionamento',      desc:'Parcerias de longo prazo baseadas em confiança, transparência e resultados são nossa maior conquista.' },
   { n:'06', title:'Responsabilidade',    desc:'Valorizamos nossas equipes, respeitamos comunidades e operamos com consciência ambiental.' },
-]
-
-const BRANCHES = [
-  { city:'Rio de Janeiro', state:'RJ', address:'Av. Brasil, 1000 — Penha', phone:'(21) 3675-1900', sede:true },
-  { city:'São Paulo',      state:'SP', address:'Rod. Anhanguera, km 25 — Osasco', phone:'(11) 3000-0000' },
-  { city:'Belo Horizonte', state:'MG', address:'Av. Cristiano Machado, 500', phone:'(31) 3000-0000' },
-  { city:'Salvador',       state:'BA', address:'Rod. BA-526, km 3 — Camaçari', phone:'(71) 3000-0000' },
-  { city:'Manaus',         state:'AM', address:'Distrito Industrial — ZFM', phone:'(92) 3000-0000' },
-  { city:'Porto Alegre',   state:'RS', address:'Av. Assis Brasil, 2000', phone:'(51) 3000-0000' },
 ]
 
 const BADGE = {
@@ -81,11 +89,26 @@ export default function Empresa() {
 
       <section className={styles.section}>
         <div className="container">
-          <SectionHeader center eyebrow="O que nos guia" title="Nossos valores e princípios" subtitle="Os pilares que sustentam cada decisão operacional, comercial e humana do Grupo Maxpesa." />
+          <SectionHeader center eyebrow="Nossa essência" title="Missão, Visão e Valores" subtitle="Os princípios fundamentais que orientam cada decisão e definem quem somos." />
+          <div className={styles.mvvGrid}>
+            {MVV.map((item) => (
+              <div key={item.label} className={`${styles.mvvCard} reveal`}>
+                <div className={styles.mvvIcon}>{item.icon}</div>
+                <h4 className={styles.mvvLabel}>{item.label}</h4>
+                <p>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={`${styles.section} ${styles.alt}`}>
+        <div className="container">
+          <SectionHeader center eyebrow="Como operamos" title="Pilares operacionais" subtitle="Os alicerces práticos que orientam cada operação, equipe e entrega do Grupo Maxpesa." />
           <div className={styles.valuesGrid}>
             {VALUES.map((v) => (
               <div key={v.n} className={`${styles.valueCard} reveal`}>
-                <div className={styles.vnum}>{v.n}</div>
+                <span className={styles.vnum}>{v.n}</span>
                 <h4>{v.title}</h4>
                 <p>{v.desc}</p>
               </div>
@@ -94,15 +117,39 @@ export default function Empresa() {
         </div>
       </section>
 
-      <section className={`${styles.section} ${styles.alt}`} id="localizacao">
+      <section className={styles.section} id="localizacao">
         <div className="container">
-          <SectionHeader eyebrow="Onde estamos" title="Sede e Filiais" subtitle="Presença estratégica nos principais polos industriais do Brasil." />
+          <SectionHeader eyebrow="Onde estamos" title="Nossa sede" subtitle="Localizada em Duque de Caxias — RJ, a sede do Grupo Maxpesa serve todo o território nacional." />
           <div className={styles.locationGrid}>
             <div className={`${styles.mapEmbed} reveal`}>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.6246862733396!2d-43.29739122478885!3d-22.898710079224623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997bbe27a34c7f%3A0x37a9cc7bef70b05b!2sAv.%20Brasil%2C%20Rio%20de%20Janeiro%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1700000000000" loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Localização Grupo Maxpesa" />
+              <iframe
+                src="https://maps.google.com/maps?q=Grupo+Maxpesa,+Duque+de+Caxias,+RJ,+Brasil&output=embed&z=16"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Sede Grupo Maxpesa"
+              />
             </div>
-            <div className={styles.branchesGrid}>
-              {BRANCHES.map((b) => <BranchCard key={b.city} {...b} />)}
+            <div className={`${styles.hqInfo} reveal`}>
+              <div className={styles.hqBadge}>Sede</div>
+              <h3 className={styles.hqName}>Grupo Maxpesa</h3>
+              <p className={styles.hqAddress}>
+                Av. Primavera, 156 — Jardim Primavera<br />
+                Duque de Caxias — RJ, 25215-255
+              </p>
+              <div className={styles.hqContacts}>
+                <a href="tel:08006297372" className={styles.hqContact}>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.7 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1.27h3a2 2 0 0 1 2 1.72c.143.536.3 1.065.47 1.588a12.84 12.84 0 0 0 .23 1.222 2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l1-1a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  0800 629 7372
+                </a>
+                <a href="tel:+552136751900" className={styles.hqContact}>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.7 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1.27h3a2 2 0 0 1 2 1.72c.143.536.3 1.065.47 1.588a12.84 12.84 0 0 0 .23 1.222 2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l1-1a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  (21) 3675-1900
+                </a>
+                <a href="mailto:comercial@maxpesa.com.br" className={styles.hqContact}>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" width="16" height="16"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  comercial@maxpesa.com.br
+                </a>
+              </div>
             </div>
           </div>
         </div>

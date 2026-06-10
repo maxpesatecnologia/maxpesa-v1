@@ -117,6 +117,12 @@ export default function Header() {
               </a>
             </li>
             <li>
+              <NavLink to="/trabalhe-conosco" className={({ isActive }) => `${styles.a} ${isActive ? styles.active : ''}`}
+                onClick={() => setMenuOpen(false)}>
+                Trabalhe Conosco
+              </NavLink>
+            </li>
+            <li>
               <NavLink to="/contato" className={`${styles.a} ${styles.cta}`}
                 onClick={() => setMenuOpen(false)}>
                 Orçamento
