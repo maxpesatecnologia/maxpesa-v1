@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import styles from './Footer.module.css'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/maxpesa_logo_png.png'
 
 const SOCIAL_LINKS = [
   { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/grupo-maxpesa/', icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> },
@@ -17,10 +17,12 @@ export default function Footer() {
             <img src={logo} alt="Grupo Maxpesa" className={styles.logo} />
             <p className={styles.desc}>Referência nacional em movimentações de carga complexas, transportes pesados e engenharia de rigging com mais de 25 anos de mercado.</p>
             <address className={styles.address}>
-              <strong>Sede — Rio de Janeiro, RJ</strong>
-              Av. Brasil, 1000 — Penha<br />
-              Rio de Janeiro — RJ, 21012-000<br />
-              Tel: (21) 3675-1900
+              <strong>Matriz — Duque de Caxias, RJ</strong>
+              Av. Primavera, 156 - Jardim Primavera<br />
+              Duque de Caxias - RJ, 25215-255<br />
+              <br />
+              0800 629 7372<br />
+              Tel: (21) 3675-1900<br />
             </address>
             <div className={styles.social}>
               {SOCIAL_LINKS.map((s) => (
@@ -55,10 +57,17 @@ export default function Footer() {
           <div className={styles.col}>
             <h5>Filiais</h5>
             <ul>
-              <li><Link to="/empresa#localizacao">Rio de Janeiro — RJ</Link></li>
-              <li><Link to="/empresa#localizacao">São Paulo — SP</Link></li>
-              <li><Link to="/empresa#localizacao">Belo Horizonte — MG</Link></li>
-              <li><Link to="/empresa#localizacao">Salvador — BA</Link></li>
+              <li><Link to="/empresa#localizacao">Minas Gerais</Link></li>
+              <li><Link to="/empresa#localizacao">São Paulo</Link></li>
+              <li><Link to="/empresa#localizacao">Espírito Santo</Link></li>
+            </ul>
+          </div>
+
+          <div className={styles.col}>
+            <h5>Contato</h5>
+            <ul>
+              <li><a href="tel:08006297372">0800 629 7372</a></li>
+              <li><a href="tel:+552136751900">(21) 3675-1900</a></li>
               <li><a href="https://canalconfidencial.com.br/maxpesa/" target="_blank" rel="noopener noreferrer">Canal de Denúncias</a></li>
               <li><Link to="/contato">Fale Conosco</Link></li>
             </ul>
@@ -67,7 +76,7 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <span>&copy; {new Date().getFullYear()} Grupo Maxpesa. Todos os direitos reservados.</span>
-          <span>CNPJ: 00.000.000/0000-00 &nbsp;|&nbsp; Rio de Janeiro — RJ</span>
+          <span>CNPJ: 00.000.000/0000-00 &nbsp;|&nbsp; Duque de Caxias — RJ</span>
         </div>
       </div>
     </footer>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import styles from './Header.module.css'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/maxpesa_logo_png.png'
 
 const SERVICES = [
   { to: '/servicos#movimentacao', label: 'Movimentação de Cargas' },

@@ -23,7 +23,7 @@
 }
 
 .logo { display: flex; align-items: center; flex-shrink: 0; }
-.logo img { height: 55px; width: auto; display: block; }
+.logo img { height: 125px; width: auto; display: block; margin-top: 9px; }
 
 /* Nav */
 .nav { display: flex; align-items: center; }

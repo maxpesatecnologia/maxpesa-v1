@@ -6,16 +6,15 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 2.2fr 1fr 1fr 1fr;
+  grid-template-columns: 2.2fr 1fr 1fr 1fr 1fr;
   gap: 48px;
   padding-bottom: 48px;
 }
 
 .logo {
-  height: 36px;
+  height: 56px;
   width: auto;
   filter: brightness(0) invert(1);
-  margin-bottom: 16px;
 }
 
 .desc {

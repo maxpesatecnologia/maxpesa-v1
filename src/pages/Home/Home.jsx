@@ -27,8 +27,9 @@ const CLIENTS = [
   { name: 'Rio Prefeitura',    logo: 'src/assets/rio_logo.png' },
   { name: 'GE',    logo: 'src/assets/ge_logo.png' },
   { name: 'Furnas',    logo: 'src/assets/furnas_logo.png' },
-  { name: 'GE',    logo: 'src/assets/ge_logo.png' },
-  { name: 'GE',    logo: 'src/assets/ge_logo.png' },
+  { name: 'Engelmig',    logo: 'src/assets/engelmig_logo.png' },
+  { name: 'Cemig',    logo: 'src/assets/cemig_logo.png' },
+  { name: 'Air Liquide',    logo: 'src/assets/air_liquide_logo.png' },
 ]
 
 export default function Home() {
