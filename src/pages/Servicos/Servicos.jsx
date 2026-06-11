@@ -3,6 +3,11 @@ import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/PageHero/PageHero'
 import SectionHeader from '../../components/SectionHeader/SectionHeader'
 import Button from '../../components/Button/Button'
+import imgGuindaste    from '../../assets/guindaste3.jpeg'
+import imgRemocao      from '../../assets/remocaoindustrial.png'
+import imgMunck        from '../../assets/caminhao-munck-img2.jpg'
+import imgEscavadeiras from '../../assets/escavadeiras-logo.png'
+import imgTransporte   from '../../assets/caminhao_linha_de_eixo.png'
 
 const SERVICES = [
   {
@@ -18,7 +23,7 @@ const SERVICES = [
       'Içamentos em espaços confinados',
       'Cobertura RCTR-C inclusa',
     ],
-    img: '/src/assets/guindaste3.jpeg',
+    img: imgGuindaste,
   },
   {
     id: 'movimentacao-cargas',
@@ -33,7 +38,7 @@ const SERVICES = [
       'Intervenções com janelas de parada reduzidas',
       'Atuação em indústrias de alto risco',
     ],
-    img: '/src/assets/remocaoindustrial.png',
+    img: imgRemocao,
     flip: true,
   },
   {
@@ -49,7 +54,7 @@ const SERVICES = [
       'Atendimento em escala nacional',
       'Suporte técnico 24/7',
     ],
-    img: '/src/assets/caminhao-munck-img2.jpg',
+    img: imgMunck,
   },
   {
     id: 'linha-amarela',
@@ -64,7 +69,7 @@ const SERVICES = [
       'Operadores certificados e experientes',
       'Documentação e revisões em dia',
     ],
-    img: '/src/assets/escavadeiras-logo.png',
+    img: imgEscavadeiras,
     flip: true,
   },
   {
@@ -80,7 +85,7 @@ const SERVICES = [
       'Escolta credenciada',
       'Planejamento de rota por engenheiro',
     ],
-    img: '/src/assets/caminhao_linha_de_eixo.png',
+    img: imgTransporte,
   },
 ]
 

@@ -3,14 +3,20 @@ import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/PageHero/PageHero'
 import SectionHeader from '../../components/SectionHeader/SectionHeader'
 import Button from '../../components/Button/Button'
+import imgIso9001      from '../../assets/iso_9001.png'
+import imgIso14001     from '../../assets/iso_14001.png'
+import imgIso45001     from '../../assets/iso_45001.png'
+import imgOnuMulheres  from '../../assets/onu_mulheres.png'
+import imgPactoGlobal  from '../../assets/pacto_global.png'
+import imgInstEthos    from '../../assets/inst_ethos.png'
 
 const CERTS = [
-  { title:'ISO 9001',         desc:'Sistema de Gestão da Qualidade certificado e auditado por organismo acreditado internacionalmente.', img:'src/assets/iso_9001.png' },
-  { title:'ISO 14001',        desc:'Conformidade com as normas de gestão ambiental, movimentação e segurança em máquinas.',               img:'src/assets/iso_14001.png' },
-  { title:'ISO 45001',        desc:'Sistema de Gestão de Saúde e Segurança Ocupacional aplicado em 100% das operações.',                  img:'src/assets/iso_45001.png' },
-  { title:'ONU Mulheres',     desc:'Signatários dos Princípios de Empoderamento das Mulheres, promovendo equidade no ambiente de trabalho.', img:'src/assets/onu_mulheres.png' },
-  { title:'Global Compact',   desc:'Adesão ao Pacto Global da ONU, comprometendo-se com os dez princípios de sustentabilidade e direitos humanos.', img:'src/assets/pacto_global.png' },
-  { title:'Instituto Ethos',  desc:'Associados ao Instituto Ethos, referência em práticas de responsabilidade social empresarial no Brasil.', img:'src/assets/inst_ethos.png' },
+  { title:'ISO 9001',         desc:'Sistema de Gestão da Qualidade certificado e auditado por organismo acreditado internacionalmente.',                                   img: imgIso9001     },
+  { title:'ISO 14001',        desc:'Conformidade com as normas de gestão ambiental, movimentação e segurança em máquinas.',                                                img: imgIso14001    },
+  { title:'ISO 45001',        desc:'Sistema de Gestão de Saúde e Segurança Ocupacional aplicado em 100% das operações.',                                                  img: imgIso45001    },
+  { title:'ONU Mulheres',     desc:'Signatários dos Princípios de Empoderamento das Mulheres, promovendo equidade no ambiente de trabalho.',                              img: imgOnuMulheres },
+  { title:'Global Compact',   desc:'Adesão ao Pacto Global da ONU, comprometendo-se com os dez princípios de sustentabilidade e direitos humanos.',                      img: imgPactoGlobal },
+  { title:'Instituto Ethos',  desc:'Associados ao Instituto Ethos, referência em práticas de responsabilidade social empresarial no Brasil.',                             img: imgInstEthos   },
 ]
 
 const ITEMS = [

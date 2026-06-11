@@ -6,31 +6,50 @@ import { useCounter } from '../../hooks/useCounter'
 import Eyebrow from '../../components/Eyebrow/Eyebrow'
 import SectionHeader from '../../components/SectionHeader/SectionHeader'
 import Button from '../../components/Button/Button'
+import imgGuindaste    from '../../assets/guindaste3.jpeg'
+import imgRemocao      from '../../assets/remocaoindustrial.png'
+import imgMunck        from '../../assets/munck.jpg'
+import imgLinhaAmarela from '../../assets/linhamarela.png'
+import logoPetrobras   from '../../assets/petrobras_logo.png'
+import logoVale        from '../../assets/vale_logo.png'
+import logoLight       from '../../assets/light_logo.png'
+import logoEnel        from '../../assets/enel_logo.png'
+import logoRoche       from '../../assets/roche_logo.png'
+import logoBayer       from '../../assets/bayer_logo.png'
+import logoNts         from '../../assets/nts_logo.png'
+import logoHyundai     from '../../assets/hyundai_logo.png'
+import logoCraft       from '../../assets/craft_logo.png'
+import logoRio         from '../../assets/rio_logo.png'
+import logoGe          from '../../assets/ge_logo.png'
+import logoFurnas      from '../../assets/furnas_logo.png'
+import logoEngelmig    from '../../assets/engelmig_logo.png'
+import logoCemig       from '../../assets/cemig_logo.png'
+import logoAirLiquide  from '../../assets/air_liquide_logo.png'
 
 const SERVICES = [
-  { num: '01', title: 'Movimentação Horizontal e Vertical de Cargas', desc: 'Içamento e posicionamento de equipamentos e estruturas pesadas com rigging de alta complexidade, operadores certificados NR-11 e memorial de cálculo assinado por engenheiro.', to: '/servicos#movimentacao-vertical', img: 'src/assets/guindaste3.jpeg' },
-  { num: '02', title: 'Movimentação de Cargas', desc: 'Planejamento e execução de mudanças de layout fabril, posicionamento de máquinas e desmontagem de equipamentos industriais com a menor paralisação possível na produção.', to: '/servicos#movimentacao-cargas', img: 'src/assets/remocaoindustrial.png' },
-  { num: '03', title: 'Locação de Equipamentos', desc: 'Frota moderna e diversificada disponível em contratos de curto e longo prazo — guindastes, caminhão-guindauto e linha amarela — com manutenção preventiva e suporte 24/7.', to: '/servicos#locacao', img: 'src/assets/munck.jpg' },
-  { num: '04', title: 'Linha Amarela (Retroescavadeira)', desc: 'Retroescavadeiras, pás carregadeiras e escavadeiras hidráulicas para terraplanagem, escavação e movimentação de solo, com operadores certificados e documentação vigente.', to: '/servicos#linha-amarela', img: 'src/assets/linhamarela.png' },
-  { num: '05', title: 'Transporte de Cargas Especiais', desc: 'Transporte rodoviário de cargas superdimensionadas com carretas especiais, caminhão-guindauto, escolta credenciada, licenças DNIT/DER e rota planejada por engenheiro.', to: '/servicos#transporte', img: 'src/assets/guindaste3.jpeg' },
+  { num: '01', title: 'Movimentação Horizontal e Vertical de Cargas', desc: 'Içamento e posicionamento de equipamentos e estruturas pesadas com rigging de alta complexidade, operadores certificados NR-11 e memorial de cálculo assinado por engenheiro.', to: '/servicos#movimentacao-vertical', img: imgGuindaste },
+  { num: '02', title: 'Movimentação de Cargas', desc: 'Planejamento e execução de mudanças de layout fabril, posicionamento de máquinas e desmontagem de equipamentos industriais com a menor paralisação possível na produção.', to: '/servicos#movimentacao-cargas', img: imgRemocao },
+  { num: '03', title: 'Locação de Equipamentos', desc: 'Frota moderna e diversificada disponível em contratos de curto e longo prazo — guindastes, caminhão-guindauto e linha amarela — com manutenção preventiva e suporte 24/7.', to: '/servicos#locacao', img: imgMunck },
+  { num: '04', title: 'Linha Amarela (Retroescavadeira)', desc: 'Retroescavadeiras, pás carregadeiras e escavadeiras hidráulicas para terraplanagem, escavação e movimentação de solo, com operadores certificados e documentação vigente.', to: '/servicos#linha-amarela', img: imgLinhaAmarela },
+  { num: '05', title: 'Transporte de Cargas Especiais', desc: 'Transporte rodoviário de cargas superdimensionadas com carretas especiais, caminhão-guindauto, escolta credenciada, licenças DNIT/DER e rota planejada por engenheiro.', to: '/servicos#transporte', img: imgGuindaste },
 ]
 
 const CLIENTS = [
-  { name: 'Petrobras',    logo: 'src/assets/petrobras_logo.png' },
-  { name: 'Vale',         logo: 'src/assets/vale_logo.png' },
-  { name: 'Light',      logo: 'src/assets/light_logo.png' },
-  { name: 'Enel',      logo: 'src/assets/enel_logo.png' },
-  { name: 'Roche', logo: 'src/assets/roche_logo.png' },
-  { name: 'Bayer', logo: 'src/assets/bayer_logo.png' },
-  { name: 'NTS',     logo: 'src/assets/nts_logo.png' },
-  { name: 'Hyundai',    logo: 'src/assets/hyundai_logo.png' },
-  { name: 'Craft Engenharia & Arquitetura',    logo: 'src/assets/craft_logo.png' },
-  { name: 'Rio Prefeitura',    logo: 'src/assets/rio_logo.png' },
-  { name: 'GE',    logo: 'src/assets/ge_logo.png' },
-  { name: 'Furnas',    logo: 'src/assets/furnas_logo.png' },
-  { name: 'Engelmig',    logo: 'src/assets/engelmig_logo.png' },
-  { name: 'Cemig',    logo: 'src/assets/cemig_logo.png' },
-  { name: 'Air Liquide',    logo: 'src/assets/air_liquide_logo.png' },
+  { name: 'Petrobras',                        logo: logoPetrobras  },
+  { name: 'Vale',                             logo: logoVale       },
+  { name: 'Light',                            logo: logoLight      },
+  { name: 'Enel',                             logo: logoEnel       },
+  { name: 'Roche',                            logo: logoRoche      },
+  { name: 'Bayer',                            logo: logoBayer      },
+  { name: 'NTS',                              logo: logoNts        },
+  { name: 'Hyundai',                          logo: logoHyundai    },
+  { name: 'Craft Engenharia & Arquitetura',   logo: logoCraft      },
+  { name: 'Rio Prefeitura',                   logo: logoRio        },
+  { name: 'GE',                               logo: logoGe         },
+  { name: 'Furnas',                           logo: logoFurnas     },
+  { name: 'Engelmig',                         logo: logoEngelmig   },
+  { name: 'Cemig',                            logo: logoCemig      },
+  { name: 'Air Liquide',                      logo: logoAirLiquide },
 ]
 
 const STATS = [

@@ -6,6 +6,7 @@ import SectionHeader from '../../components/SectionHeader/SectionHeader'
 import ImgFrame from '../../components/ImgFrame/ImgFrame'
 import Timeline from '../../components/Timeline/Timeline'
 import Button from '../../components/Button/Button'
+import imgEmpresa from '../../assets/empresa_img.png'
 
 const TIMELINE = [
   { year:'1998', title:'Fundação do Grupo Maxpesa', desc:'Início das operações no Rio de Janeiro com foco em movimentação vertical e locação de guindastes.' },
@@ -86,7 +87,7 @@ export default function Empresa() {
                 ))}
               </div>
             </div>
-            <ImgFrame src="/src/assets/empresa_img.png" alt="25 Anos Maxpesa" className={styles.empImg} badge={BADGE} />
+            <ImgFrame src={imgEmpresa} alt="25 Anos Maxpesa" className={styles.empImg} badge={BADGE} />
           </div>
         </div>
       </section>
