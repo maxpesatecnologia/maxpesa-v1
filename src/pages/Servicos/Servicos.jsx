@@ -80,7 +80,7 @@ const SERVICES = [
       'Escolta credenciada',
       'Planejamento de rota por engenheiro',
     ],
-    img: '/src/assets/transporte-especial.png',
+    img: '/src/assets/caminhao_linha_de_eixo.png',
   },
 ]
 
@@ -100,10 +100,14 @@ export default function Servicos() {
         <div className="container">
           <div className={styles.indexList}>
             {SERVICES.map((s) => (
-              <a key={s.id} href={`#${s.id}`} className={styles.indexItem}>
+              <button
+                key={s.id}
+                className={styles.indexItem}
+                onClick={() => document.getElementById(s.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              >
                 <span className={styles.indexNum}>{s.num}</span>
                 <span className={styles.indexLabel}>{s.title}</span>
-              </a>
+              </button>
             ))}
           </div>
         </div>

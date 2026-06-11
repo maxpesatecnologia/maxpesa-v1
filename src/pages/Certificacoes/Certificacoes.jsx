@@ -5,9 +5,12 @@ import SectionHeader from '../../components/SectionHeader/SectionHeader'
 import Button from '../../components/Button/Button'
 
 const CERTS = [
-  { title:'ISO 9001', desc:'Sistema de Gestão da Qualidade certificado e auditado por organismo acreditado internacionalmente.', icon:<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg> },
-  { title:'NR 11 / NR 12', desc:'Conformidade absoluta nas normas de transporte, movimentação e segurança em máquinas.', icon:<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> },
-  { title:'Seguros Completos', desc:'Todas as operações cobertas por seguros RCTR-C e responsabilidade civil da carga.', icon:<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> },
+  { title:'ISO 9001',         desc:'Sistema de Gestão da Qualidade certificado e auditado por organismo acreditado internacionalmente.', img:'src/assets/iso_9001.png' },
+  { title:'ISO 14001',        desc:'Conformidade com as normas de gestão ambiental, movimentação e segurança em máquinas.',               img:'src/assets/iso_14001.png' },
+  { title:'ISO 45001',        desc:'Sistema de Gestão de Saúde e Segurança Ocupacional aplicado em 100% das operações.',                  img:'src/assets/iso_45001.png' },
+  { title:'ONU Mulheres',     desc:'Signatários dos Princípios de Empoderamento das Mulheres, promovendo equidade no ambiente de trabalho.', img:'src/assets/onu_mulheres.png' },
+  { title:'Global Compact',   desc:'Adesão ao Pacto Global da ONU, comprometendo-se com os dez princípios de sustentabilidade e direitos humanos.', img:'src/assets/pacto_global.png' },
+  { title:'Instituto Ethos',  desc:'Associados ao Instituto Ethos, referência em práticas de responsabilidade social empresarial no Brasil.', img:'src/assets/inst_ethos.png' },
 ]
 
 const ITEMS = [
@@ -35,7 +38,9 @@ export default function Certificacoes() {
           <div className={styles.certsGrid}>
             {CERTS.map((c) => (
               <div key={c.title} className={`${styles.certCard} reveal`}>
-                <div className={styles.certIco}>{c.icon}</div>
+                <div className={styles.certImg}>
+                  <img src={c.img} alt={c.title} />
+                </div>
                 <h3>{c.title}</h3>
                 <p>{c.desc}</p>
               </div>

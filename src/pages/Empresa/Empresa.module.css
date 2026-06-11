@@ -3,7 +3,7 @@
 .alt    { background:var(--bg-1); }
 
 .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
-.lead  { font-size:17px; color:var(--text-1); line-height:1.8; font-weight:300; margin-bottom:14px; font-style:italic; }
+.lead  { font-size:17px; color:var(--text-1); line-height:1.8; margin-bottom:14px; }
 .body  { font-size:15px; color:var(--text-1); line-height:1.8; margin-bottom:28px; }
 
 .statsRow  { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border-0); border:1px solid var(--border-0); border-radius:var(--r-md); overflow:hidden; }
@@ -59,7 +59,9 @@
   margin-bottom: 10px;
   letter-spacing: -.01em;
 }
-.mvvCard p { font-size: 14px; color: var(--text-1); line-height: 1.85; margin: 0; }
+.mvvList { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.mvvItem { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: var(--text-1); line-height: 1.55; }
+.mvvItem::before { content: ''; flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--red); margin-top: 5px; }
 
 /* ── Value / pillar cards ── */
 .valuesGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
@@ -107,6 +109,10 @@
 
 .valueCard h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--text-0); }
 .valueCard p  { font-size: 13.5px; color: var(--text-1); line-height: 1.75; margin: 0; }
+
+.empImg{
+  background-position: center 10%;
+}
 
 /* ── Location ── */
 .locationGrid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }

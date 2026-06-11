@@ -22,8 +22,9 @@
   gap: 24px;
 }
 
-.logo { display: flex; align-items: center; flex-shrink: 0; }
-.logo img { height: 125px; width: auto; display: block; margin-top: 9px; }
+.logoWrap { position: relative; height: var(--header-h); flex-shrink: 0; overflow: visible; display: flex; align-items: center; }
+.logoImg { height: 125px; width: auto; display: block; pointer-events: none; }
+.logoLink { position: absolute; inset: 0; display: block; }
 
 /* Nav */
 .nav { display: flex; align-items: center; }
@@ -83,11 +84,6 @@
   transition: color var(--t-fast), background var(--t-fast);
 }
 .dropMenu li a:hover { color: var(--text-0); background: var(--bg-1); }
-
-/* LinkedIn icon */
-.iconLink { padding: 7px 10px !important; color: var(--text-2) !important; }
-.iconLink:hover { color: #0077b5 !important; background: rgba(0,119,181,.07) !important; }
-.iconLink svg { display: block; }
 
 /* CTA */
 .cta {

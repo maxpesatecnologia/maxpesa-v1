@@ -30,7 +30,6 @@
   color: rgba(255,255,255,.78);
   line-height: 1.75;
   margin-bottom: 32px;
-  font-weight: 300;
 }
 
 .beneficios { display: flex; flex-direction: column; gap: 16px; flex: 1; }
@@ -80,7 +79,6 @@
   font-size: 13.5px;
   color: var(--text-1);
   margin-bottom: 28px;
-  font-weight: 300;
 }
 
 .form { display: flex; flex-direction: column; gap: 18px; }

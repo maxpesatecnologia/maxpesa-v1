@@ -9,7 +9,7 @@ import Button from '../../components/Button/Button'
 
 const TIMELINE = [
   { year:'1998', title:'Fundação do Grupo Maxpesa', desc:'Início das operações no Rio de Janeiro com foco em movimentação vertical e locação de guindastes.' },
-  { year:'2003', title:'Expansão da frota e novos segmentos', desc:'Incorporação de caminhões munck e carretas especiais, abrindo o segmento de cargas superdimensionadas.' },
+  { year:'2003', title:'Expansão da frota e novos segmentos', desc:'Incorporação de caminhões-guindauto e carretas especiais, abrindo o segmento de cargas superdimensionadas.' },
   { year:'2009', title:'Certificação ISO 9001', desc:'Reconhecimento formal do sistema de gestão da qualidade, consolidando processos de classe mundial.' },
   { year:'2014', title:'Grandes projetos de infraestrutura', desc:'Participação em obras de relevância nacional, incluindo projetos petroquímicos e de geração de energia.' },
   { year:'2023', title:'25 anos — novo patamar', desc:'Renovação da frota, investimento em tecnologia de rigging e expansão para novos estados brasileiros.' },
@@ -19,17 +19,33 @@ const MVV = [
   {
     label: 'Missão',
     icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>,
-    text: 'Fornecer aos nossos clientes produtos e serviços de alta qualidade, mantendo um ambiente de trabalho positivo e colaborativo — medindo nosso sucesso pelo impacto positivo gerado em clientes, colaboradores e comunidade.',
+    items: [
+      'Produtos e serviços de alta qualidade',
+      'Ambiente de trabalho positivo e colaborativo',
+      'Impacto positivo em clientes e colaboradores',
+      'Responsabilidade com a comunidade',
+    ],
   },
   {
     label: 'Visão',
     icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>,
-    text: 'Ser uma empresa de referência e estar entre as maiores em nosso segmento, entregando soluções inovadoras com princípios éticos, responsabilidade ambiental e crescimento sustentável.',
+    items: [
+      'Empresa de referência no segmento',
+      'Soluções inovadoras e tecnológicas',
+      'Princípios éticos em todas as decisões',
+      'Responsabilidade ambiental e crescimento sustentável',
+    ],
   },
   {
     label: 'Valores',
     icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>,
-    text: 'Ética, honestidade, integridade, disciplina, transparência, responsabilidade social e obsessão pela segurança — princípios não negociáveis que guiam cada decisão e formam a base de nossa cultura.',
+    items: [
+      'Ética e honestidade',
+      'Integridade e disciplina',
+      'Transparência',
+      'Responsabilidade social',
+      'Obsessão pela segurança',
+    ],
   },
 ]
 
@@ -70,7 +86,7 @@ export default function Empresa() {
                 ))}
               </div>
             </div>
-            <ImgFrame src="https://www.maxpesa.com.br/web/images/2023/08/26/bg-25-anos.jpg" alt="25 Anos Maxpesa" badge={BADGE} />
+            <ImgFrame src="/src/assets/empresa_img.png" alt="25 Anos Maxpesa" className={styles.empImg} badge={BADGE} />
           </div>
         </div>
       </section>
@@ -95,7 +111,11 @@ export default function Empresa() {
               <div key={item.label} className={`${styles.mvvCard} reveal`}>
                 <div className={styles.mvvIcon}>{item.icon}</div>
                 <h4 className={styles.mvvLabel}>{item.label}</h4>
-                <p>{item.text}</p>
+                <ul className={styles.mvvList}>
+                  {item.items.map((it) => (
+                    <li key={it} className={styles.mvvItem}>{it}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>

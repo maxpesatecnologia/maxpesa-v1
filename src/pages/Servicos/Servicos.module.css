@@ -27,7 +27,10 @@
   gap: 9px;
   padding: 13px 22px;
   text-decoration: none;
+  border: none;
   border-right: 1px solid var(--border-0);
+  background: none;
+  cursor: pointer;
   flex: 1;
   min-width: 0;
   justify-content: center;

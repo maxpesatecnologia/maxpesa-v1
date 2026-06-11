@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
 import { useReveal } from '../../hooks/useReveal'
@@ -33,9 +33,22 @@ const CLIENTS = [
   { name: 'Air Liquide',    logo: 'src/assets/air_liquide_logo.png' },
 ]
 
+const STATS = [
+  { n: '25', suf: '+', label: 'Anos de tradição',        target: 25    },
+  { n: '15.000', suf: '+', label: 'Projetos executados', target: 15000 },
+  { n: '100%',  label: 'Compromisso operacional' },
+  { n: 'ISO',   sub: '9001 Certificado' },
+]
+
 export default function Home() {
   const pageRef = useReveal([])
   const counterRef = useCounter()
+  const [activeIdx, setActiveIdx] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => setActiveIdx(i => (i + 1) % STATS.length), 2000)
+    return () => clearInterval(id)
+  }, [])
 
   return (
     <div ref={pageRef}>
@@ -71,14 +84,15 @@ export default function Home() {
       <div className={styles.statsBar} ref={counterRef}>
         <div className="container">
           <div className={styles.statsGrid}>
-            {[{n:'25',suf:'+',label:'Anos de tradição',target:25},{n:'15.000',suf:'+',label:'Projetos executados',target:15000},{n:'100%',label:'Compromisso operacional'},{n:'ISO',sub:'9001 Certificado'}].map((s,i)=>(
-              <div key={i} className={`${styles.statItem} reveal`}>
+            {STATS.map((s, i) => (
+              <div key={i} className={styles.statItem}>
                 <div className={styles.statN}>
                   {s.target ? <><span className="stat-number" data-target={s.target}>0</span>{s.suf}</> : s.n}
                 </div>
                 <div className={styles.statL}>{s.label || s.sub}</div>
               </div>
             ))}
+            <div className={styles.statsLine} style={{ left: `calc(${activeIdx} * 25% + 20px)` }} />
           </div>
         </div>
       </div>

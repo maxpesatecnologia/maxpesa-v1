@@ -6,8 +6,10 @@ import Footer    from '../Footer/Footer'
 import WppButton from '../WppButton/WppButton'
 
 export default function Layout() {
-  const { pathname } = useLocation()
-  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  const location = useLocation()
+  useEffect(() => {
+    if (!location.hash) window.scrollTo(0, 0)
+  }, [location.key])
   return (
     <>
       <Topbar />
