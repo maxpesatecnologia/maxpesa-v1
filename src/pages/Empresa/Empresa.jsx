@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react'
 import styles from './Empresa.module.css'
 import { useReveal } from '../../hooks/useReveal'
 import { useCounter } from '../../hooks/useCounter'
@@ -67,6 +68,22 @@ const BADGE = {
 export default function Empresa() {
   const ref = useReveal([])
   const cRef = useCounter()
+  const mvvLinesRef = useRef(null)
+
+  useEffect(() => {
+    const el = mvvLinesRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        entry.isIntersecting
+          ? el.classList.add(styles.mlVisible)
+          : el.classList.remove(styles.mlVisible)
+      },
+      { threshold: 0.1 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
   return (
     <div ref={ref}>
       <PageHero eyebrow="Nossa História" title={<>25 Anos de Força,<br/>Tradição e Confiança</>} subtitle="Fundados para transformar a logística pesada no Brasil — com segurança, precisão e comprometimento." crumb="A Empresa" />
@@ -104,8 +121,27 @@ export default function Empresa() {
         </div>
       </section>
 
-      <section className={styles.section}>
-        <div className="container">
+      <section className={`${styles.section} ${styles.mvvSec}`}>
+        <div ref={mvvLinesRef} className={styles.mvvLines} aria-hidden="true">
+          <svg viewBox="0 0 1440 520" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path pathLength="1" className={styles.mLine} style={{'--d':'0s','--dur':'1.8s'}}
+              d="M -60 560 C -60 200 820 -60 1480 -30"
+              stroke="#E6282B" strokeWidth="3.8" strokeOpacity="0.40" fill="none" />
+            <path pathLength="1" className={styles.mLine} style={{'--d':'0.16s','--dur':'1.9s'}}
+              d="M -60 460 C -60 140 740 -60 1480 -55"
+              stroke="#E6282B" strokeWidth="3.2" strokeOpacity="0.28" fill="none" />
+            <path pathLength="1" className={styles.mLine} style={{'--d':'0.32s','--dur':'2.0s'}}
+              d="M -60 660 C -60 260 900 -60 1480 -10"
+              stroke="#E6282B" strokeWidth="2.5" strokeOpacity="0.20" fill="none" />
+            <path pathLength="1" className={styles.mLine} style={{'--d':'0.48s','--dur':'2.1s'}}
+              d="M -60 760 C -60 330 980 -60 1480 14"
+              stroke="#E6282B" strokeWidth="1.8" strokeOpacity="0.13" fill="none" />
+            <path pathLength="1" className={styles.mLine} style={{'--d':'0.64s','--dur':'2.2s'}}
+              d="M -60 360 C -60 80 660 -60 1480 -68"
+              stroke="#E6282B" strokeWidth="1.4" strokeOpacity="0.09" fill="none" />
+          </svg>
+        </div>
+        <div className="container" style={{position:'relative', zIndex:1}}>
           <SectionHeader center eyebrow="Nossa essência" title="Missão, Visão e Valores" subtitle="Os princípios fundamentais que orientam cada decisão e definem quem somos." />
           <div className={styles.mvvGrid}>
             {MVV.map((item) => (
@@ -141,8 +177,8 @@ export default function Empresa() {
       <section className={styles.section} id="localizacao">
         <div className="container">
           <SectionHeader eyebrow="Onde estamos" title="Nossa sede" subtitle="Localizada em Duque de Caxias — RJ, a sede do Grupo Maxpesa serve todo o território nacional." />
-          <div className={styles.locationGrid}>
-            <div className={`${styles.mapEmbed} reveal`}>
+          <div className={`${styles.hqCard} reveal`}>
+            <div className={styles.hqMap}>
               <iframe
                 src="https://maps.google.com/maps?q=Grupo+Maxpesa,+Duque+de+Caxias,+RJ,+Brasil&output=embed&z=16"
                 loading="lazy"
@@ -150,7 +186,7 @@ export default function Empresa() {
                 title="Sede Grupo Maxpesa"
               />
             </div>
-            <div className={`${styles.hqInfo} reveal`}>
+            <div className={styles.hqSide}>
               <div className={styles.hqBadge}>Sede</div>
               <h3 className={styles.hqName}>Grupo Maxpesa</h3>
               <p className={styles.hqAddress}>

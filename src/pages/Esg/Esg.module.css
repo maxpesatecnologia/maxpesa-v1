@@ -13,5 +13,35 @@
 .bannerTag { font-size:11px; color:rgba(255,255,255,.7); text-transform:uppercase; letter-spacing:.1em; font-weight:600; margin-bottom:6px; }
 .banner h4 { font-size:16px; font-weight:700; color:#fff; margin-bottom:4px; }
 .banner p { font-size:13.5px; color:rgba(255,255,255,.75); }
+/* ── Decorative lines divider ── */
+.linesDivider {
+  position: relative;
+  height: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 2;
+}
+.linesDivider svg {
+  position: absolute;
+  left: 50%;
+  top: -120px;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 240px;
+}
+
+/* Base: dashoffset=1 → invisível. Transição sem delay = undraw imediato ao sair */
+.svgLine {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset var(--dur, 2s) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ao entrar na viewport: desenha com delay em cascata */
+.linesDivider.visible .svgLine {
+  stroke-dashoffset: 0;
+  transition-delay: var(--d, 0s);
+}
+
 @media(max-width:1024px){ .grid{ grid-template-columns:1fr; gap:40px; } .cardsGrid{ grid-template-columns:1fr 1fr; } }
 @media(max-width:768px){ .cardsGrid{ grid-template-columns:1fr; } }

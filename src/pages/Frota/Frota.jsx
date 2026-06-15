@@ -2,18 +2,20 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './Frota.module.css'
+import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/PageHero/PageHero'
 
-import imgG1   from '../../assets/guindaste1.jpeg'
-import imgG2   from '../../assets/guindaste2.jpg'
-import imgG3   from '../../assets/guindaste3.jpeg'
-import imgG4   from '../../assets/guindaste4.jpeg'
-import imgM1   from '../../assets/munck.jpg'
-import imgM2   from '../../assets/caminhao-munck-img2.jpg'
-import imgLA   from '../../assets/linhamarela.png'
-import imgEsc  from '../../assets/remocaoindustrial.png'
-import imgEixo from '../../assets/caminhao_linha_de_eixo.png'
-import imgRem  from '../../assets/remocao.png'
+import imgG1    from '../../assets/guindaste_trelicado_img.png'
+import imgG2    from '../../assets/guindaste1.jpeg'
+import imgG3    from '../../assets/guindaste3.jpeg'
+import imgG4    from '../../assets/guindaste4.jpeg'
+import imgM1    from '../../assets/munck3.png'
+import imgM2    from '../../assets/caminhao-munck-img2.jpg'
+import imgLA    from '../../assets/linhamarela.png'
+import imgPlatA from '../../assets/plataforma_articulada.png'
+import imgPlatT from '../../assets/plataforma_tesoura.png'
+import imgEixo  from '../../assets/caminhao_linha_de_eixo.png'
+import imgEmp   from '../../assets/munck2.png'
 
 const CATEGORIES = [
   {
@@ -48,36 +50,39 @@ const CATEGORIES = [
 
 const FLEET = [
   // GUINDASTES
-  { id: 1,  category: 'guindastes',    model: 'Liebherr LTM 1100-4.2', name: 'Guindaste Telescópico',  badge: '100T',  img: imgG3, specs: [{ l: 'Capacidade', v: '100 t' }, { l: 'Pluma', v: '60 m' }, { l: 'Rotação', v: '360°' }] },
-  { id: 2,  category: 'guindastes',    model: 'Liebherr LTM 1250-6.2', name: 'Guindaste All Terrain',   badge: '250T',  img: imgG1, specs: [{ l: 'Capacidade', v: '250 t' }, { l: 'Pluma', v: '84 m' }, { l: 'Rotação', v: '360°' }] },
-  { id: 3,  category: 'guindastes',    model: 'Grove GMK 4100L',        name: 'Guindaste Telescópico',  badge: '100T',  img: imgG2, specs: [{ l: 'Capacidade', v: '100 t' }, { l: 'Pluma', v: '58 m' }, { l: 'Eixos',   v: '4'    }] },
-  { id: 4,  category: 'guindastes',    model: 'Liebherr LTM 1050-3.1', name: 'Guindaste All Terrain',   badge: '50T',   img: imgG4, specs: [{ l: 'Capacidade', v: '50 t'  }, { l: 'Pluma', v: '44 m' }, { l: 'Rotação', v: '360°' }] },
+  { id: 1,  category: 'guindastes',    model: 'Liebherr LTM 1100-4.2',  name: 'Guindaste Rodoviário Telescópico', badge: '100T',  img: imgG3,    specs: [{ l: 'Capacidade', v: '100 t' }, { l: 'Pluma',       v: '60 m'    }, { l: 'Rotação',  v: '360°'      }] },
+  { id: 2,  category: 'guindastes',    model: 'Liebherr LTM 1250-6.2',  name: 'Guindaste Treliçado',              badge: '250T',  img: imgG1,    specs: [{ l: 'Capacidade', v: '250 t' }, { l: 'Pluma',       v: '84 m'    }, { l: 'Rotação',  v: '360°'      }] },
+  { id: 3,  category: 'guindastes',    model: 'Grove GMK 4100L',         name: 'Guindaste Rodoviário Telescópico', badge: '100T',  img: imgG2,    specs: [{ l: 'Capacidade', v: '100 t' }, { l: 'Pluma',       v: '58 m'    }, { l: 'Eixos',    v: '4'         }] },
   // MUNCK
-  { id: 5,  category: 'munck',         model: 'Mercedes-Benz 2644',     name: 'Caminhão-Guindauto',     badge: '25T',   img: imgM1, specs: [{ l: 'Capacidade', v: '25 t' }, { l: 'Alcance', v: '22 m' }, { l: 'Acionam.', v: 'Hidráulico' }] },
-  { id: 6,  category: 'munck',         model: 'Volvo FH 540',           name: 'Caminhão-Guindauto',     badge: '35T',   img: imgM2, specs: [{ l: 'Capacidade', v: '35 t' }, { l: 'Alcance', v: '26 m' }, { l: 'Acionam.', v: 'Hidráulico' }] },
+  { id: 5,  category: 'munck',         model: 'Mercedes-Benz 2644',      name: 'Caminhão-Guindauto',               badge: '25T',   img: imgM1,    specs: [{ l: 'Capacidade', v: '25 t'  }, { l: 'Alcance',     v: '22 m'    }, { l: 'Acionam.', v: 'Hidráulico' }] },
+  { id: 6,  category: 'munck',         model: 'Volvo FH 540',            name: 'Caminhão-Guindauto',               badge: '35T',   img: imgM2,    specs: [{ l: 'Capacidade', v: '35 t'  }, { l: 'Alcance',     v: '26 m'    }, { l: 'Acionam.', v: 'Hidráulico' }] },
   // LINHA AMARELA
-  { id: 7,  category: 'linha-amarela', model: 'Caterpillar 420F',       name: 'Retroescavadeira',       badge: '4x4',   img: imgLA, specs: [{ l: 'Balde',    v: '1.09 m³' }, { l: 'Prof. max', v: '6.3 m' }, { l: 'Tração',   v: '4x4'     }] },
-  { id: 8,  category: 'linha-amarela', model: 'Caterpillar 320D',       name: 'Escavadeira Hidráulica', badge: '20T',   img: imgEsc, specs: [{ l: 'Peso op.', v: '20 t'    }, { l: 'Profundid.', v: '9.8 m' }, { l: 'Balde',   v: '0.95 m³' }] },
+  { id: 7,  category: 'linha-amarela', model: 'Caterpillar 420F',        name: 'Escavadeira Hidráulica',           badge: '4x4',   img: imgLA,    specs: [{ l: 'Balde',      v: '1.09 m³'}, { l: 'Prof. max',   v: '6.3 m'   }, { l: 'Tração',   v: '4x4'       }] },
+  { id: 8,  category: 'linha-amarela', model: 'Caterpillar 320D',        name: 'Pá Carregadeira',                  badge: '20T',   img: imgLA,    specs: [{ l: 'Peso op.',   v: '20 t'   }, { l: 'Profundid.', v: '9.8 m'   }, { l: 'Balde',    v: '0.95 m³'  }] },
   // PLATAFORMA ELEVATÓRIA
-  { id: 9,  category: 'plataforma',    model: 'JLG 600AJ',              name: 'Plataforma Articulada',  badge: '18M',   img: imgG1, specs: [{ l: 'Alt. trab.', v: '18 m' }, { l: 'Capacidade', v: '227 kg' }, { l: 'Tração', v: '4WD'    }] },
-  { id: 10, category: 'plataforma',    model: 'Genie GS-4047',          name: 'Plataforma Tesoura',     badge: '14M',   img: imgRem, specs: [{ l: 'Alt. trab.', v: '14 m' }, { l: 'Capacidade', v: '450 kg' }, { l: 'Plataf.', v: '1.83 m' }] },
+  { id: 9,  category: 'plataforma',    model: 'JLG 600AJ',               name: 'Plataforma Articulada',            badge: '18M',   img: imgPlatA, specs: [{ l: 'Alt. trab.', v: '18 m'  }, { l: 'Capacidade', v: '227 kg'  }, { l: 'Tração',   v: '4WD'       }] },
+  { id: 10, category: 'plataforma',    model: 'Genie GS-4047',           name: 'Plataforma Tesoura',               badge: '14M',   img: imgPlatT, specs: [{ l: 'Alt. trab.', v: '14 m'  }, { l: 'Capacidade', v: '450 kg'  }, { l: 'Plataf.',  v: '1.83 m'   }] },
   // CARGAS ESPECIAIS
-  { id: 11, category: 'especiais',     model: 'Prancha 5 Eixos',        name: 'Carreta Especial',       badge: '80T',   img: imgEixo, specs: [{ l: 'Capacidade', v: '80 t'  }, { l: 'Comprimento', v: '20 m'  }, { l: 'Licença', v: 'DNIT' }] },
-  { id: 12, category: 'especiais',     model: 'Carreta Extensível',     name: 'Transporte Superdim.',   badge: '150T',  img: imgG4, specs: [{ l: 'Capacidade', v: '150 t' }, { l: 'Comprimento', v: '30+ m' }, { l: 'Licença', v: 'AET'  }] },
+  { id: 11, category: 'especiais',     model: 'Prancha 5 Eixos',         name: 'Carreta Carga Seca',               badge: '80T',   img: imgEixo,  specs: [{ l: 'Capacidade', v: '80 t'  }, { l: 'Comprimento', v: '20 m'   }, { l: 'Licença',  v: 'DNIT'      }] },
+  { id: 12, category: 'especiais',     model: 'Carreta Extensível',      name: 'Carreta Extensiva',                badge: '150T',  img: imgG4,    specs: [{ l: 'Capacidade', v: '150 t' }, { l: 'Comprimento', v: '30+ m'  }, { l: 'Licença',  v: 'AET'       }] },
+  { id: 13, category: 'especiais',     model: 'Carreta Baú Sider',       name: 'Carreta Baú Sider',                badge: '150T',  img: imgG4,    specs: [{ l: 'Capacidade', v: '150 t' }, { l: 'Comprimento', v: '30+ m'  }, { l: 'Licença',  v: 'AET'       }] },
+  { id: 14, category: 'especiais',     model: 'Carreta Baú',             name: 'Carreta Baú',                      badge: '150T',  img: imgG4,    specs: [{ l: 'Capacidade', v: '150 t' }, { l: 'Comprimento', v: '30+ m'  }, { l: 'Licença',  v: 'AET'       }] },
+  { id: 15, category: 'especiais',     model: 'Carreta Prancha',         name: 'Carreta Prancha',                  badge: '150T',  img: imgEixo,  specs: [{ l: 'Capacidade', v: '150 t' }, { l: 'Comprimento', v: '30+ m'  }, { l: 'Licença',  v: 'AET'       }] },
+  { id: 16, category: 'especiais',     model: 'Linha de Eixo',           name: 'Linha de Eixo',                    badge: '150T',  img: imgEixo,  specs: [{ l: 'Capacidade', v: '150 t' }, { l: 'Comprimento', v: '30+ m'  }, { l: 'Licença',  v: 'AET'       }] },
   // EMPILHADEIRAS
-  { id: 13, category: 'empilhadeiras', model: 'Toyota 8FBN25',          name: 'Empilhadeira Elétrica',  badge: '2.5T',  img: imgRem, specs: [{ l: 'Capacidade', v: '2.5 t' }, { l: 'Elevação', v: '5.5 m' }, { l: 'Acionam.', v: 'Elétrico' }] },
-  { id: 14, category: 'empilhadeiras', model: 'Yale GLP050',            name: 'Empilhadeira GLP',       badge: '5T',    img: imgEsc, specs: [{ l: 'Capacidade', v: '5 t'   }, { l: 'Elevação', v: '6 m'   }, { l: 'Acionam.', v: 'GLP'     }] },
+  { id: 17, category: 'empilhadeiras', model: 'Toyota 8FBN25',           name: 'Empilhadeira Elétrica',            badge: '2.5T',  img: imgEmp,   specs: [{ l: 'Capacidade', v: '2.5 t' }, { l: 'Elevação',    v: '5.5 m'  }, { l: 'Acionam.', v: 'Elétrico'  }] },
+  { id: 18, category: 'empilhadeiras', model: 'Yale GLP050',             name: 'Empilhadeira Diesel',              badge: '5T',    img: imgEmp,   specs: [{ l: 'Capacidade', v: '5 t'   }, { l: 'Elevação',    v: '6 m'    }, { l: 'Acionam.', v: 'Diesel'    }] },
 ]
 
 export default function Frota() {
+  const ref = useReveal([])
   const [active, setActive] = useState('all')
 
-  const filtered = active === 'all' ? FLEET : FLEET.filter(e => e.category === active)
-
-  const countFor = id => id === 'all' ? FLEET.length : FLEET.filter(e => e.category === id).length
+  const filtered  = active === 'all' ? FLEET : FLEET.filter(e => e.category === active)
+  const countFor  = id => id === 'all' ? FLEET.length : FLEET.filter(e => e.category === id).length
 
   return (
-    <div>
+    <div ref={ref}>
       <PageHero
         eyebrow="Locação de Equipamentos"
         title={<>Nossa<br/>Frota</>}
@@ -87,7 +92,7 @@ export default function Frota() {
 
       <section className={styles.section}>
 
-        {/* ── FILTER HEADER — gradiente vermelho ── */}
+        {/* ── BARRA DE FILTROS ── */}
         <div className={styles.filterHead}>
           <div className="container">
             <div className={styles.filterScroll}>
@@ -109,70 +114,70 @@ export default function Frota() {
           </div>
         </div>
 
+        {/* ── GRID ── */}
         <div className="container">
-          {/* ── GRID ── */}
           <div className={styles.grid}>
             <AnimatePresence mode="popLayout">
-            {filtered.map(item => (
-              <motion.article
-                key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.88, y: 16 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.88, y: 8 }}
-                whileHover={{ y: -7 }}
-                transition={{
-                  layout:  { duration: 0.5,  ease: [0.4, 0, 0.2, 1] },
-                  opacity: { duration: 0.28 },
-                  scale:   { duration: 0.28, ease: [0.4, 0, 0.2, 1] },
-                  y:       { duration: 0.28, ease: [0.4, 0, 0.2, 1] },
-                }}
-                className={styles.card}
-              >
+              {filtered.map(item => (
+                <motion.article
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9, y: 14 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, y: 8 }}
+                  whileHover={{ y: -6 }}
+                  transition={{
+                    layout:  { duration: 0.45, ease: [0.4, 0, 0.2, 1] },
+                    opacity: { duration: 0.25 },
+                    scale:   { duration: 0.25, ease: [0.4, 0, 0.2, 1] },
+                    y:       { duration: 0.25, ease: [0.4, 0, 0.2, 1] },
+                  }}
+                  className={styles.card}
+                >
+                  {/* Imagem */}
+                  <div className={styles.cardImg}>
+                    <img src={item.img} alt={item.name} loading="lazy" />
+                    <span className={styles.cardBadge}>{item.badge}</span>
+                  </div>
 
-                {/* IMAGE */}
-                <div className={styles.cardImg}>
-                  <img src={item.img} alt={item.name} />
-                </div>
+                  {/* Conteúdo */}
+                  <div className={styles.cardContent}>
+                    <p className={styles.cardModel}>{item.model}</p>
+                    <h3 className={styles.cardName}>{item.name}</h3>
+                  </div>
 
-                {/* CONTENT */}
-                <div className={styles.cardContent}>
-                  <p className={styles.cardModel}>{item.model}</p>
-                  <h3 className={styles.cardName}>{item.name}</h3>
-                </div>
+                  {/* Specs */}
+                  <div className={styles.cardSpecs}>
+                    {item.specs.map((s, i) => (
+                      <div key={i} className={styles.cardSpec}>
+                        <span className={styles.specVal}>{s.v}</span>
+                        <span className={styles.specLbl}>{s.l}</span>
+                      </div>
+                    ))}
+                  </div>
 
-                {/* SPECS */}
-                <div className={styles.cardSpecs}>
-                  {item.specs.map((s, i) => (
-                    <div key={i} className={styles.cardSpec}>
-                      <span className={styles.specVal}>{s.v}</span>
-                      <span className={styles.specLbl}>{s.l}</span>
-                    </div>
-                  ))}
-                </div>
+                  {/* Ações */}
+                  <div className={styles.cardFooter}>
+                    <Link to="/contato" className={styles.cardCta}>
+                      Solicitar Locação
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="13" height="13"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </Link>
+                    <a
+                      href={`https://wa.me/5521972101901?text=Olá! Tenho interesse na locação: ${item.name} — ${item.model}`}
+                      target="_blank" rel="noopener noreferrer"
+                      className={styles.cardWpp}
+                      aria-label="Contato via WhatsApp"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></svg>
+                    </a>
+                  </div>
 
-                {/* FOOTER */}
-                <div className={styles.cardFooter}>
-                  <Link to="/contato" className={styles.cardCta}>
-                    Solicitar Locação
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="13" height="13"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </Link>
-                  <a
-                    href={`https://wa.me/5521972101901?text=Olá! Tenho interesse na locação: ${item.name} — ${item.model}`}
-                    target="_blank" rel="noopener noreferrer"
-                    className={styles.cardWpp}
-                    aria-label="Contato via WhatsApp"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></svg>
-                  </a>
-                </div>
-
-              </motion.article>
-            ))}
+                </motion.article>
+              ))}
             </AnimatePresence>
           </div>
-
         </div>
+
       </section>
     </div>
   )

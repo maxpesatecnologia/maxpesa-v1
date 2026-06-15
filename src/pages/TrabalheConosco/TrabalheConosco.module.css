@@ -1,84 +1,247 @@
 .section { padding: 96px 0; background: var(--bg-0); }
 
-.wrap {
+/* ── Card shell ── */
+.card {
   background: var(--white);
   border: 1px solid var(--border-1);
   border-radius: var(--r-xl);
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  box-shadow: 0 4px 40px rgba(0,0,0,.08);
+  box-shadow: 0 8px 60px rgba(0, 0, 0, 0.11);
 }
 
-/* ── Painel esquerdo ── */
-.panel {
-  background: var(--red);
-  padding: 44px 36px;
-  display: flex;
-  flex-direction: column;
-  color: #fff;
-}
-.panel h3 {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -.025em;
-  margin-bottom: 10px;
-  color: #fff;
-}
-.panel p {
-  font-size: 13.5px;
-  color: rgba(255,255,255,.78);
-  line-height: 1.75;
-  margin-bottom: 32px;
-}
-
-.beneficios { display: flex; flex-direction: column; gap: 16px; flex: 1; }
-.beneficio {
+/* ── Header preto ── */
+.cardHead {
+  background: #0e0e10;
+  border-top: 3px solid var(--red);
+  padding: 32px 48px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 13.5px;
-  color: rgba(255,255,255,.9);
-  font-weight: 400;
+  justify-content: space-between;
+  gap: 32px;
+  position: relative;
+  overflow: hidden;
 }
+.cardHead::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+
+.cardHeadLeft {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+}
+
+.cardLogo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.cardHeadDivider {
+  width: 1px;
+  height: 42px;
+  background: rgba(255,255,255,0.12);
+  flex-shrink: 0;
+}
+
+.cardHeadTitle {
+  font-family: var(--ff-body);
+  font-size: 21px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.cardHeadSub {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.4);
+  margin: 0;
+  font-weight: 300;
+}
+
+.cardHeadBadges {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.hBadge {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--r-sm);
+  padding: 8px 14px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.82);
+  white-space: nowrap;
+  line-height: 1.3;
+}
+.hBadge strong {
+  color: #fff;
+  font-weight: 700;
+  display: block;
+  font-size: 15px;
+  letter-spacing: -0.02em;
+}
+
+/* ── Corpo do card ── */
+.cardBody {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+}
+
+/* ── Painel esquerdo — vermelho ── */
+.panel {
+  background: linear-gradient(155deg, #c80009 0%, #950008 55%, #780006 100%);
+  position: relative;
+  overflow: hidden;
+}
+.panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.panelInner {
+  position: relative;
+  z-index: 1;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.panelEyebrow {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.62);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.panelTitle {
+  font-family: var(--ff-display);
+  font-size: 22px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  line-height: 1.25;
+}
+
+.panelSub {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.68);
+  line-height: 1.75;
+  margin: 0 0 36px;
+  font-weight: 300;
+}
+
+/* Benefícios */
+.beneficios {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.benefRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+.beneficios .benefRow:first-child { border-top: 1px solid rgba(255,255,255,0.14); }
+
 .benefIco {
-  width: 36px;
-  height: 36px;
-  background: rgba(255,255,255,.15);
-  border-radius: var(--r-xs);
+  width: 38px;
+  height: 38px;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: var(--r-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  color: var(--red);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  transition: background 0.25s, box-shadow 0.25s;
 }
-.benefIco svg { width: 15px; height: 15px; color: #fff; }
+.benefRow:hover .benefIco {
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.24);
+}
+.benefIco svg { width: 15px; height: 15px; }
+
+.benefLabel {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 3px;
+  letter-spacing: -0.01em;
+}
+.benefDesc {
+  font-size: 12px;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.6;
+}
 
 .panelNote {
-  margin-top: 32px;
-  padding: 12px 14px;
-  background: rgba(0,0,0,.15);
+  margin-top: 24px;
+  padding: 11px 14px;
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--r-sm);
-  font-size: 12px;
-  color: rgba(255,255,255,.65);
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.52);
   display: flex;
   align-items: flex-start;
   gap: 8px;
   line-height: 1.6;
 }
-.panelNote svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 1px; }
+.panelNote svg { width: 13px; height: 13px; flex-shrink: 0; margin-top: 1px; }
 
-/* ── Formulário direito ── */
-.formWrap { padding: 44px 40px; }
-.formWrap h3 {
+/* ── Formulário ── */
+.formWrap {
+  padding: 48px 44px;
+  background: var(--white);
+}
+
+.formTitle {
   font-size: 20px;
   font-weight: 700;
-  letter-spacing: -.025em;
-  margin-bottom: 6px;
+  color: var(--text-0);
+  letter-spacing: -0.025em;
+  margin: 0 0 6px;
 }
-.formWrap p {
+.formSub {
   font-size: 13.5px;
   color: var(--text-1);
-  margin-bottom: 28px;
+  margin: 0 0 28px;
+  font-weight: 300;
+  line-height: 1.65;
 }
 
 .form { display: flex; flex-direction: column; gap: 18px; }
@@ -88,11 +251,10 @@
 .field label:first-child {
   font-size: 11.5px;
   color: var(--text-2);
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 500;
 }
-.optional { text-transform: none; letter-spacing: 0; font-weight: 300; color: var(--text-2); opacity: .7; }
 .required { color: #e53935; font-weight: 600; margin-left: 2px; }
 
 .field input,
@@ -105,7 +267,7 @@
   font-size: 14px;
   color: var(--text-0);
   outline: none;
-  transition: border-color .2s, background .2s;
+  transition: border-color 0.2s, background 0.2s;
   appearance: none;
   -webkit-appearance: none;
 }
@@ -115,7 +277,7 @@
 .invalid { border-color: #e6282b !important; background: #fff5f5 !important; }
 .err { font-size: 11.5px; color: var(--red); font-weight: 400; }
 
-/* File input */
+/* Upload */
 .fileInput { display: none; }
 .fileLabel {
   display: flex;
@@ -124,15 +286,16 @@
   background: var(--bg-1);
   border: 1.5px dashed var(--border-0);
   border-radius: var(--r-xs);
-  padding: 12px 14px;
+  padding: 14px 16px;
   font-size: 13.5px;
   color: var(--text-1);
   cursor: pointer;
-  transition: border-color .2s, color .2s;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
   line-height: 1.4;
 }
 .fileLabel svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--red); }
-.fileLabel:hover { border-color: var(--red); color: var(--text-0); }
+.fileLabel:hover { border-color: var(--red); color: var(--text-0); background: var(--white); }
+.fileInvalid { border-color: #e6282b !important; background: #fff5f5 !important; }
 
 .submit {
   align-self: flex-start;
@@ -142,17 +305,42 @@
   background: var(--red);
   color: #fff;
   border: none;
-  padding: 13px 26px;
+  padding: 13px 28px;
   border-radius: var(--r-sm);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: var(--t);
-  box-shadow: 0 2px 12px rgba(230,40,43,.22);
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 2px 16px rgba(230,40,43,0.28);
   margin-top: 4px;
+  letter-spacing: 0.01em;
 }
-.submit:hover:not(:disabled) { background: var(--red-dark); transform: translateY(-1px); }
-.submit:disabled { opacity: .7; cursor: not-allowed; }
+.submit:hover:not(:disabled) {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 24px rgba(230,40,43,0.38);
+}
+.submit:disabled { opacity: 0.7; cursor: not-allowed; }
 
-@media (max-width: 1024px) { .wrap { grid-template-columns: 1fr; } }
-@media (max-width: 768px)  { .row2 { grid-template-columns: 1fr; } .formWrap { padding: 32px 24px; } .panel { padding: 32px 24px; } }
+/* ── Responsivo ── */
+@media (max-width: 1200px) {
+  .cardHeadBadges { display: none; }
+  .cardBody { grid-template-columns: 320px 1fr; }
+}
+@media (max-width: 1024px) {
+  .cardHead { padding: 28px 32px; }
+  .cardBody { grid-template-columns: 1fr; }
+  .cardHeadBadges { display: flex; }
+}
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .cardHead { padding: 22px 20px; flex-direction: column; align-items: flex-start; gap: 18px; }
+  .cardHeadLeft { flex-wrap: wrap; gap: 14px; }
+  .cardHeadDivider { display: none; }
+  .cardLogo { height: 32px; }
+  .cardHeadTitle { font-size: 20px; }
+  .cardHeadBadges { flex-wrap: wrap; }
+  .panelInner { padding: 32px 24px; }
+  .formWrap { padding: 32px 24px; }
+  .row2 { grid-template-columns: 1fr; }
+}

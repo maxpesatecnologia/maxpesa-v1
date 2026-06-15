@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
 import { useReveal } from '../../hooks/useReveal'
@@ -66,6 +66,22 @@ export default function Home() {
   const pageRef = useReveal([])
   const counterRef = useCounter()
   const [activeIdx, setActiveIdx] = useState(0)
+  const whyLinesRef = useRef(null)
+
+  useEffect(() => {
+    const el = whyLinesRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        entry.isIntersecting
+          ? el.classList.add(styles.linesVisible)
+          : el.classList.remove(styles.linesVisible)
+      },
+      { threshold: 0.1 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
 
   useEffect(() => {
     const id = setInterval(() => setActiveIdx(i => (i + 1) % STATS.length), 2000)
@@ -161,7 +177,27 @@ export default function Home() {
 
       {/* POR QUE */}
       <section className={styles.why}>
-        <div className="container">
+        <div ref={whyLinesRef} className={styles.whyLines} aria-hidden="true">
+          <svg viewBox="0 0 1440 520" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Arcos da lateral esquerda em direção ao topo-direito */}
+            <path pathLength="1" className={styles.wLine} style={{'--d':'0s','--dur':'1.8s'}}
+              d="M -60 560 C -60 200 820 -60 1480 -30"
+              stroke="#E6282B" strokeWidth="3.8" strokeOpacity="0.40" fill="none" />
+            <path pathLength="1" className={styles.wLine} style={{'--d':'0.16s','--dur':'1.9s'}}
+              d="M -60 460 C -60 140 740 -60 1480 -55"
+              stroke="#E6282B" strokeWidth="3.2" strokeOpacity="0.28" fill="none" />
+            <path pathLength="1" className={styles.wLine} style={{'--d':'0.32s','--dur':'2.0s'}}
+              d="M -60 660 C -60 260 900 -60 1480 -10"
+              stroke="#E6282B" strokeWidth="2.5" strokeOpacity="0.20" fill="none" />
+            <path pathLength="1" className={styles.wLine} style={{'--d':'0.48s','--dur':'2.1s'}}
+              d="M -60 760 C -60 330 980 -60 1480 14"
+              stroke="#E6282B" strokeWidth="1.8" strokeOpacity="0.13" fill="none" />
+            <path pathLength="1" className={styles.wLine} style={{'--d':'0.64s','--dur':'2.2s'}}
+              d="M -60 360 C -60 80 660 -60 1480 -68"
+              stroke="#E6282B" strokeWidth="1.4" strokeOpacity="0.09" fill="none" />
+          </svg>
+        </div>
+        <div className="container" style={{position:'relative', zIndex:1}}>
           <SectionHeader center eyebrow="Nossos diferenciais" title="Por que escolher a Maxpesa" subtitle="Comprometidos com segurança, precisão e resultado em cada operação." />
           <div className={styles.whyGrid}>
             {[

@@ -376,6 +376,26 @@
 .why {
   padding: 100px 0;
   background: var(--grey-0);
+  position: relative;
+  overflow: hidden;
+}
+
+.whyLines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.whyLines svg { width: 100%; height: 100%; }
+
+.wLine {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset var(--dur, 1.8s) cubic-bezier(0.4, 0, 0.2, 1);
+}
+.linesVisible .wLine {
+  stroke-dashoffset: 0;
+  transition-delay: var(--d, 0s);
 }
 
 .whyGrid {
