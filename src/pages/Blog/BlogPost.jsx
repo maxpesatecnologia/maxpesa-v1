@@ -1,11 +1,17 @@
 import { useParams, Link } from 'react-router-dom'
 import { POSTS } from '../../data/blogPosts'
 import styles from './BlogPost.module.css'
-import Button from '../../components/Button/Button'
+
 
 const BackArrow = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
     <path d="M19 12H5M12 5l-7 7 7 7"/>
+  </svg>
+)
+
+const ArrowRight = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="13" height="13">
+    <path d="M5 12h14M12 5l7 7-7 7"/>
   </svg>
 )
 
@@ -51,7 +57,8 @@ export default function BlogPost() {
 
   return (
     <div>
-      {/* ── Hero cover ── */}
+
+      {/* ── COVER ── */}
       <div className={styles.cover}>
         <img src={post.img} alt={post.title} />
         <div className={styles.overlay} />
@@ -63,7 +70,7 @@ export default function BlogPost() {
         </div>
       </div>
 
-      {/* ── Artigo ── */}
+      {/* ── ARTIGO ── */}
       <section className={styles.section}>
         <div className="container">
           <Link to="/blog" className={styles.back}>
@@ -74,12 +81,14 @@ export default function BlogPost() {
           </div>
           <div className={styles.cta}>
             <p>Precisa de uma solução especializada em logística pesada?</p>
-            <Button to="/contato">Fale com nossa equipe</Button>
+            <Link to="/contato" className={styles.ctaBtn}>
+              Fale com nossa equipe <ArrowRight />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ── Leia também ── */}
+      {/* ── LEIA TAMBÉM ── */}
       {related.length > 0 && (
         <section className={styles.relatedSec}>
           <div className="container">
@@ -101,6 +110,7 @@ export default function BlogPost() {
           </div>
         </section>
       )}
+
     </div>
   )
 }

@@ -10,6 +10,7 @@ import imgGuindaste    from '../../assets/guindaste3.jpeg'
 import imgRemocao      from '../../assets/remocaoindustrial.png'
 import imgMunck        from '../../assets/munck.jpg'
 import imgLinhaAmarela from '../../assets/linhamarela.png'
+import imgLinhadeEixo from '../../assets/caminhao_linha_de_eixo.png'
 import logoPetrobras   from '../../assets/petrobras_logo.png'
 import logoVale        from '../../assets/vale_logo.png'
 import logoLight       from '../../assets/light_logo.png'
@@ -24,6 +25,7 @@ import logoGe          from '../../assets/ge_logo.png'
 import logoFurnas      from '../../assets/furnas_logo.png'
 import logoEngelmig    from '../../assets/engelmig_logo.png'
 import logoCemig       from '../../assets/cemig_logo.png'
+import logoEngie       from '../../assets/engie_logo.png'
 import logoAirLiquide  from '../../assets/air_liquide_logo.png'
 
 const SERVICES = [
@@ -31,7 +33,7 @@ const SERVICES = [
   { num: '02', title: 'Movimentação de Cargas', desc: 'Planejamento e execução de mudanças de layout fabril, posicionamento de máquinas e desmontagem de equipamentos industriais com a menor paralisação possível na produção.', to: '/servicos#movimentacao-cargas', img: imgRemocao },
   { num: '03', title: 'Locação de Equipamentos', desc: 'Frota moderna e diversificada disponível em contratos de curto e longo prazo — guindastes, caminhão-guindauto e linha amarela — com manutenção preventiva e suporte 24/7.', to: '/servicos#locacao', img: imgMunck },
   { num: '04', title: 'Linha Amarela (Retroescavadeira)', desc: 'Retroescavadeiras, pás carregadeiras e escavadeiras hidráulicas para terraplanagem, escavação e movimentação de solo, com operadores certificados e documentação vigente.', to: '/servicos#linha-amarela', img: imgLinhaAmarela },
-  { num: '05', title: 'Transporte de Cargas Especiais', desc: 'Transporte rodoviário de cargas superdimensionadas com carretas especiais, caminhão-guindauto, escolta credenciada, licenças DNIT/DER e rota planejada por engenheiro.', to: '/servicos#transporte', img: imgGuindaste },
+  { num: '05', title: 'Transporte de Cargas Especiais', desc: 'Transporte rodoviário de cargas superdimensionadas com carretas especiais, caminhão-guindauto, escolta credenciada, licenças DNIT/DER e rota planejada por engenheiro.', to: '/servicos#transporte', img: imgLinhadeEixo },
 ]
 
 const CLIENTS = [
@@ -49,6 +51,7 @@ const CLIENTS = [
   { name: 'Furnas',                           logo: logoFurnas     },
   { name: 'Engelmig',                         logo: logoEngelmig   },
   { name: 'Cemig',                            logo: logoCemig      },
+  { name: 'Engie',                            logo: logoEngie      },
   { name: 'Air Liquide',                      logo: logoAirLiquide },
 ]
 
@@ -123,7 +126,9 @@ export default function Home() {
           <div className={styles.servicesGrid}>
             {SERVICES.map((s) => (
               <div key={s.num} className={`${styles.serviceCard} reveal`}>
-                <img src={s.img} alt={s.title} />
+                <div className={styles.serviceImgWrap}>
+                  <img src={s.img} alt={s.title} />
+                </div>
                 <div className={styles.serviceBody}>
                   <div className={styles.serviceNum}>{s.num}</div>
                   <h3>{s.title}</h3>

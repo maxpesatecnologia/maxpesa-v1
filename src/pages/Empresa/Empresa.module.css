@@ -6,108 +6,115 @@
 .lead  { font-size:17px; color:var(--text-1); line-height:1.8; margin-bottom:14px; }
 .body  { font-size:15px; color:var(--text-1); line-height:1.8; margin-bottom:28px; }
 
-.statsRow  { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border-0); border:1px solid var(--border-0); border-radius:var(--r-md); overflow:hidden; }
-.statCell  { background:var(--bg-1); padding:22px 16px; text-align:center; }
-.statN     { font-family:var(--ff-display); font-size:32px; font-weight:800; color:var(--red); letter-spacing:-.04em; }
-.statL     { font-size:12px; color:var(--text-2); margin-top:4px; }
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: linear-gradient(105deg, #c80009 0%, #9b0007 52%, #6b0004 100%);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(140, 0, 5, 0.38);
+}
+.statsRow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+.statCell  { background: transparent; padding: 22px 16px; text-align: center; border-right: 1px solid rgba(255,255,255,0.14); position: relative; }
+.statCell:last-child { border-right: none; }
+.statN     { font-family: var(--ff-display); font-size: 32px; font-weight: 400; color: #fff; letter-spacing: -.03em; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+.statL     { font-size: 10.5px; color: rgba(255,255,255,0.62); margin-top: 5px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; }
 
 /* ── MVV cards ── */
 .mvvGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
 
 .mvvCard {
-  background: var(--white);
-  border: 1px solid var(--border-0);
+  background: linear-gradient(150deg, #8c0009 0%, #5e0005 52%, #180001 100%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: var(--r-lg);
-  padding: 36px 32px 32px;
-  position: relative;
-  overflow: hidden;
-  transition: border-color var(--t), box-shadow var(--t), transform var(--t);
+  padding: 28px 28px 26px;
+  transition: border-color 0.3s, box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
 }
-.mvvCard::before {
-  content: '';
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 3px;
-  background: var(--red);
-  border-radius: 2px 0 0 2px;
-}
+
 .mvvCard:hover {
-  border-color: var(--red-border);
-  box-shadow: 0 8px 32px rgba(230,40,43,.09);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
   transform: translateY(-4px);
 }
 
 .mvvIcon {
-  width: 48px;
-  height: 48px;
-  background: var(--red-pale);
-  border-radius: var(--r-md);
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: var(--r-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  color: var(--red);
-  transition: background var(--t);
+  margin-bottom: 16px;
+  color: rgba(255,255,255,0.85);
 }
-.mvvIcon svg { width: 22px; height: 22px; }
-.mvvCard:hover .mvvIcon { background: rgba(230,40,43,.13); }
+.mvvIcon svg { width: 20px; height: 20px; }
 
 .mvvLabel {
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--text-0);
-  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
   letter-spacing: -.01em;
 }
 .mvvList { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-.mvvItem { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: var(--text-1); line-height: 1.55; }
-.mvvItem::before { content: ''; flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--red); margin-top: 5px; }
+.mvvItem { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.55; }
+.mvvItem::before { content: ''; flex-shrink: 0; width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.4); margin-top: 7px; }
 
 /* ── Value / pillar cards ── */
-.valuesGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.valuesGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
 
 .valueCard {
   background: var(--white);
-  border: 1px solid var(--border-0);
-  border-radius: var(--r-md);
-  padding: 28px 24px 28px 28px;
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-lg);
+  padding: 28px 26px 28px 32px;
   position: relative;
   overflow: hidden;
-  transition: border-color var(--t), box-shadow var(--t), transform var(--t);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.04);
+  transition: border-color 0.3s, box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
 }
+
+/* Always-visible left accent */
 .valueCard::before {
   content: '';
   position: absolute;
   inset: 0 auto 0 0;
   width: 3px;
-  background: transparent;
+  background: linear-gradient(to bottom, var(--red-light), var(--red-dark));
   border-radius: 2px 0 0 2px;
-  transition: background var(--t);
 }
+
 .valueCard:hover {
   border-color: var(--red-border);
-  box-shadow: 0 6px 24px rgba(230,40,43,.08);
-  transform: translateY(-3px);
+  box-shadow: 0 10px 36px rgba(0,0,0,0.10), 0 3px 10px rgba(0,0,0,0.06);
+  transform: translateY(-4px);
 }
-.valueCard:hover::before { background: var(--red); }
 
 .vnum {
-  display: block;
-  position: absolute;
-  top: 8px;
-  right: 16px;
-  font-family: var(--ff-display);
-  font-size: 52px;
-  font-weight: 800;
-  line-height: 1;
-  color: rgba(230,40,43,.07);
-  pointer-events: none;
-  user-select: none;
-  transition: color var(--t);
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 3px 11px;
+  border-radius: 99px;
+  margin-bottom: 14px;
 }
-.valueCard:hover .vnum { color: rgba(230,40,43,.12); }
 
-.valueCard h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--text-0); }
+.valueCard h4 { font-size: 15px; font-weight: 700; margin-bottom: 9px; color: var(--text-0); }
 .valueCard p  { font-size: 13.5px; color: var(--text-1); line-height: 1.75; margin: 0; }
 
 .empImg{

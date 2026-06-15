@@ -93,6 +93,7 @@
   font-weight: 500;
 }
 .optional { text-transform: none; letter-spacing: 0; font-weight: 300; color: var(--text-2); opacity: .7; }
+.required { color: #e53935; font-weight: 600; margin-left: 2px; }
 
 .field input,
 .field select {

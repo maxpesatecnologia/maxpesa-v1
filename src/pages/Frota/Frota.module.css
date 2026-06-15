@@ -1,0 +1,272 @@
+/* ==========================================================================
+   FROTA — CSS MODULE
+   ========================================================================== */
+
+.section {
+  background: var(--bg-1);
+  padding-bottom: 100px;
+}
+
+/* ── FILTER HEAD ─────────────────────────────────────────────────────────── */
+.filterHead {
+  background: var(--white);
+  border-bottom: 1px solid var(--border-0);
+  padding: 28px 0 24px;
+  margin-bottom: 52px;
+}
+
+.filterScroll {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border-radius: 99px;
+  border: 1.5px solid var(--border-1);
+  background: var(--white);
+  color: var(--text-1);
+  font-family: var(--ff-body);
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.filterIco {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.filterIco svg { width: 14px; height: 14px; }
+
+.filterCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 5px;
+  border-radius: 99px;
+  background: var(--bg-2);
+  color: var(--text-2);
+  font-size: 10px;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.filterBtn:hover {
+  border-color: var(--red-border);
+  color: var(--red);
+  background: var(--red-pale);
+}
+.filterBtn:hover .filterCount {
+  background: rgba(230,40,43,0.1);
+  color: var(--red);
+}
+
+.filterBtn.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+  box-shadow: 0 3px 16px rgba(230,40,43,0.28);
+}
+.filterBtn.active .filterCount {
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+}
+
+.filterMeta {
+  font-family: var(--ff-body);
+  font-size: 13px;
+  color: var(--text-2);
+}
+.filterMeta strong {
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* ── GRID ────────────────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  padding-top: 4px;
+}
+
+/* ── CARD ────────────────────────────────────────────────────────────────── */
+.card {
+  background-color: #28282c;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
+  background-size: 250px 250px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.32);
+  transition: box-shadow 0.4s var(--ease), border-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.card:hover {
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.46);
+  border-color: rgba(255, 255, 255, 0.13);
+}
+
+/* ── IMAGE ───────────────────────────────────────────────────────────────── */
+.cardImg {
+  position: relative;
+  height: 210px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.cardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.75s var(--ease), filter 0.4s;
+  filter: brightness(0.88) contrast(1.05) saturate(0.9);
+}
+
+.card:hover .cardImg img {
+  transform: scale(1.07);
+  filter: brightness(0.75) contrast(1.08) saturate(1.05);
+}
+
+/* ── CONTENT (modelo + nome) ─────────────────────────────────────────────── */
+.cardContent {
+  padding: 16px 20px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.cardModel {
+  font-family: var(--ff-body);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.cardName {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  color: #fff;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* ── SPECS ───────────────────────────────────────────────────────────────── */
+.cardSpecs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  flex: 1;
+  background: rgba(0, 0, 0, 0.22);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.cardSpec {
+  padding: 13px 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.cardSpec:last-child { border-right: none; }
+
+.specVal {
+  font-family: var(--ff-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.specLbl {
+  font-family: var(--ff-body);
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-weight: 500;
+}
+
+/* ── CARD FOOTER ─────────────────────────────────────────────────────────── */
+.cardFooter {
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardCta {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--red);
+  border: none;
+  color: #fff;
+  font-family: var(--ff-body);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 11px 18px;
+  border-radius: 99px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.25s, box-shadow 0.25s, transform 0.2s;
+  white-space: nowrap;
+}
+.cardCta:hover {
+  background: #a8000a;
+  box-shadow: 0 4px 18px rgba(200, 0, 9, 0.45);
+  transform: translateY(-1px);
+}
+.cardCta svg { flex-shrink: 0; }
+
+.cardWpp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-sm);
+  background: #25D366;
+  border: none;
+  color: #fff;
+  flex-shrink: 0;
+  transition: background 0.22s, transform 0.2s;
+}
+.cardWpp:hover {
+  background: #1daf55;
+  transform: scale(1.07);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .section { padding-bottom: 80px; }
+  .filterHead { padding: 28px 0 24px; margin-bottom: 36px; }
+  .filterScroll { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+  .filterScroll::-webkit-scrollbar { display: none; }
+  .grid { grid-template-columns: 1fr; }
+}

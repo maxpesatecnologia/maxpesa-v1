@@ -11,7 +11,7 @@
   align-items: flex-end;
   padding-bottom: 80px;
   overflow: hidden;
-  background: #000; 
+  background: #000;
 }
 
 .heroVideo {
@@ -35,7 +35,6 @@
     );
 }
 
-/* Faixa vermelha + ruído sutil no rodapé */
 .heroStripe {
   position: absolute;
   bottom: 0; left: 0; right: 0;
@@ -49,7 +48,6 @@
   max-width: 680px;
 }
 
-/* Tag pré-título */
 .heroTag {
   display: inline-flex;
   align-items: center;
@@ -77,11 +75,10 @@
   50%       { opacity: 0.3; transform: scale(0.7); }
 }
 
-/* Título hero — Audiowide para máximo impacto */
 .hero h1 {
   font-family: var(--ff-hero);
   font-size: clamp(40px, 5.5vw, 72px);
-  font-weight: 400; /* Audiowide não tem variações de peso */
+  font-weight: 400;
   line-height: 1.02;
   letter-spacing: -0.01em;
   color: #fff;
@@ -90,7 +87,6 @@
 
 .red { color: var(--red); }
 
-/* Sublinha vermelha no MAXPESA */
 .heroTitleSub {
   display: block;
   position: relative;
@@ -124,11 +120,23 @@
   flex-wrap: wrap;
 }
 
-/* ── STATS BAR ───────────────────────────────────────────────────────────── */
+/* ── STATS BAR — GRADIENTE VERMELHO FORTE ───────────────────────────────── */
 .statsBar {
-  background: var(--white);
-  border-bottom: 1px solid var(--border-0);
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+  background: linear-gradient(105deg, #c80009 0%, #9b0007 52%, #6b0004 100%);
+  box-shadow: 0 4px 32px rgba(150, 0, 6, 0.45);
+  position: relative;
+  overflow: hidden;
+}
+
+.statsBar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 52px 52px;
+  pointer-events: none;
 }
 
 .statsGrid {
@@ -138,24 +146,22 @@
 }
 
 .statItem {
-  padding: 28px 20px;
+  padding: 32px 20px;
   text-align: center;
-  border-right: 1px solid var(--border-0);
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
   transition: background var(--t);
   position: relative;
   cursor: default;
 }
-.statItem:last-child { border-right: none; }
-.statItem:hover { background: var(--bg-1); }
+.statItem:nth-last-child(2) { border-right: none; }
+.statItem:hover { background: rgba(0, 0, 0, 0.18); }
 
-
-/* Linha única deslizante */
 .statsLine {
   position: absolute;
   bottom: 0;
   height: 2px;
   width: calc(25% - 40px);
-  background: var(--red);
+  background: rgba(255, 255, 255, 0.45);
   border-radius: 2px;
   transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
@@ -164,18 +170,19 @@
 .statN {
   font-family: var(--ff-display);
   font-size: 36px;
-  font-weight: 400; /* Bungee é sempre bold por design */
-  color: var(--red);
+  font-weight: 400;
+  color: #fff;
   letter-spacing: -0.01em;
   line-height: 1;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
 }
 
 .statL {
   font-family: var(--ff-body);
-  font-size: 11.5px;
-  color: var(--text-2);
-  margin-top: 6px;
-  letter-spacing: 0.06em;
+  font-size: 10.5px;
+  color: rgba(255, 255, 255, 0.62);
+  margin-top: 7px;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -189,63 +196,86 @@
 .servicesGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
 .serviceCard {
   background: var(--white);
-  border: 1px solid var(--border-0);
+  border: 1px solid var(--border-1);
   border-radius: var(--r-lg);
   overflow: hidden;
-  transition: box-shadow var(--t), transform var(--t), border-color var(--t);
+  transition: box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
   position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.04);
 }
 
-.serviceCard::before {
+
+.serviceCard:hover {
+  box-shadow: 0 18px 56px rgba(0,0,0,0.13), 0 4px 16px rgba(0,0,0,0.06);
+  transform: translateY(-5px);
+}
+
+.serviceImgWrap {
+  position: relative;
+  height: 228px;
+  overflow: hidden;
+}
+
+/* Fade ancorado no bottom do wrapper — não desloca com o scale */
+.serviceImgWrap::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--red);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s var(--ease);
-  z-index: 1;
+  height: 44px;
+  background: linear-gradient(to bottom, transparent, var(--white));
+  z-index: 2;
+  pointer-events: none;
 }
 
-.serviceCard:hover {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
-  transform: translateY(-3px);
-  border-color: var(--border-1);
-}
-.serviceCard:hover::before { transform: scaleX(1); }
-
-.serviceCard img {
+.serviceImgWrap img {
   width: 100%;
-  height: 220px;
+  height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s var(--ease);
-  filter: brightness(0.95) contrast(1.02);
+  transition: transform 0.7s var(--ease), filter 0.4s;
+  filter: brightness(0.9) contrast(1.05) saturate(0.88);
 }
-.serviceCard:hover img { transform: scale(1.03); }
+.serviceCard:hover .serviceImgWrap img {
+  transform: scale(1.04);
+  filter: brightness(0.95) contrast(1.06) saturate(1.05);
+}
 
-.serviceBody { padding: 28px 28px 26px; }
+.serviceBody {
+  padding: 28px 30px 26px;
+  position: relative;
+}
+
+/* Acento esquerdo — só no corpo, abaixo do fade */
+.serviceBody::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--red-light), var(--red-dark));
+}
 
 .serviceNum {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
   font-family: var(--ff-body);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
-  color: var(--red);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-bottom: 10px;
-  display: block;
+  padding: 3px 11px;
+  border-radius: 99px;
+  margin-bottom: 14px;
 }
 
 .serviceCard h3 {
   font-family: var(--ff-display);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
   letter-spacing: -0.01em;
   margin-bottom: 10px;
@@ -255,9 +285,9 @@
 
 .serviceCard p {
   font-family: var(--ff-body);
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--text-1);
-  line-height: 1.78;
+  line-height: 1.8;
   margin-bottom: 20px;
   font-weight: 400;
 }
@@ -267,10 +297,10 @@
   align-items: center;
   gap: 6px;
   font-family: var(--ff-body);
-  font-size: 12.5px;
+  font-size: 11.5px;
   font-weight: 600;
   color: var(--red);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: gap 0.2s var(--ease), opacity 0.2s;
 }
@@ -291,7 +321,6 @@
   position: relative;
 }
 
-/* Overlay sutil na imagem */
 .splitImg::after {
   content: '';
   position: absolute;
@@ -307,7 +336,6 @@
   position: relative;
 }
 
-/* Detalhe vertical vermelho */
 .splitContent::before {
   content: '';
   position: absolute;
@@ -366,7 +394,6 @@
   overflow: hidden;
 }
 
-/* Canto vermelho no hover */
 .whyCard::before {
   content: '';
   position: absolute;
@@ -427,7 +454,6 @@
   background: var(--red);
 }
 
-/* Grid de linhas sutil no fundo */
 .cta::after {
   content: '';
   position: absolute;

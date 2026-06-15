@@ -98,6 +98,12 @@ export default function Header() {
             </li>
 
             <li>
+              <NavLink to="/frota" className={({ isActive }) => `${styles.a} ${isActive ? styles.active : ''}`}
+                onClick={() => setMenuOpen(false)}>
+                Nossa Frota
+              </NavLink>
+            </li>
+            <li>
               <NavLink to="/esg" className={({ isActive }) => `${styles.a} ${isActive ? styles.active : ''}`}
                 onClick={() => setMenuOpen(false)}>
                 ESG

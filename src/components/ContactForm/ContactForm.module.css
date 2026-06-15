@@ -21,5 +21,7 @@
 .submit { align-self:flex-start; display:inline-flex; align-items:center; gap:9px; background:var(--red); color:#fff; border:none; padding:13px 24px; border-radius:var(--r-sm); font-size:14px; font-weight:500; cursor:pointer; transition:var(--t); box-shadow:0 2px 12px rgba(230,40,43,.22); }
 .submit:hover:not(:disabled) { background:var(--red-dark); transform:translateY(-1px); }
 .submit:disabled { opacity:.7; cursor:not-allowed; }
+.field input.invalid, .field select.invalid, .field textarea.invalid { border-color:#e53935; background:#fff5f5; }
+.err { font-size:11px; color:#e53935; font-weight:500; letter-spacing:.02em; margin-top:-2px; }
 @media(max-width:1024px){ .wrap{ grid-template-columns:1fr; } }
 @media(max-width:768px){ .row2{ grid-template-columns:1fr; } }

@@ -7,6 +7,7 @@ import Esg         from './pages/Esg/Esg'
 import Certificacoes from './pages/Certificacoes/Certificacoes'
 import Contato          from './pages/Contato/Contato'
 import TrabalheConosco  from './pages/TrabalheConosco/TrabalheConosco'
+import Frota            from './pages/Frota/Frota'
 import Blog            from './pages/Blog/Blog'
 import BlogPost        from './pages/Blog/BlogPost'
 
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="blog/:slug"   element={<BlogPost />} />
           <Route path="contato" element={<Contato />} />
           <Route path="trabalhe-conosco" element={<TrabalheConosco />} />
+          <Route path="frota"           element={<Frota />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -50,6 +50,7 @@ export default function TrabalheConosco() {
     if (!tel) errs.telefone = 'Campo obrigatório'
     else if (tel.length < 10) errs.telefone = 'Telefone inválido'
     if (!form.email.value.trim()) errs.email = 'Campo obrigatório'
+    if (!form.curriculo.files.length) errs.curriculo = 'Anexe seu currículo para continuar'
     return errs
   }
 
@@ -95,7 +96,7 @@ export default function TrabalheConosco() {
               </ul>
               <div className={styles.panelNote}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                Aceito arquivos PDF, DOC ou DOCX até 5 MB.
+                Aceitamos arquivos PDF, DOC ou DOCX até 5 MB.
               </div>
             </div>
 
@@ -173,8 +174,8 @@ export default function TrabalheConosco() {
                 </div>
 
                 <div className={styles.field}>
-                  <label htmlFor="curriculo">Currículo <span className={styles.optional}>(opcional)</span></label>
-                  <label htmlFor="curriculo" className={styles.fileLabel}>
+                  <label htmlFor="curriculo">Currículo <span className={styles.required}>*</span></label>
+                  <label htmlFor="curriculo" className={`${styles.fileLabel} ${errors.curriculo ? styles.invalid : ''}`}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                     {fileName || 'Escolher arquivo (PDF, DOC, DOCX — máx. 5 MB)'}
                   </label>
@@ -184,6 +185,7 @@ export default function TrabalheConosco() {
                     className={styles.fileInput}
                     onChange={(e) => setFileName(e.target.files[0]?.name || '')}
                   />
+                  {errors.curriculo && <span className={styles.err}>{errors.curriculo}</span>}
                 </div>
 
                 <button type="submit" className={styles.submit} disabled={loading}>

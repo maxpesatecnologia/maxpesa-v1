@@ -12,9 +12,8 @@
 }
 
 .logo {
-  height: 56px;
+  height: 65px;
   width: auto;
-  filter: brightness(0) invert(1);
 }
 
 .desc {
