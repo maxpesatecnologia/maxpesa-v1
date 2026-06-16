@@ -3,7 +3,7 @@
 .alt    { background:var(--bg-1); }
 
 .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
-.lead  { font-size:17px; color:var(--text-1); line-height:1.8; margin-bottom:14px; }
+.lead  { font-size:15px; color:var(--text-1); line-height:1.8; margin-bottom:14px; }
 .body  { font-size:15px; color:var(--text-1); line-height:1.8; margin-bottom:28px; }
 
 .statsRow {
@@ -41,6 +41,11 @@
 }
 .mvvLines svg { width: 100%; height: 100%; }
 
+@keyframes linePulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.18; }
+}
+
 .mLine {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
@@ -49,13 +54,14 @@
 .mlVisible .mLine {
   stroke-dashoffset: 0;
   transition-delay: var(--d, 0s);
+  animation: linePulse var(--pulse-dur, 4s) ease-in-out var(--pulse-d, 0.5s) infinite;
 }
 
 /* ── MVV cards ── */
 .mvvGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
 
 .mvvCard {
-  background: var(--white);
+  background: linear-gradient(148deg, #ffffff 50%, rgba(230, 40, 43, 0.175) 100%);
   border: 1px solid var(--border-1);
   border-radius: var(--r-lg);
   padding: 36px 32px 32px;
@@ -83,8 +89,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(200, 0, 9, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200, 0, 9, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(200, 0, 10, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 0, 10, 0.085) 1px, transparent 1px);
   background-size: 28px 28px;
   opacity: 0;
   transition: opacity 0.45s var(--ease);
@@ -117,8 +123,8 @@
 .mvvCard:hover .mvvIcon { background: var(--red); color: #fff; border-color: var(--red); }
 
 .mvvLabel {
-  font-size: 17px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 700;
   color: var(--text-0);
   margin-bottom: 14px;
   letter-spacing: -.01em;
@@ -132,7 +138,7 @@
 .valuesGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 
 .valueCard {
-  background: var(--white);
+  background: linear-gradient(148deg, #ffffff 50%, rgba(230, 40, 43, 0.175) 100%);
   border: 1px solid var(--border-0);
   border-radius: var(--r-md);
   padding: 28px 24px 28px 28px;
@@ -159,18 +165,18 @@
 .vnum {
   display: block;
   position: absolute;
-  top: 8px;
-  right: 16px;
+  top: 5px;
+  right: 10px;
   font-family: var(--ff-display);
   font-size: 52px;
   font-weight: 800;
   line-height: 1;
-  color: rgba(230,40,43,.07);
+  color: rgba(230,40,43,.14);
   pointer-events: none;
   user-select: none;
   transition: color var(--t);
 }
-.valueCard:hover .vnum { color: rgba(230,40,43,.12); }
+.valueCard:hover .vnum { color: rgba(230,40,43,.22); }
 
 .valueCard h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--text-0); }
 .valueCard p  { font-size: 13.5px; color: var(--text-1); line-height: 1.75; margin: 0; }
@@ -211,6 +217,28 @@
 .hqContact  { display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text-1); text-decoration:none; transition:color var(--t); }
 .hqContact:hover { color:var(--red); }
 .hqContact svg { flex-shrink:0; color:var(--red); }
+
+/* ── Como Operamos lines (direita → base) ── */
+.opSec { position: relative; overflow: hidden; }
+
+.opLines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.opLines svg { width: 100%; height: 100%; }
+
+.opLine {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset var(--dur, 2s) cubic-bezier(0.4, 0, 0.2, 1);
+}
+.opVisible .opLine {
+  stroke-dashoffset: 0;
+  transition-delay: var(--d, 0s);
+  animation: linePulse var(--pulse-dur, 4.2s) ease-in-out var(--pulse-d, 0.8s) infinite;
+}
 
 /* ── Responsive ── */
 @media(max-width:1024px){

@@ -200,36 +200,54 @@
 }
 
 .serviceCard {
-  background: var(--white);
+  background: linear-gradient(148deg, #ffffff 52%, rgba(230,40,43,0.05) 100%);
   border: 1px solid var(--border-1);
   border-radius: var(--r-lg);
   overflow: hidden;
-  transition: box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
+  transition: box-shadow 0.4s var(--ease), transform 0.4s var(--ease), border-color 0.35s;
   position: relative;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
 }
 
+/* Faixa vermelha deslizante no topo */
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Plano cartesiano — levíssimo, sempre presente */
+.serviceCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200, 0, 9, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 0, 9, 0.022) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
 
 .serviceCard:hover {
-  box-shadow: 0 18px 56px rgba(0,0,0,0.13), 0 4px 16px rgba(0,0,0,0.06);
+  box-shadow: 0 14px 48px rgba(0,0,0,0.12), 0 0 0 1px rgba(200,0,9,0.08);
   transform: translateY(-5px);
+  border-color: rgba(200, 0, 9, 0.18);
 }
+.serviceCard:hover::before { transform: scaleX(1); }
 
 .serviceImgWrap {
   position: relative;
   height: 228px;
   overflow: hidden;
-}
-
-/* Fade ancorado no bottom do wrapper — não desloca com o scale */
-.serviceImgWrap::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 44px;
-  background: linear-gradient(to bottom, transparent, var(--white));
-  z-index: 2;
-  pointer-events: none;
+  z-index: 1;
 }
 
 .serviceImgWrap img {
@@ -238,19 +256,20 @@
   object-fit: cover;
   display: block;
   transition: transform 0.7s var(--ease), filter 0.4s;
-  filter: brightness(0.9) contrast(1.05) saturate(0.88);
+  filter: brightness(0.88) contrast(1.04) saturate(0.9);
 }
 .serviceCard:hover .serviceImgWrap img {
   transform: scale(1.04);
-  filter: brightness(0.95) contrast(1.06) saturate(1.05);
+  filter: brightness(0.96) contrast(1.06) saturate(1.05);
 }
 
 .serviceBody {
   padding: 28px 30px 26px;
   position: relative;
+  z-index: 1;
 }
 
-/* Acento esquerdo — só no corpo, abaixo do fade */
+/* Acento esquerdo no corpo */
 .serviceBody::before {
   content: '';
   position: absolute;
@@ -405,53 +424,83 @@
 }
 
 .whyCard {
-  background: var(--white);
-  border: 1px solid var(--border-0);
-  border-radius: var(--r-md);
-  padding: 36px 30px;
-  transition: border-color var(--t), box-shadow var(--t), transform var(--t);
+  background: linear-gradient(148deg, #ffffff 52%, rgba(230,40,43,0.175) 100%);
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-lg);
+  padding: 36px 32px 32px;
+  transition: border-color 0.35s, box-shadow 0.45s var(--ease), transform 0.4s var(--ease);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
+/* Faixa vermelha deslizante no topo */
 .whyCard::before {
   content: '';
   position: absolute;
-  top: 0; left: 0;
-  width: 0; height: 3px;
+  top: 0; left: 0; right: 0;
+  height: 3px;
   background: var(--red);
-  transition: width 0.4s var(--ease);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+
+/* Plano cartesiano no hover */
+.whyCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200, 0, 10, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 0, 10, 0.085) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0;
+  transition: opacity 0.45s var(--ease);
+  pointer-events: none;
 }
 
 .whyCard:hover {
-  border-color: var(--border-1);
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.07);
-  transform: translateY(-2px);
+  border-color: rgba(200, 0, 9, 0.18);
+  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200,0,9,0.08);
+  transform: translateY(-6px);
 }
-.whyCard:hover::before { width: 100%; }
+.whyCard:hover::before { transform: scaleX(1); }
+.whyCard:hover::after  { opacity: 1; }
 
-.whyCard svg {
-  width: 26px;
-  height: 26px;
-  color: var(--red);
+/* Ícone — igual ao .mvvIcon */
+.whyIcon {
+  width: 46px;
+  height: 46px;
+  background: var(--red-pale);
+  border: 1px solid var(--red-border);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 20px;
+  color: var(--red);
+  position: relative;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
+.whyIcon svg { width: 22px; height: 22px; }
+.whyCard:hover .whyIcon { background: var(--red); color: #fff; border-color: var(--red); }
 
 .whyCard h4 {
-  font-family: var(--ff-display);
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 15px;
+  font-weight: 700;
   margin-bottom: 10px;
   color: var(--text-0);
-  letter-spacing: -0.005em;
+  letter-spacing: -.01em;
+  position: relative;
 }
 
 .whyCard p {
-  font-family: var(--ff-body);
   font-size: 14px;
   color: var(--text-1);
   line-height: 1.78;
   font-weight: 400;
+  position: relative;
 }
 
 /* ── CTA ─────────────────────────────────────────────────────────────────── */

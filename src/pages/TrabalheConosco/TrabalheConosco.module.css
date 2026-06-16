@@ -6,13 +6,16 @@
   border: 1px solid var(--border-1);
   border-radius: var(--r-xl);
   overflow: hidden;
-  box-shadow: 0 8px 60px rgba(0, 0, 0, 0.11);
+  box-shadow:
+    0 24px 80px rgba(0,0,0,0.18),
+    0 6px 24px rgba(0,0,0,0.10),
+    0 0 0 1px rgba(180,0,8,0.07);
 }
 
-/* ── Header preto ── */
+/* ── Header escuro ── */
 .cardHead {
-  background: #0e0e10;
-  border-top: 3px solid var(--red);
+  background: #100507;
+  border-top: 4px solid #c80009;
   padding: 32px 48px;
   display: flex;
   align-items: center;
@@ -43,7 +46,7 @@
 }
 
 .cardLogo {
-  height: 40px;
+  height: 52px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
@@ -51,7 +54,7 @@
 
 .cardHeadDivider {
   width: 1px;
-  height: 42px;
+  height: 52px;
   background: rgba(255,255,255,0.12);
   flex-shrink: 0;
 }

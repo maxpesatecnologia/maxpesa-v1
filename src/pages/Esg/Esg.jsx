@@ -50,7 +50,9 @@ export default function Esg() {
             </div>
             <div>
               <SectionHeader eyebrow="Nossa visão" title={<>ESG como prática,<br/>não discurso</>} subtitle="Nossa agenda ESG é um programa estruturado com metas, indicadores e prestação de contas para todos os stakeholders." />
-              <div>{ESG_ITEMS.map((item) => <EsgItem key={item.title} {...item} />)}</div>
+              <div style={{display:'flex',flexDirection:'column',gap:'14px'}}>
+                {ESG_ITEMS.map((item) => <div key={item.title} className="reveal"><EsgItem {...item} /></div>)}
+              </div>
             </div>
           </div>
         </div>
@@ -92,7 +94,7 @@ export default function Esg() {
             ))}
           </div>
           <div className={styles.banner}>
-            <div>
+            <div className={styles.bannerText}>
               <div className={styles.bannerTag}>Canal Confidencial de Denúncias</div>
               <h4>Relate uma situação de forma segura</h4>
               <p>Canal totalmente confidencial para colaboradores, clientes e fornecedores.</p>

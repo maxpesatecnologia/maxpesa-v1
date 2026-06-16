@@ -154,7 +154,12 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div style={{textAlign:'center',marginTop:'28px'}}><Button to="/servicos" variant="outline">Ver todos os serviços</Button></div>
+          <div style={{textAlign:'center',marginTop:'40px'}}>
+            <Button to="/servicos" variant="red" size="lg">
+              Ver todos os serviços
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -206,7 +211,8 @@ export default function Home() {
               {icon:<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>, title:'Disponibilidade 24/7', desc:'Frota com manutenção preventiva e suporte disponível para emergências.'},
             ].map((w,i)=>(
               <div key={i} className={`${styles.whyCard} reveal`}>
-                {w.icon}<h4>{w.title}</h4><p>{w.desc}</p>
+                <div className={styles.whyIcon}>{w.icon}</div>
+                <h4>{w.title}</h4><p>{w.desc}</p>
               </div>
             ))}
           </div>

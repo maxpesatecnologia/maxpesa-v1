@@ -158,25 +158,55 @@
   gap: 24px;
 }
 .card {
-  background: var(--white);
-  border: 1px solid var(--border-0);
-  border-radius: var(--r-md);
+  background: linear-gradient(148deg, #ffffff 52%, rgba(230,40,43,0.175) 100%);
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-lg);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  box-shadow: 0 2px 10px rgba(0,0,0,.05);
-  transition: box-shadow var(--t), transform var(--t);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: border-color 0.35s, box-shadow 0.45s var(--ease), transform 0.4s var(--ease);
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+  z-index: 3;
+}
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,0,10,0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,0,10,0.085) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0;
+  transition: opacity 0.45s var(--ease);
+  pointer-events: none;
+  z-index: 1;
 }
 .card:hover {
-  box-shadow: 0 12px 40px rgba(230,40,43,.14);
-  transform: translateY(-4px);
+  border-color: rgba(200,0,9,0.18);
+  box-shadow: 0 14px 48px rgba(0,0,0,0.12), 0 0 0 1px rgba(200,0,9,0.08);
+  transform: translateY(-6px);
 }
+.card:hover::before { transform: scaleX(1); }
+.card:hover::after  { opacity: 1; }
+
 .cardImg {
   position: relative;
   aspect-ratio: 16/9;
   overflow: hidden;
+  z-index: 2;
 }
 .cardImg img {
   width: 100%;
@@ -186,28 +216,14 @@
   transition: transform .55s ease;
 }
 .card:hover .cardImg img { transform: scale(1.04); }
-.cardImg::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 36px;
-  background: linear-gradient(to bottom, transparent, var(--white));
-  z-index: 1;
-  pointer-events: none;
-}
+
 .cardBody {
   padding: 24px 24px 28px;
   display: flex;
   flex-direction: column;
   flex: 1;
   position: relative;
-}
-.cardBody::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; bottom: 0;
-  width: 3px;
-  background: linear-gradient(to bottom, var(--red-light), var(--red-dark));
+  z-index: 2;
 }
 .cardBody h3 {
   font-size: 18px;

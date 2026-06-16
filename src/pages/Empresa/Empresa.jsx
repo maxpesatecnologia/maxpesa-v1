@@ -69,6 +69,7 @@ export default function Empresa() {
   const ref = useReveal([])
   const cRef = useCounter()
   const mvvLinesRef = useRef(null)
+  const opLinesRef  = useRef(null)
 
   useEffect(() => {
     const el = mvvLinesRef.current
@@ -84,6 +85,21 @@ export default function Empresa() {
     obs.observe(el)
     return () => obs.disconnect()
   }, [])
+
+  useEffect(() => {
+    const el = opLinesRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        entry.isIntersecting
+          ? el.classList.add(styles.opVisible)
+          : el.classList.remove(styles.opVisible)
+      },
+      { threshold: 0.08 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
   return (
     <div ref={ref}>
       <PageHero eyebrow="Nossa História" title={<>25 Anos de Força,<br/>Tradição e Confiança</>} subtitle="Fundados para transformar a logística pesada no Brasil — com segurança, precisão e comprometimento." crumb="A Empresa" />
@@ -92,10 +108,10 @@ export default function Empresa() {
         <div className="container">
           <div className={styles.grid2}>
             <div ref={cRef}>
-              <SectionHeader eyebrow="Quem somos" title={<>Engenharia de precisão<br/>para grandes desafios</>} />
-              <p className={styles.lead}>O Grupo Maxpesa nasceu com o propósito de transformar a logística pesada no Brasil — entregando soluções de engenharia de rigging com segurança e precisão.</p>
-              <p className={styles.body}>Atuamos de forma estratégica com soluções integradas para indústrias, comércio e infraestrutura. Nosso compromisso inegociável com a segurança nos permite enfrentar os maiores desafios logísticos com precisão milimétrica.</p>
-              <div className={styles.statsRow}>
+              <div className="reveal"><SectionHeader eyebrow="Quem somos" title={<>Engenharia de precisão<br/>para grandes desafios</>} /></div>
+              <p className={`${styles.lead} reveal`}>O Grupo Maxpesa nasceu com o propósito de transformar a logística pesada no Brasil — entregando soluções de engenharia de rigging com segurança e precisão.</p>
+              <p className={`${styles.body} reveal`}>Atuamos de forma estratégica com soluções integradas para indústrias, comércio e infraestrutura. Nosso compromisso inegociável com a segurança nos permite enfrentar os maiores desafios logísticos com precisão milimétrica.</p>
+              <div className={`${styles.statsRow} reveal`}>
                 {[{t:25,suf:'+',l:'Anos de tradição'},{t:15000,suf:'+',l:'Projetos executados'},{v:'100%',l:'Compromisso'}].map((s,i)=>(
                   <div key={i} className={styles.statCell}>
                     <div className={styles.statN}>{s.t ? <><span className="stat-number" data-target={s.t}>0</span>{s.suf}</> : s.v}</div>
@@ -104,7 +120,7 @@ export default function Empresa() {
                 ))}
               </div>
             </div>
-            <ImgFrame src={imgEmpresa} alt="25 Anos Maxpesa" className={styles.empImg} badge={BADGE} />
+            <div className="reveal"><ImgFrame src={imgEmpresa} alt="25 Anos Maxpesa" className={styles.empImg} badge={BADGE} /></div>
           </div>
         </div>
       </section>
@@ -113,8 +129,8 @@ export default function Empresa() {
         <div className="container">
           <div className={styles.grid2} style={{alignItems:'flex-start',gap:'80px'}}>
             <div>
-              <SectionHeader eyebrow="Nossa trajetória" title={<>Uma história construída<br/>com trabalho e confiança</>} subtitle="Cada marco representa um novo padrão alcançado na logística pesada brasileira." />
-              <Button to="/contato">Fale com nossa equipe</Button>
+              <div className="reveal"><SectionHeader eyebrow="Nossa trajetória" title={<>Uma história construída<br/>com trabalho e confiança</>} subtitle="Cada marco representa um novo padrão alcançado na logística pesada brasileira." /></div>
+              <div className="reveal"><Button to="/contato">Fale com nossa equipe</Button></div>
             </div>
             <Timeline items={TIMELINE} />
           </div>
@@ -124,25 +140,25 @@ export default function Empresa() {
       <section className={`${styles.section} ${styles.mvvSec}`}>
         <div ref={mvvLinesRef} className={styles.mvvLines} aria-hidden="true">
           <svg viewBox="0 0 1440 520" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path pathLength="1" className={styles.mLine} style={{'--d':'0s','--dur':'1.8s'}}
+            <path pathLength="1" className={styles.mLine} style={{'--d':'0s','--dur':'1.8s','--pulse-d':'0s','--pulse-dur':'3.6s'}}
               d="M -60 560 C -60 200 820 -60 1480 -30"
               stroke="#E6282B" strokeWidth="3.8" strokeOpacity="0.40" fill="none" />
-            <path pathLength="1" className={styles.mLine} style={{'--d':'0.16s','--dur':'1.9s'}}
+            <path pathLength="1" className={styles.mLine} style={{'--d':'0.16s','--dur':'1.9s','--pulse-d':'0.7s','--pulse-dur':'4.2s'}}
               d="M -60 460 C -60 140 740 -60 1480 -55"
               stroke="#E6282B" strokeWidth="3.2" strokeOpacity="0.28" fill="none" />
-            <path pathLength="1" className={styles.mLine} style={{'--d':'0.32s','--dur':'2.0s'}}
+            <path pathLength="1" className={styles.mLine} style={{'--d':'0.32s','--dur':'2.0s','--pulse-d':'1.4s','--pulse-dur':'3.9s'}}
               d="M -60 660 C -60 260 900 -60 1480 -10"
               stroke="#E6282B" strokeWidth="2.5" strokeOpacity="0.20" fill="none" />
-            <path pathLength="1" className={styles.mLine} style={{'--d':'0.48s','--dur':'2.1s'}}
+            <path pathLength="1" className={styles.mLine} style={{'--d':'0.48s','--dur':'2.1s','--pulse-d':'0.4s','--pulse-dur':'4.6s'}}
               d="M -60 760 C -60 330 980 -60 1480 14"
               stroke="#E6282B" strokeWidth="1.8" strokeOpacity="0.13" fill="none" />
-            <path pathLength="1" className={styles.mLine} style={{'--d':'0.64s','--dur':'2.2s'}}
+            <path pathLength="1" className={styles.mLine} style={{'--d':'0.64s','--dur':'2.2s','--pulse-d':'1.1s','--pulse-dur':'5.0s'}}
               d="M -60 360 C -60 80 660 -60 1480 -68"
               stroke="#E6282B" strokeWidth="1.4" strokeOpacity="0.09" fill="none" />
           </svg>
         </div>
         <div className="container" style={{position:'relative', zIndex:1}}>
-          <SectionHeader center eyebrow="Nossa essência" title="Missão, Visão e Valores" subtitle="Os princípios fundamentais que orientam cada decisão e definem quem somos." />
+          <div className="reveal"><SectionHeader center eyebrow="Nossa essência" title="Missão, Visão e Valores" subtitle="Os princípios fundamentais que orientam cada decisão e definem quem somos." /></div>
           <div className={styles.mvvGrid}>
             {MVV.map((item) => (
               <div key={item.label} className={`${styles.mvvCard} reveal`}>
@@ -159,9 +175,28 @@ export default function Empresa() {
         </div>
       </section>
 
-      <section className={`${styles.section} ${styles.alt}`}>
-        <div className="container">
-          <SectionHeader center eyebrow="Como operamos" title="Pilares operacionais" subtitle="Os alicerces práticos que orientam cada operação, equipe e entrega do Grupo Maxpesa." />
+      <section className={`${styles.section} ${styles.alt} ${styles.opSec}`}>
+        <div ref={opLinesRef} className={styles.opLines} aria-hidden="true">
+          <svg viewBox="0 0 1440 600" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path pathLength="1" className={styles.opLine} style={{'--d':'0s','--dur':'2.0s','--pulse-d':'0s','--pulse-dur':'4.2s'}}
+              d="M 1500 55 C 1300 210 1100 450 780 592"
+              stroke="#E6282B" strokeWidth="3.8" strokeOpacity="0.36" fill="none" />
+            <path pathLength="1" className={styles.opLine} style={{'--d':'0.18s','--dur':'2.1s','--pulse-d':'0.8s','--pulse-dur':'3.8s'}}
+              d="M 1500 155 C 1290 330 1040 510 470 597"
+              stroke="#E6282B" strokeWidth="3.0" strokeOpacity="0.25" fill="none" />
+            <path pathLength="1" className={styles.opLine} style={{'--d':'0.36s','--dur':'2.2s','--pulse-d':'1.5s','--pulse-dur':'4.6s'}}
+              d="M 1500 275 C 1260 400 990 540 170 598"
+              stroke="#E6282B" strokeWidth="2.4" strokeOpacity="0.18" fill="none" />
+            <path pathLength="1" className={styles.opLine} style={{'--d':'0.54s','--dur':'2.3s','--pulse-d':'0.4s','--pulse-dur':'3.5s'}}
+              d="M 1500 390 C 1350 468 1130 558 570 600"
+              stroke="#E6282B" strokeWidth="1.8" strokeOpacity="0.13" fill="none" />
+            <path pathLength="1" className={styles.opLine} style={{'--d':'0.72s','--dur':'2.4s','--pulse-d':'1.1s','--pulse-dur':'5.0s'}}
+              d="M 1500 505 C 1380 542 1195 578 840 600"
+              stroke="#E6282B" strokeWidth="1.3" strokeOpacity="0.09" fill="none" />
+          </svg>
+        </div>
+        <div className="container" style={{position:'relative', zIndex:1}}>
+          <div className="reveal"><SectionHeader center eyebrow="Como operamos" title="Pilares operacionais" subtitle="Os alicerces práticos que orientam cada operação, equipe e entrega do Grupo Maxpesa." /></div>
           <div className={styles.valuesGrid}>
             {VALUES.map((v) => (
               <div key={v.n} className={`${styles.valueCard} reveal`}>
@@ -176,7 +211,7 @@ export default function Empresa() {
 
       <section className={styles.section} id="localizacao">
         <div className="container">
-          <SectionHeader eyebrow="Onde estamos" title="Nossa sede" subtitle="Localizada em Duque de Caxias — RJ, a sede do Grupo Maxpesa serve todo o território nacional." />
+          <div className="reveal"><SectionHeader eyebrow="Onde estamos" title="Nossa sede" subtitle="Localizada em Duque de Caxias — RJ, a sede do Grupo Maxpesa serve todo o território nacional." /></div>
           <div className={`${styles.hqCard} reveal`}>
             <div className={styles.hqMap}>
               <iframe
