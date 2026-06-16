@@ -12,11 +12,56 @@
     0 0 0 1px rgba(180,0,8,0.07);
 }
 
-/* ── Header escuro ── */
+/* ── Header (split: vermelho esquerdo / escuro direito) ── */
 .cardHead {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  border-top: 4px solid var(--red);
+  overflow: hidden;
+}
+
+/* Célula esquerda — vermelho (alinhada com .panel) */
+.cardHeadRed {
+  background: linear-gradient(155deg, #c80009 0%, #950008 55%, #780006 100%);
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.cardHeadRed::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+/* Faixa da logo — background é o início do gradiente do card abaixo */
+.logoCard {
+  background: var(--white);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cardLogo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Célula direita — escura */
+.cardHeadDark {
   background: #100507;
-  border-top: 4px solid #c80009;
-  padding: 32px 48px;
+  padding: 28px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,7 +69,7 @@
   position: relative;
   overflow: hidden;
 }
-.cardHead::before {
+.cardHeadDark::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -35,28 +80,10 @@
   pointer-events: none;
 }
 
-.cardHeadLeft {
-  display: flex;
-  align-items: center;
-  gap: 22px;
+.cardHeadText {
   position: relative;
   z-index: 1;
-  flex: 1;
   min-width: 0;
-}
-
-.cardLogo {
-  height: 52px;
-  width: auto;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-.cardHeadDivider {
-  width: 1px;
-  height: 52px;
-  background: rgba(255,255,255,0.12);
-  flex-shrink: 0;
 }
 
 .cardHeadTitle {
@@ -327,22 +354,22 @@
 
 /* ── Responsivo ── */
 @media (max-width: 1200px) {
+  .cardHead { grid-template-columns: 320px 1fr; }
   .cardHeadBadges { display: none; }
   .cardBody { grid-template-columns: 320px 1fr; }
 }
 @media (max-width: 1024px) {
-  .cardHead { padding: 28px 32px; }
+  .cardHead { grid-template-columns: 1fr; }
+  .cardHeadRed { justify-content: flex-start; padding: 24px 32px; }
   .cardBody { grid-template-columns: 1fr; }
   .cardHeadBadges { display: flex; }
 }
 @media (max-width: 768px) {
   .section { padding: 64px 0; }
-  .cardHead { padding: 22px 20px; flex-direction: column; align-items: flex-start; gap: 18px; }
-  .cardHeadLeft { flex-wrap: wrap; gap: 14px; }
-  .cardHeadDivider { display: none; }
-  .cardLogo { height: 32px; }
-  .cardHeadTitle { font-size: 20px; }
+  .cardHeadDark { padding: 20px 20px; flex-wrap: wrap; gap: 16px; }
+  .cardHeadTitle { font-size: 18px; }
   .cardHeadBadges { flex-wrap: wrap; }
+  .cardLogo { height: 40px; }
   .panelInner { padding: 32px 24px; }
   .formWrap { padding: 32px 24px; }
   .row2 { grid-template-columns: 1fr; }

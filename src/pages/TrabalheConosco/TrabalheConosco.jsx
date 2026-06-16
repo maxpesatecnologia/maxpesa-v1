@@ -3,7 +3,7 @@ import styles from './TrabalheConosco.module.css'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/PageHero/PageHero'
 import Toast from '../../components/Toast/Toast'
-import logo from '../../assets/maxpesa_white_logo.png'
+import logo from '../../assets/maxpesa_logo_png.png'
 
 const ESTADOS = [
   'AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS',
@@ -100,20 +100,23 @@ export default function TrabalheConosco() {
         <div className="container">
           <div className={styles.card}>
 
-            {/* ── Header escuro ── */}
+            {/* ── Header split: vermelho esquerdo / escuro direito ── */}
             <div className={styles.cardHead}>
-              <div className={styles.cardHeadLeft}>
-                <img src={logo} alt="Grupo Maxpesa" className={styles.cardLogo} />
-                <div className={styles.cardHeadDivider} />
-                <div>
+              <div className={styles.cardHeadRed}>
+                <div className={styles.logoCard}>
+                  <img src={logo} alt="Grupo Maxpesa" className={styles.cardLogo} />
+                </div>
+              </div>
+              <div className={styles.cardHeadDark}>
+                <div className={styles.cardHeadText}>
                   <h2 className={styles.cardHeadTitle}>Construa sua carreira aqui.</h2>
                   <p className={styles.cardHeadSub}>25 anos movendo o Brasil — com segurança, tradição e crescimento.</p>
                 </div>
-              </div>
-              <div className={styles.cardHeadBadges}>
-                <div className={styles.hBadge}><strong>25+</strong> Anos</div>
-                <div className={styles.hBadge}><strong>15 mil</strong> Projetos</div>
-                <div className={styles.hBadge}>ISO <strong>9001</strong></div>
+                <div className={styles.cardHeadBadges}>
+                  <div className={styles.hBadge}><strong>25+</strong> Anos</div>
+                  <div className={styles.hBadge}><strong>15 mil</strong> Projetos</div>
+                  <div className={styles.hBadge}>ISO <strong>9001</strong></div>
+                </div>
               </div>
             </div>
 
