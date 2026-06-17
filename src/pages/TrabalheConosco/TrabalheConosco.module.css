@@ -3,30 +3,27 @@
 /* ── Card shell ── */
 .card {
   background: var(--white);
-  border: 1px solid var(--border-1);
   border-radius: var(--r-xl);
   overflow: hidden;
   box-shadow:
-    0 24px 80px rgba(0,0,0,0.18),
-    0 6px 24px rgba(0,0,0,0.10),
-    0 0 0 1px rgba(180,0,8,0.07);
+    0 4px 16px rgba(0,0,0,0.06),
+    0 20px 64px rgba(0,0,0,0.14),
+    0 0 0 1px rgba(150,0,8,0.09);
 }
 
-/* ── Header (split: vermelho esquerdo / escuro direito) ── */
+/* ── Header split ── */
 .cardHead {
   display: grid;
-  grid-template-columns: 380px 1fr;
+  grid-template-columns: 360px 1fr;
   border-top: 4px solid var(--red);
-  overflow: hidden;
 }
 
-/* Célula esquerda — vermelho (alinhada com .panel) */
+/* Célula esquerda — fundo vermelho + caixa branca para a logo */
 .cardHeadRed {
-  background: linear-gradient(155deg, #c80009 0%, #950008 55%, #780006 100%);
-  padding: 20px 0;
+  background: linear-gradient(160deg, #cc0009 0%, #8f0007 55%, #6e0005 100%);
+  padding: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
   position: relative;
   overflow: hidden;
 }
@@ -35,21 +32,22 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
-  background-size: 32px 32px;
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
   pointer-events: none;
 }
 
-/* Faixa da logo — background é o início do gradiente do card abaixo */
 .logoCard {
   background: var(--white);
-  padding: 10px 24px;
+  padding: 20px 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 }
 
 .cardLogo {
@@ -60,23 +58,24 @@
 
 /* Célula direita — escura */
 .cardHeadDark {
-  background: #100507;
-  padding: 28px 40px;
+  background: #09020a;
+  padding: 28px 44px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 28px;
   position: relative;
   overflow: hidden;
+  border-left: 1px solid rgba(255,255,255,0.04);
 }
 .cardHeadDark::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 44px 44px;
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 40px 40px;
   pointer-events: none;
 }
 
@@ -85,22 +84,21 @@
   z-index: 1;
   min-width: 0;
 }
-
 .cardHeadTitle {
   font-family: var(--ff-body);
-  font-size: 21px;
+  font-size: 22px;
   font-weight: 800;
   color: #fff;
-  letter-spacing: -0.03em;
-  margin: 0 0 4px;
+  letter-spacing: -0.035em;
+  margin: 0 0 5px;
   line-height: 1.2;
 }
-
 .cardHeadSub {
   font-size: 12.5px;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.36);
   margin: 0;
   font-weight: 300;
+  line-height: 1.5;
 }
 
 .cardHeadBadges {
@@ -110,34 +108,35 @@
   position: relative;
   z-index: 1;
 }
-
 .hBadge {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(230,40,43,0.22);
   border-radius: var(--r-sm);
-  padding: 8px 14px;
-  font-size: 12px;
-  color: rgba(255,255,255,0.82);
+  padding: 9px 16px;
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.72);
   white-space: nowrap;
   line-height: 1.3;
+  text-align: center;
 }
 .hBadge strong {
   color: #fff;
   font-weight: 700;
   display: block;
   font-size: 15px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 /* ── Corpo do card ── */
 .cardBody {
   display: grid;
-  grid-template-columns: 380px 1fr;
+  grid-template-columns: 360px 1fr;
+  border-top: 1px solid rgba(0,0,0,0.06);
 }
 
 /* ── Painel esquerdo — vermelho ── */
 .panel {
-  background: linear-gradient(155deg, #c80009 0%, #950008 55%, #780006 100%);
+  background: linear-gradient(170deg, #cc0009 0%, #8c0007 52%, #6a0004 100%);
   position: relative;
   overflow: hidden;
 }
@@ -146,16 +145,16 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
-  background-size: 32px 32px;
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
   pointer-events: none;
 }
 
 .panelInner {
   position: relative;
   z-index: 1;
-  padding: 48px 40px;
+  padding: 44px 40px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -163,29 +162,27 @@
 }
 
 .panelEyebrow {
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 700;
-  color: rgba(255,255,255,0.62);
-  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
 }
-
 .panelTitle {
-  font-family: var(--ff-display);
-  font-size: 22px;
-  font-weight: 400;
+  font-family: var(--ff-body);
+  font-size: 20px;
+  font-weight: 800;
   color: #fff;
-  letter-spacing: -0.02em;
-  margin: 0 0 14px;
+  letter-spacing: -0.025em;
+  margin: 0 0 12px;
   line-height: 1.25;
 }
-
 .panelSub {
-  font-size: 13.5px;
-  color: rgba(255,255,255,0.68);
+  font-size: 13px;
+  color: rgba(255,255,255,0.62);
   line-height: 1.75;
-  margin: 0 0 36px;
+  margin: 0 0 32px;
   font-weight: 300;
 }
 
@@ -195,7 +192,6 @@
   flex-direction: column;
   flex: 1;
 }
-
 .benefRow {
   display: flex;
   align-items: flex-start;
@@ -239,73 +235,88 @@
 }
 
 .panelNote {
-  margin-top: 24px;
-  padding: 11px 14px;
-  background: rgba(0,0,0,0.18);
-  border: 1px solid rgba(255,255,255,0.1);
+  margin-top: 22px;
+  padding: 10px 13px;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.09);
   border-radius: var(--r-sm);
-  font-size: 11.5px;
-  color: rgba(255,255,255,0.52);
+  font-size: 11px;
+  color: rgba(255,255,255,0.46);
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 7px;
   line-height: 1.6;
 }
-.panelNote svg { width: 13px; height: 13px; flex-shrink: 0; margin-top: 1px; }
+.panelNote svg { width: 12px; height: 12px; flex-shrink: 0; margin-top: 1px; }
 
 /* ── Formulário ── */
 .formWrap {
-  padding: 48px 44px;
-  background: var(--white);
+  padding: 44px 48px;
+  background: #f9f9f9;
+  border-left: 1px solid rgba(200,0,8,0.07);
 }
 
 .formTitle {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 800;
   color: var(--text-0);
-  letter-spacing: -0.025em;
-  margin: 0 0 6px;
+  letter-spacing: -0.03em;
+  margin: 0 0 0;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 14px;
+}
+.formTitle::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 28px; height: 2.5px;
+  background: var(--red);
+  border-radius: 2px;
 }
 .formSub {
-  font-size: 13.5px;
-  color: var(--text-1);
-  margin: 0 0 28px;
+  font-size: 13px;
+  color: var(--text-2);
+  margin: 14px 0 28px;
   font-weight: 300;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 .form { display: flex; flex-direction: column; gap: 18px; }
-.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
 .field { display: flex; flex-direction: column; gap: 6px; }
 .field label:first-child {
-  font-size: 11.5px;
+  font-size: 10.5px;
   color: var(--text-2);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
 }
-.required { color: #e53935; font-weight: 600; margin-left: 2px; }
+.required { color: var(--red); font-weight: 600; margin-left: 2px; }
 
 .field input,
 .field select {
-  background: var(--bg-1);
-  border: 1.5px solid var(--border-0);
+  background: var(--white);
+  border: 1.5px solid var(--border-1);
   border-radius: var(--r-xs);
-  padding: 11px 13px;
+  padding: 11px 14px;
   font-family: var(--ff-body);
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--text-0);
   outline: none;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
   appearance: none;
   -webkit-appearance: none;
 }
 .field input:focus,
-.field select:focus { border-color: var(--red); background: var(--white); }
+.field select:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(230,40,43,0.08);
+}
 
 .invalid { border-color: #e6282b !important; background: #fff5f5 !important; }
-.err { font-size: 11.5px; color: var(--red); font-weight: 400; }
+.err { font-size: 11px; color: var(--red); font-weight: 400; }
 
 /* Upload */
 .fileInput { display: none; }
@@ -313,63 +324,70 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: var(--bg-1);
-  border: 1.5px dashed var(--border-0);
+  background: var(--white);
+  border: 1.5px dashed var(--border-1);
   border-radius: var(--r-xs);
-  padding: 14px 16px;
-  font-size: 13.5px;
-  color: var(--text-1);
+  padding: 13px 16px;
+  font-size: 13px;
+  color: var(--text-2);
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, box-shadow 0.2s;
   line-height: 1.4;
 }
-.fileLabel svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--red); }
-.fileLabel:hover { border-color: var(--red); color: var(--text-0); background: var(--white); }
+.fileLabel svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--red); }
+.fileLabel:hover {
+  border-color: var(--red);
+  color: var(--text-0);
+  box-shadow: 0 0 0 3px rgba(230,40,43,0.07);
+}
 .fileInvalid { border-color: #e6282b !important; background: #fff5f5 !important; }
 
 .submit {
-  align-self: flex-start;
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 9px;
+  width: 100%;
   background: var(--red);
   color: #fff;
   border: none;
-  padding: 13px 28px;
+  padding: 14px 28px;
   border-radius: var(--r-sm);
+  font-family: var(--ff-body);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
-  box-shadow: 0 2px 16px rgba(230,40,43,0.28);
+  transition: background 0.22s, box-shadow 0.22s, transform 0.2s;
+  box-shadow: 0 3px 16px rgba(230,40,43,0.30);
   margin-top: 4px;
-  letter-spacing: 0.01em;
 }
 .submit:hover:not(:disabled) {
   background: var(--red-dark);
   transform: translateY(-1px);
-  box-shadow: 0 4px 24px rgba(230,40,43,0.38);
+  box-shadow: 0 6px 24px rgba(230,40,43,0.40);
 }
-.submit:disabled { opacity: 0.7; cursor: not-allowed; }
+.submit:disabled { opacity: 0.65; cursor: not-allowed; }
 
 /* ── Responsivo ── */
 @media (max-width: 1200px) {
-  .cardHead { grid-template-columns: 320px 1fr; }
+  .cardHead  { grid-template-columns: 300px 1fr; }
+  .cardBody  { grid-template-columns: 300px 1fr; }
   .cardHeadBadges { display: none; }
-  .cardBody { grid-template-columns: 320px 1fr; }
 }
 @media (max-width: 1024px) {
   .cardHead { grid-template-columns: 1fr; }
-  .cardHeadRed { justify-content: flex-start; padding: 24px 32px; }
   .cardBody { grid-template-columns: 1fr; }
+  .cardHeadRed { justify-content: flex-start; padding: 24px 32px; }
   .cardHeadBadges { display: flex; }
+  .formWrap { border-left: none; border-top: 1px solid rgba(200,0,8,0.07); }
 }
 @media (max-width: 768px) {
   .section { padding: 64px 0; }
-  .cardHeadDark { padding: 20px 20px; flex-wrap: wrap; gap: 16px; }
+  .cardHeadDark { padding: 20px 24px; flex-wrap: wrap; gap: 16px; }
   .cardHeadTitle { font-size: 18px; }
   .cardHeadBadges { flex-wrap: wrap; }
-  .cardLogo { height: 40px; }
+  .cardLogo { height: 52px; }
   .panelInner { padding: 32px 24px; }
   .formWrap { padding: 32px 24px; }
   .row2 { grid-template-columns: 1fr; }
