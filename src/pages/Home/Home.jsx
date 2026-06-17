@@ -123,7 +123,7 @@ export default function Home() {
         <div className="container">
           <div className={styles.statsGrid}>
             {STATS.map((s, i) => (
-              <div key={i} className={styles.statItem}>
+              <div key={i} className={`${styles.statItem} ${i === activeIdx ? styles.statActive : ''}`}>
                 <div className={styles.statN}>
                   {s.target ? <><span className="stat-number" data-target={s.target}>0</span>{s.suf}</> : s.n}
                 </div>

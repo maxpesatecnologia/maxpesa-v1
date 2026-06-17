@@ -11,11 +11,13 @@ import imgG3    from '../../assets/guindaste3.jpeg'
 import imgG4    from '../../assets/guindaste4.jpeg'
 import imgM1    from '../../assets/munck3.png'
 import imgM2    from '../../assets/caminhao-munck-img2.jpg'
-import imgLA    from '../../assets/linhamarela.png'
+import imgLA    from '../../assets/escavadeira_img.png'
+import imgLA2   from '../../assets/pa_carregadeira_img.png'
 import imgPlatA from '../../assets/plataforma_articulada.png'
 import imgPlatT from '../../assets/plataforma_tesoura.png'
 import imgEixo  from '../../assets/caminhao_linha_de_eixo.png'
 import imgEmp   from '../../assets/munck2.png'
+import imgEmp2  from '../../assets/munck2.png'
 
 const CATEGORIES = [
   {
@@ -58,7 +60,7 @@ const FLEET = [
   { id: 6,  category: 'munck',         model: 'Volvo FH 540',            name: 'Caminhão-Guindauto',               badge: '35T',   img: imgM2,    specs: [{ l: 'Capacidade', v: '35 t'  }, { l: 'Alcance',     v: '26 m'    }, { l: 'Acionam.', v: 'Hidráulico' }] },
   // LINHA AMARELA
   { id: 7,  category: 'linha-amarela', model: 'Caterpillar 420F',        name: 'Escavadeira Hidráulica',           badge: '4x4',   img: imgLA,    specs: [{ l: 'Balde',      v: '1.09 m³'}, { l: 'Prof. max',   v: '6.3 m'   }, { l: 'Tração',   v: '4x4'       }] },
-  { id: 8,  category: 'linha-amarela', model: 'Caterpillar 320D',        name: 'Pá Carregadeira',                  badge: '20T',   img: imgLA,    specs: [{ l: 'Peso op.',   v: '20 t'   }, { l: 'Profundid.', v: '9.8 m'   }, { l: 'Balde',    v: '0.95 m³'  }] },
+  { id: 8,  category: 'linha-amarela', model: 'Caterpillar 320D',        name: 'Pá Carregadeira',                  badge: '20T',   img: imgLA2,   specs: [{ l: 'Peso op.',   v: '20 t'   }, { l: 'Profundid.', v: '9.8 m'   }, { l: 'Balde',    v: '0.95 m³'  }] },
   // PLATAFORMA ELEVATÓRIA
   { id: 9,  category: 'plataforma',    model: 'JLG 600AJ',               name: 'Plataforma Articulada',            badge: '18M',   img: imgPlatA, specs: [{ l: 'Alt. trab.', v: '18 m'  }, { l: 'Capacidade', v: '227 kg'  }, { l: 'Tração',   v: '4WD'       }] },
   { id: 10, category: 'plataforma',    model: 'Genie GS-4047',           name: 'Plataforma Tesoura',               badge: '14M',   img: imgPlatT, specs: [{ l: 'Alt. trab.', v: '14 m'  }, { l: 'Capacidade', v: '450 kg'  }, { l: 'Plataf.',  v: '1.83 m'   }] },
@@ -71,7 +73,7 @@ const FLEET = [
   { id: 16, category: 'especiais',     model: 'Linha de Eixo',           name: 'Linha de Eixo',                    badge: '150T',  img: imgEixo,  specs: [{ l: 'Capacidade', v: '150 t' }, { l: 'Comprimento', v: '30+ m'  }, { l: 'Licença',  v: 'AET'       }] },
   // EMPILHADEIRAS
   { id: 17, category: 'empilhadeiras', model: 'Toyota 8FBN25',           name: 'Empilhadeira Elétrica',            badge: '2.5T',  img: imgEmp,   specs: [{ l: 'Capacidade', v: '2.5 t' }, { l: 'Elevação',    v: '5.5 m'  }, { l: 'Acionam.', v: 'Elétrico'  }] },
-  { id: 18, category: 'empilhadeiras', model: 'Yale GLP050',             name: 'Empilhadeira Diesel',              badge: '5T',    img: imgEmp,   specs: [{ l: 'Capacidade', v: '5 t'   }, { l: 'Elevação',    v: '6 m'    }, { l: 'Acionam.', v: 'Diesel'    }] },
+  { id: 18, category: 'empilhadeiras', model: 'Yale GLP050',             name: 'Empilhadeira Diesel',              badge: '5T',    img: imgEmp2,   specs: [{ l: 'Capacidade', v: '5 t'   }, { l: 'Elevação',    v: '6 m'    }, { l: 'Acionam.', v: 'Diesel'    }] },
 ]
 
 export default function Frota() {

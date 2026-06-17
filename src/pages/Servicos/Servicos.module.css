@@ -3,8 +3,34 @@
   padding: 96px 0;
   background: var(--bg-0);
   scroll-margin-top: calc(var(--header-h) + 49px);
+  position: relative;
+  overflow: hidden;
 }
 .alt { background: var(--bg-1); }
+
+.svcLines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.svcLines svg { width: 100%; height: 100%; }
+
+.sLine {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset var(--dur, 1.8s) cubic-bezier(0.4, 0, 0.2, 1);
+}
+.svcLinesVisible .sLine {
+  stroke-dashoffset: 0;
+  transition-delay: var(--d, 0s);
+  animation: svcLinePulse var(--pulse-dur, 4s) ease-in-out var(--pulse-d, 0.5s) infinite;
+}
+
+@keyframes svcLinePulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.18; }
+}
 
 /* ── Sticky index bar ── */
 .indexBar {

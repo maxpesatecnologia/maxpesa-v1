@@ -154,7 +154,7 @@
   cursor: default;
 }
 .statItem:nth-last-child(2) { border-right: none; }
-.statItem:hover { background: rgba(0, 0, 0, 0.18); }
+.statItem:hover, .statActive { background: rgba(0, 0, 0, 0.18); }
 
 .statsLine {
   position: absolute;
