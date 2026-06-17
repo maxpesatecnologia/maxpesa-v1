@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
 import { useReveal } from '../../hooks/useReveal'
 import { useCounter } from '../../hooks/useCounter'
+import { useLang } from '../../context/LanguageContext'
 import Eyebrow from '../../components/Eyebrow/Eyebrow'
 import SectionHeader from '../../components/SectionHeader/SectionHeader'
 import Button from '../../components/Button/Button'
@@ -28,41 +29,36 @@ import logoCemig       from '../../assets/cemig_logo.png'
 import logoEngie       from '../../assets/engie_logo.png'
 import logoAirLiquide  from '../../assets/air_liquide_logo.png'
 
-const SERVICES = [
-  { num: '01', title: 'Movimentação Horizontal e Vertical de Cargas', desc: 'Içamento e posicionamento de equipamentos e estruturas pesadas com rigging de alta complexidade, operadores certificados NR-11 e memorial de cálculo assinado por engenheiro.', to: '/servicos#movimentacao-vertical', img: imgGuindaste },
-  { num: '02', title: 'Movimentação de Cargas', desc: 'Planejamento e execução de mudanças de layout fabril, posicionamento de máquinas e desmontagem de equipamentos industriais com a menor paralisação possível na produção.', to: '/servicos#movimentacao-cargas', img: imgRemocao },
-  { num: '03', title: 'Locação de Equipamentos', desc: 'Frota moderna e diversificada disponível em contratos de curto e longo prazo — guindastes, caminhão-guindauto e linha amarela — com manutenção preventiva e suporte 24/7.', to: '/servicos#locacao', img: imgMunck },
-  { num: '04', title: 'Linha Amarela (Retroescavadeira)', desc: 'Retroescavadeiras, pás carregadeiras e escavadeiras hidráulicas para terraplanagem, escavação e movimentação de solo, com operadores certificados e documentação vigente.', to: '/servicos#linha-amarela', img: imgLinhaAmarela },
-  { num: '05', title: 'Transporte de Cargas Especiais', desc: 'Transporte rodoviário de cargas superdimensionadas com carretas especiais, caminhão-guindauto, escolta credenciada, licenças DNIT/DER e rota planejada por engenheiro.', to: '/servicos#transporte', img: imgLinhadeEixo },
-]
+const SERVICE_IMGS  = [imgGuindaste, imgRemocao, imgMunck, imgLinhaAmarela, imgLinhadeEixo]
+const SERVICE_PATHS = ['/servicos#movimentacao-vertical','/servicos#movimentacao-cargas','/servicos#locacao','/servicos#linha-amarela','/servicos#transporte']
 
 const CLIENTS = [
-  { name: 'Petrobras',                        logo: logoPetrobras  },
-  { name: 'Vale',                             logo: logoVale       },
-  { name: 'Light',                            logo: logoLight      },
-  { name: 'Enel',                             logo: logoEnel       },
-  { name: 'Roche',                            logo: logoRoche      },
-  { name: 'Bayer',                            logo: logoBayer      },
-  { name: 'NTS',                              logo: logoNts        },
-  { name: 'Hyundai',                          logo: logoHyundai    },
-  { name: 'Craft Engenharia & Arquitetura',   logo: logoCraft      },
-  { name: 'Rio Prefeitura',                   logo: logoRio        },
-  { name: 'GE',                               logo: logoGe         },
-  { name: 'Furnas',                           logo: logoFurnas     },
-  { name: 'Engelmig',                         logo: logoEngelmig   },
-  { name: 'Cemig',                            logo: logoCemig      },
-  { name: 'Engie',                            logo: logoEngie      },
-  { name: 'Air Liquide',                      logo: logoAirLiquide },
+  { name: 'Petrobras',                      logo: logoPetrobras  },
+  { name: 'Vale',                           logo: logoVale       },
+  { name: 'Light',                          logo: logoLight      },
+  { name: 'Enel',                           logo: logoEnel       },
+  { name: 'Roche',                          logo: logoRoche      },
+  { name: 'Bayer',                          logo: logoBayer      },
+  { name: 'NTS',                            logo: logoNts        },
+  { name: 'Hyundai',                        logo: logoHyundai    },
+  { name: 'Craft Engenharia & Arquitetura', logo: logoCraft      },
+  { name: 'Rio Prefeitura',                 logo: logoRio        },
+  { name: 'GE',                             logo: logoGe         },
+  { name: 'Furnas',                         logo: logoFurnas     },
+  { name: 'Engelmig',                       logo: logoEngelmig   },
+  { name: 'Cemig',                          logo: logoCemig      },
+  { name: 'Engie',                          logo: logoEngie      },
+  { name: 'Air Liquide',                    logo: logoAirLiquide },
 ]
 
-const STATS = [
-  { n: '25', suf: '+', label: 'Anos de tradição',        target: 25    },
-  { n: '15.000', suf: '+', label: 'Projetos executados', target: 15000 },
-  { n: '100%',  label: 'Compromisso operacional' },
-  { n: 'ISO',   sub: '9001 Certificado' },
+const WHY_ICONS = [
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>,
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>,
 ]
 
 export default function Home() {
+  const { t } = useLang()
   const pageRef = useReveal([])
   const counterRef = useCounter()
   const [activeIdx, setActiveIdx] = useState(0)
@@ -84,39 +80,38 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    const id = setInterval(() => setActiveIdx(i => (i + 1) % STATS.length), 2000)
+    const id = setInterval(() => setActiveIdx(i => (i + 1) % 4), 2000)
     return () => clearInterval(id)
   }, [])
+
+  const STATS = [
+    { n: '25',     suf: '+', label: t.home.statLabel1, target: 25    },
+    { n: '15.000', suf: '+', label: t.home.statLabel2, target: 15000 },
+    { n: '100%',             label: t.home.statLabel3 },
+    { n: 'ISO',              sub:   t.home.statSub4 },
+  ]
 
   return (
     <div ref={pageRef}>
       {/* HERO */}
-    <section className={styles.hero}>
-    {/* Vídeo de fundo vindo do Google Drive */}
-    <video
-      className={styles.heroVideo}
-      autoPlay
-      muted
-      loop
-      playsInline
-    >
-      <source src="https://res.cloudinary.com/dlusblicd/video/upload/v1780316251/primetalsvideo__kkmyqy.mp4" type="video/mp4" />
-    </video>
-
-    <div className={styles.heroOverlay} />
-      <div className={styles.heroStripe} />
-      <div className="container">
-        <div className={styles.heroContent}>
-          <div className={styles.heroTag}><span className={styles.heroDot} />Mais de 25 anos movendo o Brasil</div>
-          <h1 className="brand">GRUPO<br /><span className={styles.red}>MAXPESA</span></h1>
-          <p>Soluções de alta performance em movimentação de cargas, transporte pesado, remoção industrial e locação de equipamentos.</p>
-          <div className={styles.heroActions}>
-            <Button to="/servicos" size="lg">Nossos Serviços</Button>
-            <Button to="/contato" variant="outlineInv" size="lg">Fazer Orçamento</Button>
+      <section className={styles.hero}>
+        <video className={styles.heroVideo} autoPlay muted loop playsInline>
+          <source src="https://res.cloudinary.com/dlusblicd/video/upload/v1780316251/primetalsvideo__kkmyqy.mp4" type="video/mp4" />
+        </video>
+        <div className={styles.heroOverlay} />
+        <div className={styles.heroStripe} />
+        <div className="container">
+          <div className={styles.heroContent}>
+            <div className={styles.heroTag}><span className={styles.heroDot} />{t.home.heroTag}</div>
+            <h1 className="brand">GRUPO<br /><span className={styles.red}>MAXPESA</span></h1>
+            <p>{t.home.heroSub}</p>
+            <div className={styles.heroActions}>
+              <Button to="/servicos" size="lg">{t.home.heroBtnServices}</Button>
+              <Button to="/contato" variant="outlineInv" size="lg">{t.home.heroBtnQuote}</Button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* STATS */}
       <div className={styles.statsBar} ref={counterRef}>
@@ -138,25 +133,27 @@ export default function Home() {
       {/* SERVIÇOS */}
       <section className={styles.services}>
         <div className="container">
-          <SectionHeader eyebrow="O que fazemos" title={<>Soluções para qualquer<br/>desafio logístico</>} subtitle="Equipamentos modernos e equipes certificadas para garantir a segurança da sua carga." />
+          <SectionHeader eyebrow={t.home.svcEyebrow} title={<>{t.home.svcTitle}</>} subtitle={t.home.svcSub} />
           <div className={styles.servicesGrid}>
-            {SERVICES.map((s) => (
-              <div key={s.num} className={`${styles.serviceCard} reveal`}>
+            {t.home.services.map((s, i) => (
+              <div key={i} className={`${styles.serviceCard} reveal`}>
                 <div className={styles.serviceImgWrap}>
-                  <img src={s.img} alt={s.title} />
+                  <img src={SERVICE_IMGS[i]} alt={s.title} />
                 </div>
                 <div className={styles.serviceBody}>
-                  <div className={styles.serviceNum}>{s.num}</div>
+                  <div className={styles.serviceNum}>{String(i + 1).padStart(2, '0')}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
-                  <Link to={s.to} className={styles.serviceLink}>Ver mais <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="13" height="13"><path d="M5 12h14M12 5l7 7-7 7"/></svg></Link>
+                  <Link to={SERVICE_PATHS[i]} className={styles.serviceLink}>
+                    {t.home.svcMore} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="13" height="13"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </Link>
                 </div>
               </div>
             ))}
           </div>
           <div style={{textAlign:'center',marginTop:'40px'}}>
             <Button to="/servicos" variant="red" size="lg">
-              Ver todos os serviços
+              {t.home.svcBtn}
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </Button>
           </div>
@@ -168,13 +165,13 @@ export default function Home() {
         <div className={styles.splitImg} />
         <div className={styles.splitContent}>
           <div className={styles.splitInner}>
-            <Eyebrow>Nossa história</Eyebrow>
-            <h2>25 anos construindo<br/>com confiança</h2>
-            <p>Fundamos o Grupo Maxpesa com o propósito de transformar a logística pesada no Brasil — com segurança, precisão e comprometimento em cada operação.</p>
-            <p>Hoje somos referência nacional, com frota própria moderna, engenharia proprietária e equipes certificadas.</p>
+            <Eyebrow>{t.home.splitEyebrow}</Eyebrow>
+            <h2>{t.home.splitTitle}</h2>
+            <p>{t.home.splitBody1}</p>
+            <p>{t.home.splitBody2}</p>
             <div className={styles.splitActions}>
-              <Button to="/empresa">Conheça a empresa</Button>
-              <Button to="/contato" variant="outlineInv">Falar com a equipe</Button>
+              <Button to="/empresa">{t.home.splitBtnCompany}</Button>
+              <Button to="/contato" variant="outlineInv">{t.home.splitBtnContact}</Button>
             </div>
           </div>
         </div>
@@ -184,34 +181,19 @@ export default function Home() {
       <section className={styles.why}>
         <div ref={whyLinesRef} className={styles.whyLines} aria-hidden="true">
           <svg viewBox="0 0 1440 520" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Arcos da lateral esquerda em direção ao topo-direito */}
-            <path pathLength="1" className={styles.wLine} style={{'--d':'0s','--dur':'1.8s'}}
-              d="M -60 560 C -60 200 820 -60 1480 -30"
-              stroke="#E6282B" strokeWidth="3.8" strokeOpacity="0.40" fill="none" />
-            <path pathLength="1" className={styles.wLine} style={{'--d':'0.16s','--dur':'1.9s'}}
-              d="M -60 460 C -60 140 740 -60 1480 -55"
-              stroke="#E6282B" strokeWidth="3.2" strokeOpacity="0.28" fill="none" />
-            <path pathLength="1" className={styles.wLine} style={{'--d':'0.32s','--dur':'2.0s'}}
-              d="M -60 660 C -60 260 900 -60 1480 -10"
-              stroke="#E6282B" strokeWidth="2.5" strokeOpacity="0.20" fill="none" />
-            <path pathLength="1" className={styles.wLine} style={{'--d':'0.48s','--dur':'2.1s'}}
-              d="M -60 760 C -60 330 980 -60 1480 14"
-              stroke="#E6282B" strokeWidth="1.8" strokeOpacity="0.13" fill="none" />
-            <path pathLength="1" className={styles.wLine} style={{'--d':'0.64s','--dur':'2.2s'}}
-              d="M -60 360 C -60 80 660 -60 1480 -68"
-              stroke="#E6282B" strokeWidth="1.4" strokeOpacity="0.09" fill="none" />
+            <path pathLength="1" className={styles.wLine} style={{'--d':'0s','--dur':'1.8s'}} d="M -60 560 C -60 200 820 -60 1480 -30" stroke="#E6282B" strokeWidth="3.8" strokeOpacity="0.40" fill="none" />
+            <path pathLength="1" className={styles.wLine} style={{'--d':'0.16s','--dur':'1.9s'}} d="M -60 460 C -60 140 740 -60 1480 -55" stroke="#E6282B" strokeWidth="3.2" strokeOpacity="0.28" fill="none" />
+            <path pathLength="1" className={styles.wLine} style={{'--d':'0.32s','--dur':'2.0s'}} d="M -60 660 C -60 260 900 -60 1480 -10" stroke="#E6282B" strokeWidth="2.5" strokeOpacity="0.20" fill="none" />
+            <path pathLength="1" className={styles.wLine} style={{'--d':'0.48s','--dur':'2.1s'}} d="M -60 760 C -60 330 980 -60 1480 14" stroke="#E6282B" strokeWidth="1.8" strokeOpacity="0.13" fill="none" />
+            <path pathLength="1" className={styles.wLine} style={{'--d':'0.64s','--dur':'2.2s'}} d="M -60 360 C -60 80 660 -60 1480 -68" stroke="#E6282B" strokeWidth="1.4" strokeOpacity="0.09" fill="none" />
           </svg>
         </div>
         <div className="container" style={{position:'relative', zIndex:1}}>
-          <SectionHeader center eyebrow="Nossos diferenciais" title="Por que escolher a Maxpesa" subtitle="Comprometidos com segurança, precisão e resultado em cada operação." />
+          <SectionHeader center eyebrow={t.home.whyEyebrow} title={t.home.whyTitle} subtitle={t.home.whySub} />
           <div className={styles.whyGrid}>
-            {[
-              {icon:<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>, title:'Segurança acima de tudo', desc:'Programa NR-11 rigoroso, inspeções periódicas e treinamento contínuo.'},
-              {icon:<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>, title:'Engenharia proprietária', desc:'Plano de rigging e memorial de cálculo entregues antes de cada mobilização.'},
-              {icon:<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>, title:'Disponibilidade 24/7', desc:'Frota com manutenção preventiva e suporte disponível para emergências.'},
-            ].map((w,i)=>(
+            {t.home.why.map((w, i) => (
               <div key={i} className={`${styles.whyCard} reveal`}>
-                <div className={styles.whyIcon}>{w.icon}</div>
+                <div className={styles.whyIcon}>{WHY_ICONS[i]}</div>
                 <h4>{w.title}</h4><p>{w.desc}</p>
               </div>
             ))}
@@ -222,33 +204,33 @@ export default function Home() {
       {/* CTA */}
       <section className={styles.cta}>
         <div className="container" style={{position:'relative',zIndex:1}}>
-          <Eyebrow>Fale com um especialista</Eyebrow>
-          <h2>Pronto para o<br/>seu próximo projeto?</h2>
-          <p>Nossa equipe responde com proposta técnica em até 2 horas.</p>
+          <Eyebrow>{t.home.ctaEyebrow}</Eyebrow>
+          <h2>{t.home.ctaTitle}</h2>
+          <p>{t.home.ctaSub}</p>
           <div className={styles.ctaActions}>
-            <Button to="/contato" size="lg">Solicitar orçamento</Button>
-            <Button href="https://wa.me/5521972101901" variant="outlineInv" size="lg">WhatsApp</Button>
+            <Button to="/contato" size="lg">{t.home.ctaBtnQuote}</Button>
+            <Button href="https://wa.me/5521972101901" variant="outlineInv" size="lg">{t.home.ctaBtnWpp}</Button>
           </div>
         </div>
       </section>
 
-    {/* CLIENTES */}
-    <section className={styles.clients}>
-      <div className="container">
-        <SectionHeader center eyebrow="Quem confia na Maxpesa" title={<>Parceiros que constroem<br/>o Brasil conosco</>} />
-        <div className={styles.trackWrap}>
-          <div className={styles.track}>
-            {[...CLIENTS, ...CLIENTS].map((c, i) => (
-              <div key={i} className={styles.clientCard}>
-                <img src={c.logo} alt={c.name}
-                  onError={e => { e.target.replaceWith(Object.assign(document.createElement('span'), {textContent: c.name})) }}
-                />
-              </div>
-            ))}
+      {/* CLIENTES */}
+      <section className={styles.clients}>
+        <div className="container">
+          <SectionHeader center eyebrow={t.home.clientsEyebrow} title={<>{t.home.clientsTitle}</>} />
+          <div className={styles.trackWrap}>
+            <div className={styles.track}>
+              {[...CLIENTS, ...CLIENTS].map((c, i) => (
+                <div key={i} className={styles.clientCard}>
+                  <img src={c.logo} alt={c.name}
+                    onError={e => { e.target.replaceWith(Object.assign(document.createElement('span'), {textContent: c.name})) }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   )
 }

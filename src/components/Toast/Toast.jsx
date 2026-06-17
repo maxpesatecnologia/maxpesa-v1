@@ -1,5 +1,5 @@
 import styles from './Toast.module.css'
-export default function Toast({ show, onClose }) {
+export default function Toast({ show, onClose, title, subtitle }) {
   return (
     <div className={`${styles.toast} ${show ? styles.show : ''}`}>
       <div className={styles.ico}>
@@ -8,8 +8,8 @@ export default function Toast({ show, onClose }) {
         </svg>
       </div>
       <div className={styles.body}>
-        <h4>Mensagem enviada com sucesso</h4>
-        <p>Retornaremos em até 2 horas úteis.</p>
+        <h4>{title || 'Mensagem enviada com sucesso'}</h4>
+        <p>{subtitle || 'Retornaremos em até 2 horas úteis.'}</p>
       </div>
       <button className={styles.close} onClick={onClose}>&times;</button>
     </div>

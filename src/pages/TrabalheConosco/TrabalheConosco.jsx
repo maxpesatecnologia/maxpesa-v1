@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import styles from './TrabalheConosco.module.css'
 import { useReveal } from '../../hooks/useReveal'
+import { useLang } from '../../context/LanguageContext'
 import PageHero from '../../components/PageHero/PageHero'
 import Toast from '../../components/Toast/Toast'
-import logo from '../../assets/maxpesa_logo_png.png'
+import logo from '../../assets/logo_branca.png'
 
 const ESTADOS = [
   'AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS',
@@ -42,6 +43,7 @@ function maskPhone(v) {
 }
 
 export default function TrabalheConosco() {
+  const { t } = useLang()
   const ref = useReveal([])
   const [phone, setPhone]       = useState('')
   const [fileName, setFileName] = useState('')
@@ -90,33 +92,30 @@ export default function TrabalheConosco() {
   return (
     <div ref={ref}>
       <PageHero
-        eyebrow="Junte-se ao time"
+        eyebrow={t.trabalhe.heroEyebrow}
         title={<>Trabalhe<br/>Conosco</>}
-        subtitle="Faça parte de um grupo com mais de 25 anos movendo o Brasil. Envie seu currículo e aguarde nosso contato."
-        crumb="Trabalhe Conosco"
+        subtitle={t.trabalhe.heroSub}
+        crumb={t.trabalhe.heroCrumb}
       />
 
       <section className={styles.section}>
         <div className="container">
           <div className={styles.card}>
 
-            {/* ── Header split: vermelho esquerdo / escuro direito ── */}
+            {/* ── Header escuro horizontal ── */}
             <div className={styles.cardHead}>
-              <div className={styles.cardHeadRed}>
-                <div className={styles.logoCard}>
-                  <img src={logo} alt="Grupo Maxpesa" className={styles.cardLogo} />
-                </div>
-              </div>
-              <div className={styles.cardHeadDark}>
-                <div className={styles.cardHeadText}>
+              <div className={styles.cardHeadLeft}>
+                <img src={logo} alt="Grupo Maxpesa" className={styles.cardLogo} />
+                <div className={styles.cardHeadDivider} />
+                <div>
                   <h2 className={styles.cardHeadTitle}>Construa sua carreira aqui.</h2>
                   <p className={styles.cardHeadSub}>25 anos movendo o Brasil — com segurança, tradição e crescimento.</p>
                 </div>
-                <div className={styles.cardHeadBadges}>
-                  <div className={styles.hBadge}><strong>25+</strong> Anos</div>
-                  <div className={styles.hBadge}><strong>15 mil</strong> Projetos</div>
-                  <div className={styles.hBadge}>ISO <strong>9001</strong></div>
-                </div>
+              </div>
+              <div className={styles.cardHeadBadges}>
+                <div className={styles.hBadge}><strong>25+</strong> Anos</div>
+                <div className={styles.hBadge}><strong>15 mil</strong> Projetos</div>
+                <div className={styles.hBadge}>ISO <strong>9001</strong></div>
               </div>
             </div>
 
@@ -156,7 +155,7 @@ export default function TrabalheConosco() {
 
                 <form onSubmit={handleSubmit} className={styles.form} noValidate>
                   <div className={styles.field}>
-                    <label htmlFor="nome">Nome completo</label>
+                    <label htmlFor="nome">Nome completo <span className={styles.required}>*</span></label>
                     <input id="nome" name="nome" type="text" autoComplete="name"
                       placeholder="Ex.: Maria da Silva"
                       onKeyDown={onlyLetters}
@@ -166,7 +165,7 @@ export default function TrabalheConosco() {
                   </div>
 
                   <div className={styles.field}>
-                    <label htmlFor="endereco">Endereço</label>
+                    <label htmlFor="endereco">Endereço <span className={styles.required}>*</span></label>
                     <input id="endereco" name="endereco" type="text" autoComplete="street-address"
                       placeholder="Rua, número, bairro"
                       className={errors.endereco ? styles.invalid : ''}
@@ -176,7 +175,7 @@ export default function TrabalheConosco() {
 
                   <div className={styles.row2}>
                     <div className={styles.field}>
-                      <label htmlFor="cidade">Cidade</label>
+                      <label htmlFor="cidade">Cidade <span className={styles.required}>*</span></label>
                       <input id="cidade" name="cidade" type="text" autoComplete="address-level2"
                         placeholder="Ex.: Duque de Caxias"
                         onKeyDown={onlyLetters}
@@ -185,7 +184,7 @@ export default function TrabalheConosco() {
                       {errors.cidade && <span className={styles.err}>{errors.cidade}</span>}
                     </div>
                     <div className={styles.field}>
-                      <label htmlFor="estado">Estado</label>
+                      <label htmlFor="estado">Estado <span className={styles.required}>*</span></label>
                       <select id="estado" name="estado" autoComplete="address-level1" className={errors.estado ? styles.invalid : ''}>
                         <option value="">Selecione</option>
                         {ESTADOS.map((uf) => <option key={uf} value={uf}>{uf}</option>)}
@@ -196,7 +195,7 @@ export default function TrabalheConosco() {
 
                   <div className={styles.row2}>
                     <div className={styles.field}>
-                      <label htmlFor="telefone">Telefone / WhatsApp</label>
+                      <label htmlFor="telefone">Telefone / WhatsApp <span className={styles.required}>*</span></label>
                       <input id="telefone" name="telefone" type="tel" autoComplete="tel"
                         placeholder="(21) 99999-9999"
                         value={phone}
@@ -207,7 +206,7 @@ export default function TrabalheConosco() {
                       {errors.telefone && <span className={styles.err}>{errors.telefone}</span>}
                     </div>
                     <div className={styles.field}>
-                      <label htmlFor="email">E-mail</label>
+                      <label htmlFor="email">E-mail <span className={styles.required}>*</span></label>
                       <input id="email" name="email" type="email" autoComplete="email"
                         placeholder="seu@email.com"
                         className={errors.email ? styles.invalid : ''}
@@ -246,7 +245,7 @@ export default function TrabalheConosco() {
         </div>
       </section>
 
-      <Toast show={toast} onClose={() => setToast(false)} />
+      <Toast show={toast} onClose={() => setToast(false)} title={t.toast.title} subtitle={t.toast.subtitle} />
     </div>
   )
 }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './Frota.module.css'
 import { useReveal } from '../../hooks/useReveal'
+import { useLang } from '../../context/LanguageContext'
 import PageHero from '../../components/PageHero/PageHero'
 
 import imgG1       from '../../assets/guindaste_trelicado_img.png'
@@ -23,77 +24,53 @@ import imgEstacao  from '../../assets/cavalo__prancha.png'
 import imgRemocao2 from '../../assets/caminhao_linha_de_eixo.png'
 import imgEmp      from '../../assets/emp_eletrica.png'
 
-const CATEGORIES = [
-  {
-    id: 'all', label: 'Todos',
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>,
-  },
-  {
-    id: 'guindastes', label: 'Guindastes',
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v9"/><path d="M7 6l5-3 5 3"/><line x1="12" y1="12" x2="12" y2="18"/><path d="M9 18a3 3 0 0 0 6 0"/><line x1="3" y1="21" x2="21" y2="21"/></svg>,
-  },
-  {
-    id: 'munck', label: 'Cam. Guindauto',
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="9" width="14" height="9" rx="1"/><path d="M15 13h4l3 3v3h-7V13z"/><circle cx="5" cy="20" r="2"/><circle cx="17" cy="20" r="2"/></svg>,
-  },
-  {
-    id: 'empilhadeiras', label: 'Empilhadeiras',
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20V4h4v16"/><path d="M8 8h8a2 2 0 0 1 2 2v3H8V8z"/><circle cx="6" cy="22" r="2"/><circle cx="16" cy="22" r="2"/></svg>,
-  },
-  {
-    id: 'linha-amarela', label: 'Linha Amarela',
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h20"/><path d="M6 20V9l3-5h4l3 5v11"/><path d="M9 4v5"/><path d="M6 12h12"/></svg>,
-  },
-  {
-    id: 'plataforma', label: 'Plat. Elevatória',
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20V8"/><path d="M6 14l6-6 6 6"/><path d="M3 20h18"/></svg>,
-  },
-  {
-    id: 'especiais', label: 'Cargas Especiais',
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="10" width="15" height="8" rx="1"/><path d="M16 13h4l2 3v3h-6V13z"/><circle cx="5" cy="20" r="2"/><circle cx="18" cy="20" r="2"/></svg>,
-  },
-]
+const CATEGORY_IDS = ['all','guindastes','munck','empilhadeiras','linha-amarela','plataforma','especiais']
+
+const CATEGORY_ICONS = {
+  all:           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>,
+  guindastes:    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v9"/><path d="M7 6l5-3 5 3"/><line x1="12" y1="12" x2="12" y2="18"/><path d="M9 18a3 3 0 0 0 6 0"/><line x1="3" y1="21" x2="21" y2="21"/></svg>,
+  munck:         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="9" width="14" height="9" rx="1"/><path d="M15 13h4l3 3v3h-7V13z"/><circle cx="5" cy="20" r="2"/><circle cx="17" cy="20" r="2"/></svg>,
+  empilhadeiras: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20V4h4v16"/><path d="M8 8h8a2 2 0 0 1 2 2v3H8V8z"/><circle cx="6" cy="22" r="2"/><circle cx="16" cy="22" r="2"/></svg>,
+  'linha-amarela':<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h20"/><path d="M6 20V9l3-5h4l3 5v11"/><path d="M9 4v5"/><path d="M6 12h12"/></svg>,
+  plataforma:    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20V8"/><path d="M6 14l6-6 6 6"/><path d="M3 20h18"/></svg>,
+  especiais:     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="10" width="15" height="8" rx="1"/><path d="M16 13h4l2 3v3h-6V13z"/><circle cx="5" cy="20" r="2"/><circle cx="18" cy="20" r="2"/></svg>,
+}
 
 const FLEET = [
-  // GUINDASTES
-  { id: 1,  category: 'guindastes',    model: 'Liebherr LTM 1100-4.2',  name: 'Guindaste Rodoviário Telescópico', badge: '100T',  img: imgG3,    specs: [{ l: 'Capacidade', v: '100 t' }, { l: 'Pluma',       v: '60 m'    }, { l: 'Rotação',  v: '360°'      }] },
-  { id: 2,  category: 'guindastes',    model: 'Liebherr LTM 1250-6.2',  name: 'Guindaste Treliçado',              badge: '250T',  img: imgG1,    specs: [{ l: 'Capacidade', v: '250 t' }, { l: 'Pluma',       v: '84 m'    }, { l: 'Rotação',  v: '360°'      }] },
-  { id: 3,  category: 'guindastes',    model: 'Grove GMK 4100L',         name: 'Guindaste Rodoviário Telescópico', badge: '100T',  img: imgG2,    specs: [{ l: 'Capacidade', v: '100 t' }, { l: 'Pluma',       v: '58 m'    }, { l: 'Eixos',    v: '4'         }] },
-  // MUNCK
-  { id: 5,  category: 'munck',         model: 'Mercedes-Benz 2644',      name: 'Caminhão-Guindauto',               badge: '25T',   img: imgM1,    specs: [{ l: 'Capacidade', v: '25 t'  }, { l: 'Alcance',     v: '22 m'    }, { l: 'Acionam.', v: 'Hidráulico' }] },
-  { id: 6,  category: 'munck',         model: 'Volvo FH 540',            name: 'Caminhão-Guindauto',               badge: '35T',   img: imgM2,    specs: [{ l: 'Capacidade', v: '35 t'  }, { l: 'Alcance',     v: '26 m'    }, { l: 'Acionam.', v: 'Hidráulico' }] },
-  // LINHA AMARELA
-  { id: 7,  category: 'linha-amarela', model: 'Caterpillar 420F',        name: 'Escavadeira Hidráulica',           badge: '4x4',   img: imgLA,    specs: [{ l: 'Balde',      v: '1.09 m³'}, { l: 'Prof. max',   v: '6.3 m'   }, { l: 'Tração',   v: '4x4'       }] },
-  { id: 8,  category: 'linha-amarela', model: 'Caterpillar 320D',        name: 'Pá Carregadeira',                  badge: '20T',   img: imgLA2,   specs: [{ l: 'Peso op.',   v: '20 t'   }, { l: 'Profundid.', v: '9.8 m'   }, { l: 'Balde',    v: '0.95 m³'  }] },
-  // PLATAFORMA ELEVATÓRIA
-  { id: 9,  category: 'plataforma',    model: 'JLG 600AJ',               name: 'Plataforma Articulada',            badge: '18M',   img: imgPlatA, specs: [{ l: 'Alt. trab.', v: '18 m'  }, { l: 'Capacidade', v: '227 kg'  }, { l: 'Tração',   v: '4WD'       }] },
-  { id: 10, category: 'plataforma',    model: 'Genie GS-4047',           name: 'Plataforma Tesoura',               badge: '14M',   img: imgPlatT, specs: [{ l: 'Alt. trab.', v: '14 m'  }, { l: 'Capacidade', v: '450 kg'  }, { l: 'Plataf.',  v: '1.83 m'   }] },
-  // CARGAS ESPECIAIS
-  { id: 11, category: 'especiais',     model: 'Prancha 5 Eixos',         name: 'Carreta Carga Seca',               badge: '80T',   img: imgEixo,  specs: [{ l: 'Capacidade', v: '80 t'  }, { l: 'Comprimento', v: '20 m'   }, { l: 'Licença',  v: 'DNIT'      }] },
-  { id: 12, category: 'especiais',     model: 'Carreta Extensível',      name: 'Carreta Extensiva',                badge: '150T',  img: imgG4,        specs: [{ l: 'Capacidade', v: '150 t' }, { l: 'Comprimento', v: '30+ m'  }, { l: 'Licença',  v: 'AET'       }] },
-  { id: 13, category: 'especiais',     model: 'Carreta Baú Sider',       name: 'Carreta Baú Sider',                badge: '28T',   img: imgContainer, specs: [{ l: 'Capacidade', v: '28 t'  }, { l: 'Comprimento', v: '14 m'   }, { l: 'Licença',  v: 'DNIT'      }] },
-  { id: 14, category: 'especiais',     model: 'Carreta Baú',             name: 'Carreta Baú',                      badge: '30T',   img: imgG5,        specs: [{ l: 'Capacidade', v: '30 t'  }, { l: 'Comprimento', v: '12 m'   }, { l: 'Licença',  v: 'DNIT'      }] },
-  { id: 15, category: 'especiais',     model: 'Carreta Prancha',         name: 'Carreta Prancha',                  badge: '100T',  img: imgEstacao,   specs: [{ l: 'Capacidade', v: '100 t' }, { l: 'Comprimento', v: '22 m'   }, { l: 'Licença',  v: 'AET'       }] },
-  { id: 16, category: 'especiais',     model: 'Linha de Eixo',           name: 'Linha de Eixo',                    badge: '500T',  img: imgRemocao2,  specs: [{ l: 'Capacidade', v: '500 t' }, { l: 'Comprimento', v: '50+ m'  }, { l: 'Licença',  v: 'AET'       }] },
-  // EMPILHADEIRAS
-  { id: 17, category: 'empilhadeiras', model: 'Toyota 8FBN25',           name: 'Empilhadeira Elétrica',            badge: '2.5T',  img: imgEmp,       specs: [{ l: 'Capacidade', v: '2.5 t' }, { l: 'Elevação',    v: '5.5 m'  }, { l: 'Acionam.', v: 'Elétrico'  }] },
-  { id: 18, category: 'empilhadeiras', model: 'Yale GLP050',             name: 'Empilhadeira Diesel',              badge: '5T',    img: imgMunckAlt,  specs: [{ l: 'Capacidade', v: '5 t'   }, { l: 'Elevação',    v: '6 m'    }, { l: 'Acionam.', v: 'Diesel'    }] },
+  { id: 1,  category: 'guindastes',    model: 'Liebherr LTM 1100-4.2',  badge: '100T',  img: imgG3,        specs: [{ l: 'Capacidade', v: '100 t' }, { l: 'Pluma',       v: '60 m'    }, { l: 'Rotação',  v: '360°'      }] },
+  { id: 2,  category: 'guindastes',    model: 'Liebherr LTM 1250-6.2',  badge: '250T',  img: imgG1,        specs: [{ l: 'Capacidade', v: '250 t' }, { l: 'Pluma',       v: '84 m'    }, { l: 'Rotação',  v: '360°'      }] },
+  { id: 3,  category: 'guindastes',    model: 'Grove GMK 4100L',         badge: '100T',  img: imgG2,        specs: [{ l: 'Capacidade', v: '100 t' }, { l: 'Pluma',       v: '58 m'    }, { l: 'Eixos',    v: '4'         }] },
+  { id: 5,  category: 'munck',         model: 'Mercedes-Benz 2644',      badge: '25T',   img: imgM1,        specs: [{ l: 'Capacidade', v: '25 t'  }, { l: 'Alcance',     v: '22 m'    }, { l: 'Acionam.', v: 'Hidráulico' }] },
+  { id: 6,  category: 'munck',         model: 'Volvo FH 540',            badge: '35T',   img: imgM2,        specs: [{ l: 'Capacidade', v: '35 t'  }, { l: 'Alcance',     v: '26 m'    }, { l: 'Acionam.', v: 'Hidráulico' }] },
+  { id: 7,  category: 'linha-amarela', model: 'Caterpillar 420F',        badge: '4x4',   img: imgLA,        specs: [{ l: 'Balde',      v: '1.09 m³'}, { l: 'Prof. max',   v: '6.3 m'   }, { l: 'Tração',   v: '4x4'       }] },
+  { id: 8,  category: 'linha-amarela', model: 'Caterpillar 320D',        badge: '20T',   img: imgLA2,       specs: [{ l: 'Peso op.',   v: '20 t'   }, { l: 'Profundid.', v: '9.8 m'   }, { l: 'Balde',    v: '0.95 m³'  }] },
+  { id: 9,  category: 'plataforma',    model: 'JLG 600AJ',               badge: '18M',   img: imgPlatA,     specs: [{ l: 'Alt. trab.', v: '18 m'  }, { l: 'Capacidade', v: '227 kg'  }, { l: 'Tração',   v: '4WD'       }] },
+  { id: 10, category: 'plataforma',    model: 'Genie GS-4047',           badge: '14M',   img: imgPlatT,     specs: [{ l: 'Alt. trab.', v: '14 m'  }, { l: 'Capacidade', v: '450 kg'  }, { l: 'Plataf.',  v: '1.83 m'   }] },
+  { id: 11, category: 'especiais',     model: 'Prancha 5 Eixos',         badge: '80T',   img: imgEixo,      specs: [{ l: 'Capacidade', v: '80 t'  }, { l: 'Comprimento', v: '20 m'   }, { l: 'Licença',  v: 'DNIT'      }] },
+  { id: 12, category: 'especiais',     model: 'Carreta Extensível',      badge: '150T',  img: imgG4,        specs: [{ l: 'Capacidade', v: '150 t' }, { l: 'Comprimento', v: '30+ m'  }, { l: 'Licença',  v: 'AET'       }] },
+  { id: 13, category: 'especiais',     model: 'Carreta Baú Sider',       badge: '28T',   img: imgContainer, specs: [{ l: 'Capacidade', v: '28 t'  }, { l: 'Comprimento', v: '14 m'   }, { l: 'Licença',  v: 'DNIT'      }] },
+  { id: 14, category: 'especiais',     model: 'Carreta Baú',             badge: '30T',   img: imgG5,        specs: [{ l: 'Capacidade', v: '30 t'  }, { l: 'Comprimento', v: '12 m'   }, { l: 'Licença',  v: 'DNIT'      }] },
+  { id: 15, category: 'especiais',     model: 'Carreta Prancha',         badge: '100T',  img: imgEstacao,   specs: [{ l: 'Capacidade', v: '100 t' }, { l: 'Comprimento', v: '22 m'   }, { l: 'Licença',  v: 'AET'       }] },
+  { id: 16, category: 'especiais',     model: 'Linha de Eixo',           badge: '500T',  img: imgRemocao2,  specs: [{ l: 'Capacidade', v: '500 t' }, { l: 'Comprimento', v: '50+ m'  }, { l: 'Licença',  v: 'AET'       }] },
+  { id: 17, category: 'empilhadeiras', model: 'Toyota 8FBN25',           badge: '2.5T',  img: imgEmp,       specs: [{ l: 'Capacidade', v: '2.5 t' }, { l: 'Elevação',    v: '5.5 m'  }, { l: 'Acionam.', v: 'Elétrico'  }] },
+  { id: 18, category: 'empilhadeiras', model: 'Yale GLP050',             badge: '5T',    img: imgMunckAlt,  specs: [{ l: 'Capacidade', v: '5 t'   }, { l: 'Elevação',    v: '6 m'    }, { l: 'Acionam.', v: 'Diesel'    }] },
 ]
 
 export default function Frota() {
   const ref = useReveal([])
+  const { t } = useLang()
   const [active, setActive] = useState('all')
 
-  const filtered  = active === 'all' ? FLEET : FLEET.filter(e => e.category === active)
-  const countFor  = id => id === 'all' ? FLEET.length : FLEET.filter(e => e.category === id).length
+  const filtered = active === 'all' ? FLEET : FLEET.filter(e => e.category === active)
+  const countFor = id => id === 'all' ? FLEET.length : FLEET.filter(e => e.category === id).length
 
   return (
     <div ref={ref}>
       <PageHero
-        eyebrow="Locação de Equipamentos"
+        eyebrow={t.frota.heroEyebrow}
         title={<>Nossa<br/>Frota</>}
-        subtitle="Frota própria com manutenção preventiva, operadores certificados e suporte 24/7. Consulte disponibilidade e solicite locação."
-        crumb="Nossa Frota"
+        subtitle={t.frota.heroSub}
+        crumb={t.frota.heroCrumb}
       />
 
       <section className={styles.section}>
@@ -102,20 +79,20 @@ export default function Frota() {
         <div className={styles.filterHead}>
           <div className="container">
             <div className={styles.filterScroll}>
-              {CATEGORIES.map(cat => (
+              {CATEGORY_IDS.map(id => (
                 <button
-                  key={cat.id}
-                  onClick={() => setActive(cat.id)}
-                  className={`${styles.filterBtn} ${active === cat.id ? styles.active : ''}`}
+                  key={id}
+                  onClick={() => setActive(id)}
+                  className={`${styles.filterBtn} ${active === id ? styles.active : ''}`}
                 >
-                  <span className={styles.filterIco}>{cat.icon}</span>
-                  <span>{cat.label}</span>
-                  <span className={styles.filterCount}>{countFor(cat.id)}</span>
+                  <span className={styles.filterIco}>{CATEGORY_ICONS[id]}</span>
+                  <span>{t.frota.categories[id]}</span>
+                  <span className={styles.filterCount}>{countFor(id)}</span>
                 </button>
               ))}
             </div>
             <p className={styles.filterMeta}>
-              <strong>{filtered.length}</strong> equipamento{filtered.length !== 1 ? 's' : ''} disponíve{filtered.length !== 1 ? 'is' : 'l'} para locação
+              <strong>{filtered.length}</strong> {filtered.length !== 1 ? t.frota.filterMetaPlural : t.frota.filterMetaSingle}
             </p>
           </div>
         </div>
@@ -139,32 +116,28 @@ export default function Frota() {
                   }}
                   className={styles.card}
                 >
-                  {/* Imagem */}
                   <div className={styles.cardImg}>
-                    <img src={item.img} alt={item.name} loading="lazy" />
+                    <img src={item.img} alt={t.frota.itemNames[item.id] ?? item.id} loading="lazy" />
                     <span className={styles.cardBadge}>{item.badge}</span>
                   </div>
 
-                  {/* Conteúdo */}
                   <div className={styles.cardContent}>
                     <p className={styles.cardModel}>{item.model}</p>
-                    <h3 className={styles.cardName}>{item.name}</h3>
+                    <h3 className={styles.cardName}>{t.frota.itemNames[item.id] ?? item.id}</h3>
                   </div>
 
-                  {/* Specs */}
                   <div className={styles.cardSpecs}>
                     {item.specs.map((s, i) => (
                       <div key={i} className={styles.cardSpec}>
                         <span className={styles.specVal}>{s.v}</span>
-                        <span className={styles.specLbl}>{s.l}</span>
+                        <span className={styles.specLbl}>{t.frota.specLabels[s.l] ?? s.l}</span>
                       </div>
                     ))}
                   </div>
 
-                  {/* Ações */}
                   <div className={styles.cardFooter}>
                     <Link to="/contato" className={styles.cardCta}>
-                      Solicitar Locação
+                      {t.frota.cta}
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="13" height="13"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </Link>
                   </div>

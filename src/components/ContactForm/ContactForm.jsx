@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import styles from './ContactForm.module.css'
 import Toast from '../Toast/Toast'
-import logo from '../../assets/maxpesa_white_logo.png'
+import logo from '../../assets/logo_branca.png'
+import { useLang } from '../../context/LanguageContext'
 
 function maskPhone(v) {
   v = v.replace(/\D/g, '').slice(0, 11)
@@ -48,6 +49,7 @@ const CONTACTS = [
 ]
 
 export default function ContactForm() {
+  const { t } = useLang()
   const [phone, setPhone]     = useState('')
   const [loading, setLoading] = useState(false)
   const [toast, setToast]     = useState(false)
@@ -213,7 +215,7 @@ export default function ContactForm() {
 
         </div>
       </div>
-      <Toast show={toast} onClose={() => setToast(false)} />
+      <Toast show={toast} onClose={() => setToast(false)} title={t.toast.title} subtitle={t.toast.subtitle} />
     </>
   )
 }
