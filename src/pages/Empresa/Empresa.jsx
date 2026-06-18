@@ -60,13 +60,13 @@ export default function Empresa() {
 
   return (
     <div ref={ref}>
-      <PageHero eyebrow={t.empresa.heroEyebrow} title={<>25 Anos de Força,<br/>Tradição e Confiança</>} subtitle={t.empresa.heroSub} crumb={t.empresa.heroCrumb} />
+      <PageHero eyebrow={t.empresa.heroEyebrow} title={<>{t.empresa.heroTitle[0]}<br/>{t.empresa.heroTitle[1]}</>} subtitle={t.empresa.heroSub} crumb={t.empresa.heroCrumb} />
 
       <section className={styles.about}>
         <div className="container">
           <div className={styles.grid2}>
             <div ref={cRef}>
-              <div className="reveal"><SectionHeader eyebrow={t.empresa.aboutEyebrow} title={<>Engenharia de precisão<br/>para grandes desafios</>} /></div>
+              <div className="reveal"><SectionHeader eyebrow={t.empresa.aboutEyebrow} title={<>{t.empresa.aboutTitle[0]}<br/>{t.empresa.aboutTitle[1]}</>} /></div>
               <p className={`${styles.lead} reveal`}>{t.empresa.aboutLead}</p>
               <p className={`${styles.body} reveal`}>{t.empresa.aboutBody}</p>
               <div className={`${styles.statsRow} reveal`}>
@@ -91,7 +91,7 @@ export default function Empresa() {
         <div className="container">
           <div className={styles.grid2} style={{alignItems:'flex-start',gap:'80px'}}>
             <div>
-              <div className="reveal"><SectionHeader eyebrow={t.empresa.tlEyebrow} title={<>Uma história construída<br/>com trabalho e confiança</>} subtitle="Cada marco representa um novo padrão alcançado na logística pesada brasileira." /></div>
+              <div className="reveal"><SectionHeader eyebrow={t.empresa.tlEyebrow} title={<>{t.empresa.tlTitle[0]}<br/>{t.empresa.tlTitle[1]}</>} subtitle={t.empresa.tlSub} /></div>
               <div className="reveal"><Button to="/contato">{t.empresa.tlBtn}</Button></div>
             </div>
             <Timeline items={t.empresa.timeline} />

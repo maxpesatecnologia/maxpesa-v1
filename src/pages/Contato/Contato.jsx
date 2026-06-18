@@ -9,7 +9,7 @@ export default function Contato() {
   const ref = useReveal([])
   return (
     <div ref={ref}>
-      <PageHero eyebrow={t.contato.heroEyebrow} title={<>Solicite um<br/>Orçamento</>} subtitle={t.contato.heroSub} crumb={t.contato.heroCrumb} />
+      <PageHero eyebrow={t.contato.heroEyebrow} title={<>{t.contato.heroTitle[0]}<br/>{t.contato.heroTitle[1]}</>} subtitle={t.contato.heroSub} crumb={t.contato.heroCrumb} />
       <section className={styles.section}>
         <div className="container"><ContactForm /></div>
       </section>

@@ -10,7 +10,8 @@ const ArrowRight = () => (
 )
 
 export default function Blog() {
-  const { t } = useLang()
+  const { t, lang } = useLang()
+  const loc = (field) => (field && typeof field === 'object') ? (field[lang] ?? field['pt-BR']) : field
   const [featured, ...rest] = POSTS
 
   return (
@@ -35,10 +36,10 @@ export default function Blog() {
               <img src={featured.img} alt={featured.title} />
             </div>
             <div className={styles.featuredContent}>
-              <span className={styles.badge}>{featured.category}</span>
+              <span className={styles.badge}>{loc(featured.category)}</span>
               <span className={styles.featuredEye}>{t.blog.featured}</span>
-              <h2>{featured.title}</h2>
-              <p>{featured.excerpt}</p>
+              <h2>{loc(featured.title)}</h2>
+              <p>{loc(featured.excerpt)}</p>
               <span className={styles.readMore}>
                 {t.blog.readMore} <ArrowRight />
               </span>
@@ -51,11 +52,11 @@ export default function Blog() {
               <Link key={post.slug} to={`/blog/${post.slug}`} className={styles.card}>
                 <div className={styles.cardImg}>
                   <img src={post.img} alt={post.title} />
-                  <span className={styles.badge}>{post.category}</span>
+                  <span className={styles.badge}>{loc(post.category)}</span>
                 </div>
                 <div className={styles.cardBody}>
-                  <h3>{post.title}</h3>
-                  <p>{post.excerpt}</p>
+                  <h3>{loc(post.title)}</h3>
+                  <p>{loc(post.excerpt)}</p>
                   <span className={styles.readMore}>
                     {t.blog.readMoreShort} <ArrowRight />
                   </span>

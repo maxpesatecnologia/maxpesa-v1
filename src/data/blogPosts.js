@@ -1,7 +1,3 @@
-// Substitua pelos arquivos reais quando disponíveis
-// import imgOpacidade  from '../assets/blog_opacidade.jpg'
-// import imgSubestacao from '../assets/blog_subestacao.jpg'
-// import imgContainer  from '../assets/blog_container.jpg'
 import imgOpacidade  from '../assets/munck.jpg'
 import imgSubestacao from '../assets/estacao_eletrica_img.png'
 import imgContainer  from '../assets/container_img.png'
@@ -9,10 +5,28 @@ import imgContainer  from '../assets/container_img.png'
 export const POSTS = [
   {
     slug: 'teste-opacidade',
-    category: 'Sustentabilidade',
-    title: 'Teste de Opacidade: O que é e por que fazer',
-    excerpt: 'No último sábado (04/09) o Grupo Maxpesa realizou o teste de opacidade veicular em toda a sua frota, reforçando o compromisso com o meio ambiente e com as normas de emissão veicular.',
     img: imgOpacidade,
+    category: {
+      'pt-BR': 'Sustentabilidade',
+      'en':    'Sustainability',
+      'es':    'Sostenibilidad',
+      'de':    'Nachhaltigkeit',
+      'fr':    'Durabilité',
+    },
+    title: {
+      'pt-BR': 'Teste de Opacidade: O que é e por que fazer',
+      'en':    'Opacity Test: What It Is and Why It Matters',
+      'es':    'Prueba de Opacidad: Qué es y por qué realizarla',
+      'de':    'Opazitätstest: Was es ist und warum er wichtig ist',
+      'fr':    "Test d'opacité : ce que c'est et pourquoi le réaliser",
+    },
+    excerpt: {
+      'pt-BR': 'No último sábado (04/09) o Grupo Maxpesa realizou o teste de opacidade veicular em toda a sua frota, reforçando o compromisso com o meio ambiente e com as normas de emissão veicular.',
+      'en':    'Last Saturday (04/09), Grupo Maxpesa conducted the vehicle opacity test across its entire fleet, reinforcing its commitment to the environment and vehicle emission standards.',
+      'es':    'El último sábado (04/09) el Grupo Maxpesa realizó la prueba de opacidad vehicular en toda su flota, reforzando el compromiso con el medio ambiente y las normas de emisión vehicular.',
+      'de':    'Am letzten Samstag (04/09) führte Grupo Maxpesa den Fahrzeugopazitätstest an ihrer gesamten Flotte durch und bekräftigte ihr Umweltengagement und die Einhaltung von Fahrzeugemissionsnormen.',
+      'fr':    "Samedi dernier (04/09), Grupo Maxpesa a réalisé le test d'opacité véhiculaire sur l'ensemble de sa flotte, renforçant son engagement envers l'environnement et les normes d'émissions des véhicules.",
+    },
     content: [
       { type: 'p', text: 'O teste de opacidade veicular é uma verificação desenvolvida para averiguar a emissão de poluentes no meio ambiente, com o objetivo de controlá-la. Veículos como carros, caminhões, ônibus, entre outros que utilizam diesel como combustível devem passar por este teste.' },
       { type: 'p', text: 'Também chamado de "teste de fumaça" ou "aferição/medição de fumaça preta", consiste na emissão de um certificado que formaliza o controle periódico das emissões de poluição junto à fumaça emitida por esses veículos. Tais medidas são estratégias da Política Nacional do Meio Ambiente, que visam ao maior controle da qualidade do ar, reduzindo a poluição atmosférica.' },
@@ -40,10 +54,28 @@ export const POSTS = [
   },
   {
     slug: 'manutencao-subestacoes',
-    category: 'Técnico',
-    title: 'Tudo sobre Manutenção de subestações elétricas',
-    excerpt: 'A manutenção de subestações elétricas é primordial para qualquer indústria ou empreendimento de grande porte porque podem impedir que a empresa necessite paralisar suas atividades.',
     img: imgSubestacao,
+    category: {
+      'pt-BR': 'Técnico',
+      'en':    'Technical',
+      'es':    'Técnico',
+      'de':    'Technisch',
+      'fr':    'Technique',
+    },
+    title: {
+      'pt-BR': 'Tudo sobre Manutenção de subestações elétricas',
+      'en':    'Everything About Electrical Substation Maintenance',
+      'es':    'Todo sobre el mantenimiento de subestaciones eléctricas',
+      'de':    'Alles über die Wartung elektrischer Umspannwerke',
+      'fr':    'Tout sur la maintenance des sous-stations électriques',
+    },
+    excerpt: {
+      'pt-BR': 'A manutenção de subestações elétricas é primordial para qualquer indústria ou empreendimento de grande porte porque podem impedir que a empresa necessite paralisar suas atividades.',
+      'en':    'Electrical substation maintenance is essential for any large-scale industry or enterprise, as it can prevent the company from having to halt its operations.',
+      'es':    'El mantenimiento de subestaciones eléctricas es primordial para cualquier industria o emprendimiento de gran porte porque pueden impedir que la empresa necesite paralizar sus actividades.',
+      'de':    'Die Wartung elektrischer Umspannwerke ist für jede Industrie oder jeden Großbetrieb unerlässlich, da sie verhindern kann, dass das Unternehmen seinen Betrieb einstellen muss.',
+      'fr':    "La maintenance des sous-stations électriques est primordiale pour toute industrie ou grande entreprise, car elle peut empêcher la société d'avoir à interrompre ses activités.",
+    },
     content: [
       { type: 'h2', text: 'O que é uma Subestação Elétrica?' },
       { type: 'p', text: 'Subestação é toda instalação elétrica de alta potência, contendo equipamentos para transmissão e distribuição de energia elétrica. Também são soluções que compõem o sistema de proteção, controle, transmissão e distribuição de energia de alta potência da fonte geradora à consumidora.' },
@@ -77,10 +109,28 @@ export const POSTS = [
   },
   {
     slug: 'transporte-container',
-    category: 'Logística',
-    title: 'Saiba mais sobre o transporte de container',
-    excerpt: 'O transporte de container é uma das modalidades mais comuns na logística, garantindo maior praticidade e segurança no transporte de mercadorias em longas distâncias.',
     img: imgContainer,
+    category: {
+      'pt-BR': 'Logística',
+      'en':    'Logistics',
+      'es':    'Logística',
+      'de':    'Logistik',
+      'fr':    'Logistique',
+    },
+    title: {
+      'pt-BR': 'Saiba mais sobre o transporte de container',
+      'en':    'Learn More About Container Transport',
+      'es':    'Conozca más sobre el transporte de contenedores',
+      'de':    'Mehr über den Containertransport erfahren',
+      'fr':    'En savoir plus sur le transport de conteneurs',
+    },
+    excerpt: {
+      'pt-BR': 'O transporte de container é uma das modalidades mais comuns na logística, garantindo maior praticidade e segurança no transporte de mercadorias em longas distâncias.',
+      'en':    'Container transport is one of the most common logistics modalities, ensuring greater practicality and safety when transporting goods over long distances.',
+      'es':    'El transporte de contenedores es una de las modalidades más comunes en la logística, garantizando mayor practicidad y seguridad en el transporte de mercancías a largas distancias.',
+      'de':    'Containertransport ist eine der häufigsten Logistikmodalitäten und gewährleistet mehr Praktikabilität und Sicherheit beim Transport von Waren über lange Strecken.',
+      'fr':    "Le transport de conteneurs est l'une des modalités logistiques les plus courantes, garantissant une plus grande praticité et sécurité dans le transport de marchandises sur de longues distances.",
+    },
     content: [
       { type: 'p', text: 'O transporte de container é uma das modalidades mais comuns na logística, garantindo maior praticidade e agilidade, pois possuem o tamanho ideal para o transporte de cargas dos mais diferentes tipos e formatos. Entretanto, engana-se quem pensa que é uma atividade simples, pois na verdade exige alto padrão de planejamento logístico e muito cuidado técnico.' },
       { type: 'p', text: 'A atividade é comumente realizada por via marítima, porém nem sempre essa é a melhor opção. Por exemplo, quando pensamos num transporte de curtas distâncias, o ideal é que se escolha o transporte rodoviário.' },

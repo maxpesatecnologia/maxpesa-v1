@@ -42,7 +42,7 @@ export default function Esg() {
 
   return (
     <div ref={ref}>
-      <PageHero eyebrow={t.esg.heroEyebrow} title={<>Compromisso Real<br/>com o ESG</>} subtitle={t.esg.heroSub} crumb={t.esg.heroCrumb} />
+      <PageHero eyebrow={t.esg.heroEyebrow} title={<>{t.esg.heroTitle[0]}<br/>{t.esg.heroTitle[1]}</>} subtitle={t.esg.heroSub} crumb={t.esg.heroCrumb} />
 
       <section className={styles.section}>
         <div className="container">
@@ -51,7 +51,7 @@ export default function Esg() {
               <img src="https://www.maxpesa.com.br/web/images/2023/09/06/banner-home-bg-4.jpg" alt="ESG Maxpesa" />
             </div>
             <div>
-              <SectionHeader eyebrow={t.esg.visionEyebrow} title={<>ESG como prática,<br/>não discurso</>} subtitle={t.esg.visionSub} />
+              <SectionHeader eyebrow={t.esg.visionEyebrow} title={<>{t.esg.visionTitle[0]}<br/>{t.esg.visionTitle[1]}</>} subtitle={t.esg.visionSub} />
               <div style={{display:'flex',flexDirection:'column',gap:'14px'}}>
                 {t.esg.esgItems.map((item, i) => (
                   <div key={i} className="reveal">

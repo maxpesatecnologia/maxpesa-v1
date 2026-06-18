@@ -90,7 +90,7 @@ export default function Servicos() {
     <div ref={ref}>
       <PageHero
         eyebrow={t.servicos.heroEyebrow}
-        title={<>Nossas Soluções<br/>Operacionais</>}
+        title={<>{t.servicos.heroTitle[0]}<br/>{t.servicos.heroTitle[1]}</>}
         subtitle={t.servicos.heroSub}
         crumb={t.servicos.heroCrumb}
       />
@@ -166,8 +166,8 @@ export default function Servicos() {
           <SectionHeader
             center
             eyebrow={t.servicos.specialEyebrow}
-            title={<>Projetos especiais<br/>são nossa especialidade</>}
-            subtitle="Nossa engenharia avalia qualquer demanda e apresenta a solução técnica ideal."
+            title={<>{t.servicos.specialTitle[0]}<br/>{t.servicos.specialTitle[1]}</>}
+            subtitle={t.servicos.specialSub}
           />
           <Button to="/contato" size="lg">{t.servicos.specialBtn}</Button>
         </div>

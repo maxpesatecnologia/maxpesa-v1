@@ -76,7 +76,7 @@ export default function Certificacoes() {
 
   return (
     <div ref={ref}>
-      <PageHero eyebrow={t.certificacoes.heroEyebrow} title={<>Certificações<br/>&amp; Conformidades</>} subtitle={t.certificacoes.heroSub} crumb={t.certificacoes.heroCrumb} />
+      <PageHero eyebrow={t.certificacoes.heroEyebrow} title={<>{t.certificacoes.heroTitle[0]}<br/>{t.certificacoes.heroTitle[1]}</>} subtitle={t.certificacoes.heroSub} crumb={t.certificacoes.heroCrumb} />
 
       <section className={styles.section}>
         <div className="container">
@@ -109,7 +109,7 @@ export default function Certificacoes() {
         <div className="container" style={{position:'relative', zIndex:1}}>
           <div className={styles.grid}>
             <div>
-              <div className="reveal"><SectionHeader eyebrow={t.certificacoes.whyEyebrow} title={<>Certificações como<br/>compromisso com você</>} /></div>
+              <div className="reveal"><SectionHeader eyebrow={t.certificacoes.whyEyebrow} title={<>{t.certificacoes.whyTitle[0]}<br/>{t.certificacoes.whyTitle[1]}</>} /></div>
               <p className={`${styles.lead} reveal`}>{t.certificacoes.whyLead}</p>
               <p className={`${styles.body} reveal`}>{t.certificacoes.whyBody}</p>
               <div className="reveal"><Button to="/contato">{t.certificacoes.whyBtn}</Button></div>
@@ -128,7 +128,7 @@ export default function Certificacoes() {
 
       <section className={styles.section} style={{textAlign:'center'}}>
         <div className="container">
-          <div className="reveal"><SectionHeader center eyebrow={t.certificacoes.docEyebrow} title={<>Solicite nosso dossiê<br/>de certificações</>} subtitle={t.certificacoes.docSub} /></div>
+          <div className="reveal"><SectionHeader center eyebrow={t.certificacoes.docEyebrow} title={<>{t.certificacoes.docTitle[0]}<br/>{t.certificacoes.docTitle[1]}</>} subtitle={t.certificacoes.docSub} /></div>
           <div className="reveal"><Button to="/contato" size="lg">{t.certificacoes.docBtn}</Button></div>
         </div>
       </section>

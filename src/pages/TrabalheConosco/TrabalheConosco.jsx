@@ -12,27 +12,11 @@ const ESTADOS = [
   'SP','SE','TO',
 ]
 
-const BENEFICIOS = [
-  {
-    icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>,
-    label: 'Segurança acima de tudo',
-    desc: 'EPIs completos, treinamentos NR-11 e cultura de segurança rigorosa em cada operação.',
-  },
-  {
-    icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>,
-    label: 'Plano de carreira estruturado',
-    desc: 'Avaliações regulares, promoções por mérito e capacitação técnica contínua.',
-  },
-  {
-    icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>,
-    label: 'Projetos de grande impacto',
-    desc: 'Operações para Petrobras, Vale, Light e os maiores projetos da indústria nacional.',
-  },
-  {
-    icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
-    label: 'Equipe multidisciplinar',
-    desc: 'Trabalhe ao lado de engenheiros, operadores e técnicos especializados.',
-  },
+const BENEFICIO_ICONS = [
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>,
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>,
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>,
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
 ]
 
 function maskPhone(v) {
@@ -61,15 +45,15 @@ export default function TrabalheConosco() {
     const nome   = form.nome.value.trim()
     const cidade = form.cidade.value.trim()
     const tel    = form.telefone.value.replace(/\D/g, '')
-    if (!nome) errs.nome = 'Campo obrigatório'
-    else if (nome.length < 3) errs.nome = 'Mínimo 3 caracteres'
-    if (!form.endereco.value.trim()) errs.endereco = 'Campo obrigatório'
-    if (!cidade) errs.cidade = 'Campo obrigatório'
-    if (!form.estado.value) errs.estado = 'Selecione um estado'
-    if (!tel) errs.telefone = 'Campo obrigatório'
-    else if (tel.length < 10) errs.telefone = 'Telefone inválido'
-    if (!form.email.value.trim()) errs.email = 'Campo obrigatório'
-    if (!form.curriculo.files.length) errs.curriculo = 'Anexe seu currículo para continuar'
+    if (!nome) errs.nome = t.trabalhe.errors.required
+    else if (nome.length < 3) errs.nome = t.trabalhe.errors.minChars
+    if (!form.endereco.value.trim()) errs.endereco = t.trabalhe.errors.required
+    if (!cidade) errs.cidade = t.trabalhe.errors.required
+    if (!form.estado.value) errs.estado = t.trabalhe.errors.state
+    if (!tel) errs.telefone = t.trabalhe.errors.required
+    else if (tel.length < 10) errs.telefone = t.trabalhe.errors.phone
+    if (!form.email.value.trim()) errs.email = t.trabalhe.errors.required
+    if (!form.curriculo.files.length) errs.curriculo = t.trabalhe.errors.resume
     return errs
   }
 
@@ -93,7 +77,7 @@ export default function TrabalheConosco() {
     <div ref={ref}>
       <PageHero
         eyebrow={t.trabalhe.heroEyebrow}
-        title={<>Trabalhe<br/>Conosco</>}
+        title={<>{t.trabalhe.heroTitle[0]}<br/>{t.trabalhe.heroTitle[1]}</>}
         subtitle={t.trabalhe.heroSub}
         crumb={t.trabalhe.heroCrumb}
       />
@@ -108,8 +92,8 @@ export default function TrabalheConosco() {
                 <img src={logo} alt="Grupo Maxpesa" className={styles.cardLogo} />
                 <div className={styles.cardHeadDivider} />
                 <div>
-                  <h2 className={styles.cardHeadTitle}>Construa sua carreira aqui.</h2>
-                  <p className={styles.cardHeadSub}>25 anos movendo o Brasil — com segurança, tradição e crescimento.</p>
+                  <h2 className={styles.cardHeadTitle}>{t.trabalhe.cardTitle}</h2>
+                  <p className={styles.cardHeadSub}>{t.trabalhe.cardSub}</p>
                 </div>
               </div>
               <div className={styles.cardHeadBadges}>
@@ -125,14 +109,14 @@ export default function TrabalheConosco() {
               {/* Painel esquerdo */}
               <div className={styles.panel}>
                 <div className={styles.panelInner}>
-                  <p className={styles.panelEyebrow}>Por que trabalhar aqui?</p>
-                  <h3 className={styles.panelTitle}>Faça parte de projetos que movem o Brasil.</h3>
-                  <p className={styles.panelSub}>Somos referência nacional em logística pesada. Cada colaborador atua em operações de alto impacto e tem espaço real para crescer.</p>
+                  <p className={styles.panelEyebrow}>{t.trabalhe.panelEyebrow}</p>
+                  <h3 className={styles.panelTitle}>{t.trabalhe.panelTitle}</h3>
+                  <p className={styles.panelSub}>{t.trabalhe.panelSub}</p>
 
                   <div className={styles.beneficios}>
-                    {BENEFICIOS.map((b) => (
-                      <div key={b.label} className={styles.benefRow}>
-                        <div className={styles.benefIco}>{b.icon}</div>
+                    {t.trabalhe.benefits.map((b, i) => (
+                      <div key={i} className={styles.benefRow}>
+                        <div className={styles.benefIco}>{BENEFICIO_ICONS[i]}</div>
                         <div>
                           <div className={styles.benefLabel}>{b.label}</div>
                           <div className={styles.benefDesc}>{b.desc}</div>
@@ -143,21 +127,21 @@ export default function TrabalheConosco() {
 
                   <div className={styles.panelNote}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                    Aceitamos arquivos PDF, DOC ou DOCX até 5 MB.
+                    {t.trabalhe.fileNote}
                   </div>
                 </div>
               </div>
 
               {/* Formulário */}
               <div className={styles.formWrap}>
-                <h3 className={styles.formTitle}>Envie sua candidatura</h3>
-                <p className={styles.formSub}>Preencha os campos abaixo com atenção. Entraremos em contato se houver uma vaga compatível com seu perfil.</p>
+                <h3 className={styles.formTitle}>{t.trabalhe.formTitle}</h3>
+                <p className={styles.formSub}>{t.trabalhe.formSub}</p>
 
                 <form onSubmit={handleSubmit} className={styles.form} noValidate>
                   <div className={styles.field}>
-                    <label htmlFor="nome">Nome completo <span className={styles.required}>*</span></label>
+                    <label htmlFor="nome">{t.trabalhe.fields.nome} <span className={styles.required}>*</span></label>
                     <input id="nome" name="nome" type="text" autoComplete="name"
-                      placeholder="Ex.: Maria da Silva"
+                      placeholder={t.trabalhe.fields.nomePh}
                       onKeyDown={onlyLetters}
                       className={errors.nome ? styles.invalid : ''}
                     />
@@ -165,9 +149,9 @@ export default function TrabalheConosco() {
                   </div>
 
                   <div className={styles.field}>
-                    <label htmlFor="endereco">Endereço <span className={styles.required}>*</span></label>
+                    <label htmlFor="endereco">{t.trabalhe.fields.endereco} <span className={styles.required}>*</span></label>
                     <input id="endereco" name="endereco" type="text" autoComplete="street-address"
-                      placeholder="Rua, número, bairro"
+                      placeholder={t.trabalhe.fields.enderecoPh}
                       className={errors.endereco ? styles.invalid : ''}
                     />
                     {errors.endereco && <span className={styles.err}>{errors.endereco}</span>}
@@ -175,18 +159,18 @@ export default function TrabalheConosco() {
 
                   <div className={styles.row2}>
                     <div className={styles.field}>
-                      <label htmlFor="cidade">Cidade <span className={styles.required}>*</span></label>
+                      <label htmlFor="cidade">{t.trabalhe.fields.cidade} <span className={styles.required}>*</span></label>
                       <input id="cidade" name="cidade" type="text" autoComplete="address-level2"
-                        placeholder="Ex.: Duque de Caxias"
+                        placeholder={t.trabalhe.fields.cidadePh}
                         onKeyDown={onlyLetters}
                         className={errors.cidade ? styles.invalid : ''}
                       />
                       {errors.cidade && <span className={styles.err}>{errors.cidade}</span>}
                     </div>
                     <div className={styles.field}>
-                      <label htmlFor="estado">Estado <span className={styles.required}>*</span></label>
+                      <label htmlFor="estado">{t.trabalhe.fields.estado} <span className={styles.required}>*</span></label>
                       <select id="estado" name="estado" autoComplete="address-level1" className={errors.estado ? styles.invalid : ''}>
-                        <option value="">Selecione</option>
+                        <option value="">{t.trabalhe.fields.estadoPh}</option>
                         {ESTADOS.map((uf) => <option key={uf} value={uf}>{uf}</option>)}
                       </select>
                       {errors.estado && <span className={styles.err}>{errors.estado}</span>}
@@ -195,7 +179,7 @@ export default function TrabalheConosco() {
 
                   <div className={styles.row2}>
                     <div className={styles.field}>
-                      <label htmlFor="telefone">Telefone / WhatsApp <span className={styles.required}>*</span></label>
+                      <label htmlFor="telefone">{t.trabalhe.fields.telefone} <span className={styles.required}>*</span></label>
                       <input id="telefone" name="telefone" type="tel" autoComplete="tel"
                         placeholder="(21) 99999-9999"
                         value={phone}
@@ -206,7 +190,7 @@ export default function TrabalheConosco() {
                       {errors.telefone && <span className={styles.err}>{errors.telefone}</span>}
                     </div>
                     <div className={styles.field}>
-                      <label htmlFor="email">E-mail <span className={styles.required}>*</span></label>
+                      <label htmlFor="email">{t.trabalhe.fields.email} <span className={styles.required}>*</span></label>
                       <input id="email" name="email" type="email" autoComplete="email"
                         placeholder="seu@email.com"
                         className={errors.email ? styles.invalid : ''}
@@ -216,10 +200,10 @@ export default function TrabalheConosco() {
                   </div>
 
                   <div className={styles.field}>
-                    <label htmlFor="curriculo">Currículo <span className={styles.required}>*</span></label>
+                    <label htmlFor="curriculo">{t.trabalhe.fields.curriculo} <span className={styles.required}>*</span></label>
                     <label htmlFor="curriculo" className={`${styles.fileLabel} ${errors.curriculo ? styles.fileInvalid : ''}`}>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                      {fileName || 'Escolher arquivo (PDF, DOC, DOCX — máx. 5 MB)'}
+                      {fileName || t.trabalhe.fields.fileLabel}
                     </label>
                     <input id="curriculo" name="curriculo" type="file"
                       accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
@@ -230,7 +214,7 @@ export default function TrabalheConosco() {
                   </div>
 
                   <button type="submit" className={styles.submit} disabled={loading}>
-                    {loading ? 'Enviando…' : 'Enviar candidatura'}
+                    {loading ? t.trabalhe.sending : t.trabalhe.submit}
                     {!loading && (
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
                         <path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>

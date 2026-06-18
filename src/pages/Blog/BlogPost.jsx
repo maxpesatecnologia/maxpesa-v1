@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { POSTS } from '../../data/blogPosts'
+import { useLang } from '../../context/LanguageContext'
 import styles from './BlogPost.module.css'
 
 
@@ -44,12 +45,14 @@ function Block({ b }) {
 
 export default function BlogPost() {
   const { slug } = useParams()
+  const { t, lang } = useLang()
+  const loc = (field) => (field && typeof field === 'object') ? (field[lang] ?? field['pt-BR']) : field
   const post = POSTS.find(p => p.slug === slug)
 
   if (!post) return (
     <div className={styles.notFound}>
-      <p>Artigo não encontrado.</p>
-      <Link to="/blog" className={styles.back}><BackArrow /> Voltar ao Blog</Link>
+      <p>{t.blog.notFound}</p>
+      <Link to="/blog" className={styles.back}><BackArrow /> {t.blog.backBtn}</Link>
     </div>
   )
 
@@ -60,12 +63,12 @@ export default function BlogPost() {
 
       {/* ── COVER ── */}
       <div className={styles.cover}>
-        <img src={post.img} alt={post.title} />
+        <img src={post.img} alt={loc(post.title)} />
         <div className={styles.overlay} />
         <div className={styles.coverContent}>
           <div className="container">
-            <span className={styles.badge}>{post.category}</span>
-            <h1>{post.title}</h1>
+            <span className={styles.badge}>{loc(post.category)}</span>
+            <h1>{loc(post.title)}</h1>
           </div>
         </div>
       </div>
@@ -74,15 +77,15 @@ export default function BlogPost() {
       <section className={styles.section}>
         <div className="container">
           <Link to="/blog" className={styles.back}>
-            <BackArrow /> Voltar ao Blog
+            <BackArrow /> {t.blog.backBtn}
           </Link>
           <div className={styles.inner}>
             {post.content.map((b, i) => <Block key={i} b={b} />)}
           </div>
           <div className={styles.cta}>
-            <p>Precisa de uma solução especializada em logística pesada?</p>
+            <p>{t.blog.ctaText}</p>
             <Link to="/contato" className={styles.ctaBtn}>
-              Fale com nossa equipe <ArrowRight />
+              {t.blog.ctaBtn} <ArrowRight />
             </Link>
           </div>
         </div>
@@ -92,17 +95,17 @@ export default function BlogPost() {
       {related.length > 0 && (
         <section className={styles.relatedSec}>
           <div className="container">
-            <h2 className={styles.relatedTitle}>Leia também</h2>
+            <h2 className={styles.relatedTitle}>{t.blog.relatedTitle}</h2>
             <div className={styles.relatedGrid}>
               {related.map(r => (
                 <Link key={r.slug} to={`/blog/${r.slug}`} className={styles.relatedCard}>
                   <div className={styles.relatedImg}>
-                    <img src={r.img} alt={r.title} />
+                    <img src={r.img} alt={loc(r.title)} />
                   </div>
                   <div className={styles.relatedBody}>
-                    <span className={styles.relatedCat}>{r.category}</span>
-                    <h3>{r.title}</h3>
-                    <p>{r.excerpt}</p>
+                    <span className={styles.relatedCat}>{loc(r.category)}</span>
+                    <h3>{loc(r.title)}</h3>
+                    <p>{loc(r.excerpt)}</p>
                   </div>
                 </Link>
               ))}

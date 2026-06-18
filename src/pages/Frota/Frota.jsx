@@ -68,7 +68,7 @@ export default function Frota() {
     <div ref={ref}>
       <PageHero
         eyebrow={t.frota.heroEyebrow}
-        title={<>Nossa<br/>Frota</>}
+        title={<>{t.frota.heroTitle[0]}<br/>{t.frota.heroTitle[1]}</>}
         subtitle={t.frota.heroSub}
         crumb={t.frota.heroCrumb}
       />
