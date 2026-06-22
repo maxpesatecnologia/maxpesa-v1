@@ -348,3 +348,13 @@
   .formWrap { padding: 32px 24px; }
   .row2 { grid-template-columns: 1fr; }
 }
+@media (max-width: 480px) {
+  .section { padding: 48px 0; }
+  .cardHead { padding: 18px 16px; }
+  .cardHeadTitle { font-size: 17px; }
+  .panelInner { padding: 24px 16px; }
+  .formWrap { padding: 24px 16px; }
+  .hBadge { padding: 6px 10px; font-size: 11px; }
+  .hBadge strong { font-size: 13px; }
+  .submit { width: 100%; justify-content: center; }
+}

@@ -230,6 +230,15 @@
 @media (max-width: 768px) {
   .cover { height: 320px; }
   .coverContent h1 { font-size: 26px; }
+  .coverContent { padding-bottom: 32px; }
+  .section { padding: 40px 0 64px; }
   .cta { flex-direction: column; align-items: flex-start; }
   .relatedGrid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .cover { height: 240px; }
+  .coverContent h1 { font-size: 20px; }
+  .coverContent { padding-bottom: 24px; }
+  .section { padding: 32px 0 48px; }
+  .relatedImg { width: 110px; }
 }

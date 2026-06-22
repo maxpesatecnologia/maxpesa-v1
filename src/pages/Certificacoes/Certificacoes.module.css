@@ -180,5 +180,6 @@
 .checkItem span   { font-size:12.5px; color:var(--text-1); }
 
 @media(max-width:1024px){ .certsGrid,.grid{ grid-template-columns:1fr; } }
-@media(max-width:640px)  { .certsGrid{ grid-template-columns:1fr 1fr; } }
-@media(max-width:480px)  { .certsGrid{ grid-template-columns:1fr; } }
+@media(max-width:768px) { .section{ padding:64px 0; } }
+@media(max-width:640px) { .certsGrid{ grid-template-columns:1fr 1fr; } }
+@media(max-width:480px) { .section{ padding:48px 0; } .certsGrid{ grid-template-columns:1fr; } .grid{ gap:40px; } }

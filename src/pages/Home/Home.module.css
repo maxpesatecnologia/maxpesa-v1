@@ -331,7 +331,6 @@
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 520px;
 }
 
 .splitImg {
@@ -676,9 +675,26 @@
   .hero h1 { font-size: clamp(32px, 9vw, 52px); }
   .statsGrid { grid-template-columns: repeat(2, 1fr); }
   .servicesGrid { grid-template-columns: 1fr; }
+  .services { padding: 72px 0; }
   .split { grid-template-columns: 1fr; }
+  .splitImg { min-height: 280px; }
   .splitContent { padding: 48px 28px; }
   .splitContent::before { display: none; }
   .whyGrid { grid-template-columns: 1fr; }
-  .cta { background-attachment: scroll; }
+  .why { padding: 72px 0; }
+  .cta { padding: 80px 0; background-attachment: scroll; }
+  .clients { padding: 72px 0; }
+}
+@media (max-width: 480px) {
+  .hero { padding-bottom: 44px; }
+  .statsGrid { grid-template-columns: 1fr; }
+  .statItem { padding: 22px 16px; }
+  .statN { font-size: 28px; }
+  .services { padding: 56px 0; }
+  .serviceImgWrap { height: 190px; }
+  .splitImg { min-height: 220px; }
+  .splitContent { padding: 32px 20px; }
+  .why { padding: 56px 0; }
+  .cta { padding: 60px 0; }
+  .clients { padding: 56px 0; }
 }

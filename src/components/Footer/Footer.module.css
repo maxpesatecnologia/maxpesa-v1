@@ -93,9 +93,15 @@
 }
 
 @media (max-width: 1024px) {
-  .grid { grid-template-columns: 1fr 1fr; }
+  .grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .brand { grid-column: 1 / -1; }
 }
 @media (max-width: 768px) {
-  .grid { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer { padding-top: 48px; }
+}
+@media (max-width: 480px) {
+  .footer { padding-top: 36px; }
+  .grid { gap: 24px; padding-bottom: 32px; }
+  .bottom { font-size: 11px; flex-direction: column; text-align: center; }
 }

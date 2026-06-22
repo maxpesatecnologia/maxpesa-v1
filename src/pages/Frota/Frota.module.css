@@ -264,3 +264,9 @@
   .grid { grid-template-columns: 1fr; }
   .cardImg { height: 220px; }
 }
+@media (max-width: 480px) {
+  .section { padding-bottom: 56px; }
+  .filterHead { margin-bottom: 24px; }
+  .cardImg { height: 190px; }
+  .filterBtn { font-size: 11.5px; padding: 8px 13px; }
+}

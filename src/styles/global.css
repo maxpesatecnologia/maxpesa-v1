@@ -108,6 +108,8 @@ h4, h5 { font-family: var(--ff-body); font-weight: 700; color: var(--text-0); li
 
 /* ── LAYOUT ──────────────────────────────────────────────────────────────── */
 .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+@media (max-width: 768px) { .container { padding: 0 20px; } }
+@media (max-width: 480px) { .container { padding: 0 16px; } }
 
 /* ── EYEBROW ─────────────────────────────────────────────────────────────── */
 /* Usado pelo componente Eyebrow.jsx via module — override global */
@@ -132,11 +134,12 @@ h4, h5 { font-family: var(--ff-body); font-weight: 700; color: var(--text-0); li
   background: var(--white); border: 1px solid var(--border-1);
   border-radius: var(--r-md); padding: 14px 16px;
   display: flex; align-items: center; gap: 13px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.13); min-width: 280px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.13); min-width: 280px; max-width: calc(100vw - 32px);
   transform: translateY(130%); opacity: 0;
   transition: transform 0.4s var(--ease), opacity 0.4s;
   pointer-events: none;
 }
+@media (max-width: 480px) { .toast { left: 12px; right: 12px; bottom: 80px; min-width: 0; } }
 .toast.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
 .toast-ico {
   width: 34px; height: 34px; background: rgba(40,200,64,0.1);
