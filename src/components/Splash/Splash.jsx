@@ -9,7 +9,7 @@ export default function Splash({ onDone }) {
     const t = setTimeout(() => {
       setVisible(false)
       onDone?.()
-    }, 4050)
+    }, 3300)
     return () => clearTimeout(t)
   }, [onDone])
 

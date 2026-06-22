@@ -16,15 +16,15 @@ const ArrowRight = () => (
   </svg>
 )
 
-function Block({ b }) {
-  if (b.type === 'h2') return <h2 className={styles.h2}>{b.text}</h2>
-  if (b.type === 'h3') return <h3 className={styles.h3}>{b.text}</h3>
-  if (b.type === 'h4') return <h4 className={styles.h4}>{b.text}</h4>
-  if (b.type === 'p')  return <p  className={styles.p}>{b.text}</p>
-  if (b.type === 'blockquote') return <blockquote className={styles.bq}>{b.text}</blockquote>
+function Block({ b, loc }) {
+  if (b.type === 'h2') return <h2 className={styles.h2}>{loc(b.text)}</h2>
+  if (b.type === 'h3') return <h3 className={styles.h3}>{loc(b.text)}</h3>
+  if (b.type === 'h4') return <h4 className={styles.h4}>{loc(b.text)}</h4>
+  if (b.type === 'p')  return <p  className={styles.p}>{loc(b.text)}</p>
+  if (b.type === 'blockquote') return <blockquote className={styles.bq}>{loc(b.text)}</blockquote>
   if (b.type === 'ul') return (
     <ul className={styles.ul}>
-      {b.items.map((item, i) => <li key={i}>{item}</li>)}
+      {b.items.map((item, i) => <li key={i}>{loc(item)}</li>)}
     </ul>
   )
   if (b.type === 'ol-titled') return (
@@ -33,8 +33,8 @@ function Block({ b }) {
         <li key={i}>
           <div className={styles.olNum}>{i + 1}</div>
           <div>
-            <strong>{item.title}</strong>
-            <span>{item.text}</span>
+            <strong>{loc(item.title)}</strong>
+            <span>{loc(item.text)}</span>
           </div>
         </li>
       ))}
@@ -80,7 +80,7 @@ export default function BlogPost() {
             <BackArrow /> {t.blog.backBtn}
           </Link>
           <div className={styles.inner}>
-            {post.content.map((b, i) => <Block key={i} b={b} />)}
+            {post.content.map((b, i) => <Block key={i} b={b} loc={loc} />)}
           </div>
           <div className={styles.cta}>
             <p>{t.blog.ctaText}</p>

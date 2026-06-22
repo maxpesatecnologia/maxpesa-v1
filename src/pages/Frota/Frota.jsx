@@ -38,20 +38,20 @@ const CATEGORY_ICONS = {
 
 const FLEET = [
   { id: 1,  category: 'guindastes',    model: 'Liebherr LTM 1100-4.2',  badge: '100T',  img: imgG3,        specs: [{ l: 'Capacidade', v: '100 t' }, { l: 'Pluma',       v: '60 m'    }, { l: 'Rotação',  v: '360°'      }] },
-  { id: 2,  category: 'guindastes',    model: 'Liebherr LTM 1250-6.2',  badge: '250T',  img: imgG1,        specs: [{ l: 'Capacidade', v: '250 t' }, { l: 'Pluma',       v: '84 m'    }, { l: 'Rotação',  v: '360°'      }] },
-  { id: 3,  category: 'guindastes',    model: 'Grove GMK 4100L',         badge: '100T',  img: imgG2,        specs: [{ l: 'Capacidade', v: '100 t' }, { l: 'Pluma',       v: '58 m'    }, { l: 'Eixos',    v: '4'         }] },
-  { id: 5,  category: 'munck',         model: 'Mercedes-Benz 2644',      badge: '25T',   img: imgM1,        specs: [{ l: 'Capacidade', v: '25 t'  }, { l: 'Alcance',     v: '22 m'    }, { l: 'Acionam.', v: 'Hidráulico' }] },
-  { id: 6,  category: 'munck',         model: 'Volvo FH 540',            badge: '35T',   img: imgM2,        specs: [{ l: 'Capacidade', v: '35 t'  }, { l: 'Alcance',     v: '26 m'    }, { l: 'Acionam.', v: 'Hidráulico' }] },
+  { id: 2,  category: 'guindastes',    model: 'Liebherr LTM 1250-6.2',  badge: '200T',  img: imgG1,        specs: [{ l: 'Capacidade', v: '200 t' }, { l: 'Pluma',       v: '84 m'    }, { l: 'Rotação',  v: '360°'      }] },
+  { id: 3,  category: 'guindastes',    model: 'Grove GMK 4100L',         badge: '500T',  img: imgG2,        specs: [{ l: 'Capacidade', v: '500 t' }, { l: 'Pluma',       v: '58 m'    }, { l: 'Rotação',    v: '360°'         }] },
+  { id: 5,  category: 'munck',         model: 'Mercedes-Benz 2644',      badge: '23T',   img: imgM1,        specs: [{ l: 'Capacidade', v: '25 t'  }, { l: 'Alcance',     v: '22 m'    }, { l: 'Acionam.', v: 'Hidráulico' }] },
+  { id: 6,  category: 'munck',         model: 'Volvo FH 540',            badge: '62T',   img: imgM2,        specs: [{ l: 'Capacidade', v: '35 t'  }, { l: 'Alcance',     v: '26 m'    }, { l: 'Acionam.', v: 'Hidráulico' }] },
   { id: 7,  category: 'linha-amarela', model: 'Caterpillar 420F',        badge: '4x4',   img: imgLA,        specs: [{ l: 'Balde',      v: '1.09 m³'}, { l: 'Prof. max',   v: '6.3 m'   }, { l: 'Tração',   v: '4x4'       }] },
   { id: 8,  category: 'linha-amarela', model: 'Caterpillar 320D',        badge: '20T',   img: imgLA2,       specs: [{ l: 'Peso op.',   v: '20 t'   }, { l: 'Profundid.', v: '9.8 m'   }, { l: 'Balde',    v: '0.95 m³'  }] },
   { id: 9,  category: 'plataforma',    model: 'JLG 600AJ',               badge: '18M',   img: imgPlatA,     specs: [{ l: 'Alt. trab.', v: '18 m'  }, { l: 'Capacidade', v: '227 kg'  }, { l: 'Tração',   v: '4WD'       }] },
   { id: 10, category: 'plataforma',    model: 'Genie GS-4047',           badge: '14M',   img: imgPlatT,     specs: [{ l: 'Alt. trab.', v: '14 m'  }, { l: 'Capacidade', v: '450 kg'  }, { l: 'Plataf.',  v: '1.83 m'   }] },
-  { id: 11, category: 'especiais',     model: 'Prancha 5 Eixos',         badge: '80T',   img: imgEixo,      specs: [{ l: 'Capacidade', v: '80 t'  }, { l: 'Comprimento', v: '20 m'   }, { l: 'Licença',  v: 'DNIT'      }] },
-  { id: 12, category: 'especiais',     model: 'Carreta Extensível',      badge: '150T',  img: imgG4,        specs: [{ l: 'Capacidade', v: '150 t' }, { l: 'Comprimento', v: '30+ m'  }, { l: 'Licença',  v: 'AET'       }] },
-  { id: 13, category: 'especiais',     model: 'Carreta Baú Sider',       badge: '28T',   img: imgContainer, specs: [{ l: 'Capacidade', v: '28 t'  }, { l: 'Comprimento', v: '14 m'   }, { l: 'Licença',  v: 'DNIT'      }] },
-  { id: 14, category: 'especiais',     model: 'Carreta Baú',             badge: '30T',   img: imgG5,        specs: [{ l: 'Capacidade', v: '30 t'  }, { l: 'Comprimento', v: '12 m'   }, { l: 'Licença',  v: 'DNIT'      }] },
-  { id: 15, category: 'especiais',     model: 'Carreta Prancha',         badge: '100T',  img: imgEstacao,   specs: [{ l: 'Capacidade', v: '100 t' }, { l: 'Comprimento', v: '22 m'   }, { l: 'Licença',  v: 'AET'       }] },
-  { id: 16, category: 'especiais',     model: 'Linha de Eixo',           badge: '500T',  img: imgRemocao2,  specs: [{ l: 'Capacidade', v: '500 t' }, { l: 'Comprimento', v: '50+ m'  }, { l: 'Licença',  v: 'AET'       }] },
+  { id: 11, category: 'especiais',     model: 'Cavalo Mecânico',         badge: '80T',   img: imgEixo,      specs: [{ l: 'Capacidade', v: '80 t'  }, { l: 'Comprimento', v: '20 m'   }, { l: 'Licença',  v: 'DNIT'      }] },
+  { id: 12, category: 'especiais',     model: 'Cavalo Mecânico',      badge: '150T',  img: imgG4,        specs: [{ l: 'Capacidade', v: '150 t' }, { l: 'Comprimento', v: '30+ m'  }, { l: 'Licença',  v: 'AET'       }] },
+  { id: 13, category: 'especiais',     model: 'Cavalo Mecânico',       badge: '28T',   img: imgContainer, specs: [{ l: 'Capacidade', v: '28 t'  }, { l: 'Comprimento', v: '14 m'   }, { l: 'Licença',  v: 'DNIT'      }] },
+  { id: 14, category: 'especiais',     model: 'Cavalo Mecânico',             badge: '30T',   img: imgG5,        specs: [{ l: 'Capacidade', v: '30 t'  }, { l: 'Comprimento', v: '12 m'   }, { l: 'Licença',  v: 'DNIT'      }] },
+  { id: 15, category: 'especiais',     model: 'Cavalo Mecânico',         badge: '100T',  img: imgEstacao,   specs: [{ l: 'Capacidade', v: '100 t' }, { l: 'Comprimento', v: '22 m'   }, { l: 'Licença',  v: 'AET'       }] },
+  { id: 16, category: 'especiais',     model: 'Cavalo Mecânico',           badge: '500T',  img: imgRemocao2,  specs: [{ l: 'Capacidade', v: '500 t' }, { l: 'Comprimento', v: '50+ m'  }, { l: 'Licença',  v: 'AET'       }] },
   { id: 17, category: 'empilhadeiras', model: 'Toyota 8FBN25',           badge: '2.5T',  img: imgEmp,       specs: [{ l: 'Capacidade', v: '2.5 t' }, { l: 'Elevação',    v: '5.5 m'  }, { l: 'Acionam.', v: 'Elétrico'  }] },
   { id: 18, category: 'empilhadeiras', model: 'Yale GLP050',             badge: '5T',    img: imgMunckAlt,  specs: [{ l: 'Capacidade', v: '5 t'   }, { l: 'Elevação',    v: '6 m'    }, { l: 'Acionam.', v: 'Diesel'    }] },
 ]
@@ -87,13 +87,9 @@ export default function Frota() {
                 >
                   <span className={styles.filterIco}>{CATEGORY_ICONS[id]}</span>
                   <span>{t.frota.categories[id]}</span>
-                  <span className={styles.filterCount}>{countFor(id)}</span>
                 </button>
               ))}
             </div>
-            <p className={styles.filterMeta}>
-              <strong>{filtered.length}</strong> {filtered.length !== 1 ? t.frota.filterMetaPlural : t.frota.filterMetaSingle}
-            </p>
           </div>
         </div>
 

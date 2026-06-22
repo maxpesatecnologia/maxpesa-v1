@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   animation: splashFadeOut 0.5s ease forwards;
-  animation-delay: 3.5s;
+  animation-delay: 2.75s;
   animation-fill-mode: forwards;
   pointer-events: none;
 }
@@ -21,7 +21,7 @@
   width: 340px;
   height: auto;
   animation: logoIn 0.72s cubic-bezier(0.77, 0, 0.175, 1) both;
-  animation-delay: 1s;
+  animation-delay: 0.25s;
 }
 
 @keyframes logoIn {
