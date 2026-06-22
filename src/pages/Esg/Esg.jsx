@@ -4,6 +4,7 @@ import { useReveal } from '../../hooks/useReveal'
 import { useLang } from '../../context/LanguageContext'
 import PageHero from '../../components/PageHero/PageHero'
 import SectionHeader from '../../components/SectionHeader/SectionHeader'
+import imgEsg from '../../assets/guindaste6.png'
 import EsgItem from '../../components/EsgItem/EsgItem'
 import Button from '../../components/Button/Button'
 
@@ -48,7 +49,7 @@ export default function Esg() {
         <div className="container">
           <div className={styles.grid}>
             <div className={`${styles.imgWrap} reveal`}>
-              <img src="https://www.maxpesa.com.br/web/images/2023/09/06/banner-home-bg-4.jpg" alt="ESG Maxpesa" />
+              <img src={imgEsg} alt="ESG Maxpesa" />
             </div>
             <div>
               <SectionHeader eyebrow={t.esg.visionEyebrow} title={<>{t.esg.visionTitle[0]}<br/>{t.esg.visionTitle[1]}</>} subtitle={t.esg.visionSub} />

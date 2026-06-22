@@ -1,7 +1,7 @@
 .section { padding:96px 0; background:var(--bg-0); }
 .alt { background:var(--bg-1); }
 .grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
-.imgWrap img { width:100%; height:460px; object-fit:cover; border-radius:var(--r-lg); }
+.imgWrap img { width:100%; height:460px; object-fit:cover; object-position: 38% center; border-radius:var(--r-lg); }
 .cardsGrid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:36px; }
 
 .card {
