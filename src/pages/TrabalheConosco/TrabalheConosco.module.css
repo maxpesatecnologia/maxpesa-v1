@@ -106,7 +106,6 @@
 .cardBody {
   display: grid;
   grid-template-columns: 380px 1fr;
-  border-top: 1px solid rgba(0,0,0,0.06);
 }
 
 /* ── Painel esquerdo — vermelho ── */
