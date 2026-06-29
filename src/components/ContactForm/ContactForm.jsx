@@ -82,8 +82,10 @@ export default function ContactForm() {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               {t.contato.responseLabel} <strong>2h</strong>
             </div>
-            <div className={styles.hBadge}><strong>25+</strong> Anos</div>
             <div className={styles.hBadge}>ISO <strong>9001</strong></div>
+            <div className={styles.hBadge}>ISO <strong>14001</strong></div>
+            <div className={styles.hBadge}>ISO <strong>45001</strong></div>
+            <div className={styles.hBadge}>ISO <strong>37001</strong></div>
           </div>
         </div>
 

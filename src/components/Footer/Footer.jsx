@@ -63,6 +63,7 @@ export default function Footer() {
               <li><a href="tel:08006297372">0800 629 7372</a></li>
               <li><a href="tel:+552136751900">(21) 3675-1900</a></li>
               <li><a href="https://canalconfidencial.com.br/maxpesa/" target="_blank" rel="noopener noreferrer">{t.footer.reportLink}</a></li>
+              <li><a href="https://maxpesa-codigo-conduta.vercel.app/" target="_blank" rel="noopener noreferrer">{t.footer.ethicsLink}</a></li>
               <li><Link to="/contato">{t.footer.contactLink}</Link></li>
             </ul>
           </div>

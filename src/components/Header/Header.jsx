@@ -11,6 +11,7 @@ const SERVICE_PATHS = [
   '/servicos#locacao',
   '/servicos#linha-amarela',
   '/servicos#transporte',
+  '/servicos#empilhadeiras-plataformas',
 ]
 
 export default function Header() {
@@ -89,6 +90,7 @@ export default function Header() {
                 </svg>
               </NavLink>
               <ul className={`${styles.dropMenu} ${dropOpen ? styles.dropVisible : ''}`}>
+                <li className={styles.dropSectionLabel}>{t.nav.locacaoLabel}</li>
                 {t.serviceItems.map((label, i) => (
                   <li key={i}>
                     <Link to={SERVICE_PATHS[i]} onClick={() => { setMenuOpen(false); setDropOpen(false) }}>
@@ -96,6 +98,19 @@ export default function Header() {
                     </Link>
                   </li>
                 ))}
+                <li className={styles.dropDivider} aria-hidden="true" />
+                <li>
+                  <Link
+                    to="/vendas"
+                    className={styles.dropSaleLink}
+                    onClick={() => { setMenuOpen(false); setDropOpen(false) }}
+                  >
+                    {t.nav.equipSales}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="13" height="13">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </Link>
+                </li>
               </ul>
             </li>
 

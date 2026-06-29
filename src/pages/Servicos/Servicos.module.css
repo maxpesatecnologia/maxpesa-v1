@@ -63,7 +63,6 @@
   transition: background var(--t);
 }
 .indexItem:hover { background: var(--bg-2); }
-.indexItem:hover .indexLabel { color: var(--text-0); }
 
 .indexNum {
   font-family: var(--ff-display);
@@ -78,8 +77,20 @@
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  min-width: 0;
+}
+.indexLabelInner {
+  display: inline-block;
   transition: color var(--t);
+}
+.indexItem:hover .indexLabelInner { color: var(--text-0); }
+
+@keyframes marqueeSlide {
+  0%, 15%   { transform: translateX(0); }
+  85%, 100% { transform: translateX(var(--mo, 0px)); }
+}
+.indexLabel.marquee .indexLabelInner {
+  animation: marqueeSlide 4s ease-in-out infinite alternate;
 }
 
 /* ── Service grid ── */

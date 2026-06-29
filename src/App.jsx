@@ -12,6 +12,7 @@ import Certificacoes from './pages/Certificacoes/Certificacoes'
 import Contato          from './pages/Contato/Contato'
 import TrabalheConosco  from './pages/TrabalheConosco/TrabalheConosco'
 import Frota            from './pages/Frota/Frota'
+import Vendas          from './pages/Vendas/Vendas'
 import Blog            from './pages/Blog/Blog'
 import BlogPost        from './pages/Blog/BlogPost'
 
@@ -34,6 +35,7 @@ export default function App() {
           <Route path="contato" element={<Contato />} />
           <Route path="trabalhe-conosco" element={<TrabalheConosco />} />
           <Route path="frota"           element={<Frota />} />
+          <Route path="vendas"          element={<Vendas />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -52,9 +52,9 @@ export default function Blog() {
               <Link key={post.slug} to={`/blog/${post.slug}`} className={styles.card}>
                 <div className={styles.cardImg}>
                   <img src={post.img} alt={post.title} />
-                  <span className={styles.badge}>{loc(post.category)}</span>
                 </div>
                 <div className={styles.cardBody}>
+                  <span className={styles.badge}>{loc(post.category)}</span>
                   <h3>{loc(post.title)}</h3>
                   <p>{loc(post.excerpt)}</p>
                   <span className={styles.readMore}>

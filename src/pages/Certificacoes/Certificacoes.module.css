@@ -1,5 +1,6 @@
 .section { padding:96px 0; background:var(--bg-0); }
 .alt { background:var(--bg-1); }
+.awardsSec { border-top: 1px solid var(--border-0); }
 
 /* ── Cert cards ── */
 .certsGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
@@ -99,6 +100,35 @@
 
 .certCard h3 { font-size: 17px; font-weight: 800; margin-bottom: 8px; position: relative; letter-spacing: -.01em; }
 .certCard p  { font-size: 12.5px; color: var(--text-1); line-height: 1.7; position: relative; }
+
+/* ── Award icon (substitui img nos cards de premiação) ── */
+.awardIconWrap {
+  width: 78px;
+  height: 78px;
+  background: var(--red-pale);
+  border: 1.5px solid var(--red-border);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+  transition: background 0.4s var(--ease), color 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.awardIconWrap svg { width: 36px; height: 36px; }
+.certCard:hover .awardIconWrap {
+  background: var(--red);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.awardYear {
+  font-size: 10.5px;
+  color: var(--text-2);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
 
 /* ── "Por que isso importa" — grid de fundo + linhas SVG ── */
 .whySec { position: relative; overflow: hidden; }

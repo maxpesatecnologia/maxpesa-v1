@@ -63,7 +63,7 @@
   border: 1px solid var(--border-1);
   border-radius: var(--r-md);
   padding: 5px;
-  min-width: 215px;
+  min-width: 260px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
@@ -84,6 +84,43 @@
   transition: color var(--t-fast), background var(--t-fast);
 }
 .dropMenu li a:hover { color: var(--text-0); background: var(--bg-1); }
+
+/* Section label inside dropdown */
+.dropSectionLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  padding: 7px 12px 3px;
+  cursor: default;
+  list-style: none;
+  user-select: none;
+}
+
+/* Divider between sections */
+.dropDivider {
+  height: 1px;
+  background: var(--border-0);
+  margin: 4px 8px;
+  list-style: none;
+}
+
+/* Vendas de Equipamento — direct link */
+.dropSaleLink {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 10px 12px !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: var(--red) !important;
+  border-radius: var(--r-xs) !important;
+  gap: 8px !important;
+}
+.dropSaleLink:hover { background: var(--red-pale) !important; color: var(--red) !important; }
+.dropSaleLink svg { flex-shrink: 0; transition: transform 0.2s; }
+.dropSaleLink:hover svg { transform: translateX(3px); }
 
 /* Lang switcher item */
 .langItem { display: flex; align-items: center; margin-left: 8px; }
@@ -161,4 +198,6 @@
     display: none;
   }
   .dropVisible { display: block; }
+  .dropSectionLabel { padding: 8px 12px 2px; }
+  .dropDivider { margin: 4px 0; }
 }

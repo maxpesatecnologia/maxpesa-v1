@@ -54,6 +54,7 @@ export default function TrabalheConosco() {
     else if (tel.length < 10) errs.telefone = t.trabalhe.errors.phone
     if (!form.email.value.trim()) errs.email = t.trabalhe.errors.required
     if (!form.curriculo.files.length) errs.curriculo = t.trabalhe.errors.resume
+    else if (form.curriculo.files[0].size > 20 * 1024 * 1024) errs.curriculo = t.trabalhe.errors.fileTooLarge
     return errs
   }
 
@@ -97,9 +98,10 @@ export default function TrabalheConosco() {
                 </div>
               </div>
               <div className={styles.cardHeadBadges}>
-                <div className={styles.hBadge}><strong>25+</strong> Anos</div>
-                <div className={styles.hBadge}><strong>15 mil</strong> Projetos</div>
                 <div className={styles.hBadge}>ISO <strong>9001</strong></div>
+                <div className={styles.hBadge}>ISO <strong>14001</strong></div>
+                <div className={styles.hBadge}>ISO <strong>45001</strong></div>
+                <div className={styles.hBadge}>ISO <strong>37001</strong></div>
               </div>
             </div>
 

@@ -9,14 +9,16 @@ import imgGuindaste    from '../../assets/guindaste3.jpeg'
 import imgRemocao      from '../../assets/remocaoindustrial.png'
 import imgMunck        from '../../assets/caminhao-munck-img2.jpg'
 import imgEscavadeiras from '../../assets/escavadeiras-logo.png'
-import imgTransporte   from '../../assets/caminhao_linha_de_eixo.png'
+import imgTransporte      from '../../assets/caminhao_linha_de_eixo.png'
+import imgEmpilhadeiras   from '../../assets/emp_eletrica.png'
 
 const SERVICE_STATIC = [
-  { id: 'movimentacao-vertical', img: imgGuindaste },
-  { id: 'movimentacao-cargas',   img: imgRemocao,      flip: true },
-  { id: 'locacao',               img: imgMunck },
-  { id: 'linha-amarela',         img: imgEscavadeiras, flip: true },
-  { id: 'transporte',            img: imgTransporte },
+  { id: 'movimentacao-vertical',       img: imgGuindaste },
+  { id: 'movimentacao-cargas',         img: imgRemocao,       flip: true },
+  { id: 'locacao',                     img: imgMunck },
+  { id: 'linha-amarela',               img: imgEscavadeiras,  flip: true },
+  { id: 'transporte',                  img: imgTransporte },
+  { id: 'empilhadeiras-plataformas',   img: imgEmpilhadeiras, flip: true },
 ]
 
 // 5 variações de linhas decorativas por seção
@@ -56,6 +58,13 @@ const LINE_SETS = [
     { d: 'M -60 150 C 280 -60 840 380 1480 110', w: 1.8, o: 0.09 },
     { d: 'M -60 450 C 440 250 1000 620 1480 340',w: 1.3, o: 0.06 },
   ],
+  [
+    { d: 'M 1500 300 C 1100 80  600 520 -40 220', w: 3.8, o: 0.28 },
+    { d: 'M 1500 200 C 1120 -20 620 440 -40 160', w: 3.0, o: 0.18 },
+    { d: 'M 1500 400 C 1080 180 560 580 -40 280', w: 2.4, o: 0.12 },
+    { d: 'M 1500 150 C 1160 -60 660 380 -40 110', w: 1.8, o: 0.09 },
+    { d: 'M 1500 450 C 1040 250 520 620 -40 340', w: 1.3, o: 0.06 },
+  ],
 ]
 
 const DELAYS = [
@@ -69,6 +78,20 @@ const DELAYS = [
 export default function Servicos() {
   const ref = useReveal([])
   const { t } = useLang()
+
+  useEffect(() => {
+    document.querySelectorAll(`.${styles.indexLabel}`).forEach(el => {
+      el.classList.remove(styles.marquee)
+      const inner = el.querySelector(`.${styles.indexLabelInner}`)
+      if (!inner) return
+      inner.style.removeProperty('--mo')
+      const overflow = inner.offsetWidth - el.clientWidth
+      if (overflow > 2) {
+        inner.style.setProperty('--mo', `-${overflow}px`)
+        el.classList.add(styles.marquee)
+      }
+    })
+  }, [t])
 
   useEffect(() => {
     const els = document.querySelectorAll('[data-svc-lines]')
@@ -106,7 +129,9 @@ export default function Servicos() {
                 onClick={() => document.getElementById(SERVICE_STATIC[i].id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
               >
                 <span className={styles.indexNum}>{s.num}</span>
-                <span className={styles.indexLabel}>{s.title}</span>
+                <span className={styles.indexLabel}>
+                  <span className={styles.indexLabelInner}>{s.title}</span>
+                </span>
               </button>
             ))}
           </div>

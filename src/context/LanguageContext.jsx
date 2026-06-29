@@ -3,8 +3,8 @@ import { createContext, useContext, useState } from 'react'
 // ─── PT-BR ────────────────────────────────────────────────────────────────────
 const PT = {
   flag: '🇧🇷', name: 'Português', short: 'PT',
-  nav: { home: 'Início', company: 'A Empresa', services: 'Serviços', fleet: 'Nossa Frota', esg: 'ESG', certifications: 'Certificações', blog: 'Blog', report: 'Denúncia', careers: 'Trabalhe Conosco', quote: 'Orçamento' },
-  serviceItems: ['Movimentação Horizontal e Vertical de Cargas', 'Movimentação de Cargas', 'Locação de Equipamentos', 'Linha Amarela (Retroescavadeira)', 'Transporte de Cargas Especiais'],
+  nav: { home: 'Início', company: 'A Empresa', services: 'Serviços', fleet: 'Nossa Frota', esg: 'ESG', certifications: 'Certificações', blog: 'Blog', report: 'Denúncia', ethics: 'Código de Ética', careers: 'Trabalhe Conosco', quote: 'Orçamento', locacaoLabel: 'Serviços de Locação', equipSales: 'Vendas de Equipamento' },
+  serviceItems: ['Movimentação Horizontal e Vertical de Cargas', 'Movimentação de Cargas', 'Locação de Equipamentos', 'Linha Amarela (Retroescavadeira)', 'Transporte de Cargas Especiais', 'Empilhadeiras e Plataformas'],
   home: {
     heroTag: 'Mais de 25 anos movendo o Brasil',
     heroSub: 'Soluções de alta performance em movimentação de cargas, transporte pesado, remoção industrial e locação de equipamentos.',
@@ -18,6 +18,7 @@ const PT = {
       { title: 'Locação de Equipamentos', desc: 'Frota moderna e diversificada disponível em contratos de curto e longo prazo — guindastes, caminhão-guindauto e linha amarela — com manutenção preventiva e suporte 24/7.' },
       { title: 'Linha Amarela (Retroescavadeira)', desc: 'Retroescavadeiras, pás carregadeiras e escavadeiras hidráulicas para terraplanagem, escavação e movimentação de solo, com operadores certificados e documentação vigente.' },
       { title: 'Transporte de Cargas Especiais', desc: 'Transporte rodoviário de cargas superdimensionadas com carretas especiais, caminhão-guindauto, escolta credenciada, licenças DNIT/DER e rota planejada por engenheiro.' },
+      { title: 'Empilhadeiras e Plataformas', desc: 'Empilhadeiras elétricas, a diesel e GLP e plataformas elevatórias articuladas e tesoura para movimentação interna e operações em altura em ambientes industriais.' },
     ],
     splitEyebrow: 'Nossa história', splitTitle: '25 anos construindo com confiança',
     splitBody1: 'Fundamos o Grupo Maxpesa com o propósito de transformar a logística pesada no Brasil — com segurança, precisão e comprometimento em cada operação.',
@@ -75,6 +76,7 @@ const PT = {
       { num: '03', title: 'Locação de Equipamentos', intro: 'Contratos flexíveis de curto e longo prazo com frota revisada, documentada e homologada por engenheiros.', body: 'Cada equipamento é inspecionado antes da mobilização e entregue com laudos e histórico de manutenção atualizados.', feats: ['Manutenção preventiva inclusa', 'Laudos e histórico disponíveis', 'Contratos de curto, médio e longo prazo', 'Atendimento em escala nacional', 'Suporte técnico 24/7'] },
       { num: '04', title: 'Linha Amarela (Retroescavadeira)', intro: 'Retroescavadeiras, pás carregadeiras e escavadeiras hidráulicas para terraplanagem, escavação e movimentação de solo.', body: 'Equipamentos em pleno estado operacional, com toda a documentação e certificações vigentes para mobilização imediata.', feats: ['Retroescavadeiras de diversas capacidades', 'Pás carregadeiras articuladas', 'Escavadeiras hidráulicas', 'Operadores certificados e experientes', 'Documentação e revisões em dia'] },
       { num: '05', title: 'Transporte de Cargas Especiais', intro: 'Transporte rodoviário de cargas superdimensionadas e pesadas com carretas especiais, escolta e licenças vigentes.', body: 'Rotas planejadas por engenheiro especializado, com apoio de escolta credenciada e toda a documentação exigida pelos órgãos reguladores.', feats: ['Carretas prancha simples e extensivas', 'Caminhão-guindauto de alta capacidade', 'Licenças DNIT/DER vigentes', 'Escolta credenciada', 'Planejamento de rota por engenheiro'] },
+      { num: '06', title: 'Empilhadeiras e Plataformas Elevatórias', intro: 'Soluções completas de movimentação interna e trabalho em altura com empilhadeiras e plataformas elevatórias para ambientes industriais e comerciais.', body: 'Nossa frota inclui empilhadeiras elétricas, a diesel e GLP e plataformas articuladas e tesoura — ideais para operações em armazéns, plantas industriais e obras com acesso em altura.', feats: ['Empilhadeiras elétricas e a diesel/GLP', 'Plataformas articuladas e tesoura', 'Capacidade de movimentação até 10 t', 'Operadores certificados NR-11', 'Contratos de curto e longo prazo'] },
     ],
   },
   esg: {
@@ -98,7 +100,7 @@ const PT = {
   certificacoes: {
     heroEyebrow: 'Garantia de qualidade', heroSub: 'Cumprimento rigoroso das principais normas nacionais e internacionais para máxima segurança operacional.', heroCrumb: 'Certificações',
     heroTitle: ['Certificações', '& Conformidades'], whyTitle: ['Certificações como', 'compromisso com você'], docTitle: ['Solicite nosso dossiê', 'de certificações'],
-    certDescs: ['Sistema de Gestão da Qualidade certificado e auditado por organismo acreditado internacionalmente.', 'Conformidade com as normas de gestão ambiental, movimentação e segurança em máquinas.', 'Sistema de Gestão de Saúde e Segurança Ocupacional aplicado em 100% das operações.', 'Signatários dos Princípios de Empoderamento das Mulheres, promovendo equidade no ambiente de trabalho.', 'Adesão ao Pacto Global da ONU, comprometendo-se com os dez princípios de sustentabilidade e direitos humanos.', 'Associados ao Instituto Ethos, referência em práticas de responsabilidade social empresarial no Brasil.'],
+    certDescs: ['Sistema de Gestão da Qualidade certificado e auditado por organismo acreditado internacionalmente.', 'Conformidade com as normas de gestão ambiental, movimentação e segurança em máquinas.', 'Sistema de Gestão de Saúde e Segurança Ocupacional aplicado em 100% das operações.', 'Sistema de Gestão Antissuborno certificado, garantindo conformidade com práticas de integridade e combate à corrupção.', 'Signatários dos Princípios de Empoderamento das Mulheres, promovendo equidade no ambiente de trabalho.', 'Adesão ao Pacto Global da ONU, comprometendo-se com os dez princípios de sustentabilidade e direitos humanos.', 'Associados ao Instituto Ethos, referência em práticas de responsabilidade social empresarial no Brasil.'],
     downloadTitle: 'Baixar certificado PDF',
     whyEyebrow: 'Por que isso importa', whyLead: 'As certificações do Grupo Maxpesa são o resultado de anos de trabalho sistemático para garantir que cada operação seja executada com o mais alto padrão de qualidade e segurança.', whyBody: 'Para o contratante, isso representa previsibilidade, redução de riscos e um parceiro que sabe exatamente o que está fazendo.', whyBtn: 'Solicitar proposta técnica',
     items: [
@@ -109,6 +111,8 @@ const PT = {
       { t: 'Memorial de cálculo de rigging', d: 'Engenheiro responsável assina cada içamento de equipamento pesado.' },
     ],
     docEyebrow: 'Documentação disponível', docSub: 'Enviamos toda a documentação técnica para análise prévia antes da contratação.', docBtn: 'Solicitar documentação',
+    awardsEyebrow: 'Reconhecimento', awardsTitle: ['Premiações &', 'Reconhecimento'],
+    awardsDescs: ['Reconhecimento pelo excelente ambiente de trabalho e valorização profissional dos colaboradores.', 'Prêmio concedido em reconhecimento ao desempenho sustentável e compromisso com práticas ESG no setor.', 'Distinção pelo padrão de excelência em segurança operacional em operações de alto risco.', 'Reconhecimento setorial pelo padrão de qualidade, inovação e contribuição à logística nacional.'],
   },
   blog: { heroEye: 'Insights & Novidades', heroTitle: 'Blog', heroSub: 'Artigos, novidades e conteúdo técnico sobre movimentação de cargas, logística pesada e boas práticas operacionais.', featured: 'Destaque', readMore: 'Leia o artigo completo', readMoreShort: 'Leia mais', ctaEye: 'Fique por dentro', ctaTitle: 'Conteúdo técnico para decisões mais inteligentes', ctaSub: 'Acompanhe novidades sobre movimentação pesada, segurança operacional e logística industrial.', ctaBtn: 'Fale com um especialista', backBtn: 'Voltar ao Blog', notFound: 'Artigo não encontrado.', ctaText: 'Precisa de uma solução especializada em logística pesada?', relatedTitle: 'Leia também' },
   frota: {
@@ -118,7 +122,7 @@ const PT = {
     specLabels: { 'Capacidade': 'Capacidade', 'Pluma': 'Pluma', 'Rotação': 'Rotação', 'Alcance': 'Alcance', 'Acionam.': 'Acionam.', 'Balde': 'Balde', 'Prof. max': 'Prof. max', 'Tração': 'Tração', 'Peso op.': 'Peso op.', 'Profundid.': 'Profundid.', 'Alt. trab.': 'Alt. trab.', 'Comprimento': 'Comprimento', 'Licença': 'Licença', 'Elevação': 'Elevação', 'Plataf.': 'Plataf.', 'Eixos': 'Eixos' },
     itemNames: { 1: 'Guindaste Rodoviário Telescópico', 2: 'Guindaste Treliçado', 3: 'Guindaste Rodoviário Telescópico', 5: 'Caminhão-Guindauto', 6: 'Caminhão-Guindauto', 7: 'Escavadeira Hidráulica', 8: 'Pá Carregadeira', 9: 'Plataforma Articulada', 10: 'Plataforma Tesoura', 11: 'Carreta Carga Seca', 12: 'Carreta Extensiva', 13: 'Carreta Sider', 14: 'Carreta Baú', 15: 'Carreta Prancha', 16: 'Linha de Eixo', 17: 'Empilhadeira Elétrica', 18: 'Empilhadeira Diesel' },
   },
-  footer: { desc: 'Referência nacional em movimentações de carga complexas, transportes pesados e engenharia de rigging com mais de 25 anos de mercado.', address: 'Matriz — Duque de Caxias, RJ', navTitle: 'Navegação', navLinks: ['Início', 'A Empresa', 'Nossos Serviços', 'Nossa Frota', 'ESG', 'Certificações', 'Trabalhe Conosco'], svcTitle: 'Serviços', svcLinks: ['Mov. Horizontal e Vertical', 'Movimentação de Cargas', 'Locação de Equipamentos', 'Linha Amarela', 'Transporte Especial'], contactTitle: 'Contato', reportLink: 'Canal de Denúncias', contactLink: 'Fale Conosco', copyright: 'Todos os direitos reservados.' },
+  footer: { desc: 'Referência nacional em movimentações de carga complexas, transportes pesados e engenharia de rigging com mais de 25 anos de mercado.', address: 'Matriz — Duque de Caxias, RJ', navTitle: 'Navegação', navLinks: ['Início', 'A Empresa', 'Nossos Serviços', 'Nossa Frota', 'ESG', 'Certificações', 'Trabalhe Conosco'], svcTitle: 'Serviços', svcLinks: ['Mov. Horizontal e Vertical', 'Movimentação de Cargas', 'Locação de Equipamentos', 'Linha Amarela', 'Transporte Especial'], contactTitle: 'Contato', reportLink: 'Canal de Denúncias', ethicsLink: 'Código de Ética', contactLink: 'Fale Conosco', copyright: 'Todos os direitos reservados.' },
   toast: { title: 'Mensagem enviada com sucesso', subtitle: 'Retornaremos em até 2 horas úteis.' },
   trabalhe: {
     heroEyebrow: 'Junte-se ao time', heroSub: 'Faça parte de um grupo com mais de 25 anos movendo o Brasil. Envie seu currículo e aguarde nosso contato.', heroCrumb: 'Trabalhe Conosco',
@@ -126,7 +130,7 @@ const PT = {
     cardTitle: 'Construa sua carreira aqui.', cardSub: '25 anos movendo o Brasil — com segurança, tradição e crescimento.',
     panelEyebrow: 'Por que trabalhar aqui?', panelTitle: 'Faça parte de projetos que movem o Brasil.',
     panelSub: 'Somos referência nacional em logística pesada. Cada colaborador atua em operações de alto impacto e tem espaço real para crescer.',
-    fileNote: 'Aceitamos arquivos PDF, DOC ou DOCX até 5 MB.',
+    fileNote: 'Aceitamos arquivos PDF, DOC ou DOCX até 20 MB.',
     formTitle: 'Envie sua candidatura', formSub: 'Preencha os campos abaixo com atenção. Entraremos em contato se houver uma vaga compatível com seu perfil.',
     benefits: [
       { label: 'Segurança acima de tudo', desc: 'EPIs completos, treinamentos NR-11 e cultura de segurança rigorosa em cada operação.' },
@@ -140,12 +144,13 @@ const PT = {
       cidade: 'Cidade', cidadePh: 'Ex.: Duque de Caxias',
       estado: 'Estado', estadoPh: 'Selecione',
       telefone: 'Telefone / WhatsApp', email: 'E-mail',
-      curriculo: 'Currículo', fileLabel: 'Escolher arquivo (PDF, DOC, DOCX — máx. 5 MB)',
+      curriculo: 'Currículo', fileLabel: 'Escolher arquivo (PDF, DOC, DOCX — máx. 20 MB)',
     },
     errors: {
       required: 'Campo obrigatório', minChars: 'Mínimo 3 caracteres',
       phone: 'Telefone inválido', state: 'Selecione um estado',
       resume: 'Anexe seu currículo para continuar',
+      fileTooLarge: 'Arquivo muito grande. O tamanho máximo é 20 MB.',
     },
     sending: 'Enviando…', submit: 'Enviar candidatura',
   },
@@ -170,13 +175,22 @@ const PT = {
     errors: { required: 'Campo obrigatório', minChars: 'Mínimo 3 caracteres', phone: 'Telefone inválido' },
     processing: 'Processando…', submit: 'Enviar solicitação',
   },
+  vendas: {
+    heroEyebrow: 'Equipamentos à Venda', heroSub: 'Equipamentos usados e novos com procedência garantida, revisados e prontos para operar.', heroCrumb: 'Vendas',
+    heroTitle: ['Vendas de', 'Equipamento'],
+    condNovo: 'NOVO', condUsado: 'USADO', tagVenda: 'VENDA',
+    fieldCod: 'Cód', fieldFab: 'Fabricante', fieldYear: 'Ano', fieldLocal: 'Localização',
+    btnWhatsApp: 'Consultar Preço', btnContact: 'Solicitar Contato',
+    categories: { all: 'Todos', guindastes: 'Guindastes', munck: 'Cam. Guindauto', 'linha-amarela': 'Linha Amarela', especiais: 'Cargas Especiais', empilhadeiras: 'Empilhadeiras' },
+    filterMetaSingle: 'equipamento à venda', filterMetaPlural: 'equipamentos à venda',
+  },
 }
 
 // ─── EN ───────────────────────────────────────────────────────────────────────
 const EN = {
   flag: '🇺🇸', name: 'English', short: 'EN',
-  nav: { home: 'Home', company: 'The Company', services: 'Services', fleet: 'Our Fleet', esg: 'ESG', certifications: 'Certifications', blog: 'Blog', report: 'Report', careers: 'Work With Us', quote: 'Get a Quote' },
-  serviceItems: ['Horizontal & Vertical Cargo Handling', 'Cargo Movement', 'Equipment Rental', 'Yellow Line (Backhoe)', 'Special Cargo Transport'],
+  nav: { home: 'Home', company: 'The Company', services: 'Services', fleet: 'Our Fleet', esg: 'ESG', certifications: 'Certifications', blog: 'Blog', report: 'Report', ethics: 'Code of Ethics', careers: 'Work With Us', quote: 'Get a Quote', locacaoLabel: 'Rental Services', equipSales: 'Equipment Sales' },
+  serviceItems: ['Horizontal & Vertical Cargo Handling', 'Cargo Movement', 'Equipment Rental', 'Yellow Line (Backhoe)', 'Special Cargo Transport', 'Forklifts & Aerial Platforms'],
   home: {
     heroTag: 'Over 25 years moving Brazil',
     heroSub: 'High-performance solutions in cargo handling, heavy transport, industrial removal and equipment rental.',
@@ -190,6 +204,7 @@ const EN = {
       { title: 'Equipment Rental', desc: 'Modern and diversified fleet available in short and long-term contracts — cranes, truck-mounted cranes and yellow line — with preventive maintenance and 24/7 support.' },
       { title: 'Yellow Line (Backhoe)', desc: 'Backhoes, wheel loaders and hydraulic excavators for earthmoving, excavation and soil handling, with certified operators and current documentation.' },
       { title: 'Special Cargo Transport', desc: 'Road transport of oversized cargo with special trailers, truck-mounted crane, credentialed escort, DNIT/DER permits and engineer-planned routes.' },
+      { title: 'Forklifts & Aerial Platforms', desc: 'Electric, diesel and LPG forklifts and articulated and scissor aerial platforms for internal cargo handling and at-height operations in industrial environments.' },
     ],
     splitEyebrow: 'Our history', splitTitle: '25 years building with trust',
     splitBody1: 'We founded Grupo Maxpesa with the purpose of transforming heavy logistics in Brazil — with safety, precision and commitment in every operation.',
@@ -247,6 +262,7 @@ const EN = {
       { num: '03', title: 'Equipment Rental', intro: 'Flexible short and long-term contracts with a revised, documented, engineer-approved fleet.', body: 'Each piece of equipment is inspected before mobilisation and delivered with updated reports and maintenance history.', feats: ['Preventive maintenance included', 'Reports and history available', 'Short, medium and long-term contracts', 'Nationwide coverage', '24/7 technical support'] },
       { num: '04', title: 'Yellow Line (Backhoe)', intro: 'Backhoes, wheel loaders and hydraulic excavators for earthmoving, excavation and soil handling.', body: 'Equipment in full operational condition, with all documentation and current certifications for immediate mobilisation.', feats: ['Backhoes of various capacities', 'Articulated wheel loaders', 'Hydraulic excavators', 'Certified and experienced operators', 'Up-to-date documentation and inspections'] },
       { num: '05', title: 'Special Cargo Transport', intro: 'Road transport of oversized and heavy cargo with special trailers, escort and current permits.', body: 'Routes planned by a specialised engineer, with credentialed escort support and all documentation required by regulatory bodies.', feats: ['Simple and extendable flatbed trailers', 'High-capacity truck-mounted crane', 'Current DNIT/DER permits', 'Credentialed escort', 'Route planning by engineer'] },
+      { num: '06', title: 'Forklifts & Aerial Platforms', intro: 'Complete internal handling and at-height work solutions with forklifts and aerial platforms for industrial and commercial environments.', body: 'Our fleet includes electric, diesel and LPG forklifts and articulated and scissor platforms — ideal for warehouses, industrial plants and construction sites.', feats: ['Electric and diesel/LPG forklifts', 'Articulated and scissor aerial platforms', 'Handling capacity up to 10 t', 'NR-11 certified operators', 'Short and long-term contracts'] },
     ],
   },
   esg: {
@@ -270,7 +286,7 @@ const EN = {
   certificacoes: {
     heroEyebrow: 'Quality assurance', heroSub: 'Rigorous compliance with the main national and international standards for maximum operational safety.', heroCrumb: 'Certifications',
     heroTitle: ['Certifications', '& Compliance'], whyTitle: ['Certifications as a', 'commitment to you'], docTitle: ['Request our certification', 'dossier'],
-    certDescs: ['Quality Management System certified and audited by an internationally accredited body.', 'Compliance with environmental management, handling and machinery safety standards.', 'Occupational Health and Safety Management System applied in 100% of operations.', "Signatories of the Women's Empowerment Principles, promoting equity in the workplace.", 'Adherence to the UN Global Compact, committing to the ten principles of sustainability and human rights.', 'Associated with Instituto Ethos, reference in corporate social responsibility practices in Brazil.'],
+    certDescs: ['Quality Management System certified and audited by an internationally accredited body.', 'Compliance with environmental management, handling and machinery safety standards.', 'Occupational Health and Safety Management System applied in 100% of operations.', 'Anti-Bribery Management System certified, ensuring compliance with integrity practices and anti-corruption standards.', "Signatories of the Women's Empowerment Principles, promoting equity in the workplace.", 'Adherence to the UN Global Compact, committing to the ten principles of sustainability and human rights.', 'Associated with Instituto Ethos, reference in corporate social responsibility practices in Brazil.'],
     downloadTitle: 'Download PDF certificate',
     whyEyebrow: 'Why this matters', whyLead: 'Grupo Maxpesa certifications are the result of years of systematic work to ensure that every operation is carried out to the highest standard of quality and safety.', whyBody: 'For the contracting party, this means predictability, risk reduction and a partner who knows exactly what they are doing.', whyBtn: 'Request a technical proposal',
     items: [
@@ -281,6 +297,8 @@ const EN = {
       { t: 'Rigging load calculation', d: 'Responsible engineer signs every heavy equipment lift.' },
     ],
     docEyebrow: 'Documentation available', docSub: 'We send all technical documentation for prior review before contracting.', docBtn: 'Request documentation',
+    awardsEyebrow: 'Recognition', awardsTitle: ['Awards &', 'Recognition'],
+    awardsDescs: ['Recognition for the excellent work environment and professional development of employees.', 'Award granted in recognition of sustainable performance and commitment to ESG practices in the sector.', 'Distinction for the standard of excellence in operational safety in high-risk operations.', 'Sectoral recognition for quality, innovation and contribution to national logistics.'],
   },
   blog: { heroEye: 'Insights & News', heroTitle: 'Blog', heroSub: 'Articles, news and technical content on cargo handling, heavy logistics and best operational practices.', featured: 'Featured', readMore: 'Read the full article', readMoreShort: 'Read more', ctaEye: 'Stay informed', ctaTitle: 'Technical content for smarter decisions', ctaSub: 'Follow news on heavy handling, operational safety and industrial logistics.', ctaBtn: 'Talk to a specialist', backBtn: 'Back to Blog', notFound: 'Article not found.', ctaText: 'Need a specialised heavy logistics solution?', relatedTitle: 'Read Also' },
   frota: {
@@ -290,7 +308,7 @@ const EN = {
     specLabels: { 'Capacidade': 'Capacity', 'Pluma': 'Boom', 'Rotação': 'Rotation', 'Alcance': 'Reach', 'Acionam.': 'Drive', 'Balde': 'Bucket', 'Prof. max': 'Max depth', 'Tração': 'Traction', 'Peso op.': 'Op. weight', 'Profundid.': 'Depth', 'Alt. trab.': 'Work height', 'Comprimento': 'Length', 'Licença': 'Permit', 'Elevação': 'Lift height', 'Plataf.': 'Platform', 'Eixos': 'Axles' },
     itemNames: { 1: 'Telescopic Mobile Crane', 2: 'Lattice Boom Crane', 3: 'Telescopic Mobile Crane', 5: 'Truck-Mounted Crane', 6: 'Truck-Mounted Crane', 7: 'Hydraulic Excavator', 8: 'Wheel Loader', 9: 'Articulating Boom Lift', 10: 'Scissor Lift', 11: 'Flatbed Trailer', 12: 'Extendable Trailer', 13: 'Sider Box Trailer', 14: 'Box Trailer', 15: 'Low-Bed Trailer', 16: 'Axle Line', 17: 'Electric Forklift', 18: 'Diesel Forklift' },
   },
-  footer: { desc: 'National reference in complex cargo handling, heavy transport and rigging engineering with over 25 years in the market.', address: 'HQ — Duque de Caxias, RJ', navTitle: 'Navigation', navLinks: ['Home', 'The Company', 'Our Services', 'Our Fleet', 'ESG', 'Certifications', 'Work With Us'], svcTitle: 'Services', svcLinks: ['Horiz. & Vert. Handling', 'Cargo Movement', 'Equipment Rental', 'Yellow Line', 'Special Transport'], contactTitle: 'Contact', reportLink: 'Whistleblower Channel', contactLink: 'Contact Us', copyright: 'All rights reserved.' },
+  footer: { desc: 'National reference in complex cargo handling, heavy transport and rigging engineering with over 25 years in the market.', address: 'HQ — Duque de Caxias, RJ', navTitle: 'Navigation', navLinks: ['Home', 'The Company', 'Our Services', 'Our Fleet', 'ESG', 'Certifications', 'Work With Us'], svcTitle: 'Services', svcLinks: ['Horiz. & Vert. Handling', 'Cargo Movement', 'Equipment Rental', 'Yellow Line', 'Special Transport'], contactTitle: 'Contact', reportLink: 'Whistleblower Channel', ethicsLink: 'Code of Ethics', contactLink: 'Contact Us', copyright: 'All rights reserved.' },
   toast: { title: 'Message sent successfully', subtitle: 'We will respond within 2 business hours.' },
   trabalhe: {
     heroEyebrow: 'Join the team', heroSub: 'Be part of a group with over 25 years moving Brazil. Send your CV and await our contact.', heroCrumb: 'Work With Us',
@@ -298,7 +316,7 @@ const EN = {
     cardTitle: 'Build your career here.', cardSub: '25 years moving Brazil — with safety, tradition and growth.',
     panelEyebrow: 'Why work here?', panelTitle: 'Be part of projects that move Brazil.',
     panelSub: 'We are a national reference in heavy logistics. Each employee works on high-impact operations and has real room to grow.',
-    fileNote: 'We accept PDF, DOC or DOCX files up to 5 MB.',
+    fileNote: 'We accept PDF, DOC or DOCX files up to 20 MB.',
     formTitle: 'Submit your application', formSub: 'Fill in the fields below carefully. We will contact you if there is a position matching your profile.',
     benefits: [
       { label: 'Safety above all', desc: 'Full PPE, NR-11 training and rigorous safety culture in every operation.' },
@@ -312,12 +330,13 @@ const EN = {
       cidade: 'City', cidadePh: 'e.g. Duque de Caxias',
       estado: 'State', estadoPh: 'Select',
       telefone: 'Phone / WhatsApp', email: 'E-mail',
-      curriculo: 'CV', fileLabel: 'Choose file (PDF, DOC, DOCX — max. 5 MB)',
+      curriculo: 'CV', fileLabel: 'Choose file (PDF, DOC, DOCX — max. 20 MB)',
     },
     errors: {
       required: 'Required field', minChars: 'Minimum 3 characters',
       phone: 'Invalid phone', state: 'Select a state',
       resume: 'Attach your CV to continue',
+      fileTooLarge: 'File too large. Maximum size is 20 MB.',
     },
     sending: 'Sending…', submit: 'Submit application',
   },
@@ -342,13 +361,22 @@ const EN = {
     errors: { required: 'Required field', minChars: 'Minimum 3 characters', phone: 'Invalid phone' },
     processing: 'Processing…', submit: 'Send request',
   },
+  vendas: {
+    heroEyebrow: 'Equipment for Sale', heroSub: 'Used and new equipment with guaranteed provenance, inspected and ready to operate.', heroCrumb: 'Sales',
+    heroTitle: ['Equipment', 'for Sale'],
+    condNovo: 'NEW', condUsado: 'USED', tagVenda: 'SALE',
+    fieldCod: 'Code', fieldFab: 'Manufacturer', fieldYear: 'Year', fieldLocal: 'Location',
+    btnWhatsApp: 'Enquire Price', btnContact: 'Request Contact',
+    categories: { all: 'All', guindastes: 'Cranes', munck: 'Truck Cranes', 'linha-amarela': 'Yellow Line', especiais: 'Special Cargo', empilhadeiras: 'Forklifts' },
+    filterMetaSingle: 'piece of equipment for sale', filterMetaPlural: 'pieces of equipment for sale',
+  },
 }
 
 // ─── ES ───────────────────────────────────────────────────────────────────────
 const ES = {
   flag: '🇪🇸', name: 'Español', short: 'ES',
-  nav: { home: 'Inicio', company: 'La Empresa', services: 'Servicios', fleet: 'Nuestra Flota', esg: 'ESG', certifications: 'Certificaciones', blog: 'Blog', report: 'Denuncia', careers: 'Trabaje Con Nosotros', quote: 'Presupuesto' },
-  serviceItems: ['Movimiento Horizontal y Vertical de Cargas', 'Movimiento de Cargas', 'Alquiler de Equipos', 'Línea Amarilla (Retroexcavadora)', 'Transporte de Cargas Especiales'],
+  nav: { home: 'Inicio', company: 'La Empresa', services: 'Servicios', fleet: 'Nuestra Flota', esg: 'ESG', certifications: 'Certificaciones', blog: 'Blog', report: 'Denuncia', ethics: 'Código de Ética', careers: 'Trabaje Con Nosotros', quote: 'Presupuesto', locacaoLabel: 'Servicios de Alquiler', equipSales: 'Venta de Equipos' },
+  serviceItems: ['Movimiento Horizontal y Vertical de Cargas', 'Movimiento de Cargas', 'Alquiler de Equipos', 'Línea Amarilla (Retroexcavadora)', 'Transporte de Cargas Especiales', 'Montacargas y Plataformas'],
   home: {
     heroTag: 'Más de 25 años moviendo Brasil',
     heroSub: 'Soluciones de alto rendimiento en manejo de cargas, transporte pesado, remoción industrial y alquiler de equipos.',
@@ -362,6 +390,7 @@ const ES = {
       { title: 'Alquiler de Equipos', desc: 'Flota moderna y diversificada disponible en contratos de corto y largo plazo — grúas, camión grúa y línea amarilla — con mantenimiento preventivo y soporte 24/7.' },
       { title: 'Línea Amarilla (Retroexcavadora)', desc: 'Retroexcavadoras, cargadoras de ruedas y excavadoras hidráulicas para movimiento de tierra, excavación y manejo de suelo, con operadores certificados y documentación vigente.' },
       { title: 'Transporte de Cargas Especiales', desc: 'Transporte por carretera de cargas sobredimensionadas con remolques especiales, camión grúa, escolta acreditada, permisos DNIT/DER y ruta planificada por ingeniero.' },
+      { title: 'Montacargas y Plataformas', desc: 'Montacargas eléctricos, diésel y GLP y plataformas elevadoras articuladas y tijera para manejo interno de cargas y operaciones en altura en entornos industriales.' },
     ],
     splitEyebrow: 'Nuestra historia', splitTitle: '25 años construyendo con confianza',
     splitBody1: 'Fundamos Grupo Maxpesa con el propósito de transformar la logística pesada en Brasil — con seguridad, precisión y compromiso en cada operación.',
@@ -419,6 +448,7 @@ const ES = {
       { num: '03', title: 'Alquiler de Equipos', intro: 'Contratos flexibles de corto y largo plazo con flota revisada, documentada y homologada por ingenieros.', body: 'Cada equipo es inspeccionado antes de la movilización y entregado con informes e historial de mantenimiento actualizados.', feats: ['Mantenimiento preventivo incluido', 'Informes e historial disponibles', 'Contratos de corto, mediano y largo plazo', 'Atención a escala nacional', 'Soporte técnico 24/7'] },
       { num: '04', title: 'Línea Amarilla (Retroexcavadora)', intro: 'Retroexcavadoras, cargadoras de ruedas y excavadoras hidráulicas para movimiento de tierra, excavación y manejo de suelo.', body: 'Equipos en pleno estado operacional, con toda la documentación y certificaciones vigentes para movilización inmediata.', feats: ['Retroexcavadoras de diversas capacidades', 'Cargadoras de ruedas articuladas', 'Excavadoras hidráulicas', 'Operadores certificados y experimentados', 'Documentación y revisiones al día'] },
       { num: '05', title: 'Transporte de Cargas Especiales', intro: 'Transporte por carretera de cargas sobredimensionadas y pesadas con remolques especiales, escolta y permisos vigentes.', body: 'Rutas planificadas por ingeniero especializado, con apoyo de escolta acreditada y toda la documentación exigida por los organismos reguladores.', feats: ['Remolques plataforma simples y extensibles', 'Camión grúa de alta capacidad', 'Permisos DNIT/DER vigentes', 'Escolta acreditada', 'Planificación de ruta por ingeniero'] },
+      { num: '06', title: 'Montacargas y Plataformas Elevadoras', intro: 'Soluciones completas de manejo interno y trabajo en altura con montacargas y plataformas elevadoras para entornos industriales y comerciales.', body: 'Nuestra flota incluye montacargas eléctricos, diésel y GLP y plataformas articuladas y tijera — ideales para almacenes, plantas industriales y obras.', feats: ['Montacargas eléctricos y diésel/GLP', 'Plataformas articuladas y tijera', 'Capacidad de manejo hasta 10 t', 'Operadores certificados NR-11', 'Contratos de corto y largo plazo'] },
     ],
   },
   esg: {
@@ -442,7 +472,7 @@ const ES = {
   certificacoes: {
     heroEyebrow: 'Garantía de calidad', heroSub: 'Cumplimiento riguroso de las principales normas nacionales e internacionales para máxima seguridad operacional.', heroCrumb: 'Certificaciones',
     heroTitle: ['Certificaciones', 'y Conformidades'], whyTitle: ['Certificaciones como', 'compromiso con usted'], docTitle: ['Solicite nuestro dosier', 'de certificaciones'],
-    certDescs: ['Sistema de Gestión de Calidad certificado y auditado por organismo acreditado internacionalmente.', 'Conformidad con las normas de gestión ambiental, movimiento y seguridad en máquinas.', 'Sistema de Gestión de Salud y Seguridad Ocupacional aplicado en el 100% de las operaciones.', 'Signatarios de los Principios de Empoderamiento de las Mujeres, promoviendo equidad en el ambiente laboral.', 'Adhesión al Pacto Global de la ONU, comprometiéndose con los diez principios de sostenibilidad y derechos humanos.', 'Asociados al Instituto Ethos, referencia en prácticas de responsabilidad social empresarial en Brasil.'],
+    certDescs: ['Sistema de Gestión de Calidad certificado y auditado por organismo acreditado internacionalmente.', 'Conformidad con las normas de gestión ambiental, movimiento y seguridad en máquinas.', 'Sistema de Gestión de Salud y Seguridad Ocupacional aplicado en el 100% de las operaciones.', 'Sistema de Gestión Antisoborno certificado, garantizando conformidad con prácticas de integridad y anticorrupción.', 'Signatarios de los Principios de Empoderamiento de las Mujeres, promoviendo equidad en el ambiente laboral.', 'Adhesión al Pacto Global de la ONU, comprometiéndose con los diez principios de sostenibilidad y derechos humanos.', 'Asociados al Instituto Ethos, referencia en prácticas de responsabilidad social empresarial en Brasil.'],
     downloadTitle: 'Descargar certificado PDF',
     whyEyebrow: 'Por qué importa', whyLead: 'Las certificaciones de Grupo Maxpesa son el resultado de años de trabajo sistemático para garantizar que cada operación se ejecute con el más alto estándar de calidad y seguridad.', whyBody: 'Para el contratante, esto representa previsibilidad, reducción de riesgos y un socio que sabe exactamente lo que hace.', whyBtn: 'Solicitar propuesta técnica',
     items: [
@@ -453,6 +483,8 @@ const ES = {
       { t: 'Memoria de cálculo de aparejamiento', d: 'Ingeniero responsable firma cada izaje de equipo pesado.' },
     ],
     docEyebrow: 'Documentación disponible', docSub: 'Enviamos toda la documentación técnica para análisis previo antes de la contratación.', docBtn: 'Solicitar documentación',
+    awardsEyebrow: 'Reconocimiento', awardsTitle: ['Premios &', 'Reconocimiento'],
+    awardsDescs: ['Reconocimiento por el excelente ambiente de trabajo y la valorización profesional de los colaboradores.', 'Premio concedido en reconocimiento al desempeño sostenible y compromiso con prácticas ESG en el sector.', 'Distinción por el estándar de excelencia en seguridad operacional en operaciones de alto riesgo.', 'Reconocimiento sectorial por el estándar de calidad, innovación y contribución a la logística nacional.'],
   },
   blog: { heroEye: 'Perspectivas y Novedades', heroTitle: 'Blog', heroSub: 'Artículos, novedades y contenido técnico sobre manejo de cargas, logística pesada y buenas prácticas operacionales.', featured: 'Destacado', readMore: 'Leer el artículo completo', readMoreShort: 'Leer más', ctaEye: 'Manténgase informado', ctaTitle: 'Contenido técnico para decisiones más inteligentes', ctaSub: 'Siga novedades sobre manejo pesado, seguridad operacional y logística industrial.', ctaBtn: 'Hablar con un especialista', backBtn: 'Volver al Blog', notFound: 'Artículo no encontrado.', ctaText: '¿Necesita una solución especializada en logística pesada?', relatedTitle: 'Leer también' },
   frota: {
@@ -462,7 +494,7 @@ const ES = {
     specLabels: { 'Capacidade': 'Capacidad', 'Pluma': 'Pluma', 'Rotação': 'Rotación', 'Alcance': 'Alcance', 'Acionam.': 'Accionam.', 'Balde': 'Cucharón', 'Prof. max': 'Prof. máx', 'Tração': 'Tracción', 'Peso op.': 'Peso op.', 'Profundid.': 'Profundidad', 'Alt. trab.': 'Alt. trabajo', 'Comprimento': 'Longitud', 'Licença': 'Licencia', 'Elevação': 'Elevación', 'Plataf.': 'Plataforma', 'Eixos': 'Ejes' },
     itemNames: { 1: 'Grúa Móvil Telescópica', 2: 'Grúa de Celosía', 3: 'Grúa Móvil Telescópica', 5: 'Camión Grúa', 6: 'Camión Grúa', 7: 'Excavadora Hidráulica', 8: 'Cargadora de Ruedas', 9: 'Plataforma Articulada', 10: 'Plataforma Tijera', 11: 'Remolque Plataforma', 12: 'Remolque Extensible', 13: 'Remolque Caja Sider', 14: 'Remolque Caja', 15: 'Remolque de Cama Baja', 16: 'Línea de Ejes', 17: 'Montacargas Eléctrico', 18: 'Montacargas Diésel' },
   },
-  footer: { desc: 'Referencia nacional en movimiento de cargas complejas, transporte pesado e ingeniería de aparejamiento con más de 25 años de mercado.', address: 'Sede — Duque de Caxias, RJ', navTitle: 'Navegación', navLinks: ['Inicio', 'La Empresa', 'Nuestros Servicios', 'Nuestra Flota', 'ESG', 'Certificaciones', 'Trabaje Con Nosotros'], svcTitle: 'Servicios', svcLinks: ['Mov. Horiz. y Vertical', 'Movimiento de Cargas', 'Alquiler de Equipos', 'Línea Amarilla', 'Transporte Especial'], contactTitle: 'Contacto', reportLink: 'Canal de Denuncias', contactLink: 'Contáctenos', copyright: 'Todos los derechos reservados.' },
+  footer: { desc: 'Referencia nacional en movimiento de cargas complejas, transporte pesado e ingeniería de aparejamiento con más de 25 años de mercado.', address: 'Sede — Duque de Caxias, RJ', navTitle: 'Navegación', navLinks: ['Inicio', 'La Empresa', 'Nuestros Servicios', 'Nuestra Flota', 'ESG', 'Certificaciones', 'Trabaje Con Nosotros'], svcTitle: 'Servicios', svcLinks: ['Mov. Horiz. y Vertical', 'Movimiento de Cargas', 'Alquiler de Equipos', 'Línea Amarilla', 'Transporte Especial'], contactTitle: 'Contacto', reportLink: 'Canal de Denuncias', ethicsLink: 'Código de Ética', contactLink: 'Contáctenos', copyright: 'Todos los derechos reservados.' },
   toast: { title: 'Mensaje enviado con éxito', subtitle: 'Le responderemos en hasta 2 horas hábiles.' },
   trabalhe: {
     heroEyebrow: 'Únase al equipo', heroSub: 'Sea parte de un grupo con más de 25 años moviendo Brasil. Envíe su CV y espere nuestro contacto.', heroCrumb: 'Trabaje Con Nosotros',
@@ -470,7 +502,7 @@ const ES = {
     cardTitle: 'Construya su carrera aquí.', cardSub: '25 años moviendo Brasil — con seguridad, tradición y crecimiento.',
     panelEyebrow: '¿Por qué trabajar aquí?', panelTitle: 'Sea parte de proyectos que mueven Brasil.',
     panelSub: 'Somos referencia nacional en logística pesada. Cada colaborador actúa en operaciones de alto impacto y tiene espacio real para crecer.',
-    fileNote: 'Aceptamos archivos PDF, DOC o DOCX de hasta 5 MB.',
+    fileNote: 'Aceptamos archivos PDF, DOC o DOCX de hasta 20 MB.',
     formTitle: 'Envíe su candidatura', formSub: 'Complete los campos con atención. Lo contactaremos si hay una vacante compatible con su perfil.',
     benefits: [
       { label: 'Seguridad ante todo', desc: 'EPP completos, entrenamientos NR-11 y cultura de seguridad rigurosa en cada operación.' },
@@ -484,12 +516,13 @@ const ES = {
       cidade: 'Ciudad', cidadePh: 'Ej.: Duque de Caxias',
       estado: 'Estado', estadoPh: 'Seleccionar',
       telefone: 'Teléfono / WhatsApp', email: 'E-mail',
-      curriculo: 'Currículum', fileLabel: 'Elegir archivo (PDF, DOC, DOCX — máx. 5 MB)',
+      curriculo: 'Currículum', fileLabel: 'Elegir archivo (PDF, DOC, DOCX — máx. 20 MB)',
     },
     errors: {
       required: 'Campo obligatorio', minChars: 'Mínimo 3 caracteres',
       phone: 'Teléfono inválido', state: 'Seleccione un estado',
       resume: 'Adjunte su currículum para continuar',
+      fileTooLarge: 'Archivo demasiado grande. El tamaño máximo es 20 MB.',
     },
     sending: 'Enviando…', submit: 'Enviar candidatura',
   },
@@ -514,13 +547,22 @@ const ES = {
     errors: { required: 'Campo obligatorio', minChars: 'Mínimo 3 caracteres', phone: 'Teléfono inválido' },
     processing: 'Procesando…', submit: 'Enviar solicitud',
   },
+  vendas: {
+    heroEyebrow: 'Equipos a la Venta', heroSub: 'Equipos usados y nuevos con procedencia garantizada, revisados y listos para operar.', heroCrumb: 'Ventas',
+    heroTitle: ['Venta de', 'Equipos'],
+    condNovo: 'NUEVO', condUsado: 'USADO', tagVenda: 'VENTA',
+    fieldCod: 'Cód', fieldFab: 'Fabricante', fieldYear: 'Año', fieldLocal: 'Ubicación',
+    btnWhatsApp: 'Consultar Precio', btnContact: 'Solicitar Contacto',
+    categories: { all: 'Todos', guindastes: 'Grúas', munck: 'Cam. Grúa', 'linha-amarela': 'Línea Amarilla', especiais: 'Cargas Especiales', empilhadeiras: 'Montacargas' },
+    filterMetaSingle: 'equipo a la venta', filterMetaPlural: 'equipos a la venta',
+  },
 }
 
 // ─── DE ───────────────────────────────────────────────────────────────────────
 const DE = {
   flag: '🇩🇪', name: 'Deutsch', short: 'DE',
-  nav: { home: 'Startseite', company: 'Das Unternehmen', services: 'Leistungen', fleet: 'Unsere Flotte', esg: 'ESG', certifications: 'Zertifizierungen', blog: 'Blog', report: 'Meldung', careers: 'Karriere', quote: 'Angebot' },
-  serviceItems: ['Horizontaler & Vertikaler Gütertransport', 'Güterumschlag', 'Geräteverleih', 'Gelbe Linie (Baggerlader)', 'Schwerguttransport'],
+  nav: { home: 'Startseite', company: 'Das Unternehmen', services: 'Leistungen', fleet: 'Unsere Flotte', esg: 'ESG', certifications: 'Zertifizierungen', blog: 'Blog', report: 'Meldung', ethics: 'Ethikkodex', careers: 'Karriere', quote: 'Angebot', locacaoLabel: 'Verleihleistungen', equipSales: 'Geräteverkauf' },
+  serviceItems: ['Horizontaler & Vertikaler Gütertransport', 'Güterumschlag', 'Geräteverleih', 'Gelbe Linie (Baggerlader)', 'Schwerguttransport', 'Gabelstapler & Hebebühnen'],
   home: {
     heroTag: 'Über 25 Jahre bewegen wir Brasilien',
     heroSub: 'Hochleistungslösungen im Güterumschlag, Schwertransport, Industriedemontage und Geräteverleih.',
@@ -534,6 +576,7 @@ const DE = {
       { title: 'Geräteverleih', desc: 'Moderne und vielfältige Flotte in kurz- und langfristigen Verträgen — Krane, LKW-Krane und Gelbe Linie — mit Wartung und 24/7-Support.' },
       { title: 'Gelbe Linie (Baggerlader)', desc: 'Baggerlader, Radlader und Hydraulikbagger für Erdarbeiten, Aushub und Bodenbewegung mit zertifizierten Bedienern und aktueller Dokumentation.' },
       { title: 'Schwerguttransport', desc: 'Straßentransport von Übergütern mit Spezialaufliegern, LKW-Kran, beglaubigter Begleitung, DNIT/DER-Genehmigungen und ingenieurgeplantem Streckenverlauf.' },
+      { title: 'Gabelstapler & Hebebühnen', desc: 'Elektro-, Diesel- und Flüssiggasstapler sowie Gelenk- und Scherenbühnen für innerbetrieblichen Transport und Höhenarbeiten in industriellen Umgebungen.' },
     ],
     splitEyebrow: 'Unsere Geschichte', splitTitle: '25 Jahre Aufbau mit Vertrauen',
     splitBody1: 'Wir gründeten Grupo Maxpesa mit dem Ziel, die schwere Logistik in Brasilien zu transformieren — mit Sicherheit, Präzision und Engagement in jeder Operation.',
@@ -591,6 +634,7 @@ const DE = {
       { num: '03', title: 'Geräteverleih', intro: 'Flexible Kurz- und Langzeitverträge mit geprüfter, dokumentierter, ingenieurgeprüfter Flotte.', body: 'Jedes Gerät wird vor der Mobilisierung inspiziert und mit aktuellen Berichten und Wartungshistorie übergeben.', feats: ['Vorbeugende Wartung inklusive', 'Berichte und Wartungshistorie verfügbar', 'Kurz-, Mittel- und Langzeitverträge', 'Bundesweite Betreuung', '24/7 technischer Support'] },
       { num: '04', title: 'Gelbe Linie (Baggerlader)', intro: 'Baggerlader, Radlader und Hydraulikbagger für Erdarbeiten, Aushub und Bodenbewegung.', body: 'Geräte in vollem Betriebszustand, mit aller aktuellen Dokumentation und Zertifizierungen für sofortige Mobilisierung.', feats: ['Baggerlader verschiedener Kapazitäten', 'Knickgelenk-Radlader', 'Hydraulikbagger', 'Zertifizierte und erfahrene Bediener', 'Aktuelle Dokumentation und Inspektionen'] },
       { num: '05', title: 'Schwerguttransport', intro: 'Straßentransport von Übergütern und schweren Lasten mit Spezialaufliegern, Begleitung und gültigen Genehmigungen.', body: 'Routen von Fachingenieur geplant, mit beglaubigter Begleitunterstützung und aller von den Regulierungsbehörden geforderten Dokumentation.', feats: ['Einfache und ausziehbare Tiefbettauflieger', 'LKW-Kran mit hoher Kapazität', 'Gültige DNIT/DER-Genehmigungen', 'Beglaubigte Begleitung', 'Streckenplanung durch Ingenieur'] },
+      { num: '06', title: 'Gabelstapler & Hebebühnen', intro: 'Komplette Lösungen für innerbetrieblichen Transport und Höhenarbeiten mit Gabelstaplern und Hebebühnen.', body: 'Unsere Flotte umfasst Elektro-, Diesel- und LPG-Stapler sowie Gelenk- und Scherenbühnen — ideal für Lagerhallen, Industrieanlagen und Baustellen.', feats: ['Elektro- und Diesel-/LPG-Stapler', 'Gelenk- und Scherenbühnen', 'Tragfähigkeit bis 10 t', 'NR-11-zertifizierte Fahrer', 'Kurz- und Langzeitverträge'] },
     ],
   },
   esg: {
@@ -614,7 +658,7 @@ const DE = {
   certificacoes: {
     heroEyebrow: 'Qualitätssicherung', heroSub: 'Strikte Einhaltung der wichtigsten nationalen und internationalen Normen für maximale Betriebssicherheit.', heroCrumb: 'Zertifizierungen',
     heroTitle: ['Zertifizierungen', '& Konformitäten'], whyTitle: ['Zertifizierungen als', 'Verpflichtung Ihnen gegenüber'], docTitle: ['Zertifizierungsdossier', 'anfordern'],
-    certDescs: ['Qualitätsmanagementsystem, zertifiziert und geprüft von einer international akkreditierten Stelle.', 'Konformität mit Umweltmanagement-, Handhabungs- und Maschinensicherheitsnormen.', 'Arbeitsschutz-Managementsystem in 100% der Operationen angewendet.', 'Unterzeichner der Grundsätze zur Stärkung der Stellung der Frau, Förderung von Gleichberechtigung am Arbeitsplatz.', 'Beitritt zum UN Global Compact, Verpflichtung zu den zehn Prinzipien für Nachhaltigkeit und Menschenrechte.', 'Mitglied des Instituto Ethos, Referenz für unternehmerische Sozialverantwortung in Brasilien.'],
+    certDescs: ['Qualitätsmanagementsystem, zertifiziert und geprüft von einer international akkreditierten Stelle.', 'Konformität mit Umweltmanagement-, Handhabungs- und Maschinensicherheitsnormen.', 'Arbeitsschutz-Managementsystem in 100% der Operationen angewendet.', 'Zertifiziertes Antikorruptions-Managementsystem, das die Einhaltung von Integritätsstandards und Korruptionsbekämpfung gewährleistet.', 'Unterzeichner der Grundsätze zur Stärkung der Stellung der Frau, Förderung von Gleichberechtigung am Arbeitsplatz.', 'Beitritt zum UN Global Compact, Verpflichtung zu den zehn Prinzipien für Nachhaltigkeit und Menschenrechte.', 'Mitglied des Instituto Ethos, Referenz für unternehmerische Sozialverantwortung in Brasilien.'],
     downloadTitle: 'PDF-Zertifikat herunterladen',
     whyEyebrow: 'Warum das wichtig ist', whyLead: 'Die Zertifizierungen von Grupo Maxpesa sind das Ergebnis jahrelanger systematischer Arbeit, um sicherzustellen, dass jede Operation nach dem höchsten Qualitäts- und Sicherheitsstandard durchgeführt wird.', whyBody: 'Für den Auftraggeber bedeutet dies Planbarkeit, Risikominimierung und einen Partner, der genau weiß, was er tut.', whyBtn: 'Technisches Angebot anfordern',
     items: [
@@ -625,6 +669,8 @@ const DE = {
       { t: 'Rigging-Lastberechnung', d: 'Verantwortlicher Ingenieur unterzeichnet jeden Schwerlasthub.' },
     ],
     docEyebrow: 'Dokumentation verfügbar', docSub: 'Wir senden alle technischen Unterlagen zur Vorabprüfung vor der Beauftragung.', docBtn: 'Dokumentation anfordern',
+    awardsEyebrow: 'Auszeichnungen', awardsTitle: ['Preise &', 'Auszeichnungen'],
+    awardsDescs: ['Auszeichnung für das hervorragende Arbeitsumfeld und die berufliche Förderung der Mitarbeiter.', 'Preis für nachhaltige Leistung und Engagement für ESG-Praktiken in der Branche.', 'Auszeichnung für hervorragende Betriebssicherheitsstandards bei Hochrisikoeinsätzen.', 'Sektorale Anerkennung für Qualität, Innovation und Beitrag zur nationalen Logistik.'],
   },
   blog: { heroEye: 'Einblicke & Neuigkeiten', heroTitle: 'Blog', heroSub: 'Artikel, Neuigkeiten und technische Inhalte zu Güterumschlag, Schwertransport und operativen Best Practices.', featured: 'Empfohlen', readMore: 'Vollständigen Artikel lesen', readMoreShort: 'Mehr lesen', ctaEye: 'Bleiben Sie informiert', ctaTitle: 'Technische Inhalte für klügere Entscheidungen', ctaSub: 'Folgen Sie Neuigkeiten zu Schwertransport, Betriebssicherheit und Industrielogistik.', ctaBtn: 'Mit einem Experten sprechen', backBtn: 'Zurück zum Blog', notFound: 'Artikel nicht gefunden.', ctaText: 'Benötigen Sie eine spezialisierte Schwertransportlösung?', relatedTitle: 'Lesen Sie auch' },
   frota: {
@@ -634,7 +680,7 @@ const DE = {
     specLabels: { 'Capacidade': 'Tragkraft', 'Pluma': 'Ausleger', 'Rotação': 'Drehung', 'Alcance': 'Reichweite', 'Acionam.': 'Antrieb', 'Balde': 'Schaufel', 'Prof. max': 'Max. Tiefe', 'Tração': 'Traktion', 'Peso op.': 'Betriebsgew.', 'Profundid.': 'Tiefe', 'Alt. trab.': 'Arbeitshöhe', 'Comprimento': 'Länge', 'Licença': 'Zulassung', 'Elevação': 'Hubhöhe', 'Plataf.': 'Plattform', 'Eixos': 'Achsen' },
     itemNames: { 1: 'Teleskopkran', 2: 'Gittermastkran', 3: 'Teleskopkran', 5: 'LKW-Kran', 6: 'LKW-Kran', 7: 'Hydraulikbagger', 8: 'Radlader', 9: 'Gelenkausleger-Hebebühne', 10: 'Scherenhebebühne', 11: 'Trockenfrachtanhänger', 12: 'Ausziehbarer Anhänger', 13: 'Sider-Kastenanhänger', 14: 'Kastenanhänger', 15: 'Tiefladeanhänger', 16: 'Achslinie', 17: 'Elektro-Gabelstapler', 18: 'Diesel-Gabelstapler' },
   },
-  footer: { desc: 'Nationale Referenz im komplexen Güterumschlag, Schwertransport und Rigging-Engineering mit über 25 Jahren Markterfahrung.', address: 'Zentrale — Duque de Caxias, RJ', navTitle: 'Navigation', navLinks: ['Startseite', 'Das Unternehmen', 'Unsere Leistungen', 'Unsere Flotte', 'ESG', 'Zertifizierungen', 'Karriere'], svcTitle: 'Leistungen', svcLinks: ['Horiz. & Vert. Transport', 'Güterumschlag', 'Geräteverleih', 'Gelbe Linie', 'Schwerguttransport'], contactTitle: 'Kontakt', reportLink: 'Hinweisgeberkanal', contactLink: 'Kontakt', copyright: 'Alle Rechte vorbehalten.' },
+  footer: { desc: 'Nationale Referenz im komplexen Güterumschlag, Schwertransport und Rigging-Engineering mit über 25 Jahren Markterfahrung.', address: 'Zentrale — Duque de Caxias, RJ', navTitle: 'Navigation', navLinks: ['Startseite', 'Das Unternehmen', 'Unsere Leistungen', 'Unsere Flotte', 'ESG', 'Zertifizierungen', 'Karriere'], svcTitle: 'Leistungen', svcLinks: ['Horiz. & Vert. Transport', 'Güterumschlag', 'Geräteverleih', 'Gelbe Linie', 'Schwerguttransport'], contactTitle: 'Kontakt', reportLink: 'Hinweisgeberkanal', ethicsLink: 'Ethikkodex', contactLink: 'Kontakt', copyright: 'Alle Rechte vorbehalten.' },
   toast: { title: 'Nachricht erfolgreich gesendet', subtitle: 'Wir antworten innerhalb von 2 Geschäftsstunden.' },
   trabalhe: {
     heroEyebrow: 'Werden Sie Teil des Teams', heroSub: 'Treten Sie einer Gruppe bei, die seit über 25 Jahren Brasilien bewegt. Senden Sie Ihren Lebenslauf und warten Sie auf unsere Rückmeldung.', heroCrumb: 'Karriere',
@@ -642,7 +688,7 @@ const DE = {
     cardTitle: 'Bauen Sie Ihre Karriere hier auf.', cardSub: '25 Jahre Brasilien bewegt — mit Sicherheit, Tradition und Wachstum.',
     panelEyebrow: 'Warum hier arbeiten?', panelTitle: 'Werden Sie Teil von Projekten, die Brasilien bewegen.',
     panelSub: 'Wir sind nationale Referenz in der Schwertransportlogistik. Jeder Mitarbeiter arbeitet an hochkarätigen Einsätzen und hat reale Wachstumsmöglichkeiten.',
-    fileNote: 'Wir akzeptieren PDF-, DOC- oder DOCX-Dateien bis zu 5 MB.',
+    fileNote: 'Wir akzeptieren PDF-, DOC- oder DOCX-Dateien bis zu 20 MB.',
     formTitle: 'Bewerbung einreichen', formSub: 'Füllen Sie die Felder sorgfältig aus. Wir melden uns, wenn eine passende Stelle verfügbar ist.',
     benefits: [
       { label: 'Sicherheit über alles', desc: 'Vollständige PSA, NR-11-Schulungen und strenge Sicherheitskultur bei jedem Einsatz.' },
@@ -656,12 +702,13 @@ const DE = {
       cidade: 'Stadt', cidadePh: 'z.B. Duque de Caxias',
       estado: 'Bundesstaat', estadoPh: 'Auswählen',
       telefone: 'Telefon / WhatsApp', email: 'E-Mail',
-      curriculo: 'Lebenslauf', fileLabel: 'Datei wählen (PDF, DOC, DOCX — max. 5 MB)',
+      curriculo: 'Lebenslauf', fileLabel: 'Datei wählen (PDF, DOC, DOCX — max. 20 MB)',
     },
     errors: {
       required: 'Pflichtfeld', minChars: 'Mindestens 3 Zeichen',
       phone: 'Ungültige Telefonnummer', state: 'Bitte Bundesstaat auswählen',
       resume: 'Bitte Lebenslauf anhängen, um fortzufahren',
+      fileTooLarge: 'Datei zu groß. Die maximale Größe beträgt 20 MB.',
     },
     sending: 'Wird gesendet…', submit: 'Bewerbung einreichen',
   },
@@ -686,13 +733,22 @@ const DE = {
     errors: { required: 'Pflichtfeld', minChars: 'Mindestens 3 Zeichen', phone: 'Ungültige Telefonnummer' },
     processing: 'Verarbeitung…', submit: 'Anfrage senden',
   },
+  vendas: {
+    heroEyebrow: 'Geräte zum Verkauf', heroSub: 'Gebrauchte und neue Geräte mit garantierter Herkunft, geprüft und einsatzbereit.', heroCrumb: 'Verkauf',
+    heroTitle: ['Geräte', 'zum Verkauf'],
+    condNovo: 'NEU', condUsado: 'GEBRAUCHT', tagVenda: 'VERKAUF',
+    fieldCod: 'Code', fieldFab: 'Hersteller', fieldYear: 'Jahr', fieldLocal: 'Standort',
+    btnWhatsApp: 'Preis anfragen', btnContact: 'Kontakt anfragen',
+    categories: { all: 'Alle', guindastes: 'Krane', munck: 'LKW-Krane', 'linha-amarela': 'Gelbe Linie', especiais: 'Schwergut', empilhadeiras: 'Gabelstapler' },
+    filterMetaSingle: 'Gerät zum Verkauf', filterMetaPlural: 'Geräte zum Verkauf',
+  },
 }
 
 // ─── FR ───────────────────────────────────────────────────────────────────────
 const FR = {
   flag: '🇫🇷', name: 'Français', short: 'FR',
-  nav: { home: 'Accueil', company: "L'Entreprise", services: 'Services', fleet: 'Notre Flotte', esg: 'ESG', certifications: 'Certifications', blog: 'Blog', report: 'Signalement', careers: 'Travailler Avec Nous', quote: 'Devis' },
-  serviceItems: ['Manutention Horizontale & Verticale', 'Déplacement de Charges', 'Location de Matériel', 'Ligne Jaune (Rétrocaveuse)', 'Transport de Charges Spéciales'],
+  nav: { home: 'Accueil', company: "L'Entreprise", services: 'Services', fleet: 'Notre Flotte', esg: 'ESG', certifications: 'Certifications', blog: 'Blog', report: 'Signalement', ethics: "Code d'Éthique", careers: 'Travailler Avec Nous', quote: 'Devis', locacaoLabel: 'Services de Location', equipSales: "Vente d'Équipements" },
+  serviceItems: ['Manutention Horizontale & Verticale', 'Déplacement de Charges', 'Location de Matériel', 'Ligne Jaune (Rétrocaveuse)', 'Transport de Charges Spéciales', 'Chariots Élévateurs & Nacelles'],
   home: {
     heroTag: 'Plus de 25 ans à faire bouger le Brésil',
     heroSub: 'Solutions haute performance en manutention de charges, transport lourd, déménagement industriel et location de matériel.',
@@ -706,6 +762,7 @@ const FR = {
       { title: 'Location de Matériel', desc: 'Flotte moderne disponible en contrats court et long terme — grues, camions-grues et ligne jaune — avec maintenance préventive et support 24/7.' },
       { title: 'Ligne Jaune (Rétrocaveuse)', desc: 'Rétrocaveuses, chargeuses sur pneus et pelleteuses hydrauliques pour terrassement, excavation et déplacement de sol, avec opérateurs certifiés.' },
       { title: 'Transport de Charges Spéciales', desc: 'Transport routier de charges surdimensionnées avec semi-remorques spéciaux, camion-grue, escorte agréée, permis DNIT/DER et itinéraire planifié par ingénieur.' },
+      { title: 'Chariots Élévateurs & Nacelles', desc: 'Chariots élévateurs électriques, diesel et GPL et nacelles articulées et ciseaux pour la manutention interne et les travaux en hauteur dans les environnements industriels.' },
     ],
     splitEyebrow: 'Notre histoire', splitTitle: '25 ans à construire avec confiance',
     splitBody1: 'Nous avons fondé Grupo Maxpesa avec pour objectif de transformer la logistique lourde au Brésil — avec sécurité, précision et engagement dans chaque opération.',
@@ -763,6 +820,7 @@ const FR = {
       { num: '03', title: 'Location de Matériel', intro: 'Contrats flexibles à court et long terme avec une flotte révisée, documentée et homologuée par des ingénieurs.', body: "Chaque équipement est inspecté avant la mobilisation et livré avec des rapports et un historique de maintenance à jour.", feats: ['Maintenance préventive incluse', 'Rapports et historique disponibles', 'Contrats court, moyen et long terme', 'Couverture nationale', 'Support technique 24/7'] },
       { num: '04', title: 'Ligne Jaune (Rétrocaveuse)', intro: 'Rétrocaveuses, chargeuses sur pneus et pelleteuses hydrauliques pour terrassement, excavation et déplacement de sol.', body: "Équipements en plein état opérationnel, avec toute la documentation et les certifications à jour pour une mobilisation immédiate.", feats: ['Rétrocaveuses de diverses capacités', 'Chargeuses sur pneus articulées', 'Pelleteuses hydrauliques', 'Opérateurs certifiés et expérimentés', 'Documentation et contrôles à jour'] },
       { num: '05', title: 'Transport de Charges Spéciales', intro: 'Transport routier de charges surdimensionnées et lourdes avec semi-remorques spéciaux, escorte et permis valides.', body: "Itinéraires planifiés par un ingénieur spécialisé, avec escorte agréée et toute la documentation exigée par les organismes de régulation.", feats: ['Semi-remorques plateaux simples et extensibles', 'Camion-grue haute capacité', 'Permis DNIT/DER valides', 'Escorte agréée', 'Planification de trajet par ingénieur'] },
+      { num: '06', title: 'Chariots Élévateurs & Nacelles Élévatrices', intro: 'Solutions complètes de manutention interne et de travail en hauteur avec chariots élévateurs et nacelles pour les environnements industriels et commerciaux.', body: "Notre flotte comprend des chariots électriques, diesel et GPL ainsi que des nacelles articulées et ciseaux — idéaux pour les entrepôts, les usines et les chantiers.", feats: ['Chariots électriques et diesel/GPL', 'Nacelles articulées et ciseaux', "Capacité de manutention jusqu'à 10 t", 'Opérateurs certifiés NR-11', 'Contrats court et long terme'] },
     ],
   },
   esg: {
@@ -786,7 +844,7 @@ const FR = {
   certificacoes: {
     heroEyebrow: 'Garantie de qualité', heroSub: 'Conformité rigoureuse aux principales normes nationales et internationales pour une sécurité opérationnelle maximale.', heroCrumb: 'Certifications',
     heroTitle: ['Certifications', '& Conformités'], whyTitle: ['Les certifications comme', 'engagement envers vous'], docTitle: ['Demandez notre dossier', 'de certifications'],
-    certDescs: ["Système de Management de la Qualité certifié et audité par un organisme accrédité internationalement.", "Conformité aux normes de gestion environnementale, de manutention et de sécurité des machines.", "Système de Management de la Santé et de la Sécurité au Travail appliqué dans 100% des opérations.", "Signataires des Principes d'autonomisation des femmes, promouvant l'équité en milieu de travail.", "Adhésion au Pacte mondial de l'ONU, engagement envers les dix principes de durabilité et des droits de l'homme.", "Associés à l'Instituto Ethos, référence en pratiques de responsabilité sociale des entreprises au Brésil."],
+    certDescs: ["Système de Management de la Qualité certifié et audité par un organisme accrédité internationalement.", "Conformité aux normes de gestion environnementale, de manutention et de sécurité des machines.", "Système de Management de la Santé et de la Sécurité au Travail appliqué dans 100% des opérations.", "Système de Management Anti-corruption certifié, garantissant la conformité aux pratiques d'intégrité et de lutte contre la corruption.", "Signataires des Principes d'autonomisation des femmes, promouvant l'équité en milieu de travail.", "Adhésion au Pacte mondial de l'ONU, engagement envers les dix principes de durabilité et des droits de l'homme.", "Associés à l'Instituto Ethos, référence en pratiques de responsabilité sociale des entreprises au Brésil."],
     downloadTitle: 'Télécharger le certificat PDF',
     whyEyebrow: "Pourquoi c'est important", whyLead: "Les certifications de Grupo Maxpesa sont le fruit d'années de travail systématique pour garantir que chaque opération est réalisée selon le plus haut standard de qualité et de sécurité.", whyBody: "Pour le donneur d'ordre, cela représente prévisibilité, réduction des risques et un partenaire qui sait exactement ce qu'il fait.", whyBtn: 'Demander une proposition technique',
     items: [
@@ -797,6 +855,8 @@ const FR = {
       { t: 'Note de calcul de gréage', d: "L'ingénieur responsable signe chaque levage d'équipement lourd." },
     ],
     docEyebrow: 'Documentation disponible', docSub: 'Nous envoyons toute la documentation technique pour examen préalable avant la contractualisation.', docBtn: 'Demander la documentation',
+    awardsEyebrow: 'Distinctions', awardsTitle: ['Prix &', 'Distinctions'],
+    awardsDescs: ["Reconnaissance pour l'excellent environnement de travail et la valorisation professionnelle des collaborateurs.", "Prix décerné en reconnaissance de la performance durable et de l'engagement envers les pratiques ESG.", "Distinction pour le standard d'excellence en sécurité opérationnelle lors d'opérations à haut risque.", "Reconnaissance sectorielle pour la qualité, l'innovation et la contribution à la logistique nationale."],
   },
   blog: { heroEye: 'Perspectives & Actualités', heroTitle: 'Blog', heroSub: 'Articles, actualités et contenus techniques sur la manutention de charges, la logistique lourde et les meilleures pratiques opérationnelles.', featured: 'À la une', readMore: "Lire l'article complet", readMoreShort: 'Lire plus', ctaEye: 'Restez informé', ctaTitle: 'Contenu technique pour des décisions plus intelligentes', ctaSub: 'Suivez les actualités sur la manutention lourde, la sécurité opérationnelle et la logistique industrielle.', ctaBtn: 'Parler à un spécialiste', backBtn: 'Retour au Blog', notFound: 'Article introuvable.', ctaText: "Besoin d'une solution spécialisée en logistique lourde ?", relatedTitle: 'Lire aussi' },
   frota: {
@@ -806,7 +866,7 @@ const FR = {
     specLabels: { 'Capacidade': 'Capacité', 'Pluma': 'Flèche', 'Rotação': 'Rotation', 'Alcance': 'Portée', 'Acionam.': 'Actionnement', 'Balde': 'Godet', 'Prof. max': 'Prof. max', 'Tração': 'Traction', 'Peso op.': 'Poids op.', 'Profundid.': 'Profondeur', 'Alt. trab.': 'Haut. travail', 'Comprimento': 'Longueur', 'Licença': 'Permis', 'Elevação': 'Élévation', 'Plataf.': 'Plateforme', 'Eixos': 'Essieux' },
     itemNames: { 1: 'Grue Mobile Télescopique', 2: 'Grue à Flèche Treillis', 3: 'Grue Mobile Télescopique', 5: 'Camion-Grue', 6: 'Camion-Grue', 7: 'Pelleteuse Hydraulique', 8: 'Chargeuse sur Pneus', 9: 'Nacelle Articulée', 10: 'Nacelle Ciseaux', 11: 'Remorque Plateau', 12: 'Remorque Extensible', 13: 'Remorque Caisse Sider', 14: 'Remorque Caisse', 15: 'Remorque Surbaissée', 16: "Ligne d'Essieux", 17: 'Chariot Élévateur Électrique', 18: 'Chariot Élévateur Diesel' },
   },
-  footer: { desc: 'Référence nationale en manutention de charges complexes, transport lourd et ingénierie de gréage avec plus de 25 ans de marché.', address: 'Siège — Duque de Caxias, RJ', navTitle: 'Navigation', navLinks: ['Accueil', "L'Entreprise", 'Nos Services', 'Notre Flotte', 'ESG', 'Certifications', 'Travailler Avec Nous'], svcTitle: 'Services', svcLinks: ['Manut. Horiz. & Vert.', 'Déplacement de Charges', 'Location de Matériel', 'Ligne Jaune', 'Transport Spécial'], contactTitle: 'Contact', reportLink: 'Canal de Signalement', contactLink: 'Nous contacter', copyright: 'Tous droits réservés.' },
+  footer: { desc: 'Référence nationale en manutention de charges complexes, transport lourd et ingénierie de gréage avec plus de 25 ans de marché.', address: 'Siège — Duque de Caxias, RJ', navTitle: 'Navigation', navLinks: ['Accueil', "L'Entreprise", 'Nos Services', 'Notre Flotte', 'ESG', 'Certifications', 'Travailler Avec Nous'], svcTitle: 'Services', svcLinks: ['Manut. Horiz. & Vert.', 'Déplacement de Charges', 'Location de Matériel', 'Ligne Jaune', 'Transport Spécial'], contactTitle: 'Contact', reportLink: 'Canal de Signalement', ethicsLink: "Code d'Éthique", contactLink: 'Nous contacter', copyright: 'Tous droits réservés.' },
   toast: { title: 'Message envoyé avec succès', subtitle: 'Nous répondrons dans un délai de 2 heures ouvrables.' },
   trabalhe: {
     heroEyebrow: "Rejoignez l'équipe", heroSub: "Faites partie d'un groupe avec plus de 25 ans à faire bouger le Brésil. Envoyez votre CV et attendez notre contact.", heroCrumb: 'Travailler Avec Nous',
@@ -814,7 +874,7 @@ const FR = {
     cardTitle: 'Construisez votre carrière ici.', cardSub: "25 ans à faire bouger le Brésil — avec sécurité, tradition et croissance.",
     panelEyebrow: 'Pourquoi travailler ici ?', panelTitle: 'Faites partie des projets qui font bouger le Brésil.',
     panelSub: "Nous sommes une référence nationale en logistique lourde. Chaque collaborateur travaille sur des opérations à fort impact et dispose d'une réelle opportunité de croissance.",
-    fileNote: "Nous acceptons les fichiers PDF, DOC ou DOCX jusqu'à 5 Mo.",
+    fileNote: "Nous acceptons les fichiers PDF, DOC ou DOCX jusqu'à 20 Mo.",
     formTitle: 'Soumettre votre candidature', formSub: 'Remplissez les champs ci-dessous avec soin. Nous vous contacterons si un poste correspond à votre profil.',
     benefits: [
       { label: 'La sécurité avant tout', desc: 'EPI complets, formations NR-11 et culture de sécurité rigoureuse dans chaque opération.' },
@@ -828,12 +888,13 @@ const FR = {
       cidade: 'Ville', cidadePh: 'Ex. : Duque de Caxias',
       estado: 'État', estadoPh: 'Sélectionner',
       telefone: 'Téléphone / WhatsApp', email: 'E-mail',
-      curriculo: 'CV', fileLabel: 'Choisir un fichier (PDF, DOC, DOCX — max. 5 Mo)',
+      curriculo: 'CV', fileLabel: 'Choisir un fichier (PDF, DOC, DOCX — max. 20 Mo)',
     },
     errors: {
       required: 'Champ obligatoire', minChars: 'Minimum 3 caractères',
       phone: 'Numéro invalide', state: 'Veuillez sélectionner un état',
       resume: 'Veuillez joindre votre CV pour continuer',
+      fileTooLarge: 'Fichier trop volumineux. La taille maximale est de 20 Mo.',
     },
     sending: 'Envoi en cours…', submit: 'Soumettre la candidature',
   },
@@ -857,6 +918,15 @@ const FR = {
     services: ['Manutention Horizontale & Verticale', 'Ligne Jaune & Camions', 'Déménagement Industriel', 'Location & Vente', 'Autres Projets Spéciaux'],
     errors: { required: 'Champ obligatoire', minChars: 'Minimum 3 caractères', phone: 'Numéro invalide' },
     processing: 'Traitement en cours…', submit: 'Envoyer la demande',
+  },
+  vendas: {
+    heroEyebrow: 'Équipements à Vendre', heroSub: 'Équipements usagés et neufs avec provenance garantie, révisés et prêts à fonctionner.', heroCrumb: 'Ventes',
+    heroTitle: ['Vente', "d'Équipements"],
+    condNovo: 'NEUF', condUsado: 'OCCASION', tagVenda: 'VENTE',
+    fieldCod: 'Code', fieldFab: 'Fabricant', fieldYear: 'Année', fieldLocal: 'Localisation',
+    btnWhatsApp: 'Consulter le Prix', btnContact: 'Demander un Contact',
+    categories: { all: 'Tous', guindastes: 'Grues', munck: 'Camions-Grues', 'linha-amarela': 'Ligne Jaune', especiais: 'Charges Spéciales', empilhadeiras: 'Chariots Élévateurs' },
+    filterMetaSingle: 'équipement à vendre', filterMetaPlural: 'équipements à vendre',
   },
 }
 

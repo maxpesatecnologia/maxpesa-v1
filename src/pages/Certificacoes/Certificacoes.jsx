@@ -12,10 +12,42 @@ import imgOnuMulheres  from '../../assets/onu_mulheres.png'
 import imgPactoGlobal  from '../../assets/pacto_global.png'
 import imgInstEthos    from '../../assets/inst_ethos.png'
 
+const AWARDS_STATIC = [
+  { title: 'Prêmio Destaque Setorial',       year: '2023', pdf: '/docs/PREMIO-DESTAQUE-2023.pdf'  },
+  { title: 'Top Employer Brasil',             year: '2022', pdf: '/docs/TOP-EMPLOYER-2022.pdf'     },
+  { title: 'Prêmio ESG & Sustentabilidade',  year: '2023', pdf: '/docs/PREMIO-ESG-2023.pdf'       },
+  { title: 'Excelência Operacional',          year: '2024', pdf: '/docs/EXCELENCIA-OP-2024.pdf'    },
+]
+
+const AWARD_ICONS = [
+  /* trophy */ (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6 9H4a2 2 0 0 1-2-2V5a1 1 0 0 1 1-1h3"/><path d="M18 9h2a2 2 0 0 0 2-2V5a1 1 0 0 0-1-1h-3"/>
+      <path d="M4 22h16"/><path d="M12 17v5"/><path d="M8 17a5 5 0 0 0 8 0V3H8v14z"/>
+    </svg>
+  ),
+  /* star */ (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </svg>
+  ),
+  /* leaf/ESG */ (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+    </svg>
+  ),
+  /* shield check */ (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+    </svg>
+  ),
+]
+
 const CERT_STATIC = [
   { title:'ISO 9001',        img: imgIso9001,     pdf: '/docs/ISO-9001-MAXPESA.pdf'  },
   { title:'ISO 14001',       img: imgIso14001,    pdf: '/docs/ISO-14001-MAXPESA.pdf' },
   { title:'ISO 45001',       img: imgIso45001,    pdf: '/docs/ISO-45001-MAXPESA.pdf' },
+  { title:'ISO 37001',       img: imgIso45001,    pdf: '/docs/ISO-37001-MAXPESA.pdf' },
   { title:'ONU Mulheres',    img: imgOnuMulheres                                     },
   { title:'Global Compact',  img: imgPactoGlobal                                     },
   { title:'Instituto Ethos', img: imgInstEthos                                       },
@@ -34,6 +66,24 @@ const Check = () => (
     <path d="M20 6 9 17l-5-5"/>
   </svg>
 )
+
+function AwardCardInner({ c, icon, downloadTitle }) {
+  return (
+    <div className={styles.certCard}>
+      {c.pdf && (
+        <div className={styles.certDownload} title={downloadTitle}>
+          <DownloadIcon />
+        </div>
+      )}
+      <div className={styles.certImg}>
+        <div className={styles.awardIconWrap}>{icon}</div>
+      </div>
+      <h3>{c.title}</h3>
+      <p className={styles.awardYear}>{c.year}</p>
+      <p>{c.desc}</p>
+    </div>
+  )
+}
 
 function CertCardInner({ c, downloadTitle }) {
   return (
@@ -72,7 +122,8 @@ export default function Certificacoes() {
     return () => obs.disconnect()
   }, [])
 
-  const certs = CERT_STATIC.map((c, i) => ({ ...c, desc: t.certificacoes.certDescs[i] }))
+  const certs  = CERT_STATIC.map((c, i) => ({ ...c, desc: t.certificacoes.certDescs[i] }))
+  const awards = AWARDS_STATIC.map((c, i) => ({ ...c, desc: t.certificacoes.awardsDescs[i] }))
 
   return (
     <div ref={ref}>
@@ -89,6 +140,30 @@ export default function Certificacoes() {
               ) : (
                 <div key={c.title} className="reveal">
                   <CertCardInner c={c} downloadTitle={t.certificacoes.downloadTitle} />
+                </div>
+              )
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className={`${styles.section} ${styles.awardsSec}`}>
+        <div className="container">
+          <div className="reveal">
+            <SectionHeader
+              eyebrow={t.certificacoes.awardsEyebrow}
+              title={<>{t.certificacoes.awardsTitle[0]}<br/>{t.certificacoes.awardsTitle[1]}</>}
+            />
+          </div>
+          <div className={styles.certsGrid}>
+            {awards.map((c, i) =>
+              c.pdf ? (
+                <a key={c.title} href={c.pdf} target="_blank" rel="noopener noreferrer" className={`${styles.certCardLink} reveal`}>
+                  <AwardCardInner c={c} icon={AWARD_ICONS[i]} downloadTitle={t.certificacoes.downloadTitle} />
+                </a>
+              ) : (
+                <div key={c.title} className="reveal">
+                  <AwardCardInner c={c} icon={AWARD_ICONS[i]} downloadTitle={t.certificacoes.downloadTitle} />
                 </div>
               )
             )}
