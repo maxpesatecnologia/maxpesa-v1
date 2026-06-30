@@ -15,7 +15,8 @@ const SERVICE_PATHS = [
 ]
 
 export default function Header() {
-  const { t } = useLang()
+  const { t, lang } = useLang()
+  const compact = ['es', 'fr'].includes(lang)
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [dropOpen, setDropOpen] = useState(false)
@@ -33,7 +34,7 @@ export default function Header() {
   }, [])
 
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${compact ? styles.compact : ''}`}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.logoWrap}>
           <img src={logo} alt="Grupo Maxpesa" className={styles.logoImg} />

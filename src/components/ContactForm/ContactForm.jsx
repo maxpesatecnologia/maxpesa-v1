@@ -165,10 +165,12 @@ export default function ContactForm() {
 
                 <div className={styles.field}>
                   <label htmlFor="service">{t.contato.fields.service}</label>
-                  <select id="service" name="service">
-                    {t.contato.services.map((s, i) => (
-                      <option key={i} value={['movimentacao','amarela','remocao','locacao','outros'][i]}>{s}</option>
+                  <select id="service" name="service" defaultValue="">
+                    <option value="" disabled hidden>{t.contato.fields.servicePh}</option>
+                    {t.serviceItems.map((s, i) => (
+                      <option key={i} value={['movimentacao-vertical','movimentacao-cargas','locacao','linha-amarela','transporte','empilhadeiras'][i]}>{s}</option>
                     ))}
+                    <option value="outros">{t.contato.fields.serviceOthers}</option>
                   </select>
                 </div>
               </div>

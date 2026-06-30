@@ -125,6 +125,12 @@
 /* Lang switcher item */
 .langItem { display: flex; align-items: center; margin-left: 8px; }
 
+/* Compact mode — idiomas com labels mais longos (ES, FR) */
+.compact .inner { gap: 12px; }
+.compact .list  { gap: 0; }
+.compact .a     { font-size: 12px; padding: 7px 8px; letter-spacing: -0.01em; }
+.compact .cta   { font-size: 12px !important; padding: 8px 14px !important; }
+
 /* CTA */
 .cta {
   background: var(--red) !important;

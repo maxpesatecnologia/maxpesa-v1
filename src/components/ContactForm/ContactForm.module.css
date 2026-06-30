@@ -223,18 +223,22 @@ a.contactVal:hover { opacity: 0.75; }
   justify-content: center;
   gap: 9px;
   padding: 11px 18px;
-  background: rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.2);
+  background-image: linear-gradient(to top, rgba(37,194,88,0.22) 0%, rgba(37,194,88,0.1) 100%);
+  background-size: 100% 0%;
+  background-position: bottom center;
+  background-repeat: no-repeat;
   border: 1px solid rgba(255,255,255,0.18);
   border-radius: var(--r-sm);
   color: rgba(255,255,255,0.88);
   font-size: 13.5px;
   font-weight: 500;
   text-decoration: none;
-  transition: background 0.25s, border-color 0.25s;
+  transition: background-size 0.4s ease, border-color 0.3s;
 }
 .waBtn:hover {
-  background: rgba(0,0,0,0.32);
-  border-color: rgba(255,255,255,0.28);
+  background-size: 100% 100%;
+  border-color: rgba(37,194,88,0.38);
 }
 
 /* ── Formulário ── */
@@ -288,6 +292,15 @@ a.contactVal:hover { opacity: 0.75; }
 .field input:focus,
 .field select:focus,
 .field textarea:focus { border-color: var(--red); background: var(--white); }
+
+.field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+  padding-right: 36px;
+  cursor: pointer;
+}
 .field textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
 
 .invalid { border-color: #e53935 !important; background: #fff5f5 !important; }

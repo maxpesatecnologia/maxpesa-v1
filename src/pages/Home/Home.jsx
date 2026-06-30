@@ -116,26 +116,39 @@ export default function Home() {
   const counterRef = useCounter()
   const [activeIdx, setActiveIdx] = useState(0)
   const [modalIdx, setModalIdx]   = useState(null)
+  const [isClosing, setIsClosing] = useState(false)
   const whyLinesRef   = useRef(null)
   const hoverTimerRef = useRef(null)
   const closeTimerRef = useRef(null)
+  const closeAnimRef  = useRef(null)
 
-  const openModal  = (i) => setModalIdx(i)
-  const closeModal = () => setModalIdx(null)
+  const openModal  = (i) => { setIsClosing(false); setModalIdx(i) }
+  const closeModal = () => { setIsClosing(false); setModalIdx(null) }
+  const startClose = () => {
+    setIsClosing(true)
+    clearTimeout(closeAnimRef.current)
+    closeAnimRef.current = setTimeout(closeModal, 80)
+  }
   const handleCardEnter = (i) => {
     clearTimeout(closeTimerRef.current)
+    clearTimeout(closeAnimRef.current)
+    setIsClosing(false)
     hoverTimerRef.current = setTimeout(() => openModal(i), 380)
   }
   const handleCardLeave = () => {
     clearTimeout(hoverTimerRef.current)
-    closeTimerRef.current = setTimeout(closeModal, 160)
+    closeTimerRef.current = setTimeout(startClose, 160)
   }
-  const handleModalEnter = () => clearTimeout(closeTimerRef.current)
-  const handleModalLeave = () => closeModal()
+  const handleModalEnter = () => {
+    clearTimeout(closeTimerRef.current)
+    clearTimeout(closeAnimRef.current)
+    setIsClosing(false)
+  }
+  const handleModalLeave = () => startClose()
 
   useEffect(() => {
     if (modalIdx === null) return
-    const onKey = (e) => { if (e.key === 'Escape') closeModal() }
+    const onKey = (e) => { if (e.key === 'Escape') startClose() }
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
   }, [modalIdx])
@@ -320,8 +333,8 @@ export default function Home() {
 
       {/* EQUIPMENT MODAL */}
       {modalIdx !== null && (
-        <div className={styles.modalOverlay} onClick={closeModal}>
-          <div className={styles.modal} onClick={e => e.stopPropagation()} onMouseEnter={handleModalEnter} onMouseLeave={handleModalLeave}>
+        <div className={`${styles.modalOverlay}${isClosing ? ` ${styles.modalOverlayClosing}` : ''}`} onClick={startClose}>
+          <div className={`${styles.modal}${isClosing ? ` ${styles.modalClosing}` : ''}`} onClick={e => e.stopPropagation()} onMouseEnter={handleModalEnter} onMouseLeave={handleModalLeave}>
 
             {/* Left: image panel */}
             <div className={styles.modalLeft}>
@@ -345,7 +358,7 @@ export default function Home() {
 
             {/* Right: content */}
             <div className={styles.modalRight}>
-              <button className={styles.modalClose} onClick={closeModal} aria-label="Fechar">
+              <button className={styles.modalClose} onClick={startClose} aria-label="Fechar">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M18 6 6 18M6 6l12 12"/>
                 </svg>
