@@ -1,8 +1,99 @@
 import imgOpacidade  from '../assets/munck.jpg'
 import imgSubestacao from '../assets/estacao_eletrica_img.png'
 import imgContainer  from '../assets/container_img.png'
+import imgNetworking from '../assets/rodrigo-img.png'
 
 export const POSTS = [
+  {
+    slug: 'networking-imobiliario-niteroi',
+    img: imgNetworking,
+    category: {
+      'pt-BR': 'Eventos',
+      'en':    'Events',
+      'es':    'Eventos',
+      'de':    'Veranstaltungen',
+      'fr':    'Événements',
+    },
+    title: {
+      'pt-BR': 'Grupo Maxpesa no Networking Imobiliário: Parcerias que Movimentam o Mercado',
+      'en':    'Grupo Maxpesa at Networking Imobiliário: Partnerships That Move the Market',
+      'es':    'Grupo Maxpesa en el Networking Inmobiliario: Alianzas que Mueven el Mercado',
+      'de':    'Grupo Maxpesa beim Networking Imobiliário: Partnerschaften, die den Markt bewegen',
+      'fr':    'Grupo Maxpesa au Networking Imobiliário : Des partenariats qui font bouger le marché',
+    },
+    excerpt: {
+      'pt-BR': 'O Grupo Maxpesa marcou presença como patrocinador oficial do Networking Imobiliário em Niterói, reafirmando seu papel estratégico ao lado de marcas e iniciativas que movimentam o mercado.',
+      'en':    'Grupo Maxpesa was present as an official sponsor of Networking Imobiliário in Niterói, reaffirming its strategic role alongside brands and initiatives that move the market.',
+      'es':    'El Grupo Maxpesa estuvo presente como patrocinador oficial del Networking Inmobiliario en Niterói, reafirmando su papel estratégico junto a marcas e iniciativas que mueven el mercado.',
+      'de':    'Die Grupo Maxpesa war als offizieller Sponsor beim Networking Imobiliário in Niterói präsent und bekräftigte ihre strategische Rolle neben Marken und Initiativen, die den Markt bewegen.',
+      'fr':    "Le Grupo Maxpesa était présent en tant que sponsor officiel du Networking Imobiliário à Niterói, réaffirmant son rôle stratégique aux côtés des marques et initiatives qui font bouger le marché.",
+    },
+    content: [
+      { type: 'p', text: {
+        'pt-BR': 'O mercado imobiliário está em constante transformação — e os eventos que reúnem líderes, parceiros e referências do setor são termômetros dessa movimentação. Foi com esse espírito que o Grupo Maxpesa participou do Networking Imobiliário em Niterói, como patrocinador oficial, levando ao evento os valores que sustentam a empresa há mais de 25 anos: inovação, eficiência e confiança.',
+        'en':    'The real estate market is constantly evolving — and events that bring together leaders, partners, and industry references are a gauge of this movement. It was with this spirit that Grupo Maxpesa participated in Networking Imobiliário in Niterói, as an official sponsor, bringing to the event the values that have sustained the company for over 25 years: innovation, efficiency, and trust.',
+        'es':    'El mercado inmobiliario está en constante transformación, y los eventos que reúnen a líderes, socios y referentes del sector son termómetros de esa dinámica. Con este espíritu, el Grupo Maxpesa participó en el Networking Inmobiliario en Niterói, como patrocinador oficial, llevando al evento los valores que sostienen a la empresa desde hace más de 25 años: innovación, eficiencia y confianza.',
+        'de':    'Der Immobilienmarkt befindet sich in einem ständigen Wandel — und Veranstaltungen, die Führungskräfte, Partner und Branchengrößen zusammenbringen, sind ein Gradmesser für diese Bewegung. In diesem Geist nahm die Grupo Maxpesa als offizieller Sponsor am Networking Imobiliário in Niterói teil und brachte die Werte mit, die das Unternehmen seit über 25 Jahren tragen: Innovation, Effizienz und Vertrauen.',
+        'fr':    "Le marché immobilier est en constante évolution — et les événements qui réunissent leaders, partenaires et références du secteur sont des indicateurs de cette dynamique. C'est dans cet esprit que le Grupo Maxpesa a participé au Networking Imobiliário à Niterói, en tant que sponsor officiel, apportant à l'événement les valeurs qui soutiennent l'entreprise depuis plus de 25 ans : innovation, efficacité et confiance.",
+      }},
+      { type: 'h2', text: {
+        'pt-BR': 'Presença Estratégica num Evento que Conecta o Mercado',
+        'en':    'Strategic Presence at an Event That Connects the Market',
+        'es':    'Presencia Estratégica en un Evento que Conecta el Mercado',
+        'de':    'Strategische Präsenz bei einer Veranstaltung, die den Markt verbindet',
+        'fr':    'Présence stratégique lors d\'un événement qui connecte le marché',
+      }},
+      { type: 'p', text: {
+        'pt-BR': 'O Networking Imobiliário é uma das iniciativas mais relevantes para o setor no estado do Rio de Janeiro. Promovido pela ADVec, o evento é um ponto de encontro entre incorporadoras, corretores, investidores e empresas prestadoras de serviços que sustentam toda a cadeia do mercado imobiliário. Ao patrocinar e marcar presença nesse encontro, o Grupo Maxpesa reforça que sua atuação vai além da movimentação de cargas: faz parte de um ecossistema que constrói e transforma cidades.',
+        'en':    'Networking Imobiliário is one of the most relevant initiatives for the sector in the state of Rio de Janeiro. Promoted by ADVec, the event is a meeting point for developers, brokers, investors, and service companies that support the entire real estate market chain. By sponsoring and attending this event, Grupo Maxpesa reinforces that its role goes beyond cargo movement: it is part of an ecosystem that builds and transforms cities.',
+        'es':    'El Networking Inmobiliario es una de las iniciativas más relevantes para el sector en el estado de Río de Janeiro. Promovido por ADVec, el evento es un punto de encuentro entre promotoras, corredores, inversores y empresas de servicios que sostienen toda la cadena del mercado inmobiliario. Al patrocinar y participar en este encuentro, el Grupo Maxpesa refuerza que su actuación va más allá del movimiento de cargas: forma parte de un ecosistema que construye y transforma ciudades.',
+        'de':    'Das Networking Imobiliário ist eine der bedeutendsten Initiativen für die Branche im Bundesstaat Rio de Janeiro. Von ADVec gefördert, ist die Veranstaltung ein Treffpunkt für Bauträger, Makler, Investoren und Dienstleistungsunternehmen, die die gesamte Immobilienmarktkette unterstützen. Durch die Förderung und Teilnahme an dieser Veranstaltung unterstreicht die Grupo Maxpesa, dass ihre Rolle über den Frachtumschlag hinausgeht: Sie ist Teil eines Ökosystems, das Städte baut und verwandelt.',
+        'fr':    "Le Networking Imobiliário est l'une des initiatives les plus pertinentes pour le secteur dans l'état de Rio de Janeiro. Promu par ADVec, l'événement est un point de rencontre entre promoteurs, courtiers, investisseurs et entreprises de services qui soutiennent toute la chaîne du marché immobilier. En sponsorisant et en participant à cet événement, le Grupo Maxpesa réaffirme que son rôle va au-delà du transport de fret : il fait partie d'un écosystème qui construit et transforme des villes.",
+      }},
+      { type: 'h2', text: {
+        'pt-BR': 'Inovação, Eficiência e Confiança: Pilares que Fazem Toda a Diferença',
+        'en':    'Innovation, Efficiency, and Trust: Pillars That Make All the Difference',
+        'es':    'Innovación, Eficiencia y Confianza: Pilares que Marcan la Diferencia',
+        'de':    'Innovation, Effizienz und Vertrauen: Säulen, die den Unterschied machen',
+        'fr':    'Innovation, efficacité et confiance : des piliers qui font toute la différence',
+      }},
+      { type: 'p', text: {
+        'pt-BR': 'No setor de movimentação de cargas e locação de equipamentos, esses três pilares não são apenas conceitos — são compromissos operacionais praticados todos os dias. Inovação reflete a modernização contínua da frota, com equipamentos de última geração capazes de atender às exigências mais complexas de obras e empreendimentos. Eficiência se traduz em cumprimento de prazos, planejamento logístico preciso e equipes treinadas para agir com agilidade. E confiança é o que se constrói com cada entrega realizada dentro do prazo, com segurança e dentro das normas técnicas exigidas.',
+        'en':    'In the cargo handling and equipment rental sector, these three pillars are not just concepts — they are operational commitments practiced every day. Innovation reflects the continuous modernization of the fleet, with state-of-the-art equipment capable of meeting the most complex demands of construction projects and developments. Efficiency translates into meeting deadlines, precise logistical planning, and trained teams ready to act with agility. And trust is what is built with every delivery completed on time, safely, and within required technical standards.',
+        'es':    'En el sector de movimiento de cargas y alquiler de equipos, estos tres pilares no son solo conceptos: son compromisos operativos practicados cada día. La innovación refleja la modernización continua de la flota, con equipos de última generación capaces de atender las exigencias más complejas de obras y proyectos. La eficiencia se traduce en cumplimiento de plazos, planificación logística precisa y equipos entrenados para actuar con agilidad. Y la confianza es lo que se construye con cada entrega realizada en tiempo, con seguridad y dentro de las normas técnicas exigidas.',
+        'de':    'Im Bereich der Frachtabwicklung und Gerätevermietung sind diese drei Säulen nicht nur Konzepte — sie sind täglich praktizierte operative Verpflichtungen. Innovation spiegelt die kontinuierliche Modernisierung der Flotte wider, mit modernsten Geräten, die die komplexesten Anforderungen von Bauprojekten und Entwicklungen erfüllen können. Effizienz bedeutet Termintreue, präzise logistische Planung und ausgebildete Teams, die agil handeln. Und Vertrauen entsteht mit jeder pünktlich, sicher und gemäß den technischen Standards durchgeführten Lieferung.',
+        'fr':    "Dans le secteur de la manutention de fret et de la location d'équipements, ces trois piliers ne sont pas de simples concepts — ce sont des engagements opérationnels pratiqués chaque jour. L'innovation reflète la modernisation continue de la flotte, avec des équipements de dernière génération capables de répondre aux exigences les plus complexes des chantiers et des projets. L'efficacité se traduit par le respect des délais, une planification logistique précise et des équipes formées pour agir avec agilité. Et la confiance se construit à chaque livraison réalisée dans les délais, en toute sécurité et dans le respect des normes techniques requises.",
+      }},
+      { type: 'h2', text: {
+        'pt-BR': 'Quando Marcas Fortes se Unem, o Ecossistema Cresce',
+        'en':    'When Strong Brands Unite, the Ecosystem Grows',
+        'es':    'Cuando Marcas Fuertes se Unen, el Ecosistema Crece',
+        'de':    'Wenn starke Marken sich zusammenschließen, wächst das Ökosystem',
+        'fr':    "Quand les grandes marques s'unissent, l'écosystème grandit",
+      }},
+      { type: 'p', text: {
+        'pt-BR': 'Uma das grandes lições que eventos como o Networking Imobiliário revelam é que nenhum setor cresce de forma isolada. O mercado imobiliário depende de uma cadeia logística robusta — do transporte de materiais pesados ao içamento de estruturas em altura, do deslocamento de equipamentos industriais à instalação de infraestruturas em locais de difícil acesso. É exatamente aí que o Grupo Maxpesa atua: na base que sustenta os grandes projetos.',
+        'en':    'One of the great lessons that events like Networking Imobiliário reveal is that no sector grows in isolation. The real estate market depends on a robust logistics chain — from the transport of heavy materials to the lifting of structures at height, from the movement of industrial equipment to the installation of infrastructure in hard-to-reach locations. This is precisely where Grupo Maxpesa operates: at the foundation that supports major projects.',
+        'es':    'Una de las grandes lecciones que eventos como el Networking Inmobiliario revelan es que ningún sector crece de forma aislada. El mercado inmobiliario depende de una cadena logística robusta: desde el transporte de materiales pesados hasta el izamiento de estructuras en altura, desde el traslado de equipos industriales hasta la instalación de infraestructuras en lugares de difícil acceso. Es precisamente ahí donde actúa el Grupo Maxpesa: en la base que sostiene los grandes proyectos.',
+        'de':    'Eine der großen Lektionen, die Veranstaltungen wie das Networking Imobiliário offenbaren, ist, dass kein Sektor isoliert wächst. Der Immobilienmarkt hängt von einer robusten Logistikkette ab — vom Transport schwerer Materialien bis zum Heben von Strukturen in der Höhe, von der Bewegung industrieller Geräte bis zur Installation von Infrastrukturen an schwer zugänglichen Orten. Genau hier ist die Grupo Maxpesa tätig: an der Basis, die große Projekte trägt.',
+        'fr':    "L'une des grandes leçons que révèlent des événements comme le Networking Imobiliário est qu'aucun secteur ne croît de manière isolée. Le marché immobilier dépend d'une chaîne logistique robuste — du transport de matériaux lourds au levage de structures en hauteur, du déplacement d'équipements industriels à l'installation d'infrastructures dans des endroits difficiles d'accès. C'est précisément là qu'intervient le Grupo Maxpesa : à la base qui soutient les grands projets.",
+      }},
+      { type: 'p', text: {
+        'pt-BR': 'Ao conectar sua marca a iniciativas que reúnem os agentes mais ativos do setor, o Grupo Maxpesa fortalece relações comerciais, amplia sua rede de parceiros e demonstra que está onde o mercado acontece. Mais do que patrocinar um evento, é afirmar um posicionamento: o de uma empresa que está comprometida com o desenvolvimento econômico regional e com a excelência em tudo que faz.',
+        'en':    'By connecting its brand to initiatives that bring together the most active players in the sector, Grupo Maxpesa strengthens business relationships, expands its network of partners, and demonstrates that it is where the market happens. More than sponsoring an event, it is asserting a position: that of a company committed to regional economic development and excellence in everything it does.',
+        'es':    'Al conectar su marca a iniciativas que reúnen a los agentes más activos del sector, el Grupo Maxpesa fortalece relaciones comerciales, amplía su red de socios y demuestra que está donde el mercado ocurre. Más que patrocinar un evento, es afirmar un posicionamiento: el de una empresa comprometida con el desarrollo económico regional y la excelencia en todo lo que hace.',
+        'de':    'Indem die Grupo Maxpesa ihre Marke mit Initiativen verbindet, die die aktivsten Akteure der Branche zusammenbringen, stärkt sie Geschäftsbeziehungen, erweitert ihr Partnernetzwerk und zeigt, dass sie dort präsent ist, wo der Markt stattfindet. Mehr als ein Event zu sponsern, ist es eine Positionierung: die eines Unternehmens, das sich dem regionalen Wirtschaftswachstum und der Exzellenz in allem, was es tut, verschrieben hat.',
+        'fr':    "En associant sa marque à des initiatives qui réunissent les acteurs les plus actifs du secteur, le Grupo Maxpesa renforce les relations commerciales, élargit son réseau de partenaires et démontre qu'il est là où le marché se fait. Plus que sponsoriser un événement, c'est affirmer un positionnement : celui d'une entreprise engagée dans le développement économique régional et l'excellence dans tout ce qu'elle fait.",
+      }},
+      { type: 'blockquote', text: {
+        'pt-BR': '"Parcerias que sustentam grandes projetos. A Grupo Maxpesa marcou presença no evento mostrando inovação, eficiência e confiança — pilares que fazem toda diferença no setor. Quando marcas fortes se conectam a iniciativas que movimentam o mercado, todo o ecossistema cresce."',
+        'en':    '"Partnerships that sustain great projects. Grupo Maxpesa was present at the event showcasing innovation, efficiency, and trust — pillars that make all the difference in the sector. When strong brands connect to initiatives that move the market, the entire ecosystem grows."',
+        'es':    '"Alianzas que sostienen grandes proyectos. El Grupo Maxpesa estuvo presente en el evento mostrando innovación, eficiencia y confianza — pilares que marcan toda la diferencia en el sector. Cuando marcas fuertes se conectan a iniciativas que mueven el mercado, todo el ecosistema crece."',
+        'de':    '"Partnerschaften, die große Projekte tragen. Die Grupo Maxpesa war auf der Veranstaltung präsent und zeigte Innovation, Effizienz und Vertrauen — Säulen, die in der Branche den Unterschied machen. Wenn starke Marken sich mit marktbewegenden Initiativen verbinden, wächst das gesamte Ökosystem."',
+        'fr':    '"Des partenariats qui soutiennent de grands projets. Le Grupo Maxpesa était présent à l\'événement en montrant innovation, efficacité et confiance — des piliers qui font toute la différence dans le secteur. Quand les grandes marques se connectent à des initiatives qui font bouger le marché, tout l\'écosystème grandit."',
+      }},
+    ],
+  },
   {
     slug: 'teste-opacidade',
     img: imgOpacidade,
