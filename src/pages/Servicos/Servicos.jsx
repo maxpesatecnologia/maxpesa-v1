@@ -1,24 +1,30 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './Servicos.module.css'
 import { useReveal } from '../../hooks/useReveal'
 import { useLang } from '../../context/LanguageContext'
 import PageHero from '../../components/PageHero/PageHero'
 import SectionHeader from '../../components/SectionHeader/SectionHeader'
 import Button from '../../components/Button/Button'
-import imgGuindaste    from '../../assets/guindaste3.jpeg'
-import imgRemocao      from '../../assets/remocaoindustrial.png'
-import imgMunck        from '../../assets/caminhao-munck-img2.jpg'
-import imgEscavadeiras from '../../assets/escavadeiras-logo.png'
+import imgGuindaste       from '../../assets/guindaste3.jpeg'
+import imgGuindaste2      from '../../assets/guindaste1.jpeg'
+import imgRemocao         from '../../assets/remocaoindustrial.png'
+import imgRemocao2        from '../../assets/remocao_img2.png'
+import imgMunck           from '../../assets/caminhao-munck-img2.jpg'
+import imgMunck2          from '../../assets/munck3.png'
+import imgEscavadeiras    from '../../assets/escavadeiras-logo.png'
+import imgEscavadeiras2   from '../../assets/pa_carregadeira_img.png'
 import imgTransporte      from '../../assets/caminhao_linha_de_eixo.png'
+import imgTransporte2     from '../../assets/cavalo__prancha.png'
 import imgEmpilhadeiras   from '../../assets/emp_eletrica.png'
+import imgEmpilhadeiras2  from '../../assets/plataforma_articulada.png'
 
 const SERVICE_STATIC = [
-  { id: 'movimentacao-vertical',       img: imgGuindaste },
-  { id: 'movimentacao-cargas',         img: imgRemocao,       flip: true },
-  { id: 'locacao',                     img: imgMunck },
-  { id: 'linha-amarela',               img: imgEscavadeiras,  flip: true },
-  { id: 'transporte',                  img: imgTransporte },
-  { id: 'empilhadeiras-plataformas',   img: imgEmpilhadeiras, flip: true },
+  { id: 'movimentacao-vertical',     img: imgGuindaste,    img2: imgGuindaste2 },
+  { id: 'movimentacao-cargas',       img: imgRemocao,      img2: imgRemocao2,      flip: true },
+  { id: 'locacao',                   img: imgMunck,        img2: imgMunck2 },
+  { id: 'linha-amarela',             img: imgEscavadeiras, img2: imgEscavadeiras2, flip: true },
+  { id: 'transporte',                img: imgTransporte,   img2: imgTransporte2 },
+  { id: 'empilhadeiras-plataformas', img: imgEmpilhadeiras,img2: imgEmpilhadeiras2,flip: true },
 ]
 
 // 5 variações de linhas decorativas por seção
@@ -78,6 +84,12 @@ const DELAYS = [
 export default function Servicos() {
   const ref = useReveal([])
   const { t } = useLang()
+  const [flip, setFlip] = useState(false)
+
+  useEffect(() => {
+    const id = setInterval(() => setFlip(f => !f), 5000)
+    return () => clearInterval(id)
+  }, [])
 
   useEffect(() => {
     document.querySelectorAll(`.${styles.indexLabel}`).forEach(el => {
@@ -178,7 +190,18 @@ export default function Servicos() {
               </div>
 
               <div className={`${styles.imgWrap} reveal`}>
-                <img src={SERVICE_STATIC[i].img} alt={s.title} />
+                <div className={styles.imgSlider}>
+                  <img
+                    src={SERVICE_STATIC[i].img}
+                    alt={s.title}
+                    className={`${styles.imgSlide} ${!flip ? styles.imgActive : ''}`}
+                  />
+                  <img
+                    src={SERVICE_STATIC[i].img2}
+                    alt={s.title}
+                    className={`${styles.imgSlide} ${flip ? styles.imgActive : ''}`}
+                  />
+                </div>
               </div>
 
             </div>

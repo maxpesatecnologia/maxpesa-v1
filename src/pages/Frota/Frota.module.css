@@ -91,24 +91,46 @@
     linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
   background-size: 22px 22px;
   border-radius: 14px;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
-  border: 1px solid rgba(255,255,255,0.08);
   box-shadow:
     0 2px 8px rgba(0,0,0,0.22),
     0 8px 28px rgba(0,0,0,0.20);
-  transition: box-shadow 0.28s, border-color 0.28s;
+  transition: box-shadow 0.28s;
   display: flex;
   flex-direction: column;
   cursor: pointer;
 }
 
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 15px;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.18) 0%,
+    rgba(180,10,18,0.0) 38%,
+    rgba(230,40,43,0.52) 100%
+  );
+  z-index: -1;
+  transition: background 0.28s;
+  pointer-events: none;
+}
+
 .card:hover {
-  border-color: rgba(230,40,43,0.45);
   box-shadow:
-    0 0 0 1px rgba(230,40,43,0.10),
     0 10px 32px rgba(0,0,0,0.42),
     0 22px 56px rgba(0,0,0,0.28);
+}
+
+.card:hover::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.24) 0%,
+    rgba(180,10,18,0.06) 38%,
+    rgba(230,40,43,0.82) 100%
+  );
 }
 
 /* ── IMAGEM ──────────────────────────────────────────────────────────────── */
@@ -117,6 +139,7 @@
   height: 265px;
   overflow: hidden;
   flex-shrink: 0;
+  border-radius: 14px 14px 0 0;
 }
 .cardImg img {
   width: 100%;
