@@ -28,10 +28,26 @@ export default function Header() {
   }, [])
 
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth > 768) setMenuOpen(false) }
+    const onResize = () => {
+      if (window.innerWidth > 768) {
+        setMenuOpen(false)
+        setDropOpen(false)
+      }
+    }
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
   }, [])
+
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKey = (e) => { if (e.key === 'Escape') setMenuOpen(false) }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${compact ? styles.compact : ''}`}>
@@ -51,6 +67,8 @@ export default function Header() {
           <span />
         </button>
 
+        {menuOpen && <div className={styles.backdrop} onClick={() => setMenuOpen(false)} />}
+
         <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
           <ul className={styles.list}>
             <li>
@@ -69,8 +87,8 @@ export default function Header() {
             {/* Dropdown */}
             <li
               className={styles.drop}
-              onMouseEnter={() => setDropOpen(true)}
-              onMouseLeave={() => setDropOpen(false)}
+              onMouseEnter={() => { if (window.innerWidth > 768) setDropOpen(true) }}
+              onMouseLeave={() => { if (window.innerWidth > 768) setDropOpen(false) }}
             >
               <NavLink
                 to="/servicos"

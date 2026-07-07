@@ -221,7 +221,9 @@
 }
 @media(max-width:640px) {
   .bigNum { font-size: 44px; }
-  .indexItem { padding: 10px 14px; }
+  .indexItem { padding: 12px 6px; gap: 0; }
+  .indexLabel { display: none; }
+  .indexNum { font-size: 14px; }
 }
 @media(max-width:480px) {
   .section { padding: 48px 0; }
