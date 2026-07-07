@@ -110,8 +110,8 @@
   background: linear-gradient(
     135deg,
     rgba(255,255,255,0.18) 0%,
-    rgba(180,10,18,0.0) 38%,
-    rgba(230,40,43,0.52) 100%
+    rgba(255,255,255,0.02) 38%,
+    rgba(255,255,255,0.14) 100%
   );
   z-index: -1;
   transition: background 0.28s;
@@ -127,9 +127,9 @@
 .card:hover::before {
   background: linear-gradient(
     135deg,
-    rgba(255,255,255,0.24) 0%,
-    rgba(180,10,18,0.06) 38%,
-    rgba(230,40,43,0.82) 100%
+    rgba(255,255,255,0.28) 0%,
+    rgba(255,255,255,0.05) 38%,
+    rgba(255,255,255,0.22) 100%
   );
 }
 
