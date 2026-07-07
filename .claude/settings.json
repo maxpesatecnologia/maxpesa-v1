@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node frota_test.js)"
+      "Bash(node frota_test.js)",
+      "Bash(node filter_wrap_test.js)"
     ]
   }
 }

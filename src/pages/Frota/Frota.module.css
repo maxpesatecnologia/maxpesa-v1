@@ -282,8 +282,7 @@
 @media (max-width: 768px) {
   .section { padding-bottom: 72px; }
   .filterHead { padding: 20px 0 16px; margin-bottom: 32px; }
-  .filterScroll { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
-  .filterScroll::-webkit-scrollbar { display: none; }
+  .filterScroll { flex-wrap: wrap; }
   .grid { grid-template-columns: 1fr; }
   .cardImg { height: 220px; }
 }
