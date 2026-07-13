@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  gap: 12px;
+  gap: 8px;
   min-width: 0;
 }
 
@@ -32,10 +32,10 @@
 .list { display: flex; align-items: center; gap: 0; min-width: 0; }
 
 .a {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
   color: var(--text-1);
-  padding: 7px 8px;
+  padding: 6px 5px;
   letter-spacing: -0.01em;
   border-radius: var(--r-xs);
   transition: color var(--t-fast), background var(--t-fast);
@@ -126,16 +126,16 @@
 .dropSaleLink:hover svg { transform: translateX(3px); }
 
 /* Lang switcher item */
-.langItem { display: flex; align-items: center; margin-left: 8px; }
+.langItem { display: flex; align-items: center; margin-left: 4px; }
 
 /* CTA */
 .cta {
   background: var(--red) !important;
   color: #fff !important;
   font-weight: 600 !important;
-  padding: 8px 14px !important;
+  padding: 7px 12px !important;
   border-radius: var(--r-sm) !important;
-  font-size: 12px !important;
+  font-size: 11px !important;
   box-shadow: 0 2px 10px rgba(230, 40, 43, 0.2);
 }
 .cta:hover { background: var(--red-dark) !important; }
@@ -174,11 +174,18 @@
   display: none;
 }
 
-/* Below this, the desktop nav (9 items + CTA + lang switcher) can't fit any of
-   the 5 languages without overflowing the header (verified against real
-   rendered widths, ES/DE/FR needing the most horizontal space) — so the
-   hamburger/mobile nav covers this whole range instead of just phones. */
-@media (max-width: 1280px) {
+/* Give the nav more room on tighter widths before it has to drop to the
+   hamburger — the logo's oversized "pokes out of the header" treatment is a
+   nice-to-have at full desktop width, not when space is tight. */
+@media (max-width: 1200px) {
+  .logoImg { height: 84px; }
+}
+
+/* Below this, the desktop nav can't fit any of the 5 languages without
+   overflowing the header (verified against real rendered widths — German
+   needs the most horizontal space). Keep in sync with Header.jsx's
+   NAV_BREAKPOINT constant. */
+@media (max-width: 768px) {
   .hamburger { display: block; }
 
   .backdrop {

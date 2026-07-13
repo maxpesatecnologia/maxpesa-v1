@@ -111,7 +111,7 @@
    anchors to that tiny box instead of the row — pushing the whole menu off the
    left edge of the screen, invisible/untappable. Stretching .wrap/.trigger to
    fill the row keeps the anchor point at the actual right edge of the nav. */
-@media (max-width: 1280px) {
+@media (max-width: 768px) {
   .wrap { width: 100%; }
   .trigger { width: 100%; justify-content: space-between; padding: 10px 12px; }
 }

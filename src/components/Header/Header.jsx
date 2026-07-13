@@ -14,11 +14,13 @@ const SERVICE_PATHS = [
   '/servicos#empilhadeiras-plataformas',
 ]
 
-// Below this width the desktop nav (9 items + CTA + lang switcher) cannot fit
-// even the shortest language without overflowing the header — verified against
-// all 5 languages' actual rendered widths, with a safety margin for future
-// copy changes. Keep the mobile hamburger nav active up to this width.
-const NAV_BREAKPOINT = 1280
+// Below this width the desktop nav (Início/Empresa/Serviços/Frota/ESG/Certificações
+// + CTA + lang switcher) cannot fit even the longest language (German) without
+// overflowing the header — verified against all 5 languages' actual rendered
+// widths, with a safety margin for future copy changes. Blog, Trabalhe Conosco
+// and Denúncia moved to the Topbar so the desktop nav only needs to hide behind
+// the hamburger on phones/small tablets, not on regular desktop/laptop widths.
+const NAV_BREAKPOINT = 768
 
 export default function Header() {
   const { t } = useLang()
@@ -154,27 +156,6 @@ export default function Header() {
               <NavLink to="/certificacoes" className={({ isActive }) => `${styles.a} ${isActive ? styles.active : ''}`}
                 onClick={() => setMenuOpen(false)}>
                 {t.nav.certifications}
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/blog" className={({ isActive }) => `${styles.a} ${isActive ? styles.active : ''}`}
-                onClick={() => setMenuOpen(false)}>
-                {t.nav.blog}
-              </NavLink>
-            </li>
-            <li>
-              <a href="https://canalconfidencial.com.br/maxpesa/" target="_blank" rel="noopener noreferrer"
-                className={styles.a} onClick={() => setMenuOpen(false)}>
-                {t.nav.report}
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="10" height="10">
-                  <path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                </svg>
-              </a>
-            </li>
-            <li>
-              <NavLink to="/trabalhe-conosco" className={({ isActive }) => `${styles.a} ${isActive ? styles.active : ''}`}
-                onClick={() => setMenuOpen(false)}>
-                {t.nav.careers}
               </NavLink>
             </li>
             <li>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './Topbar.module.css'
 import { useLang } from '../../context/LanguageContext'
 
@@ -44,6 +45,23 @@ export default function Topbar() {
               </a>
             ))}
           </div>
+          <div className={styles.divider} />
+          <Link to="/blog" className={styles.link}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 4h16v16H4z" opacity="0" />
+              <path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h11A1.5 1.5 0 0 1 18 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 18.5v-13Z" />
+              <path d="M7.5 8h5M7.5 11.5h9M7.5 15h9" />
+            </svg>
+            <span className={styles.linkLabel}>{t.nav.blog}</span>
+          </Link>
+          <div className={styles.divider} />
+          <Link to="/trabalhe-conosco" className={styles.link}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="7" width="18" height="13" rx="1.5" />
+              <path d="M8 7V5.5A1.5 1.5 0 0 1 9.5 4h5A1.5 1.5 0 0 1 16 5.5V7M3 12h18" />
+            </svg>
+            <span className={styles.linkLabel}>{t.nav.careers}</span>
+          </Link>
           <div className={styles.divider} />
           <a href="https://canalconfidencial.com.br/maxpesa/" target="_blank" rel="noopener noreferrer" className={styles.link}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
