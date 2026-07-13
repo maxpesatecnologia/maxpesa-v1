@@ -49,6 +49,7 @@
   border-radius: var(--r-md);
   padding: 5px;
   min-width: 160px;
+  max-width: calc(100vw - 32px);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
   opacity: 0;
   pointer-events: none;
@@ -88,7 +89,7 @@
 .optionActive:hover { background: rgba(230, 40, 43, 0.1); }
 
 .optFlag { font-size: 16px; line-height: 1; flex-shrink: 0; }
-.optName { flex: 1; }
+.optName { flex: 1; min-width: 0; overflow-wrap: break-word; }
 .optShort {
   font-size: 10px;
   font-weight: 700;
@@ -102,4 +103,15 @@
   height: 13px;
   color: var(--red);
   flex-shrink: 0;
+}
+
+/* Inside the mobile/tablet hamburger nav (see Header.module.css NAV breakpoint)
+   the switcher sits in a full-width nav row. Without this, .wrap stays only as
+   wide as its own content and hugs the left edge, so the dropdown's `right: 0`
+   anchors to that tiny box instead of the row — pushing the whole menu off the
+   left edge of the screen, invisible/untappable. Stretching .wrap/.trigger to
+   fill the row keeps the anchor point at the actual right edge of the nav. */
+@media (max-width: 1280px) {
+  .wrap { width: 100%; }
+  .trigger { width: 100%; justify-content: space-between; padding: 10px 12px; }
 }

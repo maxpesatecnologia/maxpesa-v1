@@ -92,17 +92,32 @@ export default function Servicos() {
   }, [])
 
   useEffect(() => {
-    document.querySelectorAll(`.${styles.indexLabel}`).forEach(el => {
-      el.classList.remove(styles.marquee)
-      const inner = el.querySelector(`.${styles.indexLabelInner}`)
-      if (!inner) return
-      inner.style.removeProperty('--mo')
-      const overflow = inner.offsetWidth - el.clientWidth
-      if (overflow > 2) {
-        inner.style.setProperty('--mo', `-${overflow}px`)
-        el.classList.add(styles.marquee)
-      }
-    })
+    function recalcMarquee() {
+      document.querySelectorAll(`.${styles.indexLabel}`).forEach(el => {
+        el.classList.remove(styles.marquee)
+        const inner = el.querySelector(`.${styles.indexLabelInner}`)
+        if (!inner) return
+        inner.style.removeProperty('--mo')
+        const overflow = inner.offsetWidth - el.clientWidth
+        if (overflow > 2) {
+          inner.style.setProperty('--mo', `-${overflow}px`)
+          el.classList.add(styles.marquee)
+        }
+      })
+    }
+    recalcMarquee()
+    // Re-measure on resize/zoom too — not just on language change — since
+    // browser zoom and window resizing both change each label's available width.
+    let raf = null
+    const onResize = () => {
+      if (raf) cancelAnimationFrame(raf)
+      raf = requestAnimationFrame(recalcMarquee)
+    }
+    window.addEventListener('resize', onResize)
+    return () => {
+      window.removeEventListener('resize', onResize)
+      if (raf) cancelAnimationFrame(raf)
+    }
   }, [t])
 
   useEffect(() => {

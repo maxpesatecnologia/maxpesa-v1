@@ -358,7 +358,7 @@ export default function Home() {
 
             {/* Right: content */}
             <div className={styles.modalRight}>
-              <button className={styles.modalClose} onClick={startClose} aria-label="Fechar">
+              <button className={styles.modalClose} onClick={startClose} aria-label={t.ui.close}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M18 6 6 18M6 6l12 12"/>
                 </svg>
@@ -374,7 +374,7 @@ export default function Home() {
 
               <div className={styles.modalDivider} />
 
-              <p className={styles.modalEquipLabel}>Equipamentos disponíveis</p>
+              <p className={styles.modalEquipLabel}>{t.home.modalEquipLabel}</p>
               <ul className={styles.modalEquipList}>
                 {MODAL_DATA[modalIdx].items.map(item => (
                   <li key={item}>
@@ -390,11 +390,11 @@ export default function Home() {
 
               <div className={styles.modalActions}>
                 <Link to="/frota" className={styles.modalFleetBtn} onClick={closeModal}>
-                  Ver Frota Completa
+                  {t.home.modalFleetBtn}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
                 <Link to={SERVICE_PATHS[modalIdx]} className={styles.modalSvcBtn} onClick={closeModal}>
-                  Conhecer o Serviço
+                  {t.home.modalSvcBtn}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="13" height="13"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
               </div>

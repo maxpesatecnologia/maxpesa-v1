@@ -168,6 +168,14 @@
   transition: background var(--t);
   position: relative;
   cursor: default;
+  min-width: 0;
+}
+
+/* Longer DE/FR stat labels (e.g. "Betriebliche Zuverlässigkeit") get cramped
+   in a 4-column row before the existing 768px breakpoint — drop to 2 columns
+   a bit earlier so they have room to wrap cleanly instead of squeezing. */
+@media (max-width: 1024px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
 }
 .statItem:nth-last-child(2) { border-right: none; }
 .statItem:hover, .statActive { background: rgba(0, 0, 0, 0.18); }

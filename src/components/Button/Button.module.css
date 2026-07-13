@@ -11,3 +11,9 @@
 .outlineInv:hover { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.6); }
 .lg { padding:15px 32px; font-size:15px; }
 .sm { padding:9px 18px; font-size:13px; }
+
+/* Longer DE/FR CTA labels: let the button wrap instead of forcing it wider
+   than its flex parent (which would push it off-screen on narrow devices). */
+@media (max-width: 480px) {
+  .btn { white-space:normal; text-align:center; }
+}

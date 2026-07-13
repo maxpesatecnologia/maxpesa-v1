@@ -132,7 +132,7 @@ export default function Vendas() {
 
   const waUrl = (item) => {
     const msg = encodeURIComponent(
-      `Olá! Tenho interesse no equipamento: *${item.name}* (Cód: ${item.code}). Poderia me passar mais informações?`
+      t.vendas.waMsgTemplate.replace('{name}', item.name).replace('{code}', item.code)
     )
     return `https://wa.me/5521972101901?text=${msg}`
   }

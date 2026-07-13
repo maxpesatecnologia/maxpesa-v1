@@ -7,9 +7,10 @@
   border-radius:var(--r-md); padding:14px 18px;
   display:flex; align-items:center; gap:11px;
   box-shadow:0 8px 32px rgba(140,0,5,0.40);
+  max-width: calc(100vw - 40px);
 }
 .badge svg { width:20px; height:20px; color:#fff; flex-shrink:0; }
-.badge span { font-size:12.5px; color:rgba(255,255,255,0.82); line-height:1.45; }
+.badge span { font-size:12.5px; color:rgba(255,255,255,0.82); line-height:1.45; min-width:0; }
 .badge strong { color:#fff; display:block; font-family:var(--ff-body); font-size:13.5px; font-weight:600; letter-spacing:.01em; }
 @media(max-width:768px){ .badge{ bottom:-14px; right:-10px; padding:10px 13px; } }
 @media(max-width:480px){ .badge{ bottom:12px; right:12px; padding:9px 12px; gap:8px; } .badge svg{ width:16px; height:16px; } }

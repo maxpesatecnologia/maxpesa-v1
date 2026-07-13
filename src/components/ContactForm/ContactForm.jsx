@@ -103,7 +103,7 @@ export default function ContactForm() {
                 {CONTACT_DATA.map((c, i) => (
                   <div key={c.val} className={styles.contactRow}>
                     <div className={styles.contactIco}>{c.icon}</div>
-                    <div>
+                    <div className={styles.contactText}>
                       <div className={styles.contactLbl}>{t.contato.contactLabels[i]}</div>
                       {c.href ? (
                         <a href={c.href} className={styles.contactVal}>{c.val}</a>

@@ -14,9 +14,14 @@ const SERVICE_PATHS = [
   '/servicos#empilhadeiras-plataformas',
 ]
 
+// Below this width the desktop nav (9 items + CTA + lang switcher) cannot fit
+// even the shortest language without overflowing the header — verified against
+// all 5 languages' actual rendered widths, with a safety margin for future
+// copy changes. Keep the mobile hamburger nav active up to this width.
+const NAV_BREAKPOINT = 1280
+
 export default function Header() {
-  const { t, lang } = useLang()
-  const compact = ['es', 'fr'].includes(lang)
+  const { t } = useLang()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [dropOpen, setDropOpen] = useState(false)
@@ -29,7 +34,7 @@ export default function Header() {
 
   useEffect(() => {
     const onResize = () => {
-      if (window.innerWidth > 768) {
+      if (window.innerWidth > NAV_BREAKPOINT) {
         setMenuOpen(false)
         setDropOpen(false)
       }
@@ -50,7 +55,7 @@ export default function Header() {
   }, [menuOpen])
 
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${compact ? styles.compact : ''}`}>
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.logoWrap}>
           <img src={logo} alt="Grupo Maxpesa" className={styles.logoImg} />
@@ -87,14 +92,14 @@ export default function Header() {
             {/* Dropdown */}
             <li
               className={styles.drop}
-              onMouseEnter={() => { if (window.innerWidth > 768) setDropOpen(true) }}
-              onMouseLeave={() => { if (window.innerWidth > 768) setDropOpen(false) }}
+              onMouseEnter={() => { if (window.innerWidth > NAV_BREAKPOINT) setDropOpen(true) }}
+              onMouseLeave={() => { if (window.innerWidth > NAV_BREAKPOINT) setDropOpen(false) }}
             >
               <NavLink
                 to="/servicos"
                 className={({ isActive }) => `${styles.a} ${isActive ? styles.active : ''}`}
                 onClick={(e) => {
-                  if (window.innerWidth <= 768) {
+                  if (window.innerWidth <= NAV_BREAKPOINT) {
                     e.preventDefault()
                     setDropOpen((v) => !v)
                   } else {

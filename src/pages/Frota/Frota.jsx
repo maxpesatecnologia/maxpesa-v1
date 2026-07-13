@@ -52,7 +52,7 @@ const FLEET = [
   { id: 16, category: 'especiais',     model: 'Mercedes Benz Axor 2640',        badge: '74TON',  img: imgRemocao2,  specs: [{ l: 'Capacidade', v: '74 ton' }, { l: 'Eixos',      v: '9 Eixos'    }, { l: 'Comprimento',  v: '30 m'      }] },
   { id: 17, category: 'empilhadeiras', model: 'PALETRANS PT1645F',           badge: '16TON',  img: imgEmp,       specs: [{ l: 'Capacidade', v: '1.6 ton' }, { l: 'Elevação',    v: '4.5 m'  }, { l: 'Acionam.', v: 'Elétrico'  }] },
   { id: 18, category: 'empilhadeiras', model: 'HELI CPQD35',             badge: '35TON',    img: imgMunckAlt,  specs: [{ l: 'Capacidade', v: '3.5 ton'   }, { l: 'Elevação',    v: '4.8 m'    }, { l: 'Acionam.', v: 'GLP'    }] },
-]
+]          
 
 export default function Frota() {
   const ref = useReveal([])

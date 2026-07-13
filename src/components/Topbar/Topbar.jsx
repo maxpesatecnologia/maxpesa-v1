@@ -1,4 +1,5 @@
 import styles from './Topbar.module.css'
+import { useLang } from '../../context/LanguageContext'
 
 const SOCIALS = [
   {
@@ -31,6 +32,7 @@ const SOCIALS = [
 ]
 
 export default function Topbar() {
+  const { t } = useLang()
   return (
     <div className={styles.topbar}>
       <div className={`container ${styles.inner}`}>
@@ -47,14 +49,14 @@ export default function Topbar() {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
             </svg>
-            Canal de Denúncias
+            <span className={styles.linkLabel}>{t.footer.reportLink}</span>
           </a>
           <div className={styles.divider} />
-          <a href="https://maxpesa-codigo-conduta.vercel.app/" target="_blank" rel="noopener noreferrer" className={styles.link}>
+          <a href="https://maxpesa-codigo-conduta.vercel.app/" target="_blank" rel="noopener noreferrer" className={styles.link} aria-label={t.footer.ethicsLink}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
             </svg>
-            Código de Ética
+            <span className={styles.linkLabel}>{t.footer.ethicsLink}</span>
           </a>
         </div>
         <div className={styles.right}>

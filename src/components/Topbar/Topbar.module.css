@@ -12,6 +12,7 @@
   gap: 20px;
   font-size: 12px;
   color: rgba(255, 255, 255, 0.9);
+  min-width: 0;
 }
 
 .left,
@@ -19,6 +20,7 @@
   display: flex;
   gap: 20px;
   align-items: center;
+  min-width: 0;
 }
 
 .link {
@@ -27,6 +29,7 @@
   gap: 6px;
   color: rgba(255, 255, 255, 0.88);
   font-size: 12px;
+  white-space: nowrap;
   transition: color 0.18s;
 }
 .link:hover { color: #fff; }
@@ -53,4 +56,14 @@
 
 @media (max-width: 768px) {
   .right { display: none; }
+  .left { gap: 14px; }
+}
+
+/* Below this width even the longest DE/FR labels ("Hinweisgeberkanal",
+   "Canal de Signalement") no longer fit next to the socials — collapse
+   to icon-only (aria-label keeps them accessible) instead of clipping. */
+@media (max-width: 480px) {
+  .left { gap: 10px; }
+  .socials { gap: 10px; }
+  .linkLabel { display: none; }
 }

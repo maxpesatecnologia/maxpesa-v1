@@ -61,7 +61,7 @@
 /* ── GRID ────────────────────────────────────────────────────────────────── */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -293,6 +293,8 @@
   text-decoration: none;
   transition: background 0.22s, border-color 0.22s, color 0.22s, box-shadow 0.22s;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .btnContact:hover {
   background: var(--red);
@@ -304,13 +306,11 @@
 
 /* ── RESPONSIVO ──────────────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 768px) {
   .section { padding-bottom: 72px; }
   .filterHead { padding: 20px 0 16px; margin-bottom: 32px; }
-  .filterScroll { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
-  .filterScroll::-webkit-scrollbar { display: none; }
   .grid { grid-template-columns: 1fr; }
   .cardImg { height: 210px; }
 }

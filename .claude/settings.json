@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(node frota_test.js)",
-      "Bash(node filter_wrap_test.js)"
+      "Bash(node filter_wrap_test.js)",
+      "Bash(taskkill //PID 17808 //F)",
+      "Bash(node navwidth4.js)"
     ]
   }
 }

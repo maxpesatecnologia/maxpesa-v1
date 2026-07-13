@@ -3,6 +3,7 @@ import { createContext, useContext, useState } from 'react'
 // ─── PT-BR ────────────────────────────────────────────────────────────────────
 const PT = {
   flag: '🇧🇷', name: 'Português', short: 'PT',
+  ui: { close: 'Fechar', langSwitcher: 'Selecionar idioma', waTooltip: 'Orçamento pelo WhatsApp', waDefaultMsg: 'Olá! Vim pelo site e gostaria de um orçamento.' },
   nav: { home: 'Início', company: 'A Empresa', services: 'Serviços', fleet: 'Nossa Frota', esg: 'ESG', certifications: 'Certificações', blog: 'Blog', report: 'Denúncia', ethics: 'Código de Ética', careers: 'Trabalhe Conosco', quote: 'Orçamento', locacaoLabel: 'Serviços de Locação', equipSales: 'Vendas de Equipamento' },
   serviceItems: ['Movimentação Horizontal e Vertical de Cargas', 'Movimentação de Cargas', 'Locação de Equipamentos', 'Linha Amarela (Retroescavadeira)', 'Transporte de Cargas Especiais', 'Empilhadeiras e Plataformas'],
   home: {
@@ -12,6 +13,7 @@ const PT = {
     statLabel1: 'Anos de tradição', statLabel2: 'Projetos executados', statLabel3: 'Compromisso operacional', statSub4: '9001 Certificado',
     svcEyebrow: 'O que fazemos', svcTitle: 'Soluções para qualquer desafio logístico', svcSub: 'Equipamentos modernos e equipes certificadas para garantir a segurança da sua carga.',
     svcMore: 'Ver mais', svcBtn: 'Ver todos os serviços',
+    modalEquipLabel: 'Equipamentos disponíveis', modalFleetBtn: 'Ver Frota Completa', modalSvcBtn: 'Conhecer o Serviço',
     services: [
       { title: 'Movimentação Horizontal e Vertical de Cargas', desc: 'Içamento e posicionamento de equipamentos e estruturas pesadas com rigging de alta complexidade, operadores certificados NR-11 e memorial de cálculo assinado por engenheiro.' },
       { title: 'Movimentação de Cargas', desc: 'Planejamento e execução de mudanças de layout fabril, posicionamento de máquinas e desmontagem de equipamentos industriais com a menor paralisação possível na produção.' },
@@ -183,12 +185,14 @@ const PT = {
     btnWhatsApp: 'Consultar Preço', btnContact: 'Solicitar Contato',
     categories: { all: 'Todos', guindastes: 'Guindastes', munck: 'Cam. Guindauto', 'linha-amarela': 'Linha Amarela', especiais: 'Cargas Especiais', empilhadeiras: 'Empilhadeiras' },
     filterMetaSingle: 'equipamento à venda', filterMetaPlural: 'equipamentos à venda',
+    waMsgTemplate: 'Olá! Tenho interesse no equipamento: *{name}* (Cód: {code}). Poderia me passar mais informações?',
   },
 }
 
 // ─── EN ───────────────────────────────────────────────────────────────────────
 const EN = {
   flag: '🇺🇸', name: 'English', short: 'EN',
+  ui: { close: 'Close', langSwitcher: 'Select language', waTooltip: 'Quote via WhatsApp', waDefaultMsg: 'Hello! I came from the website and would like a quote.' },
   nav: { home: 'Home', company: 'The Company', services: 'Services', fleet: 'Our Fleet', esg: 'ESG', certifications: 'Certifications', blog: 'Blog', report: 'Report', ethics: 'Code of Ethics', careers: 'Work With Us', quote: 'Get a Quote', locacaoLabel: 'Rental Services', equipSales: 'Equipment Sales' },
   serviceItems: ['Horizontal & Vertical Cargo Handling', 'Cargo Movement', 'Equipment Rental', 'Yellow Line (Backhoe)', 'Special Cargo Transport', 'Forklifts & Aerial Platforms'],
   home: {
@@ -198,6 +202,7 @@ const EN = {
     statLabel1: 'Years of tradition', statLabel2: 'Projects executed', statLabel3: 'Operational commitment', statSub4: '9001 Certified',
     svcEyebrow: 'What we do', svcTitle: 'Solutions for any logistics challenge', svcSub: 'Modern equipment and certified teams to ensure the safety of your cargo.',
     svcMore: 'Learn more', svcBtn: 'See all services',
+    modalEquipLabel: 'Available equipment', modalFleetBtn: 'View Full Fleet', modalSvcBtn: 'Learn About This Service',
     services: [
       { title: 'Horizontal & Vertical Cargo Handling', desc: 'Lifting and positioning of heavy equipment and structures with high-complexity rigging, NR-11 certified operators and engineer-signed load calculations.' },
       { title: 'Cargo Movement', desc: 'Planning and execution of factory layout changes, machine positioning and disassembly of industrial equipment with minimal production downtime.' },
@@ -369,12 +374,14 @@ const EN = {
     btnWhatsApp: 'Enquire Price', btnContact: 'Request Contact',
     categories: { all: 'All', guindastes: 'Cranes', munck: 'Truck Cranes', 'linha-amarela': 'Yellow Line', especiais: 'Special Cargo', empilhadeiras: 'Forklifts' },
     filterMetaSingle: 'piece of equipment for sale', filterMetaPlural: 'pieces of equipment for sale',
+    waMsgTemplate: 'Hello! I am interested in the equipment: *{name}* (Code: {code}). Could you send me more information?',
   },
 }
 
 // ─── ES ───────────────────────────────────────────────────────────────────────
 const ES = {
   flag: '🇪🇸', name: 'Español', short: 'ES',
+  ui: { close: 'Cerrar', langSwitcher: 'Seleccionar idioma', waTooltip: 'Presupuesto por WhatsApp', waDefaultMsg: '¡Hola! Vine desde el sitio web y me gustaría solicitar un presupuesto.' },
   nav: { home: 'Inicio', company: 'La Empresa', services: 'Servicios', fleet: 'Nuestra Flota', esg: 'ESG', certifications: 'Certificaciones', blog: 'Blog', report: 'Denuncia', ethics: 'Código de Ética', careers: 'Trabaje Con Nosotros', quote: 'Presupuesto', locacaoLabel: 'Servicios de Alquiler', equipSales: 'Venta de Equipos' },
   serviceItems: ['Movimiento Horizontal y Vertical de Cargas', 'Movimiento de Cargas', 'Alquiler de Equipos', 'Línea Amarilla (Retroexcavadora)', 'Transporte de Cargas Especiales', 'Montacargas y Plataformas'],
   home: {
@@ -384,6 +391,7 @@ const ES = {
     statLabel1: 'Años de tradición', statLabel2: 'Proyectos ejecutados', statLabel3: 'Compromiso operacional', statSub4: '9001 Certificado',
     svcEyebrow: 'Qué hacemos', svcTitle: 'Soluciones para cualquier desafío logístico', svcSub: 'Equipos modernos y equipos certificados para garantizar la seguridad de su carga.',
     svcMore: 'Ver más', svcBtn: 'Ver todos los servicios',
+    modalEquipLabel: 'Equipos disponibles', modalFleetBtn: 'Ver Flota Completa', modalSvcBtn: 'Conocer el Servicio',
     services: [
       { title: 'Movimiento Horizontal y Vertical de Cargas', desc: 'Izaje y posicionamiento de equipos y estructuras pesadas con aparejamiento de alta complejidad, operadores certificados NR-11 y memoria de cálculo firmada por ingeniero.' },
       { title: 'Movimiento de Cargas', desc: 'Planificación y ejecución de cambios de layout fabril, posicionamiento de máquinas y desmontaje de equipos industriales con la menor paralización posible en producción.' },
@@ -555,12 +563,14 @@ const ES = {
     btnWhatsApp: 'Consultar Precio', btnContact: 'Solicitar Contacto',
     categories: { all: 'Todos', guindastes: 'Grúas', munck: 'Cam. Grúa', 'linha-amarela': 'Línea Amarilla', especiais: 'Cargas Especiales', empilhadeiras: 'Montacargas' },
     filterMetaSingle: 'equipo a la venta', filterMetaPlural: 'equipos a la venta',
+    waMsgTemplate: '¡Hola! Estoy interesado en el equipo: *{name}* (Cód: {code}). ¿Podría enviarme más información?',
   },
 }
 
 // ─── DE ───────────────────────────────────────────────────────────────────────
 const DE = {
   flag: '🇩🇪', name: 'Deutsch', short: 'DE',
+  ui: { close: 'Schließen', langSwitcher: 'Sprache auswählen', waTooltip: 'Angebot per WhatsApp', waDefaultMsg: 'Hallo! Ich komme von der Website und möchte ein Angebot anfragen.' },
   nav: { home: 'Startseite', company: 'Das Unternehmen', services: 'Leistungen', fleet: 'Unsere Flotte', esg: 'ESG', certifications: 'Zertifizierungen', blog: 'Blog', report: 'Meldung', ethics: 'Ethikkodex', careers: 'Karriere', quote: 'Angebot', locacaoLabel: 'Verleihleistungen', equipSales: 'Geräteverkauf' },
   serviceItems: ['Horizontaler & Vertikaler Gütertransport', 'Güterumschlag', 'Geräteverleih', 'Gelbe Linie (Baggerlader)', 'Schwerguttransport', 'Gabelstapler & Hebebühnen'],
   home: {
@@ -570,6 +580,7 @@ const DE = {
     statLabel1: 'Jahre Tradition', statLabel2: 'Ausgeführte Projekte', statLabel3: 'Betriebliche Zuverlässigkeit', statSub4: '9001 Zertifiziert',
     svcEyebrow: 'Was wir tun', svcTitle: 'Lösungen für jede Logistikherausforderung', svcSub: 'Moderne Geräte und zertifizierte Teams für die Sicherheit Ihrer Ladung.',
     svcMore: 'Mehr erfahren', svcBtn: 'Alle Leistungen ansehen',
+    modalEquipLabel: 'Verfügbare Geräte', modalFleetBtn: 'Gesamte Flotte ansehen', modalSvcBtn: 'Leistung entdecken',
     services: [
       { title: 'Horizontaler & Vertikaler Gütertransport', desc: 'Heben und Positionieren von schweren Geräten und Strukturen mit komplexem Rigging, NR-11-zertifizierten Bedienern und ingenieurgezeichneten Lastberechnungen.' },
       { title: 'Güterumschlag', desc: 'Planung und Durchführung von Fabrik-Layout-Änderungen, Maschinenpositionierung und Demontage von Industrieanlagen mit minimalen Produktionsausfällen.' },
@@ -741,12 +752,14 @@ const DE = {
     btnWhatsApp: 'Preis anfragen', btnContact: 'Kontakt anfragen',
     categories: { all: 'Alle', guindastes: 'Krane', munck: 'LKW-Krane', 'linha-amarela': 'Gelbe Linie', especiais: 'Schwergut', empilhadeiras: 'Gabelstapler' },
     filterMetaSingle: 'Gerät zum Verkauf', filterMetaPlural: 'Geräte zum Verkauf',
+    waMsgTemplate: 'Hallo! Ich interessiere mich für das Gerät: *{name}* (Code: {code}). Könnten Sie mir weitere Informationen zusenden?',
   },
 }
 
 // ─── FR ───────────────────────────────────────────────────────────────────────
 const FR = {
   flag: '🇫🇷', name: 'Français', short: 'FR',
+  ui: { close: 'Fermer', langSwitcher: 'Sélectionner la langue', waTooltip: 'Devis via WhatsApp', waDefaultMsg: "Bonjour ! Je viens du site et je souhaiterais un devis." },
   nav: { home: 'Accueil', company: "L'Entreprise", services: 'Services', fleet: 'Notre Flotte', esg: 'ESG', certifications: 'Certifications', blog: 'Blog', report: 'Signalement', ethics: "Code d'Éthique", careers: 'Travailler Avec Nous', quote: 'Devis', locacaoLabel: 'Services de Location', equipSales: "Vente d'Équipements" },
   serviceItems: ['Manutention Horizontale & Verticale', 'Déplacement de Charges', 'Location de Matériel', 'Ligne Jaune (Rétrocaveuse)', 'Transport de Charges Spéciales', 'Chariots Élévateurs & Nacelles'],
   home: {
@@ -756,6 +769,7 @@ const FR = {
     statLabel1: 'Ans de tradition', statLabel2: 'Projets réalisés', statLabel3: 'Engagement opérationnel', statSub4: '9001 Certifié',
     svcEyebrow: 'Ce que nous faisons', svcTitle: 'Solutions pour tout défi logistique', svcSub: 'Équipements modernes et équipes certifiées pour garantir la sécurité de votre chargement.',
     svcMore: 'En savoir plus', svcBtn: 'Voir tous les services',
+    modalEquipLabel: 'Équipements disponibles', modalFleetBtn: 'Voir Toute la Flotte', modalSvcBtn: 'Découvrir le Service',
     services: [
       { title: 'Manutention Horizontale & Verticale', desc: 'Levage et positionnement de matériels et structures lourds avec gréage de haute complexité, opérateurs certifiés NR-11 et note de calcul signée par ingénieur.' },
       { title: 'Déplacement de Charges', desc: 'Planification et exécution de changements de layout industriel, positionnement de machines et démontage avec un arrêt de production minimal.' },
@@ -927,6 +941,7 @@ const FR = {
     btnWhatsApp: 'Consulter le Prix', btnContact: 'Demander un Contact',
     categories: { all: 'Tous', guindastes: 'Grues', munck: 'Camions-Grues', 'linha-amarela': 'Ligne Jaune', especiais: 'Charges Spéciales', empilhadeiras: 'Chariots Élévateurs' },
     filterMetaSingle: 'équipement à vendre', filterMetaPlural: 'équipements à vendre',
+    waMsgTemplate: "Bonjour ! Je suis intéressé par l'équipement : *{name}* (Code : {code}). Pourriez-vous m'envoyer plus d'informations ?",
   },
 }
 

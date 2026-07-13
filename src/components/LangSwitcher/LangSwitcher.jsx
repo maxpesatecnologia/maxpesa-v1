@@ -20,7 +20,7 @@ export default function LangSwitcher() {
       <button
         className={`${styles.trigger} ${open ? styles.triggerOpen : ''}`}
         onClick={() => setOpen((v) => !v)}
-        aria-label="Selecionar idioma"
+        aria-label={t.ui.langSwitcher}
       >
         <span className={styles.flag}>{t.flag}</span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"

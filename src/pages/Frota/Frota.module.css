@@ -79,7 +79,7 @@
 /* ── GRID ────────────────────────────────────────────────────────────────── */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -208,7 +208,7 @@
 /* ── SPECS ───────────────────────────────────────────────────────────────── */
 .cardSpecs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   flex: 1;
   background: rgba(0,0,0,0.14);
   border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -219,6 +219,7 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  min-width: 0;
 }
 .cardSpec:last-child { border-right: none; }
 
@@ -263,6 +264,8 @@
   text-decoration: none;
   transition: background 0.22s, border-color 0.22s, color 0.22s, box-shadow 0.22s;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .cardCta:hover {
   background: var(--red);
@@ -274,10 +277,10 @@
 
 /* ── RESPONSIVO ──────────────────────────────────────────────────────────── */
 @media (max-width: 1200px) {
-  .grid { grid-template-columns: repeat(3, 1fr); }
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 1024px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 768px) {
   .section { padding-bottom: 72px; }

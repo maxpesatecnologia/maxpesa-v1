@@ -1,5 +1,5 @@
-.bc { display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--text-2); margin-bottom:20px; }
+.bc { display:flex; align-items:center; flex-wrap:wrap; gap:6px 8px; font-size:12.5px; color:var(--text-2); margin-bottom:20px; }
 .bc a { color:var(--text-2); transition:color .18s; }
 .bc a:hover { color:var(--red); }
-.bc svg { width:10px; height:10px; }
-.bc span { color:var(--text-1); }
+.bc svg { width:10px; height:10px; flex-shrink:0; }
+.bc span { color:var(--text-1); min-width:0; overflow-wrap:break-word; }

@@ -46,7 +46,7 @@ export default function Esg() {
       <PageHero eyebrow={t.esg.heroEyebrow} title={<>{t.esg.heroTitle[0]}<br/>{t.esg.heroTitle[1]}</>} subtitle={t.esg.heroSub} crumb={t.esg.heroCrumb} />
 
       <section className={styles.section}>
-        <div className="container">
+        <div className="container">   
           <div className={styles.grid}>
             <div className={`${styles.imgWrap} reveal`}>
               <img src={imgEsg} alt="ESG Maxpesa" />
