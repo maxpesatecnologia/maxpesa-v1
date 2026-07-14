@@ -49,19 +49,20 @@ const FLEET = [
   { id: 12, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: { unit: 'ton', value: 150 },  img: imgG4,        specs: [{ l: 'Capacidade', unit: 'ton', value: 150 }, { l: 'Comprimento', unit: 'm', value: 30, approx: true }, { l: 'Licença',  v: 'AET'       }] },
   { id: 13, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: { unit: 'ton', value: 28 },   img: imgContainer, specs: [{ l: 'Capacidade', unit: 'ton', value: 28 }, { l: 'Comprimento', unit: 'm', value: 14 }, { l: 'Licença',  v: 'AET'      }] },
   { id: 14, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: { unit: 'ton', value: 30 },   img: imgG5,        specs: [{ l: 'Capacidade', unit: 'ton', value: 30 }, { l: 'Comprimento', unit: 'm', value: 12 }, { l: 'Licença',  v: 'DNIT'      }] },
-  { id: 15, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: { unit: 'ton', value: 45 },   img: imgEstacao,   specs: [{ l: 'Capacidade', unit: 'ton', value: 45 }, { l: 'Eixos', v: '3 Eixos'   }, { l: 'Licença',  v: 'AET'      }] },
-  { id: 16, category: 'especiais',     model: 'Mercedes Benz Axor 2640',        badge: { unit: 'ton', value: 74 },   img: imgRemocao2,  specs: [{ l: 'Capacidade', unit: 'ton', value: 74 }, { l: 'Eixos',      v: '9 Eixos'    }, { l: 'Comprimento', unit: 'm', value: 30 }] },
+  { id: 15, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: { unit: 'ton', value: 45 },   img: imgEstacao,   specs: [{ l: 'Capacidade', unit: 'ton', value: 45 }, { l: 'Eixos', unit: 'axles', value: 3 }, { l: 'Licença',  v: 'AET'      }] },
+  { id: 16, category: 'especiais',     model: 'Mercedes Benz Axor 2640',        badge: { unit: 'ton', value: 74 },   img: imgRemocao2,  specs: [{ l: 'Capacidade', unit: 'ton', value: 74 }, { l: 'Eixos', unit: 'axles', value: 9 }, { l: 'Comprimento', unit: 'm', value: 30 }] },
   { id: 17, category: 'empilhadeiras', model: 'PALETRANS PT1645F',              badge: { unit: 'ton', value: 1.6 },  img: imgEmp,       specs: [{ l: 'Capacidade', unit: 'ton', value: 1.6 }, { l: 'Elevação', unit: 'm', value: 4.5 }, { l: 'Acionam.', v: 'Elétrico'  }] },
   { id: 18, category: 'empilhadeiras', model: 'HELI CPQD35',                    badge: { unit: 'ton', value: 3.5 },  img: imgMunckAlt,  specs: [{ l: 'Capacidade', unit: 'ton', value: 3.5 }, { l: 'Elevação', unit: 'm', value: 4.8 }, { l: 'Acionam.', v: 'GLP'    }] },
 ]
 
-function specValue(s, lang, upToLabel) {
+function specValue(s, lang, ft) {
   switch (s.unit) {
-    case 'ton': return s.upTo ? `${upToLabel} ${formatTon(s.value, lang)}` : formatTon(s.value, lang)
-    case 'm':   return formatLength(s.value, lang, { approx: s.approx })
-    case 'm3':  return formatVolume(s.value, lang)
-    case 'kg':  return formatSmallWeight(s.value, lang)
-    default:    return s.v
+    case 'ton':   return s.upTo ? `${ft.upTo} ${formatTon(s.value, lang)}` : formatTon(s.value, lang)
+    case 'm':     return formatLength(s.value, lang, { approx: s.approx })
+    case 'm3':    return formatVolume(s.value, lang)
+    case 'kg':    return formatSmallWeight(s.value, lang)
+    case 'axles': return `${s.value} ${ft.specLabels['Eixos']}`
+    default:      return ft.specValues?.[s.v] ?? s.v
   }
 }
 
@@ -138,7 +139,7 @@ export default function Frota() {
                   <div className={styles.cardSpecs}>
                     {item.specs.map((s, i) => (
                       <div key={i} className={styles.cardSpec}>
-                        <span className={styles.specVal}>{specValue(s, lang, t.frota.upTo)}</span>
+                        <span className={styles.specVal}>{specValue(s, lang, t.frota)}</span>
                         <span className={styles.specLbl}>{t.frota.specLabels[s.l] ?? s.l}</span>
                       </div>
                     ))}
