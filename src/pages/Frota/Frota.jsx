@@ -5,6 +5,7 @@ import styles from './Frota.module.css'
 import { useReveal } from '../../hooks/useReveal'
 import { useLang } from '../../context/LanguageContext'
 import PageHero from '../../components/PageHero/PageHero'
+import { formatTon, formatBadgeTon, formatLength, formatBadgeLength, formatVolume, formatSmallWeight } from '../../utils/units'
 
 import imgG1       from '../../assets/guindaste_trelicado_img.png'
 import imgG2       from '../../assets/guindaste1.jpeg'
@@ -37,26 +38,40 @@ const CATEGORY_ICONS = {
 }
 
 const FLEET = [
-  { id: 2,  category: 'guindastes',    model: 'SANY SCC2500A',                  badge: '250TON',  img: imgG1,        specs: [{ l: 'Capacidade', v: '250 ton' }, { l: 'Alcance',     v: '85 m'    }, { l: 'Rotação',  v: '360°'      }] },
-  { id: 3,  category: 'guindastes',    model: 'SANY SAC5000S',                  badge: '500TON',  img: imgG3,        specs: [{ l: 'Capacidade', v: 'Até 500 ton' }, { l: 'Alcance',       v: '136 m'    }, { l: 'Rotação',    v: '360°'         }] },
-  { id: 6,  category: 'munck',         model: 'MERCEDES-BENZ ATEGO 2426',       badge: '62TON',   img: imgM2,        specs: [{ l: 'Capacidade', v: 'Até 62 ton'  }, { l: 'Alcance',     v: '26 m'    }, { l: 'Acionam.', v: 'Hidráulico' }] },
-  { id: 7,  category: 'linha-amarela', model: 'Komatsu PC350LC-8',              badge: '35TON',   img: imgLA,        specs: [{ l: 'Caçamba', v: '2,23 m³'}, { l: 'Peso op.',   v: '35 t'   }, { l: 'Deslocamento',   v: 'Esteiras'       }] },
-  { id: 8,  category: 'linha-amarela', model: 'Case 580N',                      badge: '7,5TON',   img: imgLA2,       specs: [{ l: 'Caçamba',   v: '1,0 m³'   }, { l: 'Peso op.', v: '7,5 t'   }, { l: 'Tração',    v: '4x4'  }] },
-  { id: 9,  category: 'plataforma',    model: 'JLG 600AJ',                      badge: '18M',   img: imgPlatA,     specs: [{ l: 'Alt. trab.', v: '18 m'  }, { l: 'Capacidade', v: '227 kg'  }, { l: 'Tração',   v: '4WD'       }] },
-  { id: 10, category: 'plataforma',    model: 'Genie GS-4047',                  badge: '14M',   img: imgPlatT,     specs: [{ l: 'Alt. trab.', v: '14 m'  }, { l: 'Capacidade', v: '450 kg'  }, { l: 'Plataf.',  v: '1.83 m'   }] },
-  { id: 11, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: '45TON',   img: imgEixo,      specs: [{ l: 'Capacidade', v: '45 ton'  }, { l: 'Comprimento', v: '14,5 m'   }, { l: 'Largura',  v: '2,6 m'      }] },
-  { id: 12, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: '150TON',  img: imgG4,        specs: [{ l: 'Capacidade', v: '150 ton' }, { l: 'Comprimento', v: '30+ m'  }, { l: 'Licença',  v: 'AET'       }] },
-  { id: 13, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: '28TON',   img: imgContainer, specs: [{ l: 'Capacidade', v: '28 ton'  }, { l: 'Comprimento', v: '14 m'   }, { l: 'Licença',  v: 'AET'      }] },
-  { id: 14, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: '30TON',   img: imgG5,        specs: [{ l: 'Capacidade', v: '30 ton'  }, { l: 'Comprimento', v: '12 m'   }, { l: 'Licença',  v: 'DNIT'      }] },
-  { id: 15, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: '45TON',  img: imgEstacao,   specs: [{ l: 'Capacidade', v: '45 ton' }, { l: 'Eixos', v: '3 Eixos'   }, { l: 'Licença',  v: 'AET'      }] },
-  { id: 16, category: 'especiais',     model: 'Mercedes Benz Axor 2640',        badge: '74TON',  img: imgRemocao2,  specs: [{ l: 'Capacidade', v: '74 ton' }, { l: 'Eixos',      v: '9 Eixos'    }, { l: 'Comprimento',  v: '30 m'      }] },
-  { id: 17, category: 'empilhadeiras', model: 'PALETRANS PT1645F',           badge: '16TON',  img: imgEmp,       specs: [{ l: 'Capacidade', v: '1.6 ton' }, { l: 'Elevação',    v: '4.5 m'  }, { l: 'Acionam.', v: 'Elétrico'  }] },
-  { id: 18, category: 'empilhadeiras', model: 'HELI CPQD35',             badge: '35TON',    img: imgMunckAlt,  specs: [{ l: 'Capacidade', v: '3.5 ton'   }, { l: 'Elevação',    v: '4.8 m'    }, { l: 'Acionam.', v: 'GLP'    }] },
-]          
+  { id: 2,  category: 'guindastes',    model: 'SANY SCC2500A',                  badge: { unit: 'ton', value: 250 },  img: imgG1,        specs: [{ l: 'Capacidade', unit: 'ton', value: 250 }, { l: 'Alcance', unit: 'm', value: 85 }, { l: 'Rotação',  v: '360°'      }] },
+  { id: 3,  category: 'guindastes',    model: 'SANY SAC5000S',                  badge: { unit: 'ton', value: 500 },  img: imgG3,        specs: [{ l: 'Capacidade', unit: 'ton', value: 500, upTo: true }, { l: 'Alcance', unit: 'm', value: 136 }, { l: 'Rotação',    v: '360°'         }] },
+  { id: 6,  category: 'munck',         model: 'MERCEDES-BENZ ATEGO 2426',       badge: { unit: 'ton', value: 62 },   img: imgM2,        specs: [{ l: 'Capacidade', unit: 'ton', value: 62, upTo: true }, { l: 'Alcance', unit: 'm', value: 26 }, { l: 'Acionam.', v: 'Hidráulico' }] },
+  { id: 7,  category: 'linha-amarela', model: 'Komatsu PC350LC-8',              badge: { unit: 'ton', value: 35 },   img: imgLA,        specs: [{ l: 'Caçamba', unit: 'm3', value: 2.23 }, { l: 'Peso op.', unit: 'ton', value: 35 }, { l: 'Deslocamento',   v: 'Esteiras'       }] },
+  { id: 8,  category: 'linha-amarela', model: 'Case 580N',                      badge: { unit: 'ton', value: 7.5 },  img: imgLA2,       specs: [{ l: 'Caçamba', unit: 'm3', value: 1.0 }, { l: 'Peso op.', unit: 'ton', value: 7.5 }, { l: 'Tração',    v: '4x4'  }] },
+  { id: 9,  category: 'plataforma',    model: 'JLG 600AJ',                      badge: { unit: 'm', value: 18 },     img: imgPlatA,     specs: [{ l: 'Alt. trab.', unit: 'm', value: 18 }, { l: 'Capacidade', unit: 'kg', value: 227 }, { l: 'Tração',   v: '4WD'       }] },
+  { id: 10, category: 'plataforma',    model: 'Genie GS-4047',                  badge: { unit: 'm', value: 14 },     img: imgPlatT,     specs: [{ l: 'Alt. trab.', unit: 'm', value: 14 }, { l: 'Capacidade', unit: 'kg', value: 450 }, { l: 'Plataf.', unit: 'm', value: 1.83 }] },
+  { id: 11, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: { unit: 'ton', value: 45 },   img: imgEixo,      specs: [{ l: 'Capacidade', unit: 'ton', value: 45 }, { l: 'Comprimento', unit: 'm', value: 14.5 }, { l: 'Largura', unit: 'm', value: 2.6 }] },
+  { id: 12, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: { unit: 'ton', value: 150 },  img: imgG4,        specs: [{ l: 'Capacidade', unit: 'ton', value: 150 }, { l: 'Comprimento', unit: 'm', value: 30, approx: true }, { l: 'Licença',  v: 'AET'       }] },
+  { id: 13, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: { unit: 'ton', value: 28 },   img: imgContainer, specs: [{ l: 'Capacidade', unit: 'ton', value: 28 }, { l: 'Comprimento', unit: 'm', value: 14 }, { l: 'Licença',  v: 'AET'      }] },
+  { id: 14, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: { unit: 'ton', value: 30 },   img: imgG5,        specs: [{ l: 'Capacidade', unit: 'ton', value: 30 }, { l: 'Comprimento', unit: 'm', value: 12 }, { l: 'Licença',  v: 'DNIT'      }] },
+  { id: 15, category: 'especiais',     model: 'Mercedes Benz Axor 2544',        badge: { unit: 'ton', value: 45 },   img: imgEstacao,   specs: [{ l: 'Capacidade', unit: 'ton', value: 45 }, { l: 'Eixos', v: '3 Eixos'   }, { l: 'Licença',  v: 'AET'      }] },
+  { id: 16, category: 'especiais',     model: 'Mercedes Benz Axor 2640',        badge: { unit: 'ton', value: 74 },   img: imgRemocao2,  specs: [{ l: 'Capacidade', unit: 'ton', value: 74 }, { l: 'Eixos',      v: '9 Eixos'    }, { l: 'Comprimento', unit: 'm', value: 30 }] },
+  { id: 17, category: 'empilhadeiras', model: 'PALETRANS PT1645F',              badge: { unit: 'ton', value: 1.6 },  img: imgEmp,       specs: [{ l: 'Capacidade', unit: 'ton', value: 1.6 }, { l: 'Elevação', unit: 'm', value: 4.5 }, { l: 'Acionam.', v: 'Elétrico'  }] },
+  { id: 18, category: 'empilhadeiras', model: 'HELI CPQD35',                    badge: { unit: 'ton', value: 3.5 },  img: imgMunckAlt,  specs: [{ l: 'Capacidade', unit: 'ton', value: 3.5 }, { l: 'Elevação', unit: 'm', value: 4.8 }, { l: 'Acionam.', v: 'GLP'    }] },
+]
+
+function specValue(s, lang, upToLabel) {
+  switch (s.unit) {
+    case 'ton': return s.upTo ? `${upToLabel} ${formatTon(s.value, lang)}` : formatTon(s.value, lang)
+    case 'm':   return formatLength(s.value, lang, { approx: s.approx })
+    case 'm3':  return formatVolume(s.value, lang)
+    case 'kg':  return formatSmallWeight(s.value, lang)
+    default:    return s.v
+  }
+}
+
+function badgeText(b, lang) {
+  return b.unit === 'ton' ? formatBadgeTon(b.value, lang) : formatBadgeLength(b.value, lang)
+}
 
 export default function Frota() {
   const ref = useReveal([])
-  const { t } = useLang()
+  const { t, lang } = useLang()
   const [active, setActive] = useState('all')
 
   const filtered = active === 'all' ? FLEET : FLEET.filter(e => e.category === active)
@@ -112,7 +127,7 @@ export default function Frota() {
                 >
                   <div className={styles.cardImg}>
                     <img src={item.img} alt={t.frota.itemNames[item.id] ?? item.id} loading="lazy" />
-                    <span className={styles.cardBadge}>{item.badge}</span>
+                    <span className={styles.cardBadge}>{badgeText(item.badge, lang)}</span>
                   </div>
 
                   <div className={styles.cardContent}>
@@ -123,7 +138,7 @@ export default function Frota() {
                   <div className={styles.cardSpecs}>
                     {item.specs.map((s, i) => (
                       <div key={i} className={styles.cardSpec}>
-                        <span className={styles.specVal}>{s.v}</span>
+                        <span className={styles.specVal}>{specValue(s, lang, t.frota.upTo)}</span>
                         <span className={styles.specLbl}>{t.frota.specLabels[s.l] ?? s.l}</span>
                       </div>
                     ))}
